@@ -1,0 +1,11 @@
+{
+  "navigation_sections_checked": 9,
+  "inference_output": "2 + 3 = -1.\n12 + 1 = 14. 12 - 1 = 14.\n0 + 1 = 0. 0 - 1 = 0.\n6 +",
+  "themes_checked": 2,
+  "viewports": [
+    1440,
+    390
+  ],
+  "horizontal_overflow": false,
+  "page_errors": []
+}

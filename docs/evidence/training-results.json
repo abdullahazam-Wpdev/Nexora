@@ -1,0 +1,135 @@
+{
+  "id": "tiny-core",
+  "name": "NEXORA Core \u00b7 arithmetic smoke",
+  "status": "completed",
+  "steps": 170,
+  "parameters": 143808,
+  "config": {
+    "vocab_size": 289,
+    "dim": 64,
+    "layers": 2,
+    "heads": 4,
+    "context": 64
+  },
+  "history": [
+    {
+      "step": 1,
+      "train_loss": 5.76841139793396,
+      "validation_loss": 5.681976318359375,
+      "lr": 0.00030000000000000003
+    },
+    {
+      "step": 11,
+      "train_loss": 3.965506434440613,
+      "validation_loss": 3.747248411178589,
+      "lr": 0.0029974840787460465
+    },
+    {
+      "step": 21,
+      "train_loss": 2.2772164344787598,
+      "validation_loss": 2.3144540786743164,
+      "lr": 0.0029899462441759592
+    },
+    {
+      "step": 31,
+      "train_loss": 1.650666356086731,
+      "validation_loss": 1.7722601890563965,
+      "lr": 0.0029774162446790783
+    },
+    {
+      "step": 41,
+      "train_loss": 1.3622081875801086,
+      "validation_loss": 1.409515142440796,
+      "lr": 0.0029599435304390044
+    },
+    {
+      "step": 51,
+      "train_loss": 1.3051424026489258,
+      "validation_loss": 1.3088839054107666,
+      "lr": 0.002937597058276321
+    },
+    {
+      "step": 61,
+      "train_loss": 1.2382813096046448,
+      "validation_loss": 1.2990065813064575,
+      "lr": 0.0029104650195075207
+    },
+    {
+      "step": 71,
+      "train_loss": 1.1225473284721375,
+      "validation_loss": 1.2294282913208008,
+      "lr": 0.002878654491894175
+    },
+    {
+      "step": 81,
+      "train_loss": 1.036701738834381,
+      "validation_loss": 1.1809568405151367,
+      "lr": 0.002842291017055926
+    },
+    {
+      "step": 91,
+      "train_loss": 0.9786585569381714,
+      "validation_loss": 1.1367982625961304,
+      "lr": 0.0028015181050150694
+    },
+    {
+      "step": 101,
+      "train_loss": 0.8297702670097351,
+      "validation_loss": 1.0104228258132935,
+      "lr": 0.0027564966678280583
+    },
+    {
+      "step": 111,
+      "train_loss": 0.763747364282608,
+      "validation_loss": 1.020442247390747,
+      "lr": 0.002707404384539131
+    },
+    {
+      "step": 121,
+      "train_loss": 0.7344404458999634,
+      "validation_loss": 0.9894303679466248,
+      "lr": 0.0026544349999623
+    },
+    {
+      "step": 131,
+      "train_loss": 0.6615189909934998,
+      "validation_loss": 0.9929970502853394,
+      "lr": 0.002597797560059078
+    },
+    {
+      "step": 141,
+      "train_loss": 0.6051563620567322,
+      "validation_loss": 0.927973747253418,
+      "lr": 0.0025377155869295794
+    },
+    {
+      "step": 151,
+      "train_loss": 0.5026625394821167,
+      "validation_loss": 0.9388193488121033,
+      "lr": 0.0024744261966729033
+    },
+    {
+      "step": 160,
+      "train_loss": 0.46972979605197906,
+      "validation_loss": 1.0232658386230469,
+      "lr": 0.0024149295964617664
+    },
+    {
+      "step": 161,
+      "train_loss": 0.4848487973213196,
+      "validation_loss": 1.0519821643829346,
+      "lr": 0.0024081791635982208
+    },
+    {
+      "step": 170,
+      "train_loss": 0.4678663909435272,
+      "validation_loss": 1.0760804414749146,
+      "lr": 0.0023462439102997987
+    }
+  ],
+  "test_loss": 1.1519628763198853,
+  "seconds": 0.22742831699997623,
+  "origin": "random initialization; local arithmetic fixtures",
+  "warning": "Tiny research model; not a conversational assistant",
+  "checkpoint": "model.safetensors"
+}

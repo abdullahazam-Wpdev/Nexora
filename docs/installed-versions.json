@@ -1,0 +1,15 @@
+{
+  "torch": "2.14.1+cpu",
+  "fastapi": "0.143.2",
+  "uvicorn": "0.54.0",
+  "tokenizers": "0.23.3",
+  "safetensors": "0.8.0",
+  "numpy": "2.5.4",
+  "psutil": "7.2.2",
+  "pytest": "9.1.1",
+  "httpx": "0.28.1",
+  "playwright": "1.64.0",
+  "next": "16.4.2",
+  "react": "19.3.1",
+  "typescript": "5.9.3"
+}

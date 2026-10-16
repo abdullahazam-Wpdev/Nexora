@@ -1,0 +1,13 @@
+.venv/
+.tools/
+node_modules/
+.next/
+__pycache__/
+.pytest_cache/
+.env
+artifacts/
+data/*
+!data/.gitkeep
+*.log
+
+*.tsbuildinfo
