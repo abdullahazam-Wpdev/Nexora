@@ -1,0 +1,19 @@
+.................F.........                                              [100%]
+=================================== FAILURES ===================================
+_____________ test_fractional_dimensions_and_budgets_are_rejected ______________
+
+    def test_fractional_dimensions_and_budgets_are_rejected():
+        for value in (
+            {"batch_size": 2.5},
+            {"seed": True},
+            {"steps": 5.5},
+            {"min_battery_percent": -1},
+        ):
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests/test_phase3.py:167: Failed
+=========================== short test summary info ============================
+FAILED tests/test_phase3.py::test_fractional_dimensions_and_budgets_are_rejected
+1 failed, 26 passed in 7.28s

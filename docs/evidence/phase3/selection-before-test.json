@@ -1,0 +1,63 @@
+{
+  "run_id": "phase3-baseline-s43",
+  "checkpoint_step": 128,
+  "checkpoint": {
+    "engine_version": 3,
+    "step": 128,
+    "directory": "step-0000128",
+    "config": {
+      "vocab_size": 1024,
+      "dim": 128,
+      "layers": 4,
+      "heads": 4,
+      "context": 128,
+      "tie_embeddings": true,
+      "init_std": 0.02
+    },
+    "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+    "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+    "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+    "files": {
+      "model.safetensors": "ac24524bca0c969480a38be2310d9722f1ea5d5e57641736062303fd316c49a4",
+      "resume.pt": "307e591821b407f25944c1a9fff87734f0956144c4083fc654743b9bc880ba7e"
+    }
+  },
+  "criterion": "Minimum validation mean across two seeds at common 131072 tokens, then minimum validation seed within winning shape. No test loss used.",
+  "groups": [
+    {
+      "dim": 64,
+      "parameters": 172352,
+      "seeds": [
+        42,
+        43
+      ],
+      "validation_mean": 5.270268083470885,
+      "validation_sample_std": 0.013379518376523765
+    },
+    {
+      "dim": 128,
+      "parameters": 984192,
+      "seeds": [
+        42,
+        43
+      ],
+      "validation_mean": 5.0695637851156565,
+      "validation_sample_std": 0.09384944726502205
+    },
+    {
+      "dim": 192,
+      "parameters": 2115264,
+      "seeds": [
+        42,
+        43
+      ],
+      "validation_mean": 5.151598856882788,
+      "validation_sample_std": 0.0660653734462779
+    }
+  ],
+  "token_budget": 131072,
+  "planned_but_unrun": [
+    "phase3-base-data-s42"
+  ],
+  "reason": "240-second matrix limit interrupted final wider run; all six common step-128 checkpoints are available. Full-run timings cover different completion lengths and are not presented as matched-budget wall times."
+}

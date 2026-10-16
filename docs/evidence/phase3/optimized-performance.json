@@ -1,0 +1,54 @@
+{
+  "model": "phase2-small-language",
+  "parameters": 984192,
+  "monitor_median_seconds": 0.00014219900003809016,
+  "evaluation": {
+    "unmonitored": {
+      "seconds": 0.16780366500097443,
+      "metrics": {
+        "loss": 4.403331668723472,
+        "perplexity": 81.72268853203987,
+        "tokens": 3777,
+        "perplexity_capped": false
+      }
+    },
+    "monitored": {
+      "seconds": 0.1926443679985823,
+      "metrics": {
+        "loss": 4.403331668723472,
+        "perplexity": 81.72268853203987,
+        "tokens": 3777,
+        "perplexity_capped": false
+      }
+    },
+    "monitored-batched": {
+      "seconds": 0.11207663899949694,
+      "metrics": {
+        "loss": 4.403331668723472,
+        "perplexity": 81.72268853203987,
+        "tokens": 3777,
+        "perplexity_capped": false
+      }
+    }
+  },
+  "training_step_median_seconds": 0.09537060250022478,
+  "training_tokens_per_second": 10737.061244816887,
+  "training_seconds_per_million_tokens": 93.13535400412576,
+  "warm_inference_tokens_per_second": 340.08061961708694,
+  "warm_inference_median_seconds_64_tokens": 0.18819067100048414,
+  "checkpoint_read_seconds": 0.0012116279995098012,
+  "checkpoint_buffered_save_median_seconds": 0.019580938998842612,
+  "checkpoint_bytes": 16342490,
+  "rss_mb": 387.46484375,
+  "resources": {
+    "wall_seconds": 3.866818005000823,
+    "peak_rss_mb": 387.9765625,
+    "cpu_seconds": 6.450000000000001,
+    "cpu_percent_one_core": 166.80381625559923,
+    "max_cpu_temperature_c": 45.0,
+    "monitor_samples": 60,
+    "temperature_sensor_reads": 2
+  },
+  "cpu_percent_one_core": 166.80887153136752,
+  "notes": "Synthetic fixed batches time kernels only; no training result is published. Original checkpoint is read-only. Warm inference excludes model verification/loading and has no KV cache."
+}

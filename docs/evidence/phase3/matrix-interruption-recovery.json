@@ -1,0 +1,33 @@
+{
+  "run_id": "phase3-wider-s43",
+  "status_before": "interrupted",
+  "verified_checkpoint_step": 128,
+  "recovered_step": 130,
+  "status_after": "completed",
+  "original_checkpoint_unchanged": true,
+  "checkpoint": "runs/phase3-wider-s43/checkpoints/step-0000130/model.safetensors",
+  "recovery_session": {
+    "start_step": 128,
+    "end_step": 130,
+    "resources": {
+      "wall_seconds": 2.231839416999719,
+      "peak_rss_mb": 423.78515625,
+      "cpu_seconds": 3.9099999999999984,
+      "cpu_percent_one_core": 175.1918157828866,
+      "max_cpu_temperature_c": 61.0,
+      "monitor_samples": 16,
+      "temperature_sensor_reads": 7
+    },
+    "benchmark": {
+      "tokens_this_session": 2048,
+      "total_training_tokens": 133120,
+      "training_seconds": 0.6072808780008927,
+      "tokens_per_second": 3372.409825815377,
+      "step_seconds": 0.30364043900044635,
+      "dataset_loading_seconds": 0.0026752320027298992,
+      "checkpoint_save_seconds": 0.13051993699991726,
+      "estimated_1000_step_seconds": 303.64043900044635
+    }
+  },
+  "note": "Only two updates for interruption-recovery verification; does not finish or extend the scaling matrix. Matched comparison remains the immutable step-128 checkpoint."
+}

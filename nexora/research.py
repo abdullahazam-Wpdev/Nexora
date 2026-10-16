@@ -23,7 +23,7 @@ from nexora.config import STORE, ROOT
 from nexora.data_engine import load_dataset
 from nexora.model import Core, Config
 
-ENGINE_VERSION = 2
+ENGINE_VERSION = 3
 PROFILES = {
     "tiny": {"dim": 64, "layers": 2, "heads": 4, "context": 64},
     "small": {"dim": 128, "layers": 4, "heads": 4, "context": 128},
@@ -49,8 +49,34 @@ class TrainConfig:
     min_available_mb: int = 500
     min_disk_mb: int = 512
     max_temperature: float = 88
+    temperature_interval: float = 0.25
+    min_battery_percent: float = 15
+    eval_batch_size: int = 8
+    architecture: dict | None = None
+    tokenizer_run: str | None = None
+    evaluate_test: bool = True
 
     def __post_init__(self):
+        if not 0 <= self.min_battery_percent <= 50:
+            raise ValueError("Invalid battery reserve")
+        integer_fields = (
+            "steps",
+            "schedule_steps",
+            "warmup_steps",
+            "batch_size",
+            "accumulation",
+            "seed",
+            "threads",
+            "eval_every",
+            "checkpoint_every",
+            "vocab_size",
+            "eval_batch_size",
+            "max_rss_mb",
+            "min_available_mb",
+            "min_disk_mb",
+        )
+        if any(type(getattr(self, key)) is not int for key in integer_fields):
+            raise ValueError("Discrete training configuration values must be integers")
         for k in (
             "steps",
             "schedule_steps",
@@ -71,6 +97,36 @@ class TrainConfig:
             or not 258 <= self.vocab_size <= 4096
         ):
             raise ValueError("Configuration exceeds laptop experiment limits")
+        if (
+            not 1 <= self.eval_batch_size <= 16
+            or not 0 <= self.temperature_interval <= 2
+        ):
+            raise ValueError("Invalid evaluation or sensor polling configuration")
+        if self.architecture is not None:
+            if set(self.architecture) != {"dim", "layers", "heads", "context"}:
+                raise ValueError("Architecture requires dim, layers, heads and context")
+            if any(type(value) is not int for value in self.architecture.values()):
+                raise ValueError("Architecture dimensions must be integers")
+            shape = Config(
+                vocab_size=self.vocab_size, **self.architecture, tie_embeddings=True
+            )
+            if (
+                shape.dim > 256
+                or shape.layers > 6
+                or shape.heads > 16
+                or not 16 <= shape.context <= 256
+            ):
+                raise ValueError("Architecture exceeds bounded CPU limits")
+            if (
+                13 * shape.dim**2 * shape.layers
+                + shape.vocab_size * shape.dim
+                + 2 * shape.dim * shape.layers
+                + shape.dim
+                > 5_000_000
+            ):
+                raise ValueError("Architecture exceeds CPU parameter budget")
+        if self.tokenizer_run is not None:
+            identifier(self.tokenizer_run)
         if (
             not 0 < self.learning_rate <= 0.05
             or not 0 <= self.weight_decay <= 1
@@ -118,6 +174,9 @@ class Monitor:
         self.max_temp = None
         self.samples = 0
         self.cpu_seconds = 0
+        self._temperature_at = float("-inf")
+        self._temperature = None
+        self.sensor_reads = 0
         self.cpu_start = sum(self.process.cpu_times()[:2])
 
     def check(self):
@@ -125,7 +184,21 @@ class Monitor:
             raise BudgetExceeded("Cancellation requested")
         rss = self.process.memory_info().rss
         self.peak_rss = max(self.peak_rss, rss)
-        temp = temperature()
+        now = time.monotonic()
+        if now - self._temperature_at >= self.c.temperature_interval:
+            self._temperature = temperature()
+            self._temperature_at = now
+            self.sensor_reads += 1
+            battery = psutil.sensors_battery()
+            if (
+                battery
+                and not battery.power_plugged
+                and battery.percent < self.c.min_battery_percent
+            ):
+                raise BudgetExceeded(
+                    "Battery reserve floor reached; plug into AC before resuming"
+                )
+        temp = self._temperature
         self.samples += 1
         if temp is not None:
             self.max_temp = max(self.max_temp or temp, temp)
@@ -153,6 +226,7 @@ class Monitor:
             "cpu_percent_one_core": 100 * cpu / max(elapsed, 0.001),
             "max_cpu_temperature_c": self.max_temp,
             "monitor_samples": self.samples,
+            "temperature_sensor_reads": self.sensor_reads,
         }
 
 
@@ -166,6 +240,30 @@ def create_run(dataset_id, profile="tiny", training=None, run_id=None, store=Non
     if profile not in PROFILES:
         raise ValueError("Unknown CPU profile; medium/large are planning-only")
     manifest, _ = load_dataset(dataset_id, store)
+    if c.tokenizer_run:
+        reference = store / "runs" / c.tokenizer_run
+        reference_info, _ = verify_checkpoint(reference)
+        if reference_info["config"]["vocab_size"] != c.vocab_size:
+            raise ValueError(
+                "Frozen tokenizer vocabulary must match the run configuration"
+            )
+        reference_tokens = json.loads((reference / "tokens.json").read_text())
+        if "evaluation_suite" in manifest:
+            # Parent tokenizer must never have been trained on the frozen held-out sources.
+            _, parent_docs = load_dataset(
+                json.loads((reference / "result.json").read_text())["dataset_id"], store
+            )
+            _, candidate_docs = load_dataset(dataset_id, store)
+            train_sources = {d["source_id"] for d in parent_docs["train"]}
+            heldout_sources = {
+                d["source_id"]
+                for split in ("validation", "test")
+                for d in candidate_docs[split]
+            }
+            if train_sources & heldout_sources:
+                raise ValueError(
+                    "Reference tokenizer training sources contaminate held-out evaluation"
+                )
     run_id = identifier(
         run_id
         or time.strftime("%Y%m%d-%H%M%S", time.gmtime()) + "-" + uuid.uuid4().hex[:8]
@@ -188,7 +286,9 @@ def create_run(dataset_id, profile="tiny", training=None, run_id=None, store=Non
         dirty = True
     run = {
         "id": run_id,
-        "name": f"NEXORA Core {profile} / {manifest['name']}",
+        "name": f"NEXORA Core {profile} / {manifest['name']}"
+        if not c.architecture
+        else f"NEXORA Core d{c.architecture['dim']}l{c.architecture['layers']} / {manifest['name']}",
         "status": "queued",
         "engine_version": ENGINE_VERSION,
         "profile": profile,
@@ -206,6 +306,14 @@ def create_run(dataset_id, profile="tiny", training=None, run_id=None, store=Non
             "device": "cpu",
             "precision": "float32",
         },
+        "architecture": c.architecture or PROFILES[profile],
+        "tokenizer_reference": {
+            "run": c.tokenizer_run,
+            "sha256": reference_tokens["tokenizer_sha256"],
+        }
+        if c.tokenizer_run
+        else None,
+        "evaluation_suite": manifest.get("evaluation_suite"),
         "history": [],
         "steps": 0,
         "warning": "Independent next-token model; not instruction-tuned or a validated assistant.",
@@ -216,18 +324,27 @@ def create_run(dataset_id, profile="tiny", training=None, run_id=None, store=Non
 
 def _prepare_tokens(folder, manifest, documents, c, monitor):
     started = time.monotonic()
-    tokenizer = Tokenizer(models.BPE(unk_token="[UNK]"))
-    tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
-    tokenizer.decoder = decoders.ByteLevel()
-    tokenizer.train_from_iterator(
-        (d["text"] for d in documents["train"]),
-        trainers.BpeTrainer(
-            vocab_size=c.vocab_size,
-            special_tokens=["[UNK]", "[EOS]"],
-            initial_alphabet=pre_tokenizers.ByteLevel.alphabet(),
-            show_progress=False,
-        ),
-    )
+    if c.tokenizer_run:
+        reference = folder.parent / c.tokenizer_run
+        expected = json.loads((folder / "result.json").read_text())[
+            "tokenizer_reference"
+        ]["sha256"]
+        if sha256(reference / "tokenizer.json") != expected:
+            raise ValueError("Frozen tokenizer changed")
+        tokenizer = Tokenizer.from_file(str(reference / "tokenizer.json"))
+    else:
+        tokenizer = Tokenizer(models.BPE(unk_token="[UNK]"))
+        tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
+        tokenizer.decoder = decoders.ByteLevel()
+        tokenizer.train_from_iterator(
+            (d["text"] for d in documents["train"]),
+            trainers.BpeTrainer(
+                vocab_size=c.vocab_size,
+                special_tokens=["[UNK]", "[EOS]"],
+                initial_alphabet=pre_tokenizers.ByteLevel.alphabet(),
+                show_progress=False,
+            ),
+        )
     tokenizer.save(str(folder / "tokenizer.json"))
     eos = tokenizer.token_to_id("[EOS]")
     shards = {}
@@ -290,17 +407,42 @@ def optimizer_for(model, c):
 
 
 @torch.no_grad()
-def evaluate(model, tokens, context, monitor=None):
-    """Every next-token target counted exactly once, no RNG or truncated remainder."""
+def evaluate(model, tokens, context, monitor=None, batch_size=1):
+    """Same disjoint windows/targets as v2, batched without padding or target omissions."""
+    if len(tokens) < 2 or context < 1 or not 1 <= batch_size <= 16:
+        raise ValueError("Invalid evaluation tokens, context or batch size")
     was_training = model.training
     model.eval()
     total = 0.0
     count = 0
     try:
-        for start in range(0, len(tokens) - 1, context):
+        full = (len(tokens) - 1) // context
+        for index in range(0, full, batch_size):
             if monitor:
                 monitor.check()
-            size = min(context, len(tokens) - 1 - start)
+            starts = [j * context for j in range(index, min(full, index + batch_size))]
+            x = torch.from_numpy(
+                np.stack([tokens[j : j + context] for j in starts]).astype(np.int64)
+            )
+            y = torch.from_numpy(
+                np.stack([tokens[j + 1 : j + context + 1] for j in starts]).astype(
+                    np.int64
+                )
+            )
+            losses = F.cross_entropy(
+                model(x).flatten(0, 1), y.flatten(), reduction="none"
+            ).reshape(len(starts), context)
+            # Preserve per-window FP32 reduction before Python float accumulation.
+            for value in losses.sum(dim=1).tolist():
+                if not math.isfinite(value):
+                    raise ValueError("Nonfinite evaluation loss")
+                total += value
+            count += len(starts) * context
+        start = full * context
+        size = len(tokens) - 1 - start
+        if size:
+            if monitor:
+                monitor.check()
             x = torch.from_numpy(
                 np.array(tokens[start : start + size], dtype=np.int64)
             )[None]
@@ -371,7 +513,7 @@ def _checkpoint(folder, model, optimizer, sampler, step, history, tokens_meta, r
 def verify_checkpoint(folder, checkpoint=None):
     folder = Path(folder)
     info = checkpoint or json.loads((folder / "latest.json").read_text())
-    if info.get("engine_version") != ENGINE_VERSION:
+    if info.get("engine_version") not in {2, ENGINE_VERSION}:
         raise ValueError("Unsupported checkpoint version")
     if info["directory"] != f"step-{int(info['step']):07d}":
         raise ValueError("Invalid checkpoint directory")
@@ -436,28 +578,64 @@ def _train_locked(folder, store, resume, additional_steps):
         if manifest["version"] != run["dataset_version"]:
             raise ValueError("Dataset version changed")
         if resume:
-            info, cp = verify_checkpoint(folder)
-            state = torch.load(cp / "resume.pt", weights_only=True, map_location="cpu")
-            if (
-                state["scheduler"]["config"] != run["training"]
-                or state["code_sha256"] != run["code_sha256"]
-                or state["dataset_version"] != manifest["version"]
-            ):
-                raise ValueError("Checkpoint training identity mismatch")
-            tokenizer = Tokenizer.from_file(str(folder / "tokenizer.json"))
-            meta = json.loads((folder / "tokens.json").read_text())
-            config = Config(**state["config"])
+            if run.get("migration") and not (folder / "latest.json").exists():
+                import shutil
+
+                migration = run["migration"]
+                parent = store / "runs" / migration["parent_run"]
+                info, original_cp = verify_checkpoint(parent, migration["checkpoint"])
+                if (
+                    sha256(original_cp / "resume.pt")
+                    != migration["checkpoint"]["files"]["resume.pt"]
+                ):
+                    raise ValueError("Migration parent changed")
+                for filename in (
+                    "tokenizer.json",
+                    "tokens.json",
+                    "train.npy",
+                    "validation.npy",
+                    "test.npy",
+                ):
+                    shutil.copyfile(parent / filename, folder / filename)
+                meta = json.loads((folder / "tokens.json").read_text())
+                state = torch.load(
+                    original_cp / "resume.pt", weights_only=True, map_location="cpu"
+                )
+                state["engine_version"] = ENGINE_VERSION
+                state["code_sha256"] = run["code_sha256"]
+                state["scheduler"]["config"] = run["training"]
+                tokenizer = Tokenizer.from_file(str(folder / "tokenizer.json"))
+                config = Config(**state["config"])
+            else:
+                info, cp = verify_checkpoint(folder)
+                state = torch.load(
+                    cp / "resume.pt", weights_only=True, map_location="cpu"
+                )
+                if (
+                    state["scheduler"]["config"] != run["training"]
+                    or state["code_sha256"] != run["code_sha256"]
+                    or state["dataset_version"] != manifest["version"]
+                ):
+                    raise ValueError("Checkpoint training identity mismatch")
+                tokenizer = Tokenizer.from_file(str(folder / "tokenizer.json"))
+                meta = json.loads((folder / "tokens.json").read_text())
+                config = Config(**state["config"])
         else:
             tokenizer, meta = _prepare_tokens(folder, manifest, documents, c, monitor)
             config = Config(
                 vocab_size=tokenizer.get_vocab_size(),
-                **PROFILES[run["profile"]],
+                **run.get("architecture", PROFILES[run["profile"]]),
                 tie_embeddings=True,
                 init_std=0.02,
             )
         del documents
         if meta["dataset_version"] != manifest["version"]:
             raise ValueError("Token shards reference another dataset")
+        if resume and (
+            state["dataset_version"] != manifest["version"]
+            or state["tokenizer_sha256"] != meta["tokenizer_sha256"]
+        ):
+            raise ValueError("Resumed checkpoint data/tokenizer identity mismatch")
         arrays = _mapped_tokens(folder, meta)
         model = Core(config)
         parameters = sum(p.numel() for p in model.parameters())
@@ -490,7 +668,7 @@ def _train_locked(folder, store, resume, additional_steps):
         context = min(config.context, len(train) - 1)
         if not resume:
             run["initial_validation"] = evaluate(
-                model, arrays["validation"], config.context, monitor
+                model, arrays["validation"], config.context, monitor, c.eval_batch_size
             )
         while step < target:
             monitor.check()
@@ -540,7 +718,11 @@ def _train_locked(folder, store, resume, additional_steps):
             history.append(row)
             if step % c.eval_every == 0 or step == target:
                 row["validation"] = evaluate(
-                    model, arrays["validation"], config.context, monitor
+                    model,
+                    arrays["validation"],
+                    config.context,
+                    monitor,
+                    c.eval_batch_size,
                 )
                 run.update(
                     history=history,
@@ -558,8 +740,14 @@ def _train_locked(folder, store, resume, additional_steps):
                     folder, model, optimizer, sampler, step, history, meta, run
                 )
                 checkpoint_seconds += seconds
-        validation = evaluate(model, arrays["validation"], config.context, monitor)
-        test = evaluate(model, arrays["test"], config.context, monitor)
+        validation = evaluate(
+            model, arrays["validation"], config.context, monitor, c.eval_batch_size
+        )
+        test = (
+            evaluate(model, arrays["test"], config.context, monitor, c.eval_batch_size)
+            if c.evaluate_test
+            else None
+        )
         examples = []
         for prompt in ["Python is", "The function", "for i in range("]:
             monitor.check()
@@ -591,7 +779,7 @@ def _train_locked(folder, store, resume, additional_steps):
             history=history,
             validation=validation,
             test=test,
-            test_loss=test["loss"],
+            test_loss=test["loss"] if test else None,
             seconds=monitor.metrics()["wall_seconds"],
             checkpoint=str(
                 Path("runs")
@@ -694,3 +882,57 @@ if __name__ == "__main__":
             p.error("tokens must be 1..128")
         result = infer_run(a.run_id, a.prompt, a.tokens)
     print(json.dumps(result, indent=2))
+
+
+def fork_checkpoint(parent_id, new_id=None, *, store=None):
+    """Explicitly fork a verified v2/v3 checkpoint; preserve training state and source."""
+    store = Path(store or STORE)
+    parent = store / "runs" / identifier(parent_id)
+    original = json.loads((parent / "result.json").read_text())
+    info, checkpoint = verify_checkpoint(parent)
+    if (
+        original["engine_version"] not in {2, 3}
+        or info["engine_version"] != original["engine_version"]
+    ):
+        raise ValueError(
+            "Explicit migration accepts verified version-2/version-3 checkpoints only"
+        )
+    state = torch.load(checkpoint / "resume.pt", weights_only=True, map_location="cpu")
+    if (
+        state["config"] != info["config"]
+        or state["dataset_version"] != original["dataset_version"]
+        or state["tokenizer_sha256"] != info["tokenizer_sha256"]
+    ):
+        raise ValueError("Inconsistent version-2 checkpoint identities")
+    if (
+        state["scheduler"]["config"] != original["training"]
+        or state["step"] != info["step"]
+    ):
+        raise ValueError("Inconsistent version-2 schedule")
+    result = create_run(
+        original["dataset_id"], original["profile"], original["training"], new_id, store
+    )
+    result["migration"] = {
+        "parent_run": parent_id,
+        "checkpoint": info,
+        "from_engine": original["engine_version"],
+        "parent_code_sha256": original["code_sha256"],
+        "to_engine": 3,
+        "policy": "Fork only; preserve data, tokenizer, model, optimizer, sampler and LR schedule. New monitoring/evaluation batching defaults are operational changes.",
+    }
+    result["architecture"] = {
+        k: original["config"][k] for k in ("dim", "layers", "heads", "context")
+    }
+    atomic_json(store / "runs" / result["id"] / "result.json", result)
+    return result
+
+
+def migrate_v2_run(parent_id, new_id=None, *, store=None):
+    """Version-specific compatibility entry point, retained for tested v2 migration."""
+    root = Path(store or STORE)
+    original = json.loads(
+        (root / "runs" / identifier(parent_id) / "result.json").read_text()
+    )
+    if original["engine_version"] != 2:
+        raise ValueError("Version-2 migration requires a version-2 parent")
+    return fork_checkpoint(parent_id, new_id, store=store)

@@ -42,7 +42,7 @@ type Experiment = {
   steps: number;
   parameters: number;
   seconds: number;
-  test_loss: number;
+  test_loss: number | null;
   history: { step: number; train_loss: number; validation_loss: number }[];
   config: {
     dim: number;
@@ -699,7 +699,7 @@ export default function Home() {
               <div className="statgrid">
                 <div className="stat">
                   <span>Held-out test loss</span>
-                  <strong>{model?.test_loss.toFixed(3) ?? "—"}</strong>
+                  <strong>{model?.test_loss?.toFixed(3) ?? "—"}</strong>
                   <p>Cross entropy · arithmetic fixture</p>
                 </div>
                 <div className="stat">

@@ -1,0 +1,60 @@
+{
+  "id": "phase3-compatible-fork",
+  "status": "completed",
+  "steps": 257,
+  "migration": {
+    "parent_run": "phase3-baseline-s43",
+    "checkpoint": {
+      "engine_version": 3,
+      "step": 256,
+      "directory": "step-0000256",
+      "config": {
+        "vocab_size": 1024,
+        "dim": 128,
+        "layers": 4,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+      "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+      "files": {
+        "model.safetensors": "d0dd2265ba0136d1b4db9a869edbe0fcfcad0407bb51d2b9ecc45c9c0791a44b",
+        "resume.pt": "9adb5084849629a6c3d16475cc836d4025e56788128bd4f245fd0b074341b9df"
+      }
+    },
+    "from_engine": 3,
+    "parent_code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+    "to_engine": 3,
+    "policy": "Fork only; preserve data, tokenizer, model, optimizer, sampler and LR schedule. New monitoring/evaluation batching defaults are operational changes."
+  },
+  "checkpoint": "runs/phase3-compatible-fork/checkpoints/step-0000257/model.safetensors",
+  "sessions": [
+    {
+      "start_step": 256,
+      "end_step": 257,
+      "resources": {
+        "wall_seconds": 0.8809276649990352,
+        "peak_rss_mb": 391.9453125,
+        "cpu_seconds": 1.5499999999999998,
+        "cpu_percent_one_core": 175.95088241458478,
+        "max_cpu_temperature_c": 52.0,
+        "monitor_samples": 15,
+        "temperature_sensor_reads": 3
+      },
+      "benchmark": {
+        "tokens_this_session": 1024,
+        "total_training_tokens": 263168,
+        "training_seconds": 0.11173402699932922,
+        "tokens_per_second": 9164.620908240848,
+        "step_seconds": 0.11173402699932922,
+        "dataset_loading_seconds": 0.00042985800064343493,
+        "checkpoint_save_seconds": 0.034982257000592654,
+        "estimated_1000_step_seconds": 111.73402699932922
+      }
+    }
+  ],
+  "note": "One update to verify migration into the final input-validation revision, separate from the bounded scaling matrix. Original run and comparison checkpoints preserved."
+}

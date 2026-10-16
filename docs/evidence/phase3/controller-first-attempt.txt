@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/abdullah/Downloads/nexora-ai-os/nexora/scaling_experiments.py", line 226, in <module>
+    stderr=subprocess.STDOUT,
+    ^^
+  File "/home/abdullah/Downloads/nexora-ai-os/nexora/scaling_experiments.py", line 199, in execute_plan
+    )
+
+NameError: name 'exit_code' is not defined

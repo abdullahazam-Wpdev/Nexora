@@ -1,0 +1,564 @@
+{
+  "comparison": [
+    {
+      "run_id": "phase3-compact-s42",
+      "seed": 42,
+      "architecture": {
+        "vocab_size": 1024,
+        "dim": 64,
+        "layers": 2,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "parameters": 172352,
+      "checkpoint": {
+        "engine_version": 3,
+        "step": 128,
+        "directory": "step-0000128",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 64,
+          "layers": 2,
+          "heads": 4,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+        "files": {
+          "model.safetensors": "51a31541ad88855d7bb439c510f080b49dbe9c0f49af993733cd4fbd1ee748a9",
+          "resume.pt": "70f1fd026e247d787a1c61bca8145023f76e4fb5fa3997509f7739553e762ed1"
+        }
+      },
+      "checkpoint_path": "runs/phase3-compact-s42/checkpoints/step-0000128",
+      "comparison_steps": 128,
+      "comparison_training_tokens": 131072,
+      "validation": {
+        "loss": 5.279728831643935,
+        "perplexity": 196.31663327462795,
+        "tokens": 3777,
+        "perplexity_capped": false
+      },
+      "evaluation_seconds": 0.09196029899976566,
+      "run_status": "completed",
+      "run_last_reported_steps": 256,
+      "full_run_benchmark": {
+        "tokens_this_session": 262144,
+        "total_training_tokens": 262144,
+        "training_seconds": 13.034591614024976,
+        "tokens_per_second": 20111.408762353396,
+        "step_seconds": 0.05091637349228506,
+        "dataset_loading_seconds": 0.1344475869937014,
+        "checkpoint_save_seconds": 0.09495263900134887,
+        "estimated_1000_step_seconds": 50.91637349228506
+      },
+      "full_run_resources": {
+        "wall_seconds": 16.638883450999856,
+        "peak_rss_mb": 350.63671875,
+        "cpu_seconds": 29.660000000000004,
+        "cpu_percent_one_core": 178.25715341625096,
+        "max_cpu_temperature_c": 65.0,
+        "monitor_samples": 293,
+        "temperature_sensor_reads": 61
+      },
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165"
+    },
+    {
+      "run_id": "phase3-compact-s43",
+      "seed": 43,
+      "architecture": {
+        "vocab_size": 1024,
+        "dim": 64,
+        "layers": 2,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "parameters": 172352,
+      "checkpoint": {
+        "engine_version": 3,
+        "step": 128,
+        "directory": "step-0000128",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 64,
+          "layers": 2,
+          "heads": 4,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+        "files": {
+          "model.safetensors": "c0ddcc3d0db0a4eb8ddd491c7a9a234335c8aa19eafeeb6d236295473f61b193",
+          "resume.pt": "eb3ca01599adebcd7b0dc8e1afcc615e16a9ca2521c3dae6f635d73761aac5cf"
+        }
+      },
+      "checkpoint_path": "runs/phase3-compact-s43/checkpoints/step-0000128",
+      "comparison_steps": 128,
+      "comparison_training_tokens": 131072,
+      "validation": {
+        "loss": 5.260807335297835,
+        "perplexity": 192.6369511450171,
+        "tokens": 3777,
+        "perplexity_capped": false
+      },
+      "evaluation_seconds": 0.04878467799971986,
+      "run_status": "completed",
+      "run_last_reported_steps": 256,
+      "full_run_benchmark": {
+        "tokens_this_session": 262144,
+        "total_training_tokens": 262144,
+        "training_seconds": 11.726462692993664,
+        "tokens_per_second": 22354.90845475729,
+        "step_seconds": 0.0458064948945065,
+        "dataset_loading_seconds": 0.12048021496775618,
+        "checkpoint_save_seconds": 0.0731576350008254,
+        "estimated_1000_step_seconds": 45.8064948945065
+      },
+      "full_run_resources": {
+        "wall_seconds": 14.609706614999595,
+        "peak_rss_mb": 351.8203125,
+        "cpu_seconds": 26.130000000000003,
+        "cpu_percent_one_core": 178.8536942499083,
+        "max_cpu_temperature_c": 71.0,
+        "monitor_samples": 293,
+        "temperature_sensor_reads": 54
+      },
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165"
+    },
+    {
+      "run_id": "phase3-baseline-s42",
+      "seed": 42,
+      "architecture": {
+        "vocab_size": 1024,
+        "dim": 128,
+        "layers": 4,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "parameters": 984192,
+      "checkpoint": {
+        "engine_version": 3,
+        "step": 128,
+        "directory": "step-0000128",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+        "files": {
+          "model.safetensors": "b686d2f17a4c1ae5907a7a0d3c020d41a8724c36d24a9ab8de12f327aa0e88fc",
+          "resume.pt": "a647d7662c228c0f69321810450aac000f318a5d92ab4c012cded471d3aea9ae"
+        }
+      },
+      "checkpoint_path": "runs/phase3-baseline-s42/checkpoints/step-0000128",
+      "comparison_steps": 128,
+      "comparison_training_tokens": 131072,
+      "validation": {
+        "loss": 5.135925365687363,
+        "perplexity": 170.02157923778992,
+        "tokens": 3777,
+        "perplexity_capped": false
+      },
+      "evaluation_seconds": 0.11812636400100018,
+      "run_status": "completed",
+      "run_last_reported_steps": 256,
+      "full_run_benchmark": {
+        "tokens_this_session": 262144,
+        "total_training_tokens": 262144,
+        "training_seconds": 37.583357283987425,
+        "tokens_per_second": 6975.002206939286,
+        "step_seconds": 0.14680998939057588,
+        "dataset_loading_seconds": 0.15115931999025634,
+        "checkpoint_save_seconds": 0.2990056539983925,
+        "estimated_1000_step_seconds": 146.80998939057588
+      },
+      "full_run_resources": {
+        "wall_seconds": 45.16693649999979,
+        "peak_rss_mb": 392.4296875,
+        "cpu_seconds": 82.01,
+        "cpu_percent_one_core": 181.57087098435463,
+        "max_cpu_temperature_c": 69.0,
+        "monitor_samples": 293,
+        "temperature_sensor_reads": 137
+      },
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165"
+    },
+    {
+      "run_id": "phase3-baseline-s43",
+      "seed": 43,
+      "architecture": {
+        "vocab_size": 1024,
+        "dim": 128,
+        "layers": 4,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "parameters": 984192,
+      "checkpoint": {
+        "engine_version": 3,
+        "step": 128,
+        "directory": "step-0000128",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+        "files": {
+          "model.safetensors": "ac24524bca0c969480a38be2310d9722f1ea5d5e57641736062303fd316c49a4",
+          "resume.pt": "307e591821b407f25944c1a9fff87734f0956144c4083fc654743b9bc880ba7e"
+        }
+      },
+      "checkpoint_path": "runs/phase3-baseline-s43/checkpoints/step-0000128",
+      "comparison_steps": 128,
+      "comparison_training_tokens": 131072,
+      "validation": {
+        "loss": 5.003202204543951,
+        "perplexity": 148.88917013061956,
+        "tokens": 3777,
+        "perplexity_capped": false
+      },
+      "evaluation_seconds": 0.1160168269998394,
+      "run_status": "completed",
+      "run_last_reported_steps": 256,
+      "full_run_benchmark": {
+        "tokens_this_session": 262144,
+        "total_training_tokens": 262144,
+        "training_seconds": 36.34001480499137,
+        "tokens_per_second": 7213.6459329123345,
+        "step_seconds": 0.14195318283199754,
+        "dataset_loading_seconds": 0.14200859600350668,
+        "checkpoint_save_seconds": 0.27259157600019535,
+        "estimated_1000_step_seconds": 141.95318283199754
+      },
+      "full_run_resources": {
+        "wall_seconds": 43.62417563300005,
+        "peak_rss_mb": 392.08984375,
+        "cpu_seconds": 79.27,
+        "cpu_percent_one_core": 181.71117012474895,
+        "max_cpu_temperature_c": 70.0,
+        "monitor_samples": 293,
+        "temperature_sensor_reads": 136
+      },
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165"
+    },
+    {
+      "run_id": "phase3-wider-s42",
+      "seed": 42,
+      "architecture": {
+        "vocab_size": 1024,
+        "dim": 192,
+        "layers": 4,
+        "heads": 6,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "parameters": 2115264,
+      "checkpoint": {
+        "engine_version": 3,
+        "step": 128,
+        "directory": "step-0000128",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 192,
+          "layers": 4,
+          "heads": 6,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+        "files": {
+          "model.safetensors": "f92181aea71fa6998e98e76df0f4e306396b48cd4126f6707ef4b825746711b7",
+          "resume.pt": "081444b6e11eadd2bd4a2738fd22cbd0d572e3b258a67ac79098a78527e37ab0"
+        }
+      },
+      "checkpoint_path": "runs/phase3-wider-s42/checkpoints/step-0000128",
+      "comparison_steps": 128,
+      "comparison_training_tokens": 131072,
+      "validation": {
+        "loss": 5.1983141304482725,
+        "perplexity": 180.96689797930847,
+        "tokens": 3777,
+        "perplexity_capped": false
+      },
+      "evaluation_seconds": 0.24066240499996638,
+      "run_status": "completed",
+      "run_last_reported_steps": 256,
+      "full_run_benchmark": {
+        "tokens_this_session": 262144,
+        "total_training_tokens": 262144,
+        "training_seconds": 56.33948763299668,
+        "tokens_per_second": 4652.93546344693,
+        "step_seconds": 0.22007612356639328,
+        "dataset_loading_seconds": 0.14686739402350213,
+        "checkpoint_save_seconds": 0.4292791040006705,
+        "estimated_1000_step_seconds": 220.07612356639328
+      },
+      "full_run_resources": {
+        "wall_seconds": 67.02529112100092,
+        "peak_rss_mb": 431.84765625,
+        "cpu_seconds": 122.29,
+        "cpu_percent_one_core": 182.45351561282973,
+        "max_cpu_temperature_c": 72.0,
+        "monitor_samples": 293,
+        "temperature_sensor_reads": 211
+      },
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165"
+    },
+    {
+      "run_id": "phase3-wider-s43",
+      "seed": 43,
+      "architecture": {
+        "vocab_size": 1024,
+        "dim": 192,
+        "layers": 4,
+        "heads": 6,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "parameters": 2115264,
+      "checkpoint": {
+        "engine_version": 3,
+        "step": 128,
+        "directory": "step-0000128",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 192,
+          "layers": 4,
+          "heads": 6,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+        "files": {
+          "model.safetensors": "0577315b59ba9c13b6ab155453e591ac8827f81aa66f79fd294a1dd5e09b4432",
+          "resume.pt": "65c5e2f359830c1143201f1722176baa39c011c6e9a6092302996152eee0f778"
+        }
+      },
+      "checkpoint_path": "runs/phase3-wider-s43/checkpoints/step-0000128",
+      "comparison_steps": 128,
+      "comparison_training_tokens": 131072,
+      "validation": {
+        "loss": 5.104883583317303,
+        "perplexity": 164.82488104879732,
+        "tokens": 3777,
+        "perplexity_capped": false
+      },
+      "evaluation_seconds": 0.19956437600012578,
+      "run_status": "running",
+      "run_last_reported_steps": 128,
+      "full_run_benchmark": null,
+      "full_run_resources": {
+        "wall_seconds": 31.916183123999872,
+        "peak_rss_mb": 431.83984375,
+        "cpu_seconds": 58.74,
+        "cpu_percent_one_core": 184.0445637618539,
+        "max_cpu_temperature_c": 70.0,
+        "monitor_samples": 147,
+        "temperature_sensor_reads": 94
+      },
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165"
+    }
+  ],
+  "groups": [
+    {
+      "dim": 64,
+      "parameters": 172352,
+      "seeds": [
+        42,
+        43
+      ],
+      "validation_mean": 5.270268083470885,
+      "validation_sample_std": 0.013379518376523765
+    },
+    {
+      "dim": 128,
+      "parameters": 984192,
+      "seeds": [
+        42,
+        43
+      ],
+      "validation_mean": 5.0695637851156565,
+      "validation_sample_std": 0.09384944726502205
+    },
+    {
+      "dim": 192,
+      "parameters": 2115264,
+      "seeds": [
+        42,
+        43
+      ],
+      "validation_mean": 5.151598856882788,
+      "validation_sample_std": 0.0660653734462779
+    }
+  ],
+  "selected": {
+    "run_id": "phase3-baseline-s43",
+    "checkpoint_step": 128,
+    "checkpoint": {
+      "engine_version": 3,
+      "step": 128,
+      "directory": "step-0000128",
+      "config": {
+        "vocab_size": 1024,
+        "dim": 128,
+        "layers": 4,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": true,
+        "init_std": 0.02
+      },
+      "dataset_version": "61dc5275e032044ce49c22d82e75d46b750e4bdc25ec32f52bd67a3bfbbb8caf",
+      "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+      "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+      "files": {
+        "model.safetensors": "ac24524bca0c969480a38be2310d9722f1ea5d5e57641736062303fd316c49a4",
+        "resume.pt": "307e591821b407f25944c1a9fff87734f0956144c4083fc654743b9bc880ba7e"
+      }
+    },
+    "criterion": "Minimum validation mean across two seeds at common 131072 tokens, then minimum validation seed within winning shape. No test loss used.",
+    "groups": [
+      {
+        "dim": 64,
+        "parameters": 172352,
+        "seeds": [
+          42,
+          43
+        ],
+        "validation_mean": 5.270268083470885,
+        "validation_sample_std": 0.013379518376523765
+      },
+      {
+        "dim": 128,
+        "parameters": 984192,
+        "seeds": [
+          42,
+          43
+        ],
+        "validation_mean": 5.0695637851156565,
+        "validation_sample_std": 0.09384944726502205
+      },
+      {
+        "dim": 192,
+        "parameters": 2115264,
+        "seeds": [
+          42,
+          43
+        ],
+        "validation_mean": 5.151598856882788,
+        "validation_sample_std": 0.0660653734462779
+      }
+    ],
+    "token_budget": 131072,
+    "planned_but_unrun": [
+      "phase3-base-data-s42"
+    ],
+    "reason": "240-second matrix limit interrupted final wider run; all six common step-128 checkpoints are available. Full-run timings cover different completion lengths and are not presented as matched-budget wall times."
+  },
+  "selected_test": {
+    "loss": 4.87353038685053,
+    "perplexity": 130.78181324031158,
+    "tokens": 4639,
+    "perplexity_capped": false
+  },
+  "data_quality": {
+    "input_train_documents": 1424,
+    "accepted_train_documents": 1406,
+    "rejected": {
+      "exact_duplicate": 18
+    },
+    "split_documents": {
+      "train": 1406,
+      "validation": 48,
+      "test": 60
+    },
+    "split_sources": {
+      "train": [
+        "appetite",
+        "classes",
+        "datastructures",
+        "errors",
+        "floatingpoint",
+        "inputoutput",
+        "interpreter",
+        "introduction",
+        "library-collections",
+        "library-functools",
+        "library-itertools",
+        "library-json",
+        "library-math",
+        "library-string",
+        "modules",
+        "stdlib2",
+        "venv"
+      ],
+      "validation": [
+        "stdlib"
+      ],
+      "test": [
+        "library-copy",
+        "library-textwrap"
+      ]
+    },
+    "train_heldout_exact_overlap": 0,
+    "train_heldout_12word_overlap": 0,
+    "near_duplicate_threshold": 0.85,
+    "chars": {
+      "train": 353802,
+      "validation": 8875,
+      "test": 11772
+    }
+  },
+  "contamination": {
+    "train_validation": {
+      "exact_docs": 0,
+      "source_groups": 0,
+      "shared_12word_shingles": 0
+    },
+    "train_test": {
+      "exact_docs": 0,
+      "source_groups": 0,
+      "shared_12word_shingles": 0
+    },
+    "validation_test": {
+      "exact_docs": 0,
+      "source_groups": 0,
+      "shared_12word_shingles": 0
+    }
+  },
+  "limitation": "Two seeds and narrow technical source holdouts do not establish generalization to open-domain language or instruction following."
+}

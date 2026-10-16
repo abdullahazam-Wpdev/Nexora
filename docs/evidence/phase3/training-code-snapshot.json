@@ -1,0 +1,10 @@
+{
+  "code_sha256": "6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+  "directory": "artifacts/code-snapshots/6a99ca4dfdfb9a8227970590eb0ae3d483d16a2b77a63c61b36a136ccbca0c99",
+  "files": {
+    "model.py": "a961cfe3782bb33de65165813878fa8e98b7d05ebc9b04f460b0ab7be205767d",
+    "research.py": "c8391b640ed2427ad1a435428c8ff6ddd707eeb021ab854152be5c9dc7288704",
+    "data_engine.py": "d2a05d71ed7e800c6816edcbc50d602c40f5f40e9be6ddee11a949912cb45bde"
+  },
+  "reason": "Retain exact training source before final input-validation repair; original run hashes remain immutable."
+}

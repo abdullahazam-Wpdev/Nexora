@@ -48,7 +48,9 @@ def status(store, run_id):
             "Worker exited before acquiring the training lock. See job.log."
         )
     result["running"] = live and result["status"] in {"running", "queued"}
-    result["resumable"] = (folder / "latest.json").exists()
+    result["resumable"] = (folder / "latest.json").exists() or bool(
+        result.get("migration")
+    )
     return result
 
 
@@ -71,6 +73,17 @@ def launch(store, run_id, *, resume=False, steps=None):
         with lock(store / ".training.lock"):
             pass
         state = status(store, run_id)
+        if resume:
+            from nexora.research import ENGINE_VERSION, code_identity
+
+            if state["engine_version"] != ENGINE_VERSION:
+                raise ValueError(
+                    "Checkpoint needs explicit v2-to-v3 migration; use scripts/migrate_checkpoint.py"
+                )
+            if state["code_sha256"] != code_identity():
+                raise ValueError(
+                    "Training implementation changed; create a new run or an explicitly verified migration"
+                )
         if resume and not state["resumable"]:
             raise ValueError("No resumable checkpoint")
         if not resume and state["status"] != "queued":

@@ -1,0 +1,278 @@
+{
+  "token_budget": 262144,
+  "estimated_matrix_seconds": 225.06936243223026,
+  "max_matrix_seconds": 240,
+  "feasibility": [
+    {
+      "candidate": "compact",
+      "architecture": {
+        "dim": 64,
+        "layers": 2,
+        "heads": 4,
+        "context": 128
+      },
+      "parameters": 172352,
+      "training_step_seconds": 0.03186829000060243,
+      "training_tokens_per_second": 32132.254350033923,
+      "seconds_per_million_training_tokens": 31.12137695371331,
+      "inference_tokens_per_second": 982.1865430335658,
+      "resources": {
+        "wall_seconds": 1.582655975000307,
+        "peak_rss_mb": 342.96875,
+        "cpu_seconds": 1.94,
+        "cpu_percent_one_core": 122.57875562625817,
+        "max_cpu_temperature_c": 45.0,
+        "monitor_samples": 15,
+        "temperature_sensor_reads": 3
+      },
+      "warning": "Synthetic-batch computational feasibility probe; no quality score or trained checkpoint."
+    },
+    {
+      "candidate": "baseline",
+      "architecture": {
+        "dim": 128,
+        "layers": 4,
+        "heads": 4,
+        "context": 128
+      },
+      "parameters": 984192,
+      "training_step_seconds": 0.09760142699997232,
+      "training_tokens_per_second": 10491.649881310552,
+      "seconds_per_million_training_tokens": 95.31389355466047,
+      "inference_tokens_per_second": 363.8092350343355,
+      "resources": {
+        "wall_seconds": 2.637668201999986,
+        "peak_rss_mb": 381.59765625,
+        "cpu_seconds": 3.87,
+        "cpu_percent_one_core": 146.72050097376197,
+        "max_cpu_temperature_c": 46.0,
+        "monitor_samples": 15,
+        "temperature_sensor_reads": 6
+      },
+      "warning": "Synthetic-batch computational feasibility probe; no quality score or trained checkpoint."
+    },
+    {
+      "candidate": "wider",
+      "architecture": {
+        "dim": 192,
+        "layers": 4,
+        "heads": 6,
+        "context": 128
+      },
+      "parameters": 2115264,
+      "training_step_seconds": 0.15194316799988883,
+      "training_tokens_per_second": 6739.361917218609,
+      "seconds_per_million_training_tokens": 148.38199999989143,
+      "inference_tokens_per_second": 261.1488546952223,
+      "resources": {
+        "wall_seconds": 3.5265080999997735,
+        "peak_rss_mb": 423.1171875,
+        "cpu_seconds": 5.3999999999999995,
+        "cpu_percent_one_core": 153.125977507335,
+        "max_cpu_temperature_c": 48.0,
+        "monitor_samples": 15,
+        "temperature_sensor_reads": 8
+      },
+      "warning": "Synthetic-batch computational feasibility probe; no quality score or trained checkpoint."
+    }
+  ],
+  "runs": [
+    {
+      "id": "phase3-compact-s42",
+      "dataset_id": "phase3-expanded-61dc5275e032",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 42,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 64,
+          "layers": 2,
+          "heads": 4,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    },
+    {
+      "id": "phase3-compact-s43",
+      "dataset_id": "phase3-expanded-61dc5275e032",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 43,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 64,
+          "layers": 2,
+          "heads": 4,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    },
+    {
+      "id": "phase3-baseline-s42",
+      "dataset_id": "phase3-expanded-61dc5275e032",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 42,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    },
+    {
+      "id": "phase3-baseline-s43",
+      "dataset_id": "phase3-expanded-61dc5275e032",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 43,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    },
+    {
+      "id": "phase3-wider-s42",
+      "dataset_id": "phase3-expanded-61dc5275e032",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 42,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 192,
+          "layers": 4,
+          "heads": 6,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    },
+    {
+      "id": "phase3-wider-s43",
+      "dataset_id": "phase3-expanded-61dc5275e032",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 43,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 192,
+          "layers": 4,
+          "heads": 6,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    },
+    {
+      "id": "phase3-base-data-s42",
+      "dataset_id": "phase3-base-ddaa35f3eeb5",
+      "profile": "tiny",
+      "training": {
+        "steps": 256,
+        "schedule_steps": 256,
+        "warmup_steps": 16,
+        "batch_size": 4,
+        "accumulation": 2,
+        "learning_rate": 0.002,
+        "seed": 42,
+        "eval_every": 64,
+        "checkpoint_every": 64,
+        "architecture": {
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128
+        },
+        "tokenizer_run": "phase2-small-language",
+        "evaluate_test": false,
+        "max_seconds": 90,
+        "max_rss_mb": 800,
+        "min_available_mb": 500,
+        "max_temperature": 85
+      }
+    }
+  ],
+  "policy": "All runs share context 128, frozen tokenizer and held-out suite. Select using validation mean across seeds; evaluate only selected winner on held-out test after selection."
+}

@@ -1,5 +1,7 @@
 # NEXORA AI OS
 
+Current research: [Phase 3 scaling report](docs/phase-3-scaling-report.md), [operations and commands](docs/phase-3-operations.md), [GPU purchase decision](docs/gpu-workstation-decision.md). The measured ~1M model remains the research baseline; larger did not win at the matched token budget.
+
 Working local independent-model research platform: PyTorch foundation-model architecture, approved/versioned datasets, bounded experiment workers, full held-out evaluation, verified checkpoints and FastAPI control plane. The existing Next.js dashboard remains the local inspection/playground UI. No commercial model API or pretrained weights are required.
 
 **Current models are small research language models, not reliable conversational assistants or coding agents.** See the [measured model comparison](docs/model-evaluation-report.md).
@@ -56,7 +58,7 @@ Working API flow:
 .venv/bin/python -m scripts.research_qa
 ```
 
-`python -m scripts.experiment_matrix` runs four bounded sequential experiments (120 seconds maximum per run). Named runs cannot be overwritten; choose new IDs for a new matrix or inspect retained results. `scripts/verify_baseline.py` is the historical baseline-audit runner and is not a generic current matrix test.
+Phase 3 experiment configuration and exact commands are in [research operations](docs/phase-3-operations.md). The current matrix's persistent execution ledger is exhausted; rerunning it cannot renew its budget. Create a separately reviewed, explicitly bounded plan for new work. `scripts/experiment_matrix.py` and `verify_baseline.py` are historical Phase 2 tools, not current matrix launchers. All trained artifacts and the frozen tokenizer must be retained/copied for exact checkpoint reproduction.
 
 ## Local infrastructure
 

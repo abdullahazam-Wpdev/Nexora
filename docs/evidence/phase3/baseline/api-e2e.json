@@ -1,0 +1,585 @@
+{
+  "checks": [
+    "real worker launch",
+    "duplicate-job rejection",
+    "API restart with durable worker state",
+    "checkpoint resume 6 to 8",
+    "checkpoint verification",
+    "per-run inference",
+    "selected-model inference",
+    "cooperative cancellation"
+  ],
+  "run_id": "20261016-115816-16400a91",
+  "after_api_restart": "running",
+  "steps_after_resume": 8,
+  "generation": {
+    "text": "Python is is is is is is is is is",
+    "new_tokens": 8,
+    "model": "20261016-115816-16400a91",
+    "checkpoint_step": 8,
+    "warning": "Research checkpoint; not instruction-tuned."
+  },
+  "cancel_status": "stopped",
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/research/runs",
+      "status": 202
+    },
+    {
+      "method": "POST",
+      "path": "/api/research/runs",
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/research/runs/20261016-115816-16400a91/resume",
+      "status": 202
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115816-16400a91/checkpoint",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/research/runs/20261016-115816-16400a91/generate",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/research/runs/20261016-115816-16400a91/select",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/generate",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/research/runs",
+      "status": 202
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/research/runs/20261016-115855-84ec67cc/cancel",
+      "status": 202
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/research/runs/20261016-115855-84ec67cc",
+      "status": 200
+    }
+  ]
+}

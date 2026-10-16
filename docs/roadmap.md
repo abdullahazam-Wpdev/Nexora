@@ -1,22 +1,22 @@
-# Delivery roadmap — Phase 1.5 / Phase 2 update
+# Research roadmap — Phase 3 update
 
-Completed and independently reverified this cycle:
+Verified and delivered:
 
-- Original commit/checkpoint inspection; all original checks rerun with exact command/exit evidence.
-- Preserved Core architecture with tested optional scaled initialization and weight tying; optimizer decay groups.
-- Reviewed small human-authored language dataset; bounded hash-pinned download; source-level splits; quality/privacy filtering; immutable data versions; mapped token shards.
-- Unique runs, per-step checkpoint versions, atomic publication and integrity checks; exact CPU checkpoint/optimizer/sampler/scheduler resume regression.
-- Per-step resource budgets and nonfinite checks; durable subprocess jobs; API-restart survival, resume, cancellation and per-run inference tested end to end.
-- Four real CPU experiments; full held-out token-weighted validation/test loss and perplexity, throughput/memory/temperature measurements, generation and contamination evidence.
-- Rootless host Podman discovered; project-local Compose; PostgreSQL/Redis health and restart-persistence verification; localhost-only ports.
-- RAM compatibility investigation and allocation-free future GPU sizing calculator/design. No driver/system package changes or purchases.
+- Independently reproduced the Phase 2 984,192-parameter model's loss/perplexity exactly before changes; original 19 tests and integration checks rerun.
+- Small approved PSF corpus expansion, source provenance/hashes/notices, indexed exact/near deduplication, 12-word contamination exclusion and immutable held-out suite/tokenizer.
+- Measured CPU training/inference/resource/checkpoint costs; reduced monitor/evaluation overhead with tested likelihood equivalence.
+- Configurable bounded architecture framework with hardware feasibility probes and matched-token two-seed comparison across 172K/984K/2.12M models.
+- Matrix safety cutoff exercised; all six common step-128 checkpoints compared fairly. Dataset-size ablation remains unexecuted. Persistent retry-safe deadline added and tested after the controller retry limitation was identified.
+- Generation/prefix-overlap/repetition and strict instruction probes; no demonstrated instruction-following capability.
+- Actual interrupted-worker and SIGKILL recovery, integrity checks, cancellation and API-restart persistence; explicit tested v2/v3 checkpoint forks preserve parents.
+- CPU scaling extrapolations and source-backed GPU workstation decision report. No GPU purchased or provisioned.
 
 Next model milestone:
 
-1. Matched-token/compute comparisons and multiple seeds; broader licensed source corpus with untouched final test sources.
-2. Better document/code extraction, genuine language identification, scalable near-dedup and stronger rights/privacy review.
-3. Full resumable run forking/config migration, worker supervisor recovery and more efficient evaluation/resource polling.
-4. Human-reviewed instruction data and executable task benchmarks before claiming conversational/coding ability.
-5. GPU backend/RNG/scaler checkpoints and DDP smoke tests only after supported hardware and approval.
+1. Use the ~1M model as baseline and run a truly matched-token data-size/domain-diversity ablation under a fresh explicitly bounded plan; do not widen merely to increase parameter count.
+2. Expand human-authored licensed language diversity only with rights/quality/size review and an untouched new final test suite. Current few-hundred-kilobyte technical corpus is not sufficient for a capable assistant.
+3. Repeat more seeds on AC power and base budgets on sustained training rates, with persistent transaction deadlines and interruption evidence.
+4. Add human-reviewed instruction data, executable task tests and meaningful generalization evaluation before claiming assistant/coding/reasoning ability.
+5. Validate a representative GPU benchmark and complete-system cost quote before purchasing hardware or approving any multi-hour job. GPU precision/RNG/scaler/DDP support remains future implementation work.
 
-Platform work still pending: role-based identity/authentication, PostgreSQL/Redis application adapters, durable multi-host task queues, coding/browser agents, specialist business/creative/authorized security modules, event-driven workforce/virtual office, multimodal research and production deployment. None is represented as a completed AI capability. No dashboard redesign was part of this cycle.
+Still outside the delivered scope: reliable assistant/agents, arbitrary code/browser execution, specialist business/creative/authorized-security products, workforce/virtual office, multimodal models, multi-user authentication and public production deployment. PostgreSQL/Redis remain verified local services; SQLite still backs current project records. No dashboard redesign was undertaken.

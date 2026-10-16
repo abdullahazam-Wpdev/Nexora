@@ -1,0 +1,55 @@
+{
+  "parameters": 984192,
+  "validation": {
+    "loss": 4.403331741442086,
+    "perplexity": 81.72269447480075,
+    "tokens": 3777,
+    "perplexity_capped": false
+  },
+  "test": {
+    "loss": 4.1786155273320755,
+    "perplexity": 65.27541859339495,
+    "tokens": 12809,
+    "perplexity_capped": false
+  },
+  "stored_validation": {
+    "loss": 4.403331741442086,
+    "perplexity": 81.72269447480075,
+    "tokens": 3777,
+    "perplexity_capped": false
+  },
+  "stored_test": {
+    "loss": 4.1786155273320755,
+    "perplexity": 65.27541859339495,
+    "tokens": 12809,
+    "perplexity_capped": false
+  },
+  "perplexity_formula": "exp(token-weighted mean natural-log cross entropy)",
+  "math_check": 65.27541859339495,
+  "absolute_validation_difference": 0.0,
+  "absolute_test_difference": 0.0,
+  "checkpoint": {
+    "engine_version": 2,
+    "step": 400,
+    "directory": "step-0000400",
+    "config": {
+      "vocab_size": 1024,
+      "dim": 128,
+      "layers": 4,
+      "heads": 4,
+      "context": 128,
+      "tie_embeddings": true,
+      "init_std": 0.02
+    },
+    "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+    "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+    "code_sha256": "a85596d81dd6bcae3622aba6f0006807737f7a7e0930c64185d39dc43e753521",
+    "files": {
+      "model.safetensors": "0b10d349fe2a8517544cd31cee03140eba7aa730fd1087ae01f0b02b1b56ee84",
+      "resume.pt": "ae4aae0ad0ce1bd422d7825d7a514e37a51446faa7c3c7791ee80c80e6d2d2ac"
+    }
+  },
+  "dataset_id": "python-tutorial-bd831076dc61",
+  "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+  "code_hash_matches": true
+}

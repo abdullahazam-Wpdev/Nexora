@@ -1,0 +1,154 @@
+{
+  "run_id": "phase3-baseline-s43",
+  "checkpoint_step": 128,
+  "decoding": "Deterministic greedy, no KV cache; fixed prompt/count protocol",
+  "free_generation": [
+    {
+      "prompt": "Python is",
+      "continuation": " a\nregged.[EOS]The the\nrevertween the\nreggggggggggggggggggggggggggggg",
+      "diagnostics": {
+        "words": 6,
+        "distinct_1": 0.8333333333333334,
+        "distinct_2": 1.0,
+        "repeated_trigram_fraction": 0.0,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    },
+    {
+      "prompt": "The function returns",
+      "continuation": " the\nreged.[EOS]The the\nrevertween the\nregggggggggggggggggggggggggggggg",
+      "diagnostics": {
+        "words": 6,
+        "distinct_1": 0.6666666666666666,
+        "distinct_2": 1.0,
+        "repeated_trigram_fraction": 0.0,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    },
+    {
+      "prompt": "A dictionary contains",
+      "continuation": " the\nthe\nthe\nthe\nconly the\nthe\nconly the\nthe\nconly the\nregggggggggggggggggggg",
+      "diagnostics": {
+        "words": 13,
+        "distinct_1": 0.23076923076923078,
+        "distinct_2": 0.3333333333333333,
+        "repeated_trigram_fraction": 0.5454545454545454,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    }
+  ],
+  "prefix_completion": [
+    {
+      "split": "train",
+      "source_id": "appetite",
+      "prefix": "Python is simple to use, but it is a real",
+      "generated": "sents.[EOS]The the\nreggggggggggggged the\nreggged.[EOS]",
+      "expected_next_10_words": "programming language, offering much more structure and support for large",
+      "exact_prefix_match": false,
+      "diagnostics": {
+        "words": 5,
+        "distinct_1": 0.8,
+        "distinct_2": 1.0,
+        "repeated_trigram_fraction": 0.0,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    },
+    {
+      "split": "train",
+      "source_id": "appetite",
+      "prefix": "Python is an interpreted language, which can save you considerable",
+      "generated": "s.[EOS]The the\nregged the\nregged the\nreged.[EOS]The the\nreggggg",
+      "expected_next_10_words": "time during program development because no compilation and linking is",
+      "exact_prefix_match": false,
+      "diagnostics": {
+        "words": 9,
+        "distinct_1": 0.5555555555555556,
+        "distinct_2": 0.75,
+        "repeated_trigram_fraction": 0.14285714285714285,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    },
+    {
+      "split": "validation",
+      "source_id": "stdlib",
+      "prefix": "Be sure to use the ``import os`` style instead of",
+      "generated": " the\nthe\nthe\nthe\nconly the\nthe\nintween the\nthe\nintween the\nregg",
+      "expected_next_10_words": "``from os import *``. This will keep os.open from shadowing",
+      "exact_prefix_match": false,
+      "diagnostics": {
+        "words": 13,
+        "distinct_1": 0.3076923076923077,
+        "distinct_2": 0.5,
+        "repeated_trigram_fraction": 0.2727272727272727,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    },
+    {
+      "split": "validation",
+      "source_id": "stdlib",
+      "prefix": "For daily file and directory management tasks, the shutil module",
+      "generated": ".[EOS]The the\nreggggggged the\nreggged.[EOS]The the\nreggggg",
+      "expected_next_10_words": "provides a higher level interface that is easier to use::",
+      "exact_prefix_match": false,
+      "diagnostics": {
+        "words": 7,
+        "distinct_1": 0.7142857142857143,
+        "distinct_2": 1.0,
+        "repeated_trigram_fraction": 0.0,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    },
+    {
+      "split": "validation",
+      "source_id": "stdlib",
+      "prefix": "Some Python users develop a deep interest in knowing the",
+      "generated": "\nintween the\nintween the\nintween the\nrents.[EOS]The the\nrents the\n",
+      "expected_next_10_words": "relative performance of different approaches to the same problem. Python",
+      "exact_prefix_match": false,
+      "diagnostics": {
+        "words": 10,
+        "distinct_1": 0.4,
+        "distinct_2": 0.6666666666666666,
+        "repeated_trigram_fraction": 0.25,
+        "longest_exact_training_word_span_capped_32": 0,
+        "exact_continuation_in_train": false
+      }
+    }
+  ],
+  "instruction_probes": [
+    {
+      "prompt": "Respond with exactly the word pear:\n",
+      "expected": "pear",
+      "generated": "reggggggggggggggg",
+      "strict_success": false
+    },
+    {
+      "prompt": "What is 2 + 3? Answer with one digit only:\n",
+      "expected": "5",
+      "generated": "reggggggggggggggg",
+      "strict_success": false
+    },
+    {
+      "prompt": "Return exactly this JSON object: {\"ok\":true}\n",
+      "expected": "{\"ok\":true}",
+      "generated": "reggggggggggggggg",
+      "strict_success": false
+    },
+    {
+      "prompt": "Repeat exactly: quartz\n",
+      "expected": "quartz",
+      "generated": "reggggggggggggggg",
+      "strict_success": false
+    }
+  ],
+  "strict_instruction_successes": 0,
+  "instruction_probe_count": 4,
+  "limitation": "Four local formatting/arithmetic probes are not a reasoning benchmark. Exact-span overlap cannot establish or rule out semantic memorization. Diagnostic outputs are never ingested as training data."
+}

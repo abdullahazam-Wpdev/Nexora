@@ -1,0 +1,13 @@
+{
+  "name": "pip-check",
+  "command": [
+    "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+    "-m",
+    "pip",
+    "check"
+  ],
+  "exit_code": 0,
+  "stdout": "No broken requirements found.\n",
+  "stderr": "",
+  "seconds": 0.4318589529993915
+}

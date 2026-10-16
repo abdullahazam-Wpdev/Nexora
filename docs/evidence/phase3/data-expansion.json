@@ -1,0 +1,194 @@
+{
+  "base_dataset": "phase3-base-ddaa35f3eeb5",
+  "expanded_dataset": "phase3-expanded-61dc5275e032",
+  "suite": {
+    "id": "python-sources-phase3-v1",
+    "version": "c8102ed5ebe02a91fa6c5cfd72e97e925700cd90658b29724569d0e4312642b0",
+    "files": {
+      "validation.jsonl": "4f2be48c67cfb87161e9f183015a3bf6cd08b203ccca059dce20142660814759",
+      "test.jsonl": "50a1a824936ccc3c36a0f38aa486f9ccbda4c43e873c1170b404c371f1c817b3"
+    },
+    "sources": {
+      "stdlib": "f0f425a1346f45d5510b531295ac54c5f3c46e560712a51df7e7fafa833d0947",
+      "library-copy": "935088f74e08fa47f652f9d803ab512ca5a961de655739eaa21919a6623ecfba",
+      "library-textwrap": "142a4f6f32eb18030b42583e996fa878b681ece03b049845173d847708d0407d"
+    },
+    "license": "PSF-2.0",
+    "counts": {
+      "validation": 48,
+      "test": 60
+    },
+    "policy": "Freeze before experiments; final test is evaluated only after validation-based candidate selection. Do not tune on test samples."
+  },
+  "base_quality": {
+    "input_train_documents": 642,
+    "accepted_train_documents": 642,
+    "rejected": {},
+    "split_documents": {
+      "train": 642,
+      "validation": 48,
+      "test": 60
+    },
+    "split_sources": {
+      "train": [
+        "appetite",
+        "classes",
+        "datastructures",
+        "errors",
+        "floatingpoint",
+        "inputoutput",
+        "interpreter",
+        "introduction",
+        "modules",
+        "stdlib2",
+        "venv"
+      ],
+      "validation": [
+        "stdlib"
+      ],
+      "test": [
+        "library-copy",
+        "library-textwrap"
+      ]
+    },
+    "train_heldout_exact_overlap": 0,
+    "train_heldout_12word_overlap": 0,
+    "near_duplicate_threshold": 0.85,
+    "chars": {
+      "train": 166170,
+      "validation": 8875,
+      "test": 11772
+    }
+  },
+  "expanded_quality": {
+    "input_train_documents": 1424,
+    "accepted_train_documents": 1406,
+    "rejected": {
+      "exact_duplicate": 18
+    },
+    "split_documents": {
+      "train": 1406,
+      "validation": 48,
+      "test": 60
+    },
+    "split_sources": {
+      "train": [
+        "appetite",
+        "classes",
+        "datastructures",
+        "errors",
+        "floatingpoint",
+        "inputoutput",
+        "interpreter",
+        "introduction",
+        "library-collections",
+        "library-functools",
+        "library-itertools",
+        "library-json",
+        "library-math",
+        "library-string",
+        "modules",
+        "stdlib2",
+        "venv"
+      ],
+      "validation": [
+        "stdlib"
+      ],
+      "test": [
+        "library-copy",
+        "library-textwrap"
+      ]
+    },
+    "train_heldout_exact_overlap": 0,
+    "train_heldout_12word_overlap": 0,
+    "near_duplicate_threshold": 0.85,
+    "chars": {
+      "train": 353802,
+      "validation": 8875,
+      "test": 11772
+    }
+  },
+  "acquisition_sources": [
+    {
+      "id": "python-license",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/LICENSE",
+      "max_bytes": 20000,
+      "role": "license",
+      "sha256": "78b12c3a81360b357002334f0e70ea0e92eebf7a9b358805c03c48484945f3bb",
+      "bytes": 13809
+    },
+    {
+      "id": "stdlib",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/stdlib.rst",
+      "max_bytes": 120000,
+      "sha256": "f0f425a1346f45d5510b531295ac54c5f3c46e560712a51df7e7fafa833d0947",
+      "split": "validation",
+      "bytes": 11436
+    },
+    {
+      "id": "library-string",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/string.rst",
+      "max_bytes": 150000,
+      "split": "train",
+      "sha256": "ecb8a255ad4e0ddfc9daffc6ee61e0a50851914ddaace3af50c7e37f44e5bdff",
+      "bytes": 40875
+    },
+    {
+      "id": "library-json",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/json.rst",
+      "max_bytes": 150000,
+      "split": "train",
+      "sha256": "6533f6d5be67f903194ba4b92335d079552edb69c4c8fd45d6215de60358dd8e",
+      "bytes": 29219
+    },
+    {
+      "id": "library-math",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/math.rst",
+      "max_bytes": 150000,
+      "split": "train",
+      "sha256": "4c58053ce718e9719cc5f20b062dcb068735ed526ccfaeb88843b891e129fb3b",
+      "bytes": 22979
+    },
+    {
+      "id": "library-itertools",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/itertools.rst",
+      "max_bytes": 150000,
+      "split": "train",
+      "sha256": "4daebb6755c23ae2a6791f508028836f2b5c2589287cc954c17dc498a9dc2eeb",
+      "bytes": 64405
+    },
+    {
+      "id": "library-collections",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/collections.rst",
+      "max_bytes": 150000,
+      "split": "train",
+      "sha256": "cce0d2738e494bd96d046392e5524a63f615405c7768cbc1bd1700bc178a454b",
+      "bytes": 53762
+    },
+    {
+      "id": "library-functools",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/functools.rst",
+      "max_bytes": 150000,
+      "split": "train",
+      "sha256": "a3f0dffd4973d3c0902107dbb67ead54af934a1d43ba5552e590c69f233f817a",
+      "bytes": 30009
+    },
+    {
+      "id": "library-copy",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/copy.rst",
+      "max_bytes": 150000,
+      "split": "test",
+      "sha256": "935088f74e08fa47f652f9d803ab512ca5a961de655739eaa21919a6623ecfba",
+      "bytes": 4309
+    },
+    {
+      "id": "library-textwrap",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/library/textwrap.rst",
+      "max_bytes": 150000,
+      "split": "test",
+      "sha256": "142a4f6f32eb18030b42583e996fa878b681ece03b049845173d847708d0407d",
+      "bytes": 11436
+    }
+  ],
+  "bytes": 282239
+}

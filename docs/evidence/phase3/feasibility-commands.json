@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+      "-m",
+      "nexora.scaling_experiments",
+      "probe",
+      "compact"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"candidate\": \"compact\",\n  \"architecture\": {\n    \"dim\": 64,\n    \"layers\": 2,\n    \"heads\": 4,\n    \"context\": 128\n  },\n  \"parameters\": 172352,\n  \"training_step_seconds\": 0.03186829000060243,\n  \"training_tokens_per_second\": 32132.254350033923,\n  \"seconds_per_million_training_tokens\": 31.12137695371331,\n  \"inference_tokens_per_second\": 982.1865430335658,\n  \"resources\": {\n    \"wall_seconds\": 1.582655975000307,\n    \"peak_rss_mb\": 342.96875,\n    \"cpu_seconds\": 1.94,\n    \"cpu_percent_one_core\": 122.57875562625817,\n    \"max_cpu_temperature_c\": 45.0,\n    \"monitor_samples\": 15,\n    \"temperature_sensor_reads\": 3\n  },\n  \"warning\": \"Synthetic-batch computational feasibility probe; no quality score or trained checkpoint.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+      "-m",
+      "nexora.scaling_experiments",
+      "probe",
+      "baseline"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"candidate\": \"baseline\",\n  \"architecture\": {\n    \"dim\": 128,\n    \"layers\": 4,\n    \"heads\": 4,\n    \"context\": 128\n  },\n  \"parameters\": 984192,\n  \"training_step_seconds\": 0.09760142699997232,\n  \"training_tokens_per_second\": 10491.649881310552,\n  \"seconds_per_million_training_tokens\": 95.31389355466047,\n  \"inference_tokens_per_second\": 363.8092350343355,\n  \"resources\": {\n    \"wall_seconds\": 2.637668201999986,\n    \"peak_rss_mb\": 381.59765625,\n    \"cpu_seconds\": 3.87,\n    \"cpu_percent_one_core\": 146.72050097376197,\n    \"max_cpu_temperature_c\": 46.0,\n    \"monitor_samples\": 15,\n    \"temperature_sensor_reads\": 6\n  },\n  \"warning\": \"Synthetic-batch computational feasibility probe; no quality score or trained checkpoint.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+      "-m",
+      "nexora.scaling_experiments",
+      "probe",
+      "wider"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"candidate\": \"wider\",\n  \"architecture\": {\n    \"dim\": 192,\n    \"layers\": 4,\n    \"heads\": 6,\n    \"context\": 128\n  },\n  \"parameters\": 2115264,\n  \"training_step_seconds\": 0.15194316799988883,\n  \"training_tokens_per_second\": 6739.361917218609,\n  \"seconds_per_million_training_tokens\": 148.38199999989143,\n  \"inference_tokens_per_second\": 261.1488546952223,\n  \"resources\": {\n    \"wall_seconds\": 3.5265080999997735,\n    \"peak_rss_mb\": 423.1171875,\n    \"cpu_seconds\": 5.3999999999999995,\n    \"cpu_percent_one_core\": 153.125977507335,\n    \"max_cpu_temperature_c\": 48.0,\n    \"monitor_samples\": 15,\n    \"temperature_sensor_reads\": 8\n  },\n  \"warning\": \"Synthetic-batch computational feasibility probe; no quality score or trained checkpoint.\"\n}\n",
+    "stderr": ""
+  }
+]

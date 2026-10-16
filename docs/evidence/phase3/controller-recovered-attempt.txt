@@ -1,0 +1,19 @@
+phase3-compact-s43 completed {'loss': 4.921777274263325, 'perplexity': 137.24632090847453, 'tokens': 3777, 'perplexity_capped': False}
+phase3-baseline-s42 completed {'loss': 4.707217244013674, 'perplexity': 110.74355842338221, 'tokens': 3777, 'perplexity_capped': False}
+phase3-baseline-s43 completed {'loss': 4.597684581979798, 'perplexity': 99.25423433476325, 'tokens': 3777, 'perplexity_capped': False}
+phase3-wider-s42 completed {'loss': 4.823820942824941, 'perplexity': 124.43966037825608, 'tokens': 3777, 'perplexity_capped': False}
+phase3-wider-s43 running None
+{"step": 64, "train_loss": 5.570251941680908, "lr": 0.0018349773996455114, "gradient_norm": 0.838233232498169, "validation": {"loss": 5.599516262855358, "perplexity": 270.2956237629968, "tokens": 3777, "perplexity_capped": false}}
+{"step": 128, "train_loss": 4.866410493850708, "lr": 0.001205783657712054, "gradient_norm": 1.0355730056762695, "validation": {"loss": 5.104883583317303, "perplexity": 164.82488104879732, "tokens": 3777, "perplexity_capped": false}}
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/abdullah/Downloads/nexora-ai-os/nexora/scaling_experiments.py", line 263, in <module>
+    execute_plan()
+    ~~~~~~~~~~~~^^
+  File "/home/abdullah/Downloads/nexora-ai-os/nexora/scaling_experiments.py", line 242, in execute_plan
+    raise RuntimeError(
+        "Matrix time budget reached; worker interrupted and latest checkpoint retained"
+    )
+RuntimeError: Matrix time budget reached; worker interrupted and latest checkpoint retained

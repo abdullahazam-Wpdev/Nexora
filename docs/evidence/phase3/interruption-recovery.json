@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+    "-m",
+    "nexora.research",
+    "train",
+    "interruption-505f281a"
+  ],
+  "killed_only_owned_worker_pid": 8250,
+  "exit_code": -9,
+  "checkpoint_step_observed_before_kill": 2,
+  "last_verified_step_after_kill": 2,
+  "status_after_kill": "interrupted",
+  "recovered_step": 4,
+  "original_checkpoint_unchanged": true,
+  "new_checkpoint": "runs/interruption-505f281a/checkpoints/step-0000004/model.safetensors",
+  "note": "Actual SIGKILL interruption; exact next-update equivalence is separately covered by unit tests. Orphan staging files, if any, are retained for inspection."
+}
