@@ -1,0 +1,43 @@
+{
+  "input_documents": 1298,
+  "accepted_documents": 835,
+  "rejected": {
+    "quality": 437,
+    "sensitive_pattern": 26
+  },
+  "split_documents": {
+    "train": 642,
+    "validation": 48,
+    "test": 145
+  },
+  "split_sources": {
+    "train": [
+      "appetite",
+      "classes",
+      "datastructures",
+      "errors",
+      "floatingpoint",
+      "inputoutput",
+      "interpreter",
+      "introduction",
+      "modules",
+      "stdlib2",
+      "venv"
+    ],
+    "validation": [
+      "stdlib"
+    ],
+    "test": [
+      "controlflow"
+    ]
+  },
+  "exact_document_overlap": 0,
+  "near_duplicate_jaccard_threshold": 0.85,
+  "language_detection": "Unicode script heuristic, not a language classifier",
+  "private_data_filter": "Conservative pattern filter, not comprehensive DLP",
+  "chars": {
+    "train": 166170,
+    "validation": 8875,
+    "test": 33982
+  }
+}

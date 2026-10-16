@@ -1,0 +1,12 @@
+{
+  "name": "browser",
+  "command": [
+    "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+    "-c",
+    "s=open('scripts/browser_qa.py').read().replace('Path(\"docs/evidence\")','Path(\"docs/evidence/phase2/final/browser\")');exec(compile(s,'scripts/browser_qa.py','exec'))"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"navigation_sections_checked\": 9,\n  \"inference_output\": \"2 + 3 = []\\n   >>> for i in range(x, x)]\\n   >>> f.pop()\\n   >>> f.pop()\\n   >>> for\",\n  \"themes_checked\": 2,\n  \"viewports\": [\n    1440,\n    390\n  ],\n  \"horizontal_overflow\": false,\n  \"page_errors\": []\n}\n",
+  "stderr": "",
+  "seconds": 3.3012921379995532
+}

@@ -1,3 +1,7 @@
+# Phase 2 research architecture update
+
+Current research code is documented in [research operations](research-operations.md). The bootstrap notes below describe the original commit; several original limitations are repaired by the versioned engine.
+
 # Architecture and shared contracts
 
 This is a local research bootstrap, not the entire proposed AI ecosystem.

@@ -1,0 +1,28 @@
+{
+  "parameters": 143808,
+  "checkpoint_step": 170,
+  "optimizer_state_entries": 17,
+  "optimizer_lr": 0.0023462439102997987,
+  "tensor_count": 19,
+  "tensor_equality": true,
+  "checkpoint_sha256": "e3c466eb5cff384cda66a94f92269f56d269de37e4fe8c6c2cc0d00ae02630ef",
+  "source_split_counts": {
+    "train": 102,
+    "validation": 13,
+    "test": 13
+  },
+  "exact_split_intersections": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "reported_0468_is": "training batch loss, not validation",
+  "generation": {
+    "text": "2 + 3 = -1.\n12 + 1 = 14. 12 - 1 = 14.\n0 + 1 = 0. 0 - 1 = 0.\n6 +",
+    "new_tokens": 32,
+    "model": "tiny-core",
+    "warning": "Tiny research model; not a conversational assistant"
+  },
+  "init_loads_pretrained": false,
+  "warning": "Checkpoint and source verify current artifact consistency; historical chronology cannot be cryptographically established from self-recorded JSON."
+}

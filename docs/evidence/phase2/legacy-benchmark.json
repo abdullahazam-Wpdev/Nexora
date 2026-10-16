@@ -1,0 +1,50 @@
+{
+  "steps": 20,
+  "tokens": 10240,
+  "end_to_end_seconds": 1.7119717589994252,
+  "end_to_end_tokens_per_second": 5981.407079977093,
+  "cpu_seconds": 2.0300000000000002,
+  "rss_mb": 332.41796875,
+  "warning": "Includes tokenizer, evaluation and checkpoint time. Arithmetic fixture differs from language corpus; not a controlled language-quality comparison.",
+  "result": {
+    "id": "tiny-core",
+    "name": "NEXORA Core \u00b7 arithmetic smoke",
+    "status": "completed",
+    "steps": 20,
+    "parameters": 143808,
+    "config": {
+      "vocab_size": 289,
+      "dim": 64,
+      "layers": 2,
+      "heads": 4,
+      "context": 64,
+      "tie_embeddings": false,
+      "init_std": null
+    },
+    "history": [
+      {
+        "step": 1,
+        "train_loss": 5.76841139793396,
+        "validation_loss": 5.681976318359375,
+        "lr": 0.00030000000000000003
+      },
+      {
+        "step": 11,
+        "train_loss": 3.967073082923889,
+        "validation_loss": 3.749133348464966,
+        "lr": 0.0029974840787460465
+      },
+      {
+        "step": 20,
+        "train_loss": 2.30401349067688,
+        "validation_loss": 2.3894805908203125,
+        "lr": 0.0029909253208265122
+      }
+    ],
+    "test_loss": 2.4330191612243652,
+    "seconds": 0.39825615799964,
+    "origin": "random initialization; local arithmetic fixtures",
+    "warning": "Tiny research model; not a conversational assistant",
+    "checkpoint": "model.safetensors"
+  }
+}

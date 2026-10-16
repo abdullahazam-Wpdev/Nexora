@@ -1,0 +1,97 @@
+{
+  "id": "python-tutorial",
+  "status": "reviewed",
+  "reviewer": "NEXORA engineering review, user-authorized small licensed corpus",
+  "license": "PSF-2.0",
+  "license_evidence": "https://docs.python.org/3/license.html",
+  "provenance": "Human-authored CPython 3.13.0 tutorial; Python Software Foundation and contributors. Copyright and complete license stack retained in dataset notices. No model-generated training text.",
+  "max_total_bytes": 700000,
+  "estimated_bytes": 350000,
+  "sources": [
+    {
+      "id": "python-license",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/LICENSE",
+      "max_bytes": 20000,
+      "role": "license",
+      "sha256": "78b12c3a81360b357002334f0e70ea0e92eebf7a9b358805c03c48484945f3bb"
+    },
+    {
+      "id": "appetite",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/appetite.rst",
+      "max_bytes": 120000,
+      "sha256": "c5766ddd864601b50b54a1882f2fbec67945d421339ddea67cd545d3b0ffad55"
+    },
+    {
+      "id": "interpreter",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/interpreter.rst",
+      "max_bytes": 120000,
+      "sha256": "8f8d649e94b4058e2485a625cd43c0b3edfeb3c4c69e0c674dded783cd241698"
+    },
+    {
+      "id": "introduction",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/introduction.rst",
+      "max_bytes": 120000,
+      "sha256": "63064d9dbec912a6d0e89089b16544e5488fbdc06293be4fa8df3c64d37739f0"
+    },
+    {
+      "id": "controlflow",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/controlflow.rst",
+      "max_bytes": 120000,
+      "sha256": "e5da06f2db7559a6539f9a8f48f3ceaa4395f82800160f48f8c4208f4be57c27"
+    },
+    {
+      "id": "datastructures",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/datastructures.rst",
+      "max_bytes": 120000,
+      "sha256": "3c2b7a87519b3e7b1513f5fbb12c9d37ba715c402a6bf032f1b584d555eb979b"
+    },
+    {
+      "id": "modules",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/modules.rst",
+      "max_bytes": 120000,
+      "sha256": "b391a3d94b7dd61785cb7749ba36837735404693eed3172248f5be2101eda16b"
+    },
+    {
+      "id": "inputoutput",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/inputoutput.rst",
+      "max_bytes": 120000,
+      "sha256": "13e550fdc65948d88196eda0985221df240a1dce40dc456e858ef3a55611a606"
+    },
+    {
+      "id": "errors",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/errors.rst",
+      "max_bytes": 120000,
+      "sha256": "c1d8deb184bce4aa005a03407d62312a774e38dd62ba73802e5e8ace030ae34e"
+    },
+    {
+      "id": "classes",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/classes.rst",
+      "max_bytes": 120000,
+      "sha256": "fd28b82a81acda33c4997dc931ab63d5a4fea4ef65d820b579dcf2d4bf7304a4"
+    },
+    {
+      "id": "stdlib",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/stdlib.rst",
+      "max_bytes": 120000,
+      "sha256": "f0f425a1346f45d5510b531295ac54c5f3c46e560712a51df7e7fafa833d0947"
+    },
+    {
+      "id": "stdlib2",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/stdlib2.rst",
+      "max_bytes": 120000,
+      "sha256": "b38c38bd657b4f74b3a1d4168cd93dbbc233a78c9d8d4971cbfbec4a2143e183"
+    },
+    {
+      "id": "venv",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/venv.rst",
+      "max_bytes": 120000,
+      "sha256": "f9dac36833979e1e2885ea9bdb1975548b6ff6fca7f57bb3ba6a77810c93d7ac"
+    },
+    {
+      "id": "floatingpoint",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.13.0/Doc/tutorial/floatingpoint.rst",
+      "max_bytes": 120000,
+      "sha256": "8e648340d27e4ad469e40a53f8b47389d8490a7b10ea828f0bc76186c3863a55"
+    }
+  ]
+}

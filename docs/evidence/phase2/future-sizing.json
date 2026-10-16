@@ -1,0 +1,34 @@
+{
+  "medium-gpu-candidate": {
+    "config": {
+      "vocab_size": 8192,
+      "dim": 512,
+      "layers": 8,
+      "heads": 8,
+      "context": 512,
+      "tie_embeddings": true,
+      "init_std": 0.02
+    },
+    "parameters": 31465984,
+    "fp32_adamw_state_bytes_lower_bound": 503455744,
+    "training_flops_heuristic": 118812977890590720,
+    "tokens": 629319680,
+    "exclusions": "Activations, attention workspaces, temporary buffers, allocator overhead, dataset and checkpoint buffers are excluded; not a measured VRAM requirement."
+  },
+  "large-multigpu-candidate": {
+    "config": {
+      "vocab_size": 32000,
+      "dim": 1024,
+      "layers": 24,
+      "heads": 16,
+      "context": 2048,
+      "tie_embeddings": true,
+      "init_std": 0.02
+    },
+    "parameters": 359973888,
+    "fp32_adamw_state_bytes_lower_bound": 5759582208,
+    "training_flops_heuristic": 15549744005020385280,
+    "tokens": 7199477760,
+    "exclusions": "Activations, attention workspaces, temporary buffers, allocator overhead, dataset and checkpoint buffers are excluded; not a measured VRAM requirement."
+  }
+}

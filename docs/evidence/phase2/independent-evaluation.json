@@ -1,0 +1,165 @@
+{
+  "contamination": {
+    "train_validation": {
+      "exact_document_overlap": 0,
+      "source_overlap": 0,
+      "shared_12word_shingles": 0,
+      "maximum_document_shingle_jaccard": 0.0
+    },
+    "train_test": {
+      "exact_document_overlap": 0,
+      "source_overlap": 0,
+      "shared_12word_shingles": 1,
+      "maximum_document_shingle_jaccard": 0.02631578947368421
+    },
+    "validation_test": {
+      "exact_document_overlap": 0,
+      "source_overlap": 0,
+      "shared_12word_shingles": 0,
+      "maximum_document_shingle_jaccard": 0.0
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "phase2-tiny-benchmark",
+      "checkpoint": {
+        "engine_version": 2,
+        "step": 20,
+        "directory": "step-0000020",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 64,
+          "layers": 2,
+          "heads": 4,
+          "context": 64,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "a85596d81dd6bcae3622aba6f0006807737f7a7e0930c64185d39dc43e753521",
+        "files": {
+          "model.safetensors": "da6b3012d1bb23b0db72b39519d7390d91ac27178ce2505c8a7b627ddfddb951",
+          "resume.pt": "ff1c9b271e4cba22748d97b71997194dd68b6e4d37ff71fc151adf882ac6f6e7"
+        }
+      },
+      "roundtrip_probes": [
+        "Python is readable.",
+        "caf\u00e9 \u2014 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac \u2014 \u0627\u0631\u062f\u0648 \u2014 \u65e5\u672c\u8a9e",
+        "tabs\tand newlines\n\ud83d\ude42"
+      ],
+      "all_roundtrips_passed": true,
+      "sample_continuation_matches": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "phase2-tiny-language",
+      "checkpoint": {
+        "engine_version": 2,
+        "step": 400,
+        "directory": "step-0000400",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 64,
+          "layers": 2,
+          "heads": 4,
+          "context": 64,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "a85596d81dd6bcae3622aba6f0006807737f7a7e0930c64185d39dc43e753521",
+        "files": {
+          "model.safetensors": "a5faaa37c56a62be394ee30a70d8cd26be2d0f9cce622503b1059f4d233a6c86",
+          "resume.pt": "104a24eb57c53ebba84fe2b362da1e00d822e274e18843885dd36354c0fb55df"
+        }
+      },
+      "roundtrip_probes": [
+        "Python is readable.",
+        "caf\u00e9 \u2014 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac \u2014 \u0627\u0631\u062f\u0648 \u2014 \u65e5\u672c\u8a9e",
+        "tabs\tand newlines\n\ud83d\ude42"
+      ],
+      "all_roundtrips_passed": true,
+      "sample_continuation_matches": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "phase2-small-language",
+      "checkpoint": {
+        "engine_version": 2,
+        "step": 400,
+        "directory": "step-0000400",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "a85596d81dd6bcae3622aba6f0006807737f7a7e0930c64185d39dc43e753521",
+        "files": {
+          "model.safetensors": "0b10d349fe2a8517544cd31cee03140eba7aa730fd1087ae01f0b02b1b56ee84",
+          "resume.pt": "ae4aae0ad0ce1bd422d7825d7a514e37a51446faa7c3c7791ee80c80e6d2d2ac"
+        }
+      },
+      "roundtrip_probes": [
+        "Python is readable.",
+        "caf\u00e9 \u2014 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac \u2014 \u0627\u0631\u062f\u0648 \u2014 \u65e5\u672c\u8a9e",
+        "tabs\tand newlines\n\ud83d\ude42"
+      ],
+      "all_roundtrips_passed": true,
+      "sample_continuation_matches": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "phase2-small-low-lr",
+      "checkpoint": {
+        "engine_version": 2,
+        "step": 400,
+        "directory": "step-0000400",
+        "config": {
+          "vocab_size": 1024,
+          "dim": 128,
+          "layers": 4,
+          "heads": 4,
+          "context": 128,
+          "tie_embeddings": true,
+          "init_std": 0.02
+        },
+        "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+        "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+        "code_sha256": "a85596d81dd6bcae3622aba6f0006807737f7a7e0930c64185d39dc43e753521",
+        "files": {
+          "model.safetensors": "958c4e9e08c7b394cfa446df15e57797228d617839007432af766712fe037f9b",
+          "resume.pt": "3ffbc16a76663c8dd20037e0495dc9e79354a6c076a6d41bd06140c1d5fef4c5"
+        }
+      },
+      "roundtrip_probes": [
+        "Python is readable.",
+        "caf\u00e9 \u2014 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac \u2014 \u0627\u0631\u062f\u0648 \u2014 \u65e5\u672c\u8a9e",
+        "tabs\tand newlines\n\ud83d\ude42"
+      ],
+      "all_roundtrips_passed": true,
+      "sample_continuation_matches": [
+        false,
+        false,
+        false
+      ]
+    }
+  ],
+  "limitation": "Shingle tests and exact generated-continuation checks do not rule out semantic leakage or memorization."
+}

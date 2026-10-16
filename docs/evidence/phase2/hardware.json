@@ -1,0 +1,141 @@
+{
+  "memory": {
+    "total": 8030441472,
+    "available": 1563471872,
+    "percent": 80.5,
+    "used": 6466969600,
+    "free": 268132352,
+    "active": 2311323648,
+    "inactive": 3091218432,
+    "buffers": 557056,
+    "cached": 3114196992,
+    "shared": 1427472384,
+    "slab": 423530496
+  },
+  "swap": {
+    "total": 8029990912,
+    "used": 3363758080,
+    "free": 4666232832,
+    "percent": 41.9,
+    "sin": 14164262912,
+    "sout": 24158339072
+  },
+  "disk": {
+    "total": 253282484224,
+    "used": 90354036736,
+    "free": 161371344896,
+    "percent": 35.9
+  },
+  "cpu_count": 8,
+  "temperatures": {
+    "acpitz": [
+      {
+        "label": "",
+        "current": 53.0,
+        "high": null,
+        "critical": null
+      },
+      {
+        "label": "",
+        "current": 25.0,
+        "high": null,
+        "critical": null
+      },
+      {
+        "label": "",
+        "current": 47.0,
+        "high": null,
+        "critical": null
+      },
+      {
+        "label": "",
+        "current": 44.0,
+        "high": null,
+        "critical": null
+      },
+      {
+        "label": "",
+        "current": 32.0,
+        "high": null,
+        "critical": null
+      },
+      {
+        "label": "",
+        "current": 38.0,
+        "high": null,
+        "critical": null
+      },
+      {
+        "label": "",
+        "current": 0.0,
+        "high": null,
+        "critical": null
+      }
+    ],
+    "nvme": [
+      {
+        "label": "Composite",
+        "current": 31.85,
+        "high": 83.85,
+        "critical": 84.85
+      },
+      {
+        "label": "Sensor 1",
+        "current": 31.85,
+        "high": 65261.85,
+        "critical": 65261.85
+      },
+      {
+        "label": "Sensor 2",
+        "current": 41.85,
+        "high": 65261.85,
+        "critical": 65261.85
+      }
+    ],
+    "coretemp": [
+      {
+        "label": "Package id 0",
+        "current": 54.0,
+        "high": 100.0,
+        "critical": 100.0
+      },
+      {
+        "label": "Core 0",
+        "current": 54.0,
+        "high": 100.0,
+        "critical": 100.0
+      },
+      {
+        "label": "Core 1",
+        "current": 52.0,
+        "high": 100.0,
+        "critical": 100.0
+      },
+      {
+        "label": "Core 2",
+        "current": 52.0,
+        "high": 100.0,
+        "critical": 100.0
+      },
+      {
+        "label": "Core 3",
+        "current": 53.0,
+        "high": 100.0,
+        "critical": 100.0
+      }
+    ],
+    "iwlwifi_1": [
+      {
+        "label": "",
+        "current": 41.0,
+        "high": null,
+        "critical": null
+      }
+    ]
+  },
+  "battery": {
+    "percent": 70.97142857142858,
+    "secsleft": 7080,
+    "power_plugged": false
+  }
+}

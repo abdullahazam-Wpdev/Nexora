@@ -1,0 +1,237 @@
+...........F..FFF                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_dataset_source_holdout_and_integrity ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_dataset_source_holdout_an0')
+
+    def test_dataset_source_holdout_and_integrity(tmp_path):
+>       manifest=fixture_dataset(tmp_path);m,splits=load_dataset(manifest['id'],tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_research.py:16:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests/test_research.py:13: in fixture_dataset
+    return build_dataset('fixture',docs,approved=True,license='CC0-1.0',provenance='Deterministic local numeric test fixture',store=tmp_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'fixture'
+documents = [{'source_id': 'group-0', 'text': 'Number group 0: 0+0=0; 0*0=0. 0+1=1; 0*1=0. 0+2=2; 0*2=0. 0+3=3; 0*3=0. 0+4=4; 0*4=...65. 5+14=19; 5*14=70. 5+15=20; 5*15=75. 5+16=21; 5*16=80. 5+17=22; 5*17=85. 5+18=23; 5*18=90. 5+19=24; 5*19=95.'}, ...]
+approved = True, license = 'CC0-1.0'
+provenance = 'Deterministic local numeric test fixture'
+reviewer = 'local-owner', notices = None
+store = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_dataset_source_holdout_an0')
+
+    def build_dataset(name,documents,*,approved,license,provenance,reviewer='local-owner',notices=None,store=None):
+        store=Path(store or STORE);identifier(name)
+        if not approved or license not in LICENSES or not provenance.strip() or not reviewer.strip():
+            raise ValueError('Dataset requires explicit approval, reviewed license, provenance and reviewer')
+        if len(documents)>5000 or sum(len(d['text'].encode()) for d in documents)>5_000_000:
+            raise ValueError('Dataset exceeds bounded local ingestion size')
+        if license=='PSF-2.0' and not notices:
+            raise ValueError('PSF-2.0 ingestion requires retained license and copyright notices')
+        source_ids=sorted({str(d['source_id']) for d in documents},key=lambda x:hashlib.sha256(x.encode()).hexdigest())
+        if len(source_ids)<3:raise ValueError('At least three independent source groups required for source-level holdouts')
+        held=max(1,int(len(source_ids)*.1))
+        mapping={s:('validation' if i<held else 'test' if i<held*2 else 'train') for i,s in enumerate(source_ids)}
+        splits={k:[] for k in ('train','validation','test')}
+        rejected=Counter();seen=set();near=[];source_records={}
+        # Train first: repeated text from held-out sources is removed, never moved into train.
+        docs=sorted(documents,key=lambda d:(('train','validation','test').index(mapping[str(d['source_id'])]),str(d['source_id']),hashlib.sha256(d['text'].encode()).hexdigest()))
+        for d in docs:
+            source=str(d['source_id']);text=unicodedata.normalize('NFC',d['text']).strip()
+            source_records[source]={'split':mapping[source],'url':d.get('url'),'raw_sha256':d.get('raw_sha256')}
+            if SECRET.search(text):rejected['sensitive_pattern']+=1;continue
+            text=''.join(ch for ch in text if ch=='\n' or ch=='\t' or not unicodedata.category(ch).startswith('C'))
+            if len(text)<80 or len(text)>4000 or sum(ch.isalpha() for ch in text)/max(1,len(text))<.25:
+                rejected['quality']+=1;continue
+            key=hashlib.sha256(canonical(text).encode()).hexdigest()
+            if key in seen:rejected['duplicate']+=1;continue
+            grams=shingles(text)
+            if grams and any(len(grams&other)/len(grams|other)>.85 for other in near):
+                rejected['near_duplicate']+=1;continue
+            seen.add(key);near.append(grams)
+            splits[mapping[source]].append({'id':key,'source_id':source,'text':text,'language_hint':'latin-script' if sum(ord(c)<128 for c in text)/len(text)>.9 else 'mixed-or-non-latin','sha256':hashlib.sha256(text.encode()).hexdigest()})
+>       if any(not v for v in splits.values()):raise ValueError('Every source-held-out split must contain quality documents')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Every source-held-out split must contain quality documents
+
+nexora/data_engine.py:63: ValueError
+________ test_exact_resume_matches_uninterrupted_and_rejects_corruption ________
+
+tmp_path = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_exact_resume_matches_unin0')
+
+    def test_exact_resume_matches_uninterrupted_and_rejects_corruption(tmp_path):
+>       dataset=fixture_dataset(tmp_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_research.py:42:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests/test_research.py:13: in fixture_dataset
+    return build_dataset('fixture',docs,approved=True,license='CC0-1.0',provenance='Deterministic local numeric test fixture',store=tmp_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'fixture'
+documents = [{'source_id': 'group-0', 'text': 'Number group 0: 0+0=0; 0*0=0. 0+1=1; 0*1=0. 0+2=2; 0*2=0. 0+3=3; 0*3=0. 0+4=4; 0*4=...65. 5+14=19; 5*14=70. 5+15=20; 5*15=75. 5+16=21; 5*16=80. 5+17=22; 5*17=85. 5+18=23; 5*18=90. 5+19=24; 5*19=95.'}, ...]
+approved = True, license = 'CC0-1.0'
+provenance = 'Deterministic local numeric test fixture'
+reviewer = 'local-owner', notices = None
+store = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_exact_resume_matches_unin0')
+
+    def build_dataset(name,documents,*,approved,license,provenance,reviewer='local-owner',notices=None,store=None):
+        store=Path(store or STORE);identifier(name)
+        if not approved or license not in LICENSES or not provenance.strip() or not reviewer.strip():
+            raise ValueError('Dataset requires explicit approval, reviewed license, provenance and reviewer')
+        if len(documents)>5000 or sum(len(d['text'].encode()) for d in documents)>5_000_000:
+            raise ValueError('Dataset exceeds bounded local ingestion size')
+        if license=='PSF-2.0' and not notices:
+            raise ValueError('PSF-2.0 ingestion requires retained license and copyright notices')
+        source_ids=sorted({str(d['source_id']) for d in documents},key=lambda x:hashlib.sha256(x.encode()).hexdigest())
+        if len(source_ids)<3:raise ValueError('At least three independent source groups required for source-level holdouts')
+        held=max(1,int(len(source_ids)*.1))
+        mapping={s:('validation' if i<held else 'test' if i<held*2 else 'train') for i,s in enumerate(source_ids)}
+        splits={k:[] for k in ('train','validation','test')}
+        rejected=Counter();seen=set();near=[];source_records={}
+        # Train first: repeated text from held-out sources is removed, never moved into train.
+        docs=sorted(documents,key=lambda d:(('train','validation','test').index(mapping[str(d['source_id'])]),str(d['source_id']),hashlib.sha256(d['text'].encode()).hexdigest()))
+        for d in docs:
+            source=str(d['source_id']);text=unicodedata.normalize('NFC',d['text']).strip()
+            source_records[source]={'split':mapping[source],'url':d.get('url'),'raw_sha256':d.get('raw_sha256')}
+            if SECRET.search(text):rejected['sensitive_pattern']+=1;continue
+            text=''.join(ch for ch in text if ch=='\n' or ch=='\t' or not unicodedata.category(ch).startswith('C'))
+            if len(text)<80 or len(text)>4000 or sum(ch.isalpha() for ch in text)/max(1,len(text))<.25:
+                rejected['quality']+=1;continue
+            key=hashlib.sha256(canonical(text).encode()).hexdigest()
+            if key in seen:rejected['duplicate']+=1;continue
+            grams=shingles(text)
+            if grams and any(len(grams&other)/len(grams|other)>.85 for other in near):
+                rejected['near_duplicate']+=1;continue
+            seen.add(key);near.append(grams)
+            splits[mapping[source]].append({'id':key,'source_id':source,'text':text,'language_hint':'latin-script' if sum(ord(c)<128 for c in text)/len(text)>.9 else 'mixed-or-non-latin','sha256':hashlib.sha256(text.encode()).hexdigest()})
+>       if any(not v for v in splits.values()):raise ValueError('Every source-held-out split must contain quality documents')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Every source-held-out split must contain quality documents
+
+nexora/data_engine.py:63: ValueError
+_________________________ test_budget_stop_is_durable __________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_budget_stop_is_durable0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1c30b4f680>
+
+    def test_budget_stop_is_durable(tmp_path,monkeypatch):
+>       dataset=fixture_dataset(tmp_path);create_run(dataset['id'],training=config(2),run_id='budget',store=tmp_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_research.py:63:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests/test_research.py:13: in fixture_dataset
+    return build_dataset('fixture',docs,approved=True,license='CC0-1.0',provenance='Deterministic local numeric test fixture',store=tmp_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'fixture'
+documents = [{'source_id': 'group-0', 'text': 'Number group 0: 0+0=0; 0*0=0. 0+1=1; 0*1=0. 0+2=2; 0*2=0. 0+3=3; 0*3=0. 0+4=4; 0*4=...65. 5+14=19; 5*14=70. 5+15=20; 5*15=75. 5+16=21; 5*16=80. 5+17=22; 5*17=85. 5+18=23; 5*18=90. 5+19=24; 5*19=95.'}, ...]
+approved = True, license = 'CC0-1.0'
+provenance = 'Deterministic local numeric test fixture'
+reviewer = 'local-owner', notices = None
+store = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_budget_stop_is_durable0')
+
+    def build_dataset(name,documents,*,approved,license,provenance,reviewer='local-owner',notices=None,store=None):
+        store=Path(store or STORE);identifier(name)
+        if not approved or license not in LICENSES or not provenance.strip() or not reviewer.strip():
+            raise ValueError('Dataset requires explicit approval, reviewed license, provenance and reviewer')
+        if len(documents)>5000 or sum(len(d['text'].encode()) for d in documents)>5_000_000:
+            raise ValueError('Dataset exceeds bounded local ingestion size')
+        if license=='PSF-2.0' and not notices:
+            raise ValueError('PSF-2.0 ingestion requires retained license and copyright notices')
+        source_ids=sorted({str(d['source_id']) for d in documents},key=lambda x:hashlib.sha256(x.encode()).hexdigest())
+        if len(source_ids)<3:raise ValueError('At least three independent source groups required for source-level holdouts')
+        held=max(1,int(len(source_ids)*.1))
+        mapping={s:('validation' if i<held else 'test' if i<held*2 else 'train') for i,s in enumerate(source_ids)}
+        splits={k:[] for k in ('train','validation','test')}
+        rejected=Counter();seen=set();near=[];source_records={}
+        # Train first: repeated text from held-out sources is removed, never moved into train.
+        docs=sorted(documents,key=lambda d:(('train','validation','test').index(mapping[str(d['source_id'])]),str(d['source_id']),hashlib.sha256(d['text'].encode()).hexdigest()))
+        for d in docs:
+            source=str(d['source_id']);text=unicodedata.normalize('NFC',d['text']).strip()
+            source_records[source]={'split':mapping[source],'url':d.get('url'),'raw_sha256':d.get('raw_sha256')}
+            if SECRET.search(text):rejected['sensitive_pattern']+=1;continue
+            text=''.join(ch for ch in text if ch=='\n' or ch=='\t' or not unicodedata.category(ch).startswith('C'))
+            if len(text)<80 or len(text)>4000 or sum(ch.isalpha() for ch in text)/max(1,len(text))<.25:
+                rejected['quality']+=1;continue
+            key=hashlib.sha256(canonical(text).encode()).hexdigest()
+            if key in seen:rejected['duplicate']+=1;continue
+            grams=shingles(text)
+            if grams and any(len(grams&other)/len(grams|other)>.85 for other in near):
+                rejected['near_duplicate']+=1;continue
+            seen.add(key);near.append(grams)
+            splits[mapping[source]].append({'id':key,'source_id':source,'text':text,'language_hint':'latin-script' if sum(ord(c)<128 for c in text)/len(text)>.9 else 'mixed-or-non-latin','sha256':hashlib.sha256(text.encode()).hexdigest()})
+>       if any(not v for v in splits.values()):raise ValueError('Every source-held-out split must contain quality documents')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Every source-held-out split must contain quality documents
+
+nexora/data_engine.py:63: ValueError
+_____________________ test_cli_and_api_share_training_lock _____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_cli_and_api_share_trainin0')
+
+    def test_cli_and_api_share_training_lock(tmp_path):
+>       dataset=fixture_dataset(tmp_path);create_run(dataset['id'],training=config(2),run_id='lock-test',store=tmp_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_research.py:70:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests/test_research.py:13: in fixture_dataset
+    return build_dataset('fixture',docs,approved=True,license='CC0-1.0',provenance='Deterministic local numeric test fixture',store=tmp_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'fixture'
+documents = [{'source_id': 'group-0', 'text': 'Number group 0: 0+0=0; 0*0=0. 0+1=1; 0*1=0. 0+2=2; 0*2=0. 0+3=3; 0*3=0. 0+4=4; 0*4=...65. 5+14=19; 5*14=70. 5+15=20; 5*15=75. 5+16=21; 5*16=80. 5+17=22; 5*17=85. 5+18=23; 5*18=90. 5+19=24; 5*19=95.'}, ...]
+approved = True, license = 'CC0-1.0'
+provenance = 'Deterministic local numeric test fixture'
+reviewer = 'local-owner', notices = None
+store = PosixPath('/tmp/pytest-of-abdullah/pytest-5/test_cli_and_api_share_trainin0')
+
+    def build_dataset(name,documents,*,approved,license,provenance,reviewer='local-owner',notices=None,store=None):
+        store=Path(store or STORE);identifier(name)
+        if not approved or license not in LICENSES or not provenance.strip() or not reviewer.strip():
+            raise ValueError('Dataset requires explicit approval, reviewed license, provenance and reviewer')
+        if len(documents)>5000 or sum(len(d['text'].encode()) for d in documents)>5_000_000:
+            raise ValueError('Dataset exceeds bounded local ingestion size')
+        if license=='PSF-2.0' and not notices:
+            raise ValueError('PSF-2.0 ingestion requires retained license and copyright notices')
+        source_ids=sorted({str(d['source_id']) for d in documents},key=lambda x:hashlib.sha256(x.encode()).hexdigest())
+        if len(source_ids)<3:raise ValueError('At least three independent source groups required for source-level holdouts')
+        held=max(1,int(len(source_ids)*.1))
+        mapping={s:('validation' if i<held else 'test' if i<held*2 else 'train') for i,s in enumerate(source_ids)}
+        splits={k:[] for k in ('train','validation','test')}
+        rejected=Counter();seen=set();near=[];source_records={}
+        # Train first: repeated text from held-out sources is removed, never moved into train.
+        docs=sorted(documents,key=lambda d:(('train','validation','test').index(mapping[str(d['source_id'])]),str(d['source_id']),hashlib.sha256(d['text'].encode()).hexdigest()))
+        for d in docs:
+            source=str(d['source_id']);text=unicodedata.normalize('NFC',d['text']).strip()
+            source_records[source]={'split':mapping[source],'url':d.get('url'),'raw_sha256':d.get('raw_sha256')}
+            if SECRET.search(text):rejected['sensitive_pattern']+=1;continue
+            text=''.join(ch for ch in text if ch=='\n' or ch=='\t' or not unicodedata.category(ch).startswith('C'))
+            if len(text)<80 or len(text)>4000 or sum(ch.isalpha() for ch in text)/max(1,len(text))<.25:
+                rejected['quality']+=1;continue
+            key=hashlib.sha256(canonical(text).encode()).hexdigest()
+            if key in seen:rejected['duplicate']+=1;continue
+            grams=shingles(text)
+            if grams and any(len(grams&other)/len(grams|other)>.85 for other in near):
+                rejected['near_duplicate']+=1;continue
+            seen.add(key);near.append(grams)
+            splits[mapping[source]].append({'id':key,'source_id':source,'text':text,'language_hint':'latin-script' if sum(ord(c)<128 for c in text)/len(text)>.9 else 'mixed-or-non-latin','sha256':hashlib.sha256(text.encode()).hexdigest()})
+>       if any(not v for v in splits.values()):raise ValueError('Every source-held-out split must contain quality documents')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Every source-held-out split must contain quality documents
+
+nexora/data_engine.py:63: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_research.py::test_dataset_source_holdout_and_integrity - Va...
+FAILED tests/test_research.py::test_exact_resume_matches_uninterrupted_and_rejects_corruption
+FAILED tests/test_research.py::test_budget_stop_is_durable - ValueError: Ever...
+FAILED tests/test_research.py::test_cli_and_api_share_training_lock - ValueEr...
+4 failed, 13 passed in 5.25s

@@ -1,0 +1,133 @@
+[
+  {
+    "AutoRemove": false,
+    "Command": [
+      "postgres"
+    ],
+    "CreatedAt": "About a minute ago",
+    "CIDFile": "",
+    "Exited": true,
+    "ExitedAt": 1792148041,
+    "ExitCode": 1,
+    "ExposedPorts": {
+      "5432": [
+  "tcp"
+]
+    },
+    "Id": "3a0cd138db62dd69ee8cce7654ff720f026481f3fe822955b61b4a10b677fc03",
+    "Image": "docker.io/library/postgres:18-alpine",
+    "ImageID": "c293117fcecda7344b5480222e813b9f673d7abd69b1dd95eff239b768b04f59",
+    "IsInfra": false,
+    "Labels": {
+      "PODMAN_SYSTEMD_UNIT": "podman-compose@nexora.service",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.project": "nexora",
+      "com.docker.compose.project.config_files": "/home/abdullah/Downloads/nexora-ai-os/compose.yaml",
+      "com.docker.compose.project.working_dir": "/home/abdullah/Downloads/nexora-ai-os",
+      "com.docker.compose.service": "postgres",
+      "io.podman.compose.config-hash": "bf42f467b288d3b7ab3f1d2548bd2a6b958438322f1a47c0ad2b2473fb1c5143",
+      "io.podman.compose.project": "nexora",
+      "io.podman.compose.service": "postgres",
+      "io.podman.compose.version": "1.6.0"
+    },
+    "Mounts": [
+      "/run/secrets/postgres_password",
+      "/var/lib/postgresql"
+    ],
+    "Names": [
+      "nexora_postgres_1"
+    ],
+    "Namespaces": {
+
+    },
+    "Networks": [
+      "nexora_default"
+    ],
+    "Pid": 0,
+    "Pod": "90463063822c47de25e0ae4a1a68246c4efd5935d94204ff40725463f9e49802",
+    "PodName": "",
+    "Ports": [
+      {
+        "host_ip": "127.0.0.1",
+        "container_port": 5432,
+        "host_port": 5432,
+        "range": 1,
+        "protocol": "tcp"
+      }
+    ],
+    "Restarts": 0,
+    "Size": null,
+    "StartedAt": 1792148041,
+    "State": "exited",
+    "Status": "Exited (1) About a minute ago (starting)",
+    "Created": 1792148041
+  },
+  {
+    "AutoRemove": false,
+    "Command": [
+      "redis-server",
+      "--appendonly",
+      "yes",
+      "--maxmemory",
+      "128mb",
+      "--maxmemory-policy",
+      "noeviction"
+    ],
+    "CreatedAt": "About a minute ago",
+    "CIDFile": "",
+    "Exited": false,
+    "ExitedAt": -62135596800,
+    "ExitCode": 0,
+    "ExposedPorts": {
+      "6379": [
+  "tcp"
+]
+    },
+    "Id": "b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253",
+    "Image": "docker.io/library/redis:7.4-alpine",
+    "ImageID": "f84b0c4678011602b9b98c227a4dcd5468bf8b088b02fdd4165cb7758bad8058",
+    "IsInfra": false,
+    "Labels": {
+      "PODMAN_SYSTEMD_UNIT": "podman-compose@nexora.service",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.project": "nexora",
+      "com.docker.compose.project.config_files": "/home/abdullah/Downloads/nexora-ai-os/compose.yaml",
+      "com.docker.compose.project.working_dir": "/home/abdullah/Downloads/nexora-ai-os",
+      "com.docker.compose.service": "redis",
+      "io.podman.compose.config-hash": "617b8d2fe528974ccf0fdafcd4b59d8e38ddbb91a0929817ad73b73d3368c0a0",
+      "io.podman.compose.project": "nexora",
+      "io.podman.compose.service": "redis",
+      "io.podman.compose.version": "1.6.0"
+    },
+    "Mounts": [
+      "/data"
+    ],
+    "Names": [
+      "nexora_redis_1"
+    ],
+    "Namespaces": {
+
+    },
+    "Networks": [
+      "nexora_default"
+    ],
+    "Pid": 31909,
+    "Pod": "90463063822c47de25e0ae4a1a68246c4efd5935d94204ff40725463f9e49802",
+    "PodName": "",
+    "Ports": [
+      {
+        "host_ip": "127.0.0.1",
+        "container_port": 6379,
+        "host_port": 6379,
+        "range": 1,
+        "protocol": "tcp"
+      }
+    ],
+    "Restarts": 0,
+    "Size": null,
+    "StartedAt": 1792148042,
+    "State": "running",
+    "Status": "Up About a minute (healthy)",
+    "Created": 1792148041
+  }
+]

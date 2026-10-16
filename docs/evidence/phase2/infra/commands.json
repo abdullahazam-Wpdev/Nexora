@@ -1,0 +1,127 @@
+[
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "info",
+      "--format",
+      "json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"host\": {\n    \"arch\": \"amd64\",\n    \"buildahVersion\": \"1.43.4\",\n    \"cgroupManager\": \"systemd\",\n    \"cgroupVersion\": \"v2\",\n    \"cgroupControllers\": [\n      \"cpu\",\n      \"io\",\n      \"memory\",\n      \"pids\"\n    ],\n    \"conmon\": {\n      \"package\": \"conmon-2.2.1-2.fc44.x86_64\",\n      \"path\": \"/usr/bin/conmon\",\n      \"version\": \"conmon version 2.2.1, commit: \"\n    },\n    \"cpus\": 8,\n    \"cpuUtilization\": {\n      \"userPercent\": 11.71,\n      \"systemPercent\": 3.05,\n      \"idlePercent\": 85.23\n    },\n    \"databaseBackend\": \"sqlite\",\n    \"distribution\": {\n      \"distribution\": \"fedora\",\n      \"variant\": \"workstation\",\n      \"version\": \"44\"\n    },\n    \"eventLogger\": \"journald\",\n    \"freeLocks\": 2043,\n    \"hostname\": \"fedora\",\n    \"idMappings\": {\n      \"gidmap\": [\n        {\n          \"container_id\": 0,\n          \"host_id\": 1000,\n          \"size\": 1\n        },\n        {\n          \"container_id\": 1,\n          \"host_id\": 524288,\n          \"size\": 65536\n        }\n      ],\n      \"uidmap\": [\n        {\n          \"container_id\": 0,\n          \"host_id\": 1000,\n          \"size\": 1\n        },\n        {\n          \"container_id\": 1,\n          \"host_id\": 524288,\n          \"size\": 65536\n        }\n      ]\n    },\n    \"kernel\": \"7.2.9-201.fc44.x86_64\",\n    \"logDriver\": \"journald\",\n    \"memFree\": 347791360,\n    \"memTotal\": 8030441472,\n    \"networkBackend\": \"netavark\",\n    \"networkBackendInfo\": {\n      \"backend\": \"netavark\",\n      \"version\": \"netavark 1.17.2\",\n      \"package\": \"netavark-1.17.2-1.fc44.x86_64\",\n      \"path\": \"/usr/libexec/podman/netavark\",\n      \"dns\": {\n        \"version\": \"aardvark-dns 1.17.1\",\n        \"package\": \"aardvark-dns-1.17.1-1.fc44.x86_64\",\n        \"path\": \"/usr/libexec/podman/aardvark-dns\"\n      },\n      \"defaultNetwork\": \"podman\"\n    },\n    \"ociRuntime\": {\n      \"name\": \"crun\",\n      \"package\": \"crun-1.28-1.fc44.x86_64\",\n      \"path\": \"/usr/bin/crun\",\n      \"version\": \"crun version 1.28\\ncommit: 54f16ffbefcd022bf032af768b5c5ce075c18bfc\\nrundir: /run/user/1000/crun\\nspec: 1.0.0\\n+SYSTEMD +SELINUX +APPARMOR +CAP +SECCOMP +EBPF +CRIU +LIBKRUN +WASM:wasmedge +JSON_C\"\n    },\n    \"os\": \"linux\",\n    \"remoteSocket\": {\n      \"path\": \"/run/user/1000/podman/podman.sock\",\n      \"exists\": true\n    },\n    \"rootlessNetworkCmd\": \"pasta\",\n    \"serviceIsRemote\": false,\n    \"security\": {\n      \"apparmorEnabled\": false,\n      \"capabilities\": \"CAP_CHOWN,CAP_DAC_OVERRIDE,CAP_FOWNER,CAP_FSETID,CAP_KILL,CAP_NET_BIND_SERVICE,CAP_SETFCAP,CAP_SETGID,CAP_SETPCAP,CAP_SETUID,CAP_SYS_CHROOT\",\n      \"rootless\": true,\n      \"seccompEnabled\": true,\n      \"seccompProfilePath\": \"/usr/share/containers/seccomp.json\",\n      \"selinuxEnabled\": true\n    },\n    \"slirp4netns\": {\n      \"executable\": \"\",\n      \"package\": \"\",\n      \"version\": \"\"\n    },\n    \"pasta\": {\n      \"executable\": \"/usr/bin/pasta\",\n      \"package\": \"passt-0^20261002.gcba3570-1.fc44.x86_64\",\n      \"version\": \"pasta 0^20261002.gcba3570-1.fc44.x86_64\\nCopyright Red Hat\\nGNU General Public License, version 2 or later\\n  \\u003chttps://www.gnu.org/licenses/old-licenses/gpl-2.0.html\\u003e\\nThis is free software: you are free to change and redistribute it.\\nThere is NO WARRANTY, to the extent permitted by law.\\n\"\n    },\n    \"swapFree\": 1805152256,\n    \"swapTotal\": 8029990912,\n    \"uptime\": \"1h 29m 30.00s (Approximately 0.04 days)\",\n    \"variant\": \"\",\n    \"linkmode\": \"dynamic\"\n  },\n  \"store\": {\n    \"configFile\": \"/home/abdullah/.config/containers/storage.conf\",\n    \"containerStore\": {\n      \"number\": 2,\n      \"paused\": 0,\n      \"running\": 2,\n      \"stopped\": 0\n    },\n    \"graphDriverName\": \"overlay\",\n    \"graphOptions\": {\n      \n    },\n    \"graphRoot\": \"/home/abdullah/.local/share/containers/storage\",\n    \"graphRootAllocated\": 253282484224,\n    \"graphRootUsed\": 90813136896,\n    \"graphStatus\": {\n      \"Backing Filesystem\": \"btrfs\",\n      \"Native Overlay Diff\": \"true\",\n      \"Supports d_type\": \"true\",\n      \"Supports shifting\": \"false\",\n      \"Supports volatile\": \"true\",\n      \"Using metacopy\": \"false\"\n    },\n    \"imageCopyTmpDir\": \"/var/tmp\",\n    \"imageStore\": {\n      \"number\": 2\n    },\n    \"runRoot\": \"/run/user/1000/containers\",\n    \"volumePath\": \"/home/abdullah/.local/share/containers/storage/volumes\",\n    \"transientStore\": false\n  },\n  \"registries\": {\n    \"search\": [\n  \"registry.fedoraproject.org\",\n  \"registry.access.redhat.com\",\n  \"docker.io\"\n]\n  },\n  \"plugins\": {\n    \"volume\": [\n      \"local\"\n    ],\n    \"network\": [\n      \"bridge\",\n      \"macvlan\",\n      \"ipvlan\"\n    ],\n    \"log\": [\n      \"k8s-file\",\n      \"none\",\n      \"passthrough\",\n      \"journald\"\n    ],\n    \"authorization\": null\n  },\n  \"version\": {\n    \"APIVersion\": \"5.8.7\",\n    \"Version\": \"5.8.7\",\n    \"GoVersion\": \"go1.26.8-X:nodwarf5\",\n    \"GitCommit\": \"c593b672bf3db1173aebea565ebf1a724ea196dc\",\n    \"BuiltTime\": \"Wed Sep 16 05:00:00 2026\",\n    \"Built\": 1789516800,\n    \"BuildOrigin\": \"Fedora Project\",\n    \"OsArch\": \"linux/amd64\",\n    \"Os\": \"linux\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "ps",
+      "--format",
+      "json"
+    ],
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"AutoRemove\": false,\n    \"Command\": [\n      \"redis-server\",\n      \"--appendonly\",\n      \"yes\",\n      \"--maxmemory\",\n      \"128mb\",\n      \"--maxmemory-policy\",\n      \"noeviction\"\n    ],\n    \"CreatedAt\": \"10 minutes ago\",\n    \"CIDFile\": \"\",\n    \"Exited\": false,\n    \"ExitedAt\": 1792148176,\n    \"ExitCode\": 0,\n    \"ExposedPorts\": {\n      \"6379\": [\n  \"tcp\"\n]\n    },\n    \"Id\": \"b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253\",\n    \"Image\": \"docker.io/library/redis:7.4-alpine\",\n    \"ImageID\": \"f84b0c4678011602b9b98c227a4dcd5468bf8b088b02fdd4165cb7758bad8058\",\n    \"IsInfra\": false,\n    \"Labels\": {\n      \"PODMAN_SYSTEMD_UNIT\": \"podman-compose@nexora.service\",\n      \"com.docker.compose.container-number\": \"1\",\n      \"com.docker.compose.project\": \"nexora\",\n      \"com.docker.compose.project.config_files\": \"/home/abdullah/Downloads/nexora-ai-os/compose.yaml\",\n      \"com.docker.compose.project.working_dir\": \"/home/abdullah/Downloads/nexora-ai-os\",\n      \"com.docker.compose.service\": \"redis\",\n      \"io.podman.compose.config-hash\": \"617b8d2fe528974ccf0fdafcd4b59d8e38ddbb91a0929817ad73b73d3368c0a0\",\n      \"io.podman.compose.project\": \"nexora\",\n      \"io.podman.compose.service\": \"redis\",\n      \"io.podman.compose.version\": \"1.6.0\"\n    },\n    \"Mounts\": [\n      \"/data\"\n    ],\n    \"Names\": [\n      \"nexora_redis_1\"\n    ],\n    \"Namespaces\": {\n      \n    },\n    \"Networks\": [\n      \"nexora_default\"\n    ],\n    \"Pid\": 33763,\n    \"Pod\": \"90463063822c47de25e0ae4a1a68246c4efd5935d94204ff40725463f9e49802\",\n    \"PodName\": \"\",\n    \"Ports\": [\n      {\n        \"host_ip\": \"127.0.0.1\",\n        \"container_port\": 6379,\n        \"host_port\": 6379,\n        \"range\": 1,\n        \"protocol\": \"tcp\"\n      }\n    ],\n    \"Restarts\": 0,\n    \"Size\": null,\n    \"StartedAt\": 1792148176,\n    \"State\": \"running\",\n    \"Status\": \"Up 8 minutes (healthy)\",\n    \"Created\": 1792148041\n  },\n  {\n    \"AutoRemove\": false,\n    \"Command\": [\n      \"postgres\"\n    ],\n    \"CreatedAt\": \"8 minutes ago\",\n    \"CIDFile\": \"\",\n    \"Exited\": false,\n    \"ExitedAt\": 1792148175,\n    \"ExitCode\": 0,\n    \"ExposedPorts\": {\n      \"5432\": [\n  \"tcp\"\n]\n    },\n    \"Id\": \"5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb\",\n    \"Image\": \"docker.io/library/postgres:18-alpine\",\n    \"ImageID\": \"c293117fcecda7344b5480222e813b9f673d7abd69b1dd95eff239b768b04f59\",\n    \"IsInfra\": false,\n    \"Labels\": {\n      \"PODMAN_SYSTEMD_UNIT\": \"podman-compose@nexora.service\",\n      \"com.docker.compose.container-number\": \"1\",\n      \"com.docker.compose.project\": \"nexora\",\n      \"com.docker.compose.project.config_files\": \"/home/abdullah/Downloads/nexora-ai-os/compose.yaml\",\n      \"com.docker.compose.project.working_dir\": \"/home/abdullah/Downloads/nexora-ai-os\",\n      \"com.docker.compose.service\": \"postgres\",\n      \"io.podman.compose.config-hash\": \"f6c93a0f10010a218c453edc68506699fffdb167f6fbae30766d06e3e93d788f\",\n      \"io.podman.compose.project\": \"nexora\",\n      \"io.podman.compose.service\": \"postgres\",\n      \"io.podman.compose.version\": \"1.6.0\"\n    },\n    \"Mounts\": [\n      \"/run/secrets/postgres_password\",\n      \"/var/lib/postgresql\"\n    ],\n    \"Names\": [\n      \"nexora_postgres_1\"\n    ],\n    \"Namespaces\": {\n      \n    },\n    \"Networks\": [\n      \"nexora_default\"\n    ],\n    \"Pid\": 33658,\n    \"Pod\": \"90463063822c47de25e0ae4a1a68246c4efd5935d94204ff40725463f9e49802\",\n    \"PodName\": \"\",\n    \"Ports\": [\n      {\n        \"host_ip\": \"127.0.0.1\",\n        \"container_port\": 5432,\n        \"host_port\": 5432,\n        \"range\": 1,\n        \"protocol\": \"tcp\"\n      }\n    ],\n    \"Restarts\": 0,\n    \"Size\": null,\n    \"StartedAt\": 1792148175,\n    \"State\": \"running\",\n    \"Status\": \"Up 8 minutes (healthy)\",\n    \"Created\": 1792148162\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "exec",
+      "5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb",
+      "psql",
+      "-U",
+      "nexora",
+      "-d",
+      "nexora",
+      "-c",
+      "CREATE TABLE IF NOT EXISTS nexora_infra_proof(id integer PRIMARY KEY, value text); INSERT INTO nexora_infra_proof VALUES(1,'persistent') ON CONFLICT(id) DO UPDATE SET value=EXCLUDED.value;"
+    ],
+    "exit_code": 0,
+    "stdout": "CREATE TABLE\nINSERT 0 1\n",
+    "stderr": "NOTICE:  relation \"nexora_infra_proof\" already exists, skipping\n"
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "exec",
+      "b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253",
+      "redis-cli",
+      "SET",
+      "nexora:infra:proof",
+      "persistent"
+    ],
+    "exit_code": 0,
+    "stdout": "OK\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "restart",
+      "5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb",
+      "b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253"
+    ],
+    "exit_code": 0,
+    "stdout": "5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb\nb80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "exec",
+      "5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb",
+      "psql",
+      "-U",
+      "nexora",
+      "-d",
+      "nexora",
+      "-tAc",
+      "SELECT value FROM nexora_infra_proof WHERE id=1"
+    ],
+    "exit_code": 0,
+    "stdout": "persistent\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "exec",
+      "b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253",
+      "redis-cli",
+      "GET",
+      "nexora:infra:proof"
+    ],
+    "exit_code": 0,
+    "stdout": "persistent\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "port",
+      "5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb"
+    ],
+    "exit_code": 0,
+    "stdout": "5432/tcp -> 127.0.0.1:5432\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "port",
+      "b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253"
+    ],
+    "exit_code": 0,
+    "stdout": "6379/tcp -> 127.0.0.1:6379\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/abdullah/Downloads/nexora-ai-os/scripts/host-podman.sh",
+      "ps",
+      "--format",
+      "json"
+    ],
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"AutoRemove\": false,\n    \"Command\": [\n      \"redis-server\",\n      \"--appendonly\",\n      \"yes\",\n      \"--maxmemory\",\n      \"128mb\",\n      \"--maxmemory-policy\",\n      \"noeviction\"\n    ],\n    \"CreatedAt\": \"10 minutes ago\",\n    \"CIDFile\": \"\",\n    \"Exited\": false,\n    \"ExitedAt\": 1792148660,\n    \"ExitCode\": 0,\n    \"ExposedPorts\": {\n      \"6379\": [\n  \"tcp\"\n]\n    },\n    \"Id\": \"b80f8bff2b67747ef56b2ef14b8a00a71a84d2d7d9495c73977c3ecc66107253\",\n    \"Image\": \"docker.io/library/redis:7.4-alpine\",\n    \"ImageID\": \"f84b0c4678011602b9b98c227a4dcd5468bf8b088b02fdd4165cb7758bad8058\",\n    \"IsInfra\": false,\n    \"Labels\": {\n      \"PODMAN_SYSTEMD_UNIT\": \"podman-compose@nexora.service\",\n      \"com.docker.compose.container-number\": \"1\",\n      \"com.docker.compose.project\": \"nexora\",\n      \"com.docker.compose.project.config_files\": \"/home/abdullah/Downloads/nexora-ai-os/compose.yaml\",\n      \"com.docker.compose.project.working_dir\": \"/home/abdullah/Downloads/nexora-ai-os\",\n      \"com.docker.compose.service\": \"redis\",\n      \"io.podman.compose.config-hash\": \"617b8d2fe528974ccf0fdafcd4b59d8e38ddbb91a0929817ad73b73d3368c0a0\",\n      \"io.podman.compose.project\": \"nexora\",\n      \"io.podman.compose.service\": \"redis\",\n      \"io.podman.compose.version\": \"1.6.0\"\n    },\n    \"Mounts\": [\n      \"/data\"\n    ],\n    \"Names\": [\n      \"nexora_redis_1\"\n    ],\n    \"Namespaces\": {\n      \n    },\n    \"Networks\": [\n      \"nexora_default\"\n    ],\n    \"Pid\": 38520,\n    \"Pod\": \"90463063822c47de25e0ae4a1a68246c4efd5935d94204ff40725463f9e49802\",\n    \"PodName\": \"\",\n    \"Ports\": [\n      {\n        \"host_ip\": \"127.0.0.1\",\n        \"container_port\": 6379,\n        \"host_port\": 6379,\n        \"range\": 1,\n        \"protocol\": \"tcp\"\n      }\n    ],\n    \"Restarts\": 0,\n    \"Size\": null,\n    \"StartedAt\": 1792148660,\n    \"State\": \"running\",\n    \"Status\": \"Up Less than a second (healthy)\",\n    \"Created\": 1792148041\n  },\n  {\n    \"AutoRemove\": false,\n    \"Command\": [\n      \"postgres\"\n    ],\n    \"CreatedAt\": \"8 minutes ago\",\n    \"CIDFile\": \"\",\n    \"Exited\": false,\n    \"ExitedAt\": 1792148659,\n    \"ExitCode\": 0,\n    \"ExposedPorts\": {\n      \"5432\": [\n  \"tcp\"\n]\n    },\n    \"Id\": \"5ae477193f476c029d7bbbc095f5121c6bcd8597e03e9b73ebac0494c6127ebb\",\n    \"Image\": \"docker.io/library/postgres:18-alpine\",\n    \"ImageID\": \"c293117fcecda7344b5480222e813b9f673d7abd69b1dd95eff239b768b04f59\",\n    \"IsInfra\": false,\n    \"Labels\": {\n      \"PODMAN_SYSTEMD_UNIT\": \"podman-compose@nexora.service\",\n      \"com.docker.compose.container-number\": \"1\",\n      \"com.docker.compose.project\": \"nexora\",\n      \"com.docker.compose.project.config_files\": \"/home/abdullah/Downloads/nexora-ai-os/compose.yaml\",\n      \"com.docker.compose.project.working_dir\": \"/home/abdullah/Downloads/nexora-ai-os\",\n      \"com.docker.compose.service\": \"postgres\",\n      \"io.podman.compose.config-hash\": \"f6c93a0f10010a218c453edc68506699fffdb167f6fbae30766d06e3e93d788f\",\n      \"io.podman.compose.project\": \"nexora\",\n      \"io.podman.compose.service\": \"postgres\",\n      \"io.podman.compose.version\": \"1.6.0\"\n    },\n    \"Mounts\": [\n      \"/run/secrets/postgres_password\",\n      \"/var/lib/postgresql\"\n    ],\n    \"Names\": [\n      \"nexora_postgres_1\"\n    ],\n    \"Namespaces\": {\n      \n    },\n    \"Networks\": [\n      \"nexora_default\"\n    ],\n    \"Pid\": 38423,\n    \"Pod\": \"90463063822c47de25e0ae4a1a68246c4efd5935d94204ff40725463f9e49802\",\n    \"PodName\": \"\",\n    \"Ports\": [\n      {\n        \"host_ip\": \"127.0.0.1\",\n        \"container_port\": 5432,\n        \"host_port\": 5432,\n        \"range\": 1,\n        \"protocol\": \"tcp\"\n      }\n    ],\n    \"Restarts\": 0,\n    \"Size\": null,\n    \"StartedAt\": 1792148660,\n    \"State\": \"running\",\n    \"Status\": \"Up Less than a second (starting)\",\n    \"Created\": 1792148162\n  }\n]\n",
+    "stderr": ""
+  }
+]

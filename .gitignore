@@ -11,3 +11,6 @@ data/*
 *.log
 
 *.tsbuildinfo
+
+.secrets/
+.ruff_cache/

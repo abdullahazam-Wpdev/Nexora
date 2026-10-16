@@ -1,0 +1,14 @@
+{
+  "name": "build",
+  "command": [
+    "npm",
+    "--prefix",
+    "frontend",
+    "run",
+    "build"
+  ],
+  "exit_code": 0,
+  "stdout": "\n> nexora-dashboard@0.1.0 build\n> next build --webpack\n\n\u25b2 Next.js 16.4.2 (webpack)\n\u2713 Running next.config.mjs took 17ms\n- Experiments (use with caution):\n  \u00b7 cpus: 1\n\n  Creating an optimized production build ...\n\u2713 Compiled successfully in 3.2s\n  Running TypeScript ...\n  Finished TypeScript in 2.6s ...\n  Collecting page data using 1 worker ...\n  Generating static pages using 1 worker (0/3) ...\n\u2713 Generating static pages using 1 worker (3/3) in 179ms\n  Finalizing page optimization ...\n  Collecting build traces ...\n\nRoute (app)\n\u250c \u25cb /\n\u2514 \u25cb /_not-found\n\n\n\u25cb  (Static)  prerendered as static content\n\n",
+  "stderr": "",
+  "seconds": 18.854717287000312
+}

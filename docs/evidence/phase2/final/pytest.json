@@ -1,0 +1,13 @@
+{
+  "name": "pytest",
+  "command": [
+    "/home/abdullah/Downloads/nexora-ai-os/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 0,
+  "stdout": "...................                                                      [100%]\n19 passed in 5.80s\n",
+  "stderr": "",
+  "seconds": 7.081136135000634
+}

@@ -1,13 +1,15 @@
-# Optional future services. The bootstrap application currently uses SQLite.
+# Optional localhost services. The application control plane currently uses SQLite.
 services:
   postgres:
     image: docker.io/library/postgres:18-alpine
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-nexora}
       POSTGRES_DB: ${POSTGRES_DB:-nexora}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
     ports: ["127.0.0.1:5432:5432"]
-    volumes: ["postgres:/var/lib/postgresql:Z"]
+    volumes:
+      - "postgres:/var/lib/postgresql:Z"
+      - "./.secrets/postgres_password:/run/secrets/postgres_password:ro,Z"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
