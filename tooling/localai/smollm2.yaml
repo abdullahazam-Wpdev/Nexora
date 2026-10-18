@@ -1,0 +1,16 @@
+name: smollm2-localai
+backend: llama-cpp
+context_size: 512
+threads: 2
+parameters:
+  model: smollm2.gguf
+  temperature: 0
+  top_p: 1
+  max_tokens: 96
+template:
+  chat: |
+    {{.Input}}
+    <|im_start|>assistant
+  chat_message: |
+    <|im_start|>{{.RoleName}}
+    {{.Content}}<|im_end|>

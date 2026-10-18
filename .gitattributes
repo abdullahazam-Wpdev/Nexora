@@ -1,0 +1,2 @@
+# Attributed upstream snapshots retain their exact provenance hashes.
+catalogs/** -whitespace

@@ -1,0 +1,5 @@
+{
+  "normal": "Exit code: 0\nanswer 42\nuid 65534\nnetwork_blocked\nwrite_blocked\n",
+  "time_limit": "Execution time limit reached\n",
+  "cancellation_seconds": 10.145364436000818
+}

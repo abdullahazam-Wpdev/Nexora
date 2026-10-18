@@ -28,3 +28,9 @@ terms, label synthetic provenance and obtain a fresh bounded training plan.
 5. Validate a representative GPU benchmark and complete-system cost quote before purchasing hardware or approving any multi-hour job. GPU precision/RNG/scaler/DDP support remains future implementation work.
 
 Still outside the delivered scope: reliable assistant/agents, arbitrary code/browser execution, specialist business/creative/authorized-security products, workforce/virtual office, multimodal models, multi-user authentication and public production deployment. PostgreSQL/Redis remain verified local services; SQLite still backs current project records. No dashboard redesign was undertaken.
+
+## Local cowork integration — 2026-10-18
+
+Delivered persistent local chat, explicit isolated file actions, rootless networkless Python execution with cancellation, a four-tool workspace MCP server, provider-specific project skills, attributed API/model catalogs, daily bounded revision discovery, and a separate eight-step MIT documentation training pilot. Ollama, LocalAI CPU inference and the isolated FCC-to-Ollama proxy passed real local chat checks. External hosted providers remain documentation references without configured accounts. No proprietary model weights were replicated.
+
+The pilot's test perplexity is 897.45 on its own documentation split; it is not comparable to the earlier Core evaluation's different corpus/tokenizer. It is not promoted. Next: larger reviewed data, stable evaluations, stronger instruction-following reference feasibility, then bounded agent planning/edit-review evaluations. Current workspace tools are user-directed, not a validated autonomous coding agent. See `cowork-delivery.md` for exact evidence and limitations.

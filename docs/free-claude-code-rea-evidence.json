@@ -1,0 +1,116 @@
+{
+  "evidence_id": "ev_d34c6bb7d9ed0cf1c498a6386f13c9bcf5c9566678309c722f7b99e2a8b2fb88",
+  "subject": {
+    "name": "free-claude-code-main.zip",
+    "digest": {
+      "sha256": "1368b42cecc2cb511c482e0721143e59db7ca0cde93df01f6a33e919187cf267"
+    },
+    "local_path": "/home/abdullah/Downloads/free-claude-code-main.zip",
+    "format": "zip",
+    "architecture": null
+  },
+  "provider": {
+    "id": "rea-analysis-view",
+    "name": "REA analysis view projection",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis-view",
+  "operation": "inspect_analysis_view",
+  "parameters": {
+    "parent_evidence_id": "ev_5698a5eecf3e1e45983d5fa46f64f5425483b0daf9455f758e30f17a6ed85ee6",
+    "view": {
+      "kind": "summary"
+    }
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "kind": "summary",
+    "view": {
+      "kind": "summary"
+    },
+    "parent_evidence_id": "ev_5698a5eecf3e1e45983d5fa46f64f5425483b0daf9455f758e30f17a6ed85ee6",
+    "parent_operation": "inspect_artifact",
+    "parent_digest": "5698a5eecf3e1e45983d5fa46f64f5425483b0daf9455f758e30f17a6ed85ee6",
+    "view_digest": "81907a19534497d80f5e007b79de5c24dcf22ef844d978b5a967140379d02670",
+    "artifact": {
+      "path": "/home/abdullah/Downloads/free-claude-code-main.zip",
+      "sha256": "1368b42cecc2cb511c482e0721143e59db7ca0cde93df01f6a33e919187cf267"
+    },
+    "coverage": {
+      "status": "complete-within-view",
+      "examined": 3260,
+      "total": 3260,
+      "next_offset": null,
+      "exhausted": true
+    },
+    "limitations": [
+      "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics.",
+      "ZIP inventory lists central-directory entries only. Non-entry bytes, including an APK Signing Block before the central directory or a ZIP comment after it, are not occurrences."
+    ],
+    "unknowns": [
+      "Inventory does not establish application runtime behavior or complete format-specific analysis."
+    ],
+    "summary": {
+      "manifest": {
+        "manifest_id": "agm_62e32ececc0a4f0a5b49a1a7ae93132396890018d84823c5cc12a700d2fb5776",
+        "root_artifact_id": "art_92df745dd75aa6f634882ca6e0c9c101c6d11ee9a60dab9c58a6256ee0c9b9bc",
+        "root_sha256": "1368b42cecc2cb511c482e0721143e59db7ca0cde93df01f6a33e919187cf267",
+        "root_format": "zip",
+        "graph_sha256": "72b6d12882af7a6e9f71d965af57c0d6d40496abc13e69cc94b76b6dc33c3f49",
+        "node_count": 1087,
+        "occurrence_count": 1087,
+        "edge_count": 1086
+      },
+      "available_counts": {
+        "nodes": 1087,
+        "occurrences": 1087,
+        "edges": 1086,
+        "integrity_contradictions": 0
+      },
+      "observed_entry_kind_counts": {
+        "file": 1001,
+        "directory": 86,
+        "symlink": 0,
+        "slice": 0
+      },
+      "source_complete": true,
+      "inventory_evidence_ids": [
+        "ev_4141043573906745f54bada4651d7fa1c037cd87bba38964836f18e663396ba4"
+      ],
+      "inspection": {
+        "coverage": {
+          "status": "complete-within-substeps",
+          "substeps_completed": 1,
+          "observations_retained": 1,
+          "observations_omitted": 0,
+          "hypotheses_retained": 0,
+          "hypotheses_omitted": 0,
+          "unexplored_branches_retained": 0,
+          "unexplored_branches_omitted": 0,
+          "next_probes_retained": 0,
+          "next_probes_omitted": 0
+        },
+        "unexplored_branches": []
+      },
+      "limitation_count": 2
+    }
+  },
+  "confidence": "derived",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics.",
+    "ZIP inventory lists central-directory entries only. Non-entry bytes, including an APK Signing Block before the central directory or a ZIP comment after it, are not occurrences."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/home/abdullah/Downloads/free-claude-code-main.zip"
+    }
+  ],
+  "evidence_links": [
+    "ev_5698a5eecf3e1e45983d5fa46f64f5425483b0daf9455f758e30f17a6ed85ee6"
+  ]
+}

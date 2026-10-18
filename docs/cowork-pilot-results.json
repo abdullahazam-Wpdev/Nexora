@@ -1,0 +1,76 @@
+{
+  "id": "localai-docs-pilot-8",
+  "status": "completed",
+  "dataset_id": "localai-docs-pilot-5bbfc531d2a3",
+  "parameters": 172352,
+  "steps": 8,
+  "validation": {
+    "loss": 6.783846153026064,
+    "perplexity": 883.4601208288422,
+    "tokens": 1145,
+    "perplexity_capped": false
+  },
+  "test": {
+    "loss": 6.79956087720682,
+    "perplexity": 897.4531129926095,
+    "tokens": 1201,
+    "perplexity_capped": false
+  },
+  "seconds": 0.5544658670005447,
+  "resources": {
+    "wall_seconds": 0.5547632920006436,
+    "peak_rss_mb": 331.25,
+    "cpu_seconds": 0.9699999999999998,
+    "cpu_percent_one_core": 174.8493481790923,
+    "max_cpu_temperature_c": 55.0,
+    "monitor_samples": 31,
+    "temperature_sensor_reads": 2
+  },
+  "benchmark": {
+    "tokens_this_session": 1024,
+    "total_training_tokens": 1024,
+    "training_seconds": 0.10813383300046553,
+    "tokens_per_second": 9469.746624033864,
+    "step_seconds": 0.013516729125058191,
+    "dataset_loading_seconds": 0.0016902560000744415,
+    "checkpoint_save_seconds": 0.02241573200080893,
+    "estimated_1000_step_seconds": 13.516729125058191
+  },
+  "checkpoint": "runs/localai-docs-pilot-8/checkpoints/step-0000008/model.safetensors",
+  "dataset_tokens": {
+    "train": 4694,
+    "validation": 1146,
+    "test": 1202
+  },
+  "initial_validation": {
+    "loss": 6.9360880889226255,
+    "perplexity": 1028.738001688091,
+    "tokens": 1145,
+    "perplexity_capped": false
+  },
+  "sessions": [
+    {
+      "start_step": 0,
+      "end_step": 8,
+      "resources": {
+        "wall_seconds": 0.5547632920006436,
+        "peak_rss_mb": 331.25,
+        "cpu_seconds": 0.9699999999999998,
+        "cpu_percent_one_core": 174.8493481790923,
+        "max_cpu_temperature_c": 55.0,
+        "monitor_samples": 31,
+        "temperature_sensor_reads": 2
+      },
+      "benchmark": {
+        "tokens_this_session": 1024,
+        "total_training_tokens": 1024,
+        "training_seconds": 0.10813383300046553,
+        "tokens_per_second": 9469.746624033864,
+        "step_seconds": 0.013516729125058191,
+        "dataset_loading_seconds": 0.0016902560000744415,
+        "checkpoint_save_seconds": 0.02241573200080893,
+        "estimated_1000_step_seconds": 13.516729125058191
+      }
+    }
+  ]
+}

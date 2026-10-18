@@ -43,6 +43,8 @@ async def local_write_guard(request: Request, call_next):
         origin = request.headers.get("origin")
         if origin and origin not in {
             "http://127.0.0.1:3000",
+            "http://127.0.0.1:3001",
+            "http://localhost:3001",
             "http://localhost:3000",
             "http://127.0.0.1:8000",
             "http://localhost:8000",
@@ -325,3 +327,12 @@ app.include_router(research_router(STORE, audit))
 from nexora.reference import router as reference_router
 
 app.include_router(reference_router(audit))
+
+from nexora.cowork import router as cowork_router
+
+app.include_router(cowork_router(STORE, generate))
+
+@app.get('/api/cowork/providers')
+def cowork_providers():
+    from nexora.provider_registry import PROVIDERS
+    return PROVIDERS

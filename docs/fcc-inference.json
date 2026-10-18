@@ -1,0 +1,22 @@
+{
+  "status": 200,
+  "seconds": 1.681549298000391,
+  "response": {
+    "id": "msg_f20f1455-a5b0-4e30-8ed5-4d46751d004e",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "type": "text",
+        "text": "Hello! I'm here to help with your questions and provide assistance whenever you need it. What's on your mind?"
+      }
+    ],
+    "model": "claude-haiku-4-5",
+    "stop_reason": "max_tokens",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 34,
+      "output_tokens": 24
+    }
+  }
+}

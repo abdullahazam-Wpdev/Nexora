@@ -1,0 +1,24 @@
+[
+  {
+    "id": "public-apis",
+    "url": "https://github.com/public-apis/public-apis",
+    "revision": "a8f43609edba00b1dcdf7e55a5f3f855bc4ec37f",
+    "license": "MIT",
+    "hashes": {
+      "README.md": "ecc54f1a4ca29de994cf5dad3e7d94c72234ba618246b3efc0af863ccf8f1eda",
+      "LICENSE": "07704fa08e479d81930b0ad53c7c1d634c766736d27f725044949f982c1c9447"
+    },
+    "training_approved": false
+  },
+  {
+    "id": "awesome-free-models",
+    "url": "https://github.com/12britz/awesome-free-models",
+    "revision": "d123e9406625cc18840aec1f7fec4db71394192d",
+    "license": "CC0-1.0",
+    "hashes": {
+      "README.md": "46cc8f571a46ff2825f416e76822b09cdc49917c13b0085634d67f1c97afebcc",
+      "LICENSE": "99b4c41f664e099f6c70d18e882d99c8ae6963e824333ab9484b87d62203ffc1"
+    },
+    "training_approved": false
+  }
+]

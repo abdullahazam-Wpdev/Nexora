@@ -1,80 +1,92 @@
 # NEXORA AI OS
 
-Current research: [Phase 3 scaling report](docs/phase-3-scaling-report.md), [operations and commands](docs/phase-3-operations.md), [GPU purchase decision](docs/gpu-workstation-decision.md). The measured ~1M model remains the research baseline; larger did not win at the matched token budget.
+A local AI research workspace: build an independent foundation model, compare it honestly with open-weight references, and gradually add useful cowork and coding workflows.
 
-Working local independent-model research platform: PyTorch foundation-model architecture, approved/versioned datasets, bounded experiment workers, full held-out evaluation, verified checkpoints and FastAPI control plane. The existing Next.js dashboard remains the local inspection/playground UI. No commercial model API or pretrained weights are required.
+The working application provides persistent chat, local inference, an isolated file workspace, explicit Python execution in a rootless container, public API discovery, a workspace MCP server, and a reproducible CPU training/evaluation engine. It does not yet match Claude Code, Codex or ChatGPT. NEXORA Core is a small text-prediction research model; the external SmolLM2 reference is also limited.
 
-**Current models are small research language models, not reliable conversational assistants or coding agents.** See the [measured model comparison](docs/model-evaluation-report.md).
+## Run locally
 
-## Run
-
-```sh
-./scripts/start.sh
-```
-
-Dashboard: http://127.0.0.1:3000 · Interactive API: http://127.0.0.1:8000/docs
-
-Use one API worker per workspace. Model training workers survive API restarts; stop them cooperatively through the cancellation endpoint before moving storage. Default network listeners bind localhost only. Identity/authentication is still local ownership, not production multi-user access control.
-
-## Reproduce setup
+For an existing installation, use the commands below. For a fresh checkout, `scripts/bootstrap.sh` installs the pinned Python dependencies and frontend packages (requires a compatible Python and Node 22+); review its download requirements first. Reference/runtime setup is separate and documented in the delivery report.
 
 ```sh
-./scripts/bootstrap.sh
+scripts/ollama.sh start
+scripts/start-local.sh api
+# In another terminal, after building the frontend:
+export PATH="$PWD/.tools/node/bin:$PATH"
+(cd frontend && npm run build)
+scripts/start-local.sh ui
 ```
 
-Requires Python 3.11+ and Node 22+ (a verified project-local Node already exists in `.tools/node`). CPU PyTorch is pinned in `requirements.lock` along with installed tools. Source data/checkpoints/environments are excluded from Git.
+Open **http://127.0.0.1:3001**. The API is at http://127.0.0.1:8000/docs and the original model dashboard is at http://127.0.0.1:3001/research. Port 3000 is left available for the other application on this machine. Bind these services to loopback only; this is a single-owner development application, not an authenticated multi-user service.
 
-## Acquire reviewed data and train
+Select **SmolLM2** for local reference chat or **NEXORA Core** for research text prediction. Provider names remain visible. Conversation history persists in `artifacts/cowork.sqlite3`, survives API restarts, and is not automatically used as training data. Context and generated length are deliberately small to fit this laptop.
+
+## Cowork actions
+
+Enter these commands in chat:
+
+```text
+/help
+/files
+/write hello.py
+print("Hello from NEXORA", 6 * 7)
+/read hello.py
+/run hello.py
+/catalog weather
+```
+
+`/write` creates new files only; existing work is preserved. Paths stay inside `artifacts/coworkspace/`. `/run` executes Python in a rootless Podman container with networking disabled, a read-only filesystem/workspace, unprivileged user, dropped capabilities, 96 MiB RAM, half a CPU, 32 processes and a 10-second time budget. There is no host shell tool. See the delivery report for image pinning and verification commands. Model-generated prose never silently becomes a command.
+
+These are explicit user-directed actions. Reliable autonomous planning, repository-wide editing and unattended agent creation remain research work. Skills are instructions for an agent, not capabilities automatically learned by a model.
+
+## MCP and provider skills
+
+Run the project MCP server over stdio:
 
 ```sh
-.venv/bin/python -m nexora.data_engine --catalog configs/python-tutorial.sources.json --approve-download
-# Use the returned dataset ID in the next command:
-.venv/bin/python -m nexora.research create --dataset DATASET_ID --profile small --steps 200 --run
-.venv/bin/python -m nexora.research train RUN_ID --resume --steps 100
-.venv/bin/python -m nexora.research infer RUN_ID 'Python is' --tokens 32
+.venv/bin/python -m nexora.cowork_mcp
 ```
 
-The provided source catalog is a small version-pinned human-authored CPython tutorial corpus under PSF-2.0. It retains full notices and pins every downloaded file's hash; total downloads are limited to 700 kB. No AI-generated prose, pretrained weights, credentials or paid service is used for research training. Never approve a new source merely because a manifest claims a license.
+It exposes `workspace_list`, `workspace_read`, `workspace_create`, and `catalog_search`. Use the absolute interpreter path and repository working directory when registering it in a client. No global Codex, Claude or browser settings are changed automatically.
 
-Working API flow:
+Provider-specific skills live in `.agents/skills/nexora-*`. [Provider capabilities](docs/provider-capabilities.md) records official documentation, reproducible product patterns, actual integration state, licensing and limitations. OpenAI, Anthropic, DeepSeek, Perplexity, Kimi, Grok and Qoder are not connected without credentials; no paid calls or subscription bypasses are performed. Qoder is separate from DeepSeek.
 
-- POST `/api/research/datasets`: explicitly approve documents with source groups, license, provenance and reviewer.
-- GET `/api/research/datasets`: inspect IDs/versions and quality reports.
-- POST `/api/research/runs`: choose dataset ID/profile/training limits and start a real worker.
-- GET `/api/research/runs/{id}`: durable progress/errors after server restarts.
-- POST `/api/research/runs/{id}/resume`, `/cancel`, `/generate`, `/select`.
-- GET `/api/research/runs/{id}/checkpoint`: verify tensors/hashes.
-
-`/select` makes the chosen checkpoint serve the existing playground's `/api/generate`. Existing training buttons now launch versioned research jobs and preserve the original arithmetic checkpoint. Old `/api/datasets` remains a compatibility endpoint; use `/api/research/datasets` to prepare selectable training data.
-
-## Verify
+## Data and our foundation model
 
 ```sh
-./scripts/test.sh
-.venv/bin/ruff check nexora tests scripts --select F
-.venv/bin/python -m pip_audit
-.venv/bin/python scripts/browser_qa.py
-# With the approved Python dataset present; isolated real worker lifecycle QA:
-.venv/bin/python -m scripts.research_qa
+.venv/bin/python scripts/learning-cycle.py
+# Once per machine: install a bounded daily revision-discovery timer
+scripts/install-learning-timer.sh
+# Explicit, separately checkpointed MIT-documentation pilot:
+.venv/bin/python scripts/train-documentation-pilot.py --run-id localai-docs-reproduce
 ```
 
-Phase 3 experiment configuration and exact commands are in [research operations](docs/phase-3-operations.md). The current matrix's persistent execution ledger is exhausted; rerunning it cannot renew its budget. Create a separately reviewed, explicitly bounded plan for new work. `scripts/experiment_matrix.py` and `verify_baseline.py` are historical Phase 2 tools, not current matrix launchers. All trained artifacts and the frozen tokenizer must be retained/copied for exact checkpoint reproduction.
+Daily discovery runs at 09:00 Asia/Karachi and checks three public repositories for new revisions. It does not crawl private sessions, download all Wikipedia, install every catalog entry, or train on unreviewed platform responses. Review new content's license, source provenance, quality, deduplication and held-out contamination before ingestion. The documentation pilot uses six source groups from pinned MIT LocalAI documentation with retained notices, eight training steps and separate checkpoints; its poor perplexity is reported rather than hidden. The existing selected Core checkpoint is preserved.
 
-## Local infrastructure
+Research design, checkpoint compatibility and scaling measurements: [Phase 2](docs/phase-2-delivery.md), [Phase 3](docs/phase-3-scaling-report.md), [roadmap](docs/roadmap.md). Consult the actual filenames in `docs/` if following older links.
 
-REA/Hopper and the separate local Ollama reference-model adapter are documented
-in [the reference setup report](docs/reverse-engineering-reference-setup.md).
-Reference-model outputs are labeled external and do not enter Core training.
+## Open-source integrations
+
+- Ollama + pinned Apache-2.0 SmolLM2 135M Q4: verified local reference inference.
+- REA + Hopper demo: installed for authorized artifact analysis; see [setup evidence](docs/reverse-engineering-reference-setup.md). Source repository inspection uses ordinary source tools.
+- LocalAI: separate optional CPU inference engine, reusing the reference GGUF where feasible. See [current delivery report](docs/cowork-delivery.md) for verified state.
+- free-claude-code: separately isolated AGPL provider proxy. The supplied ZIP has no LLM weights. Do not merge its code into Core or run its global client auto-configuration installer.
+- Rootless Podman supplies container isolation; no extra Docker daemon is needed.
+- Attributed `catalogs/public-apis` and `catalogs/awesome-free-models` snapshots are discovery material. Listed APIs have their own licenses, keys, quotas and reliability.
+- Vercel, cloud object storage, CDN and Google Drive are not provisioned. Local storage suffices; no money has been spent.
+
+## Verification and development
 
 ```sh
-.venv/bin/python scripts/infra.py up
-.venv/bin/python scripts/infra.py verify
+.venv/bin/python -m pytest -q
+.venv/bin/python scripts/verify-cowork-sandbox.py
+.venv/bin/python scripts/cowork-browser-qa.py
+export PATH="$PWD/.tools/node/bin:$PATH"
+(cd frontend && npm run typecheck && npm run build)
 ```
 
-Rootless Podman is installed on the Fedora host and accessed through `scripts/host-podman.sh`; Compose is installed only in `.venv`. PostgreSQL/Redis were health- and persistence-tested. The application currently uses SQLite; PostgreSQL/Redis adapters remain future work. Passwords stay in ignored `.secrets/` and are mounted read-only with SELinux labeling. No password is passed in a command argument or committed.
+Do not commit `.env`, `.secrets`, weights, private conversations, browser profiles, database files or vendor environments. These remain ignored. Public catalog licenses and hashes are retained in `catalogs/manifest.json`.
 
-## Storage and migration
+## Next research milestone
 
-Set `NEXORA_STORAGE=/absolute/path` consistently for server/CLI. Default: `artifacts/`. Layout: raw snapshots, immutable dataset versions, mapped run-local token shards, per-step checkpoint bundles and durable job records. Stop all writers before copying. Copy complete bundles with tokenizer, manifests and optimizer state; verify hashes on the destination. Recreate environments from locks; do not copy virtual environments across systems. CPU is verified; CUDA/DDP/AMP implementation and cross-device resume remain planned.
-
-[Previous-work audit](docs/phase-1-audit.md) · [Hardware/RAM/storage](docs/hardware-storage-upgrade-report.md) · [Dataset strategy](docs/dataset-strategy.md) · [Model evaluation](docs/model-evaluation-report.md) · [GPU readiness](docs/future-gpu-readiness.md) · [Roadmap](docs/roadmap.md)
+Expand a rights-reviewed corpus with stable held-out evaluations; train matched configurations within measured CPU limits; evaluate memorization and generation quality before any promotion. Add a stronger feasible instruction-tuned reference only after a download/RAM budget is approved, then test bounded tool selection and edit review. A capable independent foundation model requires substantially more data and compute than this laptop pilot.

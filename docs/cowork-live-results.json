@@ -1,0 +1,46 @@
+[
+  {
+    "provider": "localai",
+    "thread": "827bc800594b4ec4b3d791e797ce4ef4",
+    "result": {
+      "role": "assistant",
+      "text": "Hello!",
+      "provider": "LocalAI \u2022 external SmolLM2",
+      "training_enabled": false
+    },
+    "seconds": 2.58222333500089
+  },
+  {
+    "provider": "fcc",
+    "thread": "a8abafb9695241d4bf6ba59c93842ffe",
+    "result": {
+      "role": "assistant",
+      "text": "Hello! I'm here to help with your questions and provide assistance whenever you need it. What's on your mind?",
+      "provider": "FCC proxy \u2192 Ollama \u2022 external SmolLM2 (not Claude)",
+      "training_enabled": false
+    },
+    "seconds": 1.4259111150004173
+  },
+  {
+    "provider": "ollama",
+    "thread": "6722d2827a5d406795c6b55dc5258e80",
+    "result": {
+      "role": "assistant",
+      "text": "Hello! I'm here to help with your questions and provide assistance whenever you need it. What's on your mind?",
+      "provider": "Ollama \u2022 external SmolLM2 135M",
+      "training_enabled": false
+    },
+    "seconds": 0.918401883000115
+  },
+  {
+    "provider": "core",
+    "thread": "e81389769cef4e2580166ab7939b8281",
+    "result": {
+      "role": "assistant",
+      "text": "Say hello briefly.  There are\nthere is a list of the file is the file object, the file is\nthe particular module.  This is a new object, the\nindex object is availa",
+      "provider": "NEXORA Core \u2022 research text prediction",
+      "training_enabled": false
+    },
+    "seconds": 0.3648547040011181
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "response": {
+    "created": 1792327106,
+    "object": "chat.completion",
+    "id": "a29cb3e0-00b3-471f-aec1-8e98d17017e2",
+    "model": "smollm2-localai",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Hello!"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 13,
+      "completion_tokens": 3,
+      "total_tokens": 16
+    }
+  },
+  "seconds": 2.5964769550009805
+}
