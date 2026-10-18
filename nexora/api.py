@@ -336,6 +336,18 @@ from nexora.nvidia_nim import router as nvidia_router
 
 app.include_router(nvidia_router(audit))
 
+from nexora.search import router as search_router
+
+app.include_router(search_router(audit))
+
+from nexora.browser_reader import router as browser_router
+
+app.include_router(browser_router(audit))
+
+from nexora.research_agent import router as research_agent_router
+
+app.include_router(research_agent_router(audit))
+
 @app.get('/api/cowork/providers')
 def cowork_providers():
     from nexora.provider_registry import PROVIDERS

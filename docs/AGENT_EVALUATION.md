@@ -1,5 +1,24 @@
 # Agent evaluation suite — Phase 5
 
+## Phase 6 update
+
+The local-model generation length caps this suite's backends hit have
+since been raised (`docs/PHASE6_DELIVERY.md`) -- the scores below were
+measured before that change and have not been re-run after it, since the
+caps were not the cause of the near-zero scores (coherence and
+correctness, not truncation, is why both backends fail most categories).
+Phase 6 also adds three new real capabilities -- live web search
+(`docs/WEB_SEARCH_INTEGRATION.md`), browser reading
+(`docs/BROWSER_AUTOMATION.md`), and the research agent
+(`docs/RESEARCH_AGENT.md`) -- none of which are part of this automated
+suite yet. "Source attribution" and "current-information research," both
+named in Phase 6 §16's requested benchmark categories, are not yet
+represented here; the research agent's own test suite
+(`tests/test_research_agent.py`) covers correctness of the pipeline
+mechanics (no fabricated citations, failures are recorded) but not answer
+quality against a held-out question set. That is the right next addition
+to this file, not done this pass.
+
 Real, automated, bounded test cases run live against two actual backends
 this session: **NEXORA Core** (`phase2-small-language` checkpoint, 984,192
 parameters) and **Ollama / SmolLM2 135M** (the pinned external reference).
