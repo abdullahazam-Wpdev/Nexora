@@ -4,6 +4,7 @@ Reviewed 2026-10-18. Public documentation describes provider features, not demon
 
 | Platform | Useful capability / reproducible pattern | NEXORA state and boundary | Primary reference |
 |---|---|---|---|
+| NVIDIA NIM | Hosted inference catalog spanning many providers/modalities | Adapter implemented (`nexora/nvidia_nim.py`): model discovery verified live (81 real models, no key needed); chat, streaming, embeddings, tool-call passthrough implemented but need your own `NVIDIA_NIM_API_KEY`. See [NVIDIA_NIM.md](NVIDIA_NIM.md) | https://docs.api.nvidia.com/ |
 | OpenAI / ChatGPT | Conversations, tools, coding workflows | Local conversation UI and explicit workspace actions implemented. No official OpenAI API key or proprietary model replication. | https://developers.openai.com/api/docs/guides/function-calling |
 | Anthropic / Claude | Hosted reasoning and coding agents | Reference skill; no official Anthropic credentials. FCC is an unrelated proxy, not Claude weights. | https://platform.claude.com/docs/en/intro |
 | DeepSeek | Hosted inference; separately released open-weight models | Research skill; model-specific license and hardware review required. `/api/search/` is docs search, not a search endpoint. | https://api-docs.deepseek.com/ |

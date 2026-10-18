@@ -65,12 +65,15 @@ Daily discovery runs at 09:00 Asia/Karachi and checks three public repositories 
 
 Research design, checkpoint compatibility and scaling measurements: [Phase 2](docs/phase-2-delivery.md), [Phase 3](docs/phase-3-scaling-report.md), [roadmap](docs/roadmap.md). Consult the actual filenames in `docs/` if following older links.
 
+Phase 4 (NVIDIA NIM, REA, agent capabilities, hardware reality check, and the acceptance-test report) is summarized in [docs/PHASE4_VERIFICATION.md](docs/PHASE4_VERIFICATION.md), which links every individual Phase 4 doc and states exactly what is verified versus blocked.
+
 ## Open-source integrations
 
 - Ollama + pinned Apache-2.0 SmolLM2 135M Q4: verified local reference inference.
 - REA + Hopper demo: installed for authorized artifact analysis; see [setup evidence](docs/reverse-engineering-reference-setup.md). Source repository inspection uses ordinary source tools.
 - LocalAI: separate optional CPU inference engine, reusing the reference GGUF where feasible. See [current delivery report](docs/cowork-delivery.md) for verified state.
-- free-claude-code: separately isolated AGPL provider proxy. The supplied ZIP has no LLM weights. Do not merge its code into Core or run its global client auto-configuration installer.
+- free-claude-code: separately isolated AGPL provider proxy. The supplied ZIP has no LLM weights. Do not merge its code into Core or run its global client auto-configuration installer. See [docs/FREE_CLAUDE_CODE.md](docs/FREE_CLAUDE_CODE.md).
+- NVIDIA NIM: hosted OpenAI-compatible provider adapter (`nexora/nvidia_nim.py`, `/api/nvidia/*`). Model discovery is verified live against the real catalog with no key (81 models); chat/streaming/embeddings need your own `NVIDIA_NIM_API_KEY` from https://build.nvidia.com. See [docs/NVIDIA_NIM.md](docs/NVIDIA_NIM.md).
 - Rootless Podman supplies container isolation; no extra Docker daemon is needed.
 - Attributed `catalogs/public-apis` and `catalogs/awesome-free-models` snapshots are discovery material. Listed APIs have their own licenses, keys, quotas and reliability.
 - Vercel, cloud object storage, CDN and Google Drive are not provisioned. Local storage suffices; no money has been spent.

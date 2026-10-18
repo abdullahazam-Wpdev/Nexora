@@ -34,6 +34,18 @@ PROVIDERS = [
         "training": False,
     },
     {
+        "id": "nvidia-nim",
+        "label": "NVIDIA NIM",
+        "kind": "hosted",
+        "adapter": "model discovery verified live against the real NVIDIA "
+        "catalog with no key required (GET /v1/models is public); chat, "
+        "streaming and embeddings are implemented but need your own "
+        "NVIDIA_NIM_API_KEY. Check /api/nvidia/status for current state.",
+        "docs": "https://docs.api.nvidia.com/",
+        "key_env": "NVIDIA_NIM_API_KEY",
+        "training": False,
+    },
+    {
         "id": "openai",
         "kind": "hosted",
         "adapter": "documentation only; not connected",
