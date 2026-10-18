@@ -378,3 +378,9 @@ def agent_capabilities():
     from nexora.provider_registry import capabilities
 
     return capabilities()
+
+from nexora.riva_speech import router as riva_router
+from nexora.model_catalog import router as model_catalog_router
+
+app.include_router(riva_router())
+app.include_router(model_catalog_router())

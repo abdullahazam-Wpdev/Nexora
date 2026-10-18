@@ -110,3 +110,9 @@ experimental nonstreaming Responses adapter, with 4,096-token output limits.
 See [NVIDIA setup and exact requests](docs/NVIDIA_NIM.md). Both
 `NVIDIA_NIM_API_KEY` and `NVIDIA_API_KEY` are recognized server-side; hosted
 generation still requires your own credential and has not been verified live.
+
+Whisper speech now includes an optional hosted NVIDIA Riva transcription and
+translation adapter. Chat adds hosted Gemma 7B, single-turn Kimi K3, FCC routing
+alias selection, and opt-in persistent project-note context. The Models panel
+separates installed FCC provider metadata from live configured models and retired
+entries. [Setup, exact limitations and reproduction](docs/PROVIDER_EXPANSION.md).

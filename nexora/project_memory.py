@@ -16,6 +16,20 @@ class Memory(BaseModel):
     retention_days: int = Field(default=30, ge=1, le=365)
 
 
+def context_notes(store, project):
+    """Latest three owner notes only; never proposals/evaluations or another namespace."""
+    path = store / "project-memory.sqlite3"
+    if not path.exists():
+        return []
+    with sqlite3.connect(path) as con:
+        con.row_factory = sqlite3.Row
+        rows = con.execute(
+            "SELECT id,content FROM entries WHERE project=? AND kind IN ('project','preference') AND expires>? ORDER BY updated DESC LIMIT 3",
+            (project, time.time()),
+        ).fetchall()
+    return [{"id": r["id"], "content": r["content"][:250]} for r in rows]
+
+
 def router(store):
     routes = APIRouter(prefix="/api/knowledge", tags=["typed project memory"])
 

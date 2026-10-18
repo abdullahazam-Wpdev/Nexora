@@ -1,0 +1,400 @@
+{
+  "source": "https://github.com/alishahryar1/free-claude-code",
+  "license": "AGPL-3.0",
+  "provider_source_sha256": "5024115cd8d5b8c2eb47a3f18f40ac16619590ee8bacc9e917e2cfa007550a2e",
+  "alias_source_sha256": "c0639b035fa0bcf6f47870763651a96168285be8797f1ba538ce41d89a9e87f7",
+  "providers": [
+    {
+      "provider_id": "nvidia_nim",
+      "display_name": "NVIDIA NIM",
+      "website_url": "https://build.nvidia.com/",
+      "credential_env": "NVIDIA_NIM_API_KEY"
+    },
+    {
+      "provider_id": "open_router",
+      "display_name": "OpenRouter",
+      "website_url": "https://openrouter.ai/",
+      "credential_env": "OPENROUTER_API_KEY"
+    },
+    {
+      "provider_id": "groq",
+      "display_name": "Groq",
+      "website_url": "https://groq.com/",
+      "credential_env": "GROQ_API_KEY"
+    },
+    {
+      "provider_id": "cline_pass",
+      "display_name": "ClinePass",
+      "website_url": "https://cline.bot/",
+      "credential_env": "CLINE_API_KEY"
+    },
+    {
+      "provider_id": "openai",
+      "display_name": "OpenAI / ChatGPT",
+      "website_url": "https://openai.com/"
+    },
+    {
+      "provider_id": "openai_api",
+      "display_name": "OpenAI API",
+      "website_url": "https://platform.openai.com/",
+      "credential_env": "OPENAI_API_KEY"
+    },
+    {
+      "provider_id": "anthropic",
+      "display_name": "Anthropic",
+      "website_url": "https://www.anthropic.com/",
+      "credential_env": "ANTHROPIC_API_KEY"
+    },
+    {
+      "provider_id": "github_copilot",
+      "display_name": "GitHub Copilot",
+      "website_url": "https://github.com/features/copilot"
+    },
+    {
+      "provider_id": "xai",
+      "display_name": "xAI (Grok)",
+      "website_url": "https://x.ai/",
+      "credential_env": "XAI_API_KEY"
+    },
+    {
+      "provider_id": "alibaba_cloud",
+      "display_name": "Alibaba Cloud",
+      "website_url": "https://www.alibabacloud.com/en/product/modelstudio",
+      "credential_env": "ALIBABA_CLOUD_API_KEY"
+    },
+    {
+      "provider_id": "qwencloud",
+      "display_name": "QwenCloud Token Plan",
+      "website_url": "https://qwencloud.com/",
+      "credential_env": "QWENCLOUD_API_KEY"
+    },
+    {
+      "provider_id": "qwencloud_coding",
+      "display_name": "QwenCloud Coding Plan",
+      "website_url": "https://qwencloud.com/",
+      "credential_env": "QWENCLOUD_CODING_API_KEY"
+    },
+    {
+      "provider_id": "together",
+      "display_name": "Together AI",
+      "website_url": "https://www.together.ai/",
+      "credential_env": "TOGETHER_API_KEY"
+    },
+    {
+      "provider_id": "deepinfra",
+      "display_name": "DeepInfra",
+      "website_url": "https://deepinfra.com/",
+      "credential_env": "DEEPINFRA_API_KEY"
+    },
+    {
+      "provider_id": "siliconflow",
+      "display_name": "SiliconFlow",
+      "website_url": "https://siliconflow.com/",
+      "credential_env": "SILICONFLOW_API_KEY"
+    },
+    {
+      "provider_id": "nebius",
+      "display_name": "Nebius Token Factory",
+      "website_url": "https://tokenfactory.nebius.com/",
+      "credential_env": "NEBIUS_API_KEY"
+    },
+    {
+      "provider_id": "chutes",
+      "display_name": "Chutes",
+      "website_url": "https://chutes.ai/",
+      "credential_env": "CHUTES_API_KEY"
+    },
+    {
+      "provider_id": "featherless",
+      "display_name": "Featherless AI",
+      "website_url": "https://featherless.ai/",
+      "credential_env": "FEATHERLESS_API_KEY"
+    },
+    {
+      "provider_id": "agnes",
+      "display_name": "Agnes AI",
+      "website_url": "https://agnes-ai.com/",
+      "credential_env": "AGNES_API_KEY"
+    },
+    {
+      "provider_id": "zenmux",
+      "display_name": "ZenMux",
+      "website_url": "https://zenmux.ai/",
+      "credential_env": "ZENMUX_API_KEY"
+    },
+    {
+      "provider_id": "wandb",
+      "display_name": "W&B Inference",
+      "website_url": "https://wandb.ai/site/inference/",
+      "credential_env": "WANDB_API_KEY"
+    },
+    {
+      "provider_id": "azure_openai",
+      "display_name": "Azure OpenAI",
+      "website_url": "https://azure.microsoft.com/en-us/products/ai-services/openai-service/",
+      "credential_env": "AZURE_OPENAI_API_KEY"
+    },
+    {
+      "provider_id": "gemini",
+      "display_name": "Gemini",
+      "website_url": "https://ai.google.dev/",
+      "credential_env": "GEMINI_API_KEY"
+    },
+    {
+      "provider_id": "vertex",
+      "display_name": "Google Vertex AI",
+      "website_url": "https://cloud.google.com/vertex-ai"
+    },
+    {
+      "provider_id": "deepseek",
+      "display_name": "DeepSeek",
+      "website_url": "https://www.deepseek.com/",
+      "credential_env": "DEEPSEEK_API_KEY"
+    },
+    {
+      "provider_id": "mistral",
+      "display_name": "Mistral",
+      "website_url": "https://mistral.ai/",
+      "credential_env": "MISTRAL_API_KEY"
+    },
+    {
+      "provider_id": "mistral_codestral",
+      "display_name": "Mistral Codestral",
+      "website_url": "https://mistral.ai/",
+      "credential_env": "CODESTRAL_API_KEY"
+    },
+    {
+      "provider_id": "opencode_zen",
+      "display_name": "OpenCode Zen",
+      "website_url": "https://opencode.ai/zen",
+      "credential_env": "OPENCODE_API_KEY"
+    },
+    {
+      "provider_id": "opencode_go",
+      "display_name": "OpenCode Go",
+      "website_url": "https://opencode.ai/go",
+      "credential_env": "OPENCODE_API_KEY"
+    },
+    {
+      "provider_id": "vercel",
+      "display_name": "Vercel AI Gateway",
+      "website_url": "https://vercel.com/ai-gateway",
+      "credential_env": "AI_GATEWAY_API_KEY"
+    },
+    {
+      "provider_id": "bedrock",
+      "display_name": "Amazon Bedrock",
+      "website_url": "https://aws.amazon.com/bedrock/",
+      "credential_env": "AWS_BEARER_TOKEN_BEDROCK"
+    },
+    {
+      "provider_id": "huggingface",
+      "display_name": "Hugging Face",
+      "website_url": "https://huggingface.co/",
+      "credential_env": "HUGGINGFACE_API_KEY"
+    },
+    {
+      "provider_id": "cohere",
+      "display_name": "Cohere",
+      "website_url": "https://cohere.com/",
+      "credential_env": "COHERE_API_KEY"
+    },
+    {
+      "provider_id": "wafer",
+      "display_name": "Wafer",
+      "website_url": "https://www.wafer.ai/",
+      "credential_env": "WAFER_API_KEY"
+    },
+    {
+      "provider_id": "kimi",
+      "display_name": "Kimi",
+      "website_url": "https://www.kimi.com/",
+      "credential_env": "KIMI_API_KEY"
+    },
+    {
+      "provider_id": "kimi_code",
+      "display_name": "Kimi Code",
+      "website_url": "https://www.kimi.com/code",
+      "credential_env": "KIMI_CODE_API_KEY"
+    },
+    {
+      "provider_id": "kilo",
+      "display_name": "Kilo.ai",
+      "website_url": "https://kilo.ai/",
+      "credential_env": "KILO_API_KEY"
+    },
+    {
+      "provider_id": "minimax",
+      "display_name": "MiniMax",
+      "website_url": "https://www.minimax.io/",
+      "credential_env": "MINIMAX_API_KEY"
+    },
+    {
+      "provider_id": "cerebras",
+      "display_name": "Cerebras",
+      "website_url": "https://www.cerebras.ai/",
+      "credential_env": "CEREBRAS_API_KEY"
+    },
+    {
+      "provider_id": "sambanova",
+      "display_name": "SambaNova",
+      "website_url": "https://sambanova.ai/",
+      "credential_env": "SAMBANOVA_API_KEY"
+    },
+    {
+      "provider_id": "fireworks",
+      "display_name": "Fireworks",
+      "website_url": "https://fireworks.ai/",
+      "credential_env": "FIREWORKS_API_KEY"
+    },
+    {
+      "provider_id": "novita",
+      "display_name": "Novita AI",
+      "website_url": "https://novita.ai/",
+      "credential_env": "NOVITA_API_KEY"
+    },
+    {
+      "provider_id": "cloudflare",
+      "display_name": "Cloudflare",
+      "website_url": "https://www.cloudflare.com/developer-platform/products/workers-ai/",
+      "credential_env": "CLOUDFLARE_API_TOKEN"
+    },
+    {
+      "provider_id": "zai",
+      "display_name": "Z.ai Coding Plan",
+      "website_url": "https://z.ai/",
+      "credential_env": "ZAI_API_KEY"
+    },
+    {
+      "provider_id": "zai_api",
+      "display_name": "Z.ai API",
+      "website_url": "https://z.ai/",
+      "credential_env": "ZAI_API_KEY"
+    },
+    {
+      "provider_id": "tokenrouter",
+      "display_name": "TokenRouter",
+      "website_url": "https://www.tokenrouter.com/",
+      "credential_env": "TOKENROUTER_API_KEY"
+    },
+    {
+      "provider_id": "nararoute",
+      "display_name": "NaraRoute",
+      "website_url": "https://router.bynara.id/",
+      "credential_env": "NARAROUTE_API_KEY"
+    },
+    {
+      "provider_id": "poolside",
+      "display_name": "Poolside AI",
+      "website_url": "https://poolside.ai/",
+      "credential_env": "POOLSIDE_API_KEY"
+    },
+    {
+      "provider_id": "llm7",
+      "display_name": "LLM7.io",
+      "website_url": "https://llm7.io/",
+      "credential_env": "LLM7_API_KEY"
+    },
+    {
+      "provider_id": "scaleway",
+      "display_name": "Scaleway",
+      "website_url": "https://www.scaleway.com/",
+      "credential_env": "SCW_SECRET_KEY"
+    },
+    {
+      "provider_id": "lightning",
+      "display_name": "Lightning AI",
+      "website_url": "https://lightning.ai/",
+      "credential_env": "LIGHTNING_API_KEY"
+    },
+    {
+      "provider_id": "experiential",
+      "display_name": "Experiential Labs",
+      "website_url": "https://www.experientiallabs.ai/",
+      "credential_env": "EXPLABS_API_KEY"
+    },
+    {
+      "provider_id": "cheaperinference",
+      "display_name": "Cheaper Inference",
+      "website_url": "https://cheaperinference.com/",
+      "credential_env": "CHEAPER_INFERENCE_API_KEY"
+    },
+    {
+      "provider_id": "orcarouter",
+      "display_name": "OrcaRouter",
+      "website_url": "https://www.orcarouter.ai/",
+      "credential_env": "ORCAROUTER_API_KEY"
+    },
+    {
+      "provider_id": "xkiro",
+      "display_name": "xKiro",
+      "website_url": "https://xkiro.com/",
+      "credential_env": "XKIRO_API_KEY"
+    },
+    {
+      "provider_id": "opper",
+      "display_name": "Opper",
+      "website_url": "https://opper.ai/",
+      "credential_env": "OPPER_API_KEY"
+    },
+    {
+      "provider_id": "ollama_cloud",
+      "display_name": "Ollama Cloud",
+      "website_url": "https://ollama.com/",
+      "credential_env": "OLLAMA_API_KEY"
+    },
+    {
+      "provider_id": "lmstudio",
+      "display_name": "LM Studio",
+      "website_url": "https://lmstudio.ai/",
+      "local": true
+    },
+    {
+      "provider_id": "llamacpp",
+      "display_name": "LLaMA.cpp",
+      "website_url": "https://github.com/ggml-org/llama.cpp",
+      "local": true
+    },
+    {
+      "provider_id": "ollama",
+      "display_name": "Ollama",
+      "website_url": "https://ollama.com/",
+      "local": true
+    }
+  ],
+  "aliases": [
+    {
+      "id": "claude-fable-5",
+      "display_name": "Claude Fable 5"
+    },
+    {
+      "id": "claude-opus-4-20250514",
+      "display_name": "Claude Opus 4"
+    },
+    {
+      "id": "claude-sonnet-4-20250514",
+      "display_name": "Claude Sonnet 4"
+    },
+    {
+      "id": "claude-haiku-4-20250514",
+      "display_name": "Claude Haiku 4"
+    },
+    {
+      "id": "claude-3-opus-20240229",
+      "display_name": "Claude 3 Opus"
+    },
+    {
+      "id": "claude-3-5-sonnet-20241022",
+      "display_name": "Claude 3.5 Sonnet"
+    },
+    {
+      "id": "claude-3-haiku-20240307",
+      "display_name": "Claude 3 Haiku"
+    },
+    {
+      "id": "claude-3-5-haiku-20241022",
+      "display_name": "Claude 3.5 Haiku"
+    }
+  ],
+  "note": "Installed-source metadata snapshot; aliases are routing names, not installed Claude weights. Available upstream models depend on configured providers and live discovery."
+}

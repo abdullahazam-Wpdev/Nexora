@@ -5,7 +5,7 @@ from nexora.config import ROOT
 import httpx
 
 
-def chat(provider, messages):
+def chat(provider, messages, model=None):
     if provider == "localai":
         url = "http://127.0.0.1:8080/v1/chat/completions"
         headers = {}
@@ -17,6 +17,10 @@ def chat(provider, messages):
             "stream": False,
         }
     elif provider == "fcc":
+        from nexora.model_catalog import fcc_snapshot
+
+        if model and model not in {m["id"] for m in fcc_snapshot()["aliases"]}:
+            raise HTTPException(422, "Unknown FCC routing alias")
         token = ROOT / ".secrets/fcc-token"
         if not token.exists():
             raise HTTPException(503, "FCC sidecar is not initialized")
@@ -26,7 +30,7 @@ def chat(provider, messages):
             "anthropic-version": "2023-06-01",
         }
         payload = {
-            "model": "claude-haiku-4-5",
+            "model": model or "claude-haiku-4-5",
             "messages": messages,
             "max_tokens": 320,
             "temperature": 0,
@@ -34,6 +38,11 @@ def chat(provider, messages):
         }
     else:
         raise ValueError("Unknown sidecar")
+    if provider == "fcc":
+        system = "\n".join(m["content"] for m in messages if m["role"] == "system")
+        payload["messages"] = [m for m in messages if m["role"] != "system"]
+        if system:
+            payload["system"] = system
     try:
         with httpx.Client(trust_env=False, timeout=120) as client:
             with client.stream("POST", url, json=payload, headers=headers) as response:

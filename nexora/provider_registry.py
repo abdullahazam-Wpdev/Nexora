@@ -92,6 +92,20 @@ PROVIDERS = [
 from nexora.openai_nim_models import MODELS
 
 PROVIDERS.extend(MODELS)
+from nexora.model_catalog import REQUESTED_MODELS
+
+PROVIDERS.extend(
+    {
+        **m,
+        "label": m["label"],
+        "kind": "hosted",
+        "key_env": "NVIDIA_NIM_API_KEY",
+        "chat": True,
+        "training": False,
+    }
+    for m in REQUESTED_MODELS
+    if not m.get("retired")
+)
 
 
 def capabilities():

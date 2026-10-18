@@ -71,7 +71,7 @@ def test_no_silent_sidecar_fallback(tmp_path, monkeypatch):
     from fastapi import HTTPException
     import nexora.local_sidecars
 
-    def unavailable(*args):
+    def unavailable(*args, **kwargs):
         raise HTTPException(503, "sidecar unavailable")
 
     monkeypatch.setattr(nexora.local_sidecars, "chat", unavailable)

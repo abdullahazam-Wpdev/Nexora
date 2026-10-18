@@ -8,3 +8,10 @@ Reviewed 2026-10-18 from [NVIDIA's publisher page](https://build.nvidia.com/open
 `GET /api/nvidia/openai-models` records capabilities/configuration and distinguishes these modalities. NVIDIA's public LLM `/v1/models` list returned GPT-OSS-20B; Whisper uses the separate speech stack and is not expected in that chat list. Hosted account quotas, entitlements and pricing must be checked before calls; a “Free Endpoint” label does not guarantee unlimited access or local weights.
 
 Neither large model was downloaded or loaded on this 7.5 GiB Intel-only laptop. Separately, the explicitly approved **NVIDIA Nemotron 3 Nano 4B Q4 GGUF** download completed, 2,837,072,864 bytes, revision `ba223d14e45525f7fae81db77ea8cabeb2fc6c25`, SHA-256 `be5d9a656a51922f24f1f09a759cebb694e1f5d9728bf0ef9f8c972c5a0b5ef2`. GGUF v3 header verified. It is **storage only**, not registered as an active runtime, not trained on, and not claimed compatible with the older Ollama build. Manifest: `tooling/nvidia/nano4b-storage-manifest.json`; weights and license remain in ignored `artifacts/reference-models/nvidia/`. Installing the entire NVIDIA catalog is infeasible on this machine and was not attempted.
+
+The hosted Whisper Riva client is now installed and exposed separately from the
+optional local HTTP Speech NIM service. Use the Whisper speech panel's hosted
+option for transcription or translation with explicit audio-transfer consent.
+No API key is configured, so hosted recognition remains unverified. See
+[provider expansion](PROVIDER_EXPANSION.md) for installation versions, bounds,
+real local checks and the distinction between model weights and client software.

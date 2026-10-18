@@ -101,6 +101,10 @@ def _handle(response):
         )
     if response.status_code == 404:
         raise HTTPException(502, "NVIDIA NIM: unknown model id or endpoint (404)")
+    if response.status_code == 410:
+        raise HTTPException(
+            410, "NVIDIA model has been retired; choose another model explicitly"
+        )
     if response.status_code == 429:
         raise HTTPException(
             429, "NVIDIA NIM rate limit exceeded; back off and retry later"
@@ -184,6 +188,7 @@ class ChatRequest(BaseModel):
     max_tokens: int = Field(default=256, ge=1, le=4096)
     temperature: float = Field(default=0.2, ge=0.0, le=2.0)
     top_p: float = Field(default=1.0, gt=0.0, le=1.0)
+    seed: int | None = Field(default=None, ge=0, le=4294967295)
     tools: list[dict] | None = None
     tool_choice: str | dict | None = None
 
@@ -210,6 +215,8 @@ def _chat_payload(body: ChatRequest, stream: bool):
         "top_p": body.top_p,
         "stream": stream,
     }
+    if body.seed is not None:
+        payload["seed"] = body.seed
     if body.tools:
         payload["tools"] = body.tools
     if body.tool_choice:

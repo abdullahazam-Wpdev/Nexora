@@ -1,5 +1,6 @@
 "use client";
 import AgentPanel from "./AgentPanel";
+import ModelPanel from "./ModelPanel";
 import SpeechPanel from "./SpeechPanel";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -131,8 +132,19 @@ export default function Chat() {
   const [notice, setNotice] = useState("");
   const [dark, setDark] = useState(false);
   const [mode, setMode] = useState<
-    "chat" | "research" | "code" | "memory" | "speech"
+    "chat" | "research" | "code" | "memory" | "speech" | "models"
   >("chat");
+  const [useMemory, setUseMemory] = useState(false);
+  const [fccModel, setFccModel] = useState("claude-haiku-4-20250514");
+  const [fccAliases, setFccAliases] = useState<
+    { id: string; display_name: string }[]
+  >([]);
+  useEffect(() => {
+    fetch("/api/models/catalog")
+      .then((r) => r.json())
+      .then((d) => setFccAliases(d.fcc?.aliases || []))
+      .catch(() => {});
+  }, []);
   const [hostedConsent, setHostedConsent] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const [canvas, setCanvas] = useState<Canvas | null>(null);
@@ -204,6 +216,8 @@ export default function Chat() {
           provider,
           mode: mode === "research" ? "research" : "chat",
           allow_hosted: hostedConsent,
+          model: provider === "fcc" ? fccModel : undefined,
+          use_memory: useMemory,
         }),
         signal: controller.signal,
       });
@@ -295,6 +309,7 @@ export default function Chat() {
               ["code", "NEXORA Code"],
               ["memory", "Library"],
               ["speech", "Whisper speech"],
+              ["models", "Models"],
             ] as const
           ).map(([id, label]) => (
             <button
@@ -366,11 +381,33 @@ export default function Chat() {
             <option value="nvidia-gpt-oss-20b">
               GPT-OSS-20B · NVIDIA hosted
             </option>
+            <option value="nvidia-gemma-7b">Gemma 7B · NVIDIA hosted</option>
+            <option value="nvidia-kimi-k3">
+              Kimi K3 · single-turn NVIDIA hosted
+            </option>
           </select>
+          {provider === "fcc" && (
+            <select
+              aria-label="FCC routing alias"
+              value={fccModel}
+              onChange={(e) => setFccModel(e.target.value)}
+            >
+              {fccAliases.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.display_name} alias → SmolLM2
+                </option>
+              ))}
+            </select>
+          )}
         </header>
         <div className="cowork-scroll" ref={scroll}>
-          {mode === "code" || mode === "memory" || mode === "speech" ? (
-            mode === "speech" ? (
+          {mode === "code" ||
+          mode === "memory" ||
+          mode === "speech" ||
+          mode === "models" ? (
+            mode === "models" ? (
+              <ModelPanel />
+            ) : mode === "speech" ? (
               <SpeechPanel />
             ) : (
               <AgentPanel view={mode} />
@@ -496,7 +533,12 @@ export default function Chat() {
         </div>
         <div
           className="cowork-composer-wrap"
-          hidden={mode === "code" || mode === "memory" || mode === "speech"}
+          hidden={
+            mode === "code" ||
+            mode === "memory" ||
+            mode === "speech" ||
+            mode === "models"
+          }
         >
           {notice && <p className="cowork-notice">{notice}</p>}
           {error && (
@@ -504,6 +546,15 @@ export default function Chat() {
               {error}
             </p>
           )}
+          <label className="hosted-consent">
+            <input
+              type="checkbox"
+              checked={useMemory}
+              onChange={(e) => setUseMemory(e.target.checked)}
+            />{" "}
+            Use latest local project notes in chat (up to three; may be sent to
+            the selected provider). Core does not use notes.
+          </label>
           {provider.startsWith("nvidia") && (
             <label className="hosted-consent">
               <input

@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/nvidia-riva/python-clients",
+  "revision": "54749aa2ff39a07f78e02c6525b7409bd2fe6ade",
+  "local_path": ".tools/riva-python-clients",
+  "license": "MIT",
+  "nvidia-riva-client": "2.27.0",
+  "grpcio": "1.84.0",
+  "grpcio-tools": "1.81.1",
+  "protobuf": "6.33.5",
+  "websockets": "15.0.1",
+  "generation_verified": false,
+  "weights_downloaded": false
+}

@@ -195,6 +195,7 @@ def test_chat_user_parameters_and_final_only(client, monkeypatch):  # noqa: F811
     def fake(method, path, json_body):
         assert path == "/chat/completions"
         assert json_body["max_tokens"] == 4096
+        assert json_body["seed"] == 42
         assert json_body["top_p"] == 1
         return {
             "choices": [{"message": {"content": "9.8", "reasoning_content": "private"}}]
@@ -207,6 +208,7 @@ def test_chat_user_parameters_and_final_only(client, monkeypatch):  # noqa: F811
             "model": "openai/gpt-oss-20b",
             "messages": [{"role": "user", "content": "compare"}],
             "max_tokens": 4096,
+            "seed": 42,
             "top_p": 1,
         },
     )
