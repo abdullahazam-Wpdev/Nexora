@@ -12,7 +12,7 @@ def chat(provider, messages):
         payload = {
             "model": "smollm2-localai",
             "messages": messages,
-            "max_tokens": 96,
+            "max_tokens": 320,
             "temperature": 0,
             "stream": False,
         }
@@ -28,14 +28,14 @@ def chat(provider, messages):
         payload = {
             "model": "claude-haiku-4-5",
             "messages": messages,
-            "max_tokens": 96,
+            "max_tokens": 320,
             "temperature": 0,
             "stream": False,
         }
     else:
         raise ValueError("Unknown sidecar")
     try:
-        with httpx.Client(trust_env=False, timeout=50) as client:
+        with httpx.Client(trust_env=False, timeout=120) as client:
             with client.stream("POST", url, json=payload, headers=headers) as response:
                 response.raise_for_status()
                 raw = bytearray()

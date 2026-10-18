@@ -152,7 +152,7 @@ def ingest(body: DatasetInput):
 
 class Generation(BaseModel):
     prompt: str = Field(min_length=1, max_length=256)
-    max_tokens: int = Field(default=32, ge=1, le=64)
+    max_tokens: int = Field(default=32, ge=1, le=256)
 
 
 @app.post("/api/generate")

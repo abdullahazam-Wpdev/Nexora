@@ -21,10 +21,10 @@ def test_reference_bounds_and_identity(client, monkeypatch):  # noqa: F811
     assert out.json()["origin"] == "external open-weight reference"
     assert out.json()["training_enabled"] is False
     assert calls[-1][1]["keep_alive"] == 0
-    assert calls[-1][1]["options"]["num_ctx"] == 512
+    assert calls[-1][1]["options"]["num_ctx"] == 768
     assert (
         client.post(
-            "/api/reference/generate", json={"prompt": "a", "max_tokens": 129}
+            "/api/reference/generate", json={"prompt": "a", "max_tokens": 401}
         ).status_code
         == 422
     )

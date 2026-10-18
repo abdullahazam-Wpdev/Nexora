@@ -21,7 +21,7 @@ def request(path, payload=None):
         BASE_URL + path, data=data, headers={"Content-Type": "application/json"}
     )
     try:
-        with _opener.open(req, timeout=60 if data else 3) as response:
+        with _opener.open(req, timeout=150 if data else 3) as response:
             raw = response.read(1024 * 1024 + 1)
         if len(raw) > 1024 * 1024:
             raise ValueError("Reference response exceeded 1 MiB")
@@ -37,7 +37,7 @@ def request(path, payload=None):
 
 class ReferencePrompt(BaseModel):
     prompt: str = Field(min_length=1, max_length=1500)
-    max_tokens: int = Field(default=32, ge=1, le=128)
+    max_tokens: int = Field(default=32, ge=1, le=400)
 
 
 def router(audit):
@@ -80,7 +80,7 @@ def router(audit):
                     "stream": False,
                     "keep_alive": 0,
                     "options": {
-                        "num_ctx": 512,
+                        "num_ctx": 768,
                         "num_predict": body.max_tokens,
                         "num_thread": 2,
                         "temperature": 0,
