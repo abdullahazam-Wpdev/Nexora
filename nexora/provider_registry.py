@@ -88,3 +88,69 @@ PROVIDERS = [
         "key_env": "XAI_API_KEY",
     },
 ]
+
+from nexora.openai_nim_models import MODELS
+
+PROVIDERS.extend(MODELS)
+
+
+def capabilities():
+    import os
+    from nexora.config import STORE
+
+    result = []
+    for entry in PROVIDERS:
+        row = dict(entry)
+        ident = row["id"]
+        if ident in {"ollama", "core", "localai", "fcc"}:
+            row.update(
+                chat=True,
+                coding="limited/failed benchmarks; not professional",
+                tool_calling=False,
+                structured_output="not a guaranteed interface",
+                local=True,
+                cost="local CPU/RAM",
+                quota="bounded local runtime; no external API quota",
+            )
+            if ident == "core":
+                row.update(
+                    model="selected independent NEXORA Core",
+                    context_limit=128,
+                    instruction_following="not demonstrated",
+                    availability="checkpoint configured"
+                    if (STORE / "selected-model.json").exists()
+                    else "not configured",
+                )
+            else:
+                row.update(
+                    model="external SmolLM2 135M Q4 reference",
+                    context_limit=768 if ident == "ollama" else None,
+                    availability="check local runtime; not inferred from registration",
+                )
+        elif row.get("key_env"):
+            row["availability"] = (
+                "credential configured, generation unverified"
+                if os.environ.get(row["key_env"])
+                else "credential missing"
+            )
+            row["local"] = False
+        if ident == "openai/gpt-oss-20b":
+            row["availability"] = (
+                "credential configured; generation unverified"
+                if os.environ.get("NVIDIA_NIM_API_KEY")
+                else "credential missing"
+            )
+            row["local"] = False
+        elif ident == "openai/whisper-large-v3":
+            row["availability"] = (
+                "speech service configured; not live verified"
+                if os.environ.get("NEXORA_WHISPER_BASE") == "http://127.0.0.1:9000"
+                else "speech service not configured"
+            )
+        row.setdefault(
+            "availability", "documented integration; inspect live service status"
+        )
+        row.setdefault("cost", "not verified; account/deployment-specific")
+        row["silent_paid_fallback"] = False
+        result.append(row)
+    return result

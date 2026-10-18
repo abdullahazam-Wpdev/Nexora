@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "license": "CC0-1.0",
+  "provenance": "Project-authored deterministic synthetic API, commerce, parsing and documentation utility repair tasks. Acceptance checks and control patches are not sent to the model. Narrow stdlib Python benchmark, not professional whole-repository capability evidence.",
+  "tasks": [
+    {
+      "id": "normalize_headers",
+      "path": "solution.py",
+      "goal": "Implement normalize_headers(headers). Normalize HTTP request header keys to lowercase and strip surrounding spaces from string values. Return a new mapping.",
+      "initial": "def normalize_headers(headers):\n    return None\n",
+      "acceptance": "assert normalize_headers({'X-Key':' v ','ACCEPT':'json'})=={'x-key':'v','accept':'json'}",
+      "control_patch": "def normalize_headers(headers):\n    return {k.lower():v.strip() for k,v in headers.items()}\n"
+    },
+    {
+      "id": "retryable_status",
+      "path": "solution.py",
+      "goal": "Implement retryable_status(status). Return True only for HTTP status 408, 429, 500, 502, 503 or 504.",
+      "initial": "def retryable_status(status):\n    return None\n",
+      "acceptance": "assert retryable_status(503) is True and retryable_status(404) is False and retryable_status(429) is True",
+      "control_patch": "def retryable_status(status):\n    return status in {408,429,500,502,503,504}\n"
+    },
+    {
+      "id": "page_offset",
+      "path": "solution.py",
+      "goal": "Implement page_offset(page,size). Return pagination offset for a one-based page; clamp page numbers below one to one.",
+      "initial": "def page_offset(page,size):\n    return None\n",
+      "acceptance": "assert page_offset(3,20)==40 and page_offset(0,20)==0",
+      "control_patch": "def page_offset(page,size):\n    return (max(1,page)-1)*size\n"
+    },
+    {
+      "id": "bearer_token",
+      "path": "solution.py",
+      "goal": "Implement bearer_token(header). Extract a Bearer token from an Authorization header, case insensitive. Return None for a different scheme or missing token.",
+      "initial": "def bearer_token(header):\n    return None\n",
+      "acceptance": "assert bearer_token('bearer abc')=='abc' and bearer_token('Basic abc') is None and bearer_token('Bearer') is None",
+      "control_patch": "def bearer_token(header):\n    parts=header.strip().split(None,1)\n    return parts[1].strip() if len(parts)==2 and parts[0].lower()=='bearer' else None\n"
+    },
+    {
+      "id": "redact_credentials",
+      "path": "solution.py",
+      "goal": "Implement redact_credentials(record). Return a copied mapping with values for password, token or api_key keys (case insensitive) replaced with [REDACTED]. Keep other fields.",
+      "initial": "def redact_credentials(record):\n    return None\n",
+      "acceptance": "assert redact_credentials({'Token':'secret','name':'Ada'})=={'Token':'[REDACTED]','name':'Ada'}",
+      "control_patch": "def redact_credentials(record):\n    return {k:('[REDACTED]' if k.lower() in {'password','token','api_key'} else v) for k,v in record.items()}\n"
+    },
+    {
+      "id": "cart_subtotal",
+      "path": "solution.py",
+      "goal": "Implement cart_subtotal(items). Compute WooCommerce cart subtotal in integer cents from each item price_cents multiplied by quantity. Empty cart returns zero.",
+      "initial": "def cart_subtotal(items):\n    return None\n",
+      "acceptance": "assert cart_subtotal([{'price_cents':125,'quantity':2},{'price_cents':50,'quantity':0}])==250 and cart_subtotal([])==0",
+      "control_patch": "def cart_subtotal(items):\n    return sum(x['price_cents']*x['quantity'] for x in items)\n"
+    },
+    {
+      "id": "discount_cents",
+      "path": "solution.py",
+      "goal": "Implement discount_cents(amount,percent). Apply an integer percent discount to nonnegative cents, clamp percent to 0..100 and round downward to cents.",
+      "initial": "def discount_cents(amount,percent):\n    return None\n",
+      "acceptance": "assert discount_cents(999,10)==899 and discount_cents(500,150)==0 and discount_cents(500,-5)==500",
+      "control_patch": "def discount_cents(amount,percent):\n    return amount*(100-max(0,min(100,percent)))//100\n"
+    },
+    {
+      "id": "stock_status",
+      "path": "solution.py",
+      "goal": "Implement stock_status(quantity). Return WooCommerce stock status instock for positive quantity, otherwise outofstock.",
+      "initial": "def stock_status(quantity):\n    return None\n",
+      "acceptance": "assert stock_status(3)=='instock' and stock_status(0)=='outofstock'",
+      "control_patch": "def stock_status(quantity):\n    return 'instock' if quantity>0 else 'outofstock'\n"
+    },
+    {
+      "id": "wordpress_slug",
+      "path": "solution.py",
+      "goal": "Implement wordpress_slug(title). Create a lowercase ASCII WordPress-style slug: replace runs of non a-z/0-9 characters with one hyphen, strip edge hyphens.",
+      "initial": "def wordpress_slug(title):\n    return None\n",
+      "acceptance": "assert wordpress_slug(' Hello, World! ')== 'hello-world' and wordpress_slug('A---B')=='a-b'",
+      "control_patch": "def wordpress_slug(title):\n    import re\n    return re.sub('[^a-z0-9]+','-',title.lower()).strip('-')\n"
+    },
+    {
+      "id": "shopify_gid",
+      "path": "solution.py",
+      "goal": "Implement shopify_gid(resource,number). Build a Shopify global ID gid://shopify/<resource>/<number>.",
+      "initial": "def shopify_gid(resource,number):\n    return None\n",
+      "acceptance": "assert shopify_gid('Product',42)=='gid://shopify/Product/42'",
+      "control_patch": "def shopify_gid(resource,number):\n    return f'gid://shopify/{resource}/{number}'\n"
+    },
+    {
+      "id": "product_id_from_gid",
+      "path": "solution.py",
+      "goal": "Implement product_id_from_gid(gid). Parse numeric product ID from gid://shopify/Product/<digits>; return None for other resources or invalid numbers.",
+      "initial": "def product_id_from_gid(gid):\n    return None\n",
+      "acceptance": "assert product_id_from_gid('gid://shopify/Product/42')==42 and product_id_from_gid('gid://shopify/Order/42') is None",
+      "control_patch": "def product_id_from_gid(gid):\n    prefix='gid://shopify/Product/'\n    value=gid[len(prefix):] if gid.startswith(prefix) else ''\n    return int(value) if value.isdigit() else None\n"
+    },
+    {
+      "id": "metadata_boolean",
+      "path": "solution.py",
+      "goal": "Implement metadata_boolean(value). Parse a plugin string option: true, yes and 1 (case insensitive and stripped) mean True; everything else False.",
+      "initial": "def metadata_boolean(value):\n    return None\n",
+      "acceptance": "assert metadata_boolean(' YES ') is True and metadata_boolean('off') is False",
+      "control_patch": "def metadata_boolean(value):\n    return value.strip().lower() in {'true','yes','1'}\n"
+    },
+    {
+      "id": "safe_json_object",
+      "path": "solution.py",
+      "goal": "Implement safe_json_object(text). Parse JSON and return its dictionary; malformed JSON or other JSON types return an empty dictionary.",
+      "initial": "def safe_json_object(text):\n    return None\n",
+      "acceptance": "assert safe_json_object('{\"ok\":true}')=={'ok':True} and safe_json_object('[')=={} and safe_json_object('[]')=={}",
+      "control_patch": "def safe_json_object(text):\n    import json\n    try:\n        value=json.loads(text)\n        return value if isinstance(value,dict) else {}\n    except ValueError:\n        return {}\n"
+    },
+    {
+      "id": "quote_csv_cell",
+      "path": "solution.py",
+      "goal": "Implement quote_csv_cell(text). Always surround a CSV string cell with double quotes and escape internal double quotes by doubling them.",
+      "initial": "def quote_csv_cell(text):\n    return None\n",
+      "acceptance": "assert quote_csv_cell('a,b')=='\"a,b\"' and quote_csv_cell('a\"b')=='\"a\"\"b\"'",
+      "control_patch": "def quote_csv_cell(text):\n    return '\"'+text.replace('\"','\"\"')+'\"'\n"
+    },
+    {
+      "id": "dedupe_webhooks",
+      "path": "solution.py",
+      "goal": "Implement dedupe_webhooks(ids). Remove duplicate webhook event IDs while retaining first-seen order.",
+      "initial": "def dedupe_webhooks(ids):\n    return None\n",
+      "acceptance": "assert dedupe_webhooks(['b','a','b','c'])==['b','a','c']",
+      "control_patch": "def dedupe_webhooks(ids):\n    return list(dict.fromkeys(ids))\n"
+    },
+    {
+      "id": "merge_preferences",
+      "path": "solution.py",
+      "goal": "Implement merge_preferences(base,override). Merge settings with override taking precedence without mutating either input mapping.",
+      "initial": "def merge_preferences(base,override):\n    return None\n",
+      "acceptance": "a={'x':1};assert merge_preferences(a,{'x':2,'y':3})=={'x':2,'y':3} and a=={'x':1}",
+      "control_patch": "def merge_preferences(base,override):\n    return {**base,**override}\n"
+    },
+    {
+      "id": "parse_env_line",
+      "path": "solution.py",
+      "goal": "Implement parse_env_line(line). Parse one KEY=VALUE string to a tuple, strip both sides, preserve equals in the value. Blank/comment/no-equals lines return None.",
+      "initial": "def parse_env_line(line):\n    return None\n",
+      "acceptance": "assert parse_env_line(' A = x=y ')==('A','x=y') and parse_env_line('# note') is None and parse_env_line('oops') is None",
+      "control_patch": "def parse_env_line(line):\n    line=line.strip()\n    if not line or line.startswith('#') or '=' not in line:return None\n    key,value=line.split('=',1)\n    return key.strip(),value.strip()\n"
+    },
+    {
+      "id": "markdown_title",
+      "path": "solution.py",
+      "goal": "Implement markdown_title(text). Return the first level-one Markdown heading without its # prefix and surrounding spaces, or None.",
+      "initial": "def markdown_title(text):\n    return None\n",
+      "acceptance": "assert markdown_title('intro\\n# Title\\n## Small')=='Title' and markdown_title('## Small') is None",
+      "control_patch": "def markdown_title(text):\n    return next((line[2:].strip() for line in text.splitlines() if line.startswith('# ')),None)\n"
+    },
+    {
+      "id": "batch_records",
+      "path": "solution.py",
+      "goal": "Implement batch_records(items,size). Partition records into lists of at most size elements. Raise ValueError when size is below one.",
+      "initial": "def batch_records(items,size):\n    return None\n",
+      "acceptance": "assert batch_records([1,2,3],2)==[[1,2],[3]] and batch_records([],3)==[]",
+      "control_patch": "def batch_records(items,size):\n    if size<1:raise ValueError('size')\n    return [items[i:i+size] for i in range(0,len(items),size)]\n"
+    },
+    {
+      "id": "safe_filename",
+      "path": "solution.py",
+      "goal": "Implement safe_filename(name). Replace runs outside ASCII letters/digits/underscore/dot/hyphen with underscore, remove leading dots, use untitled if empty.",
+      "initial": "def safe_filename(name):\n    return None\n",
+      "acceptance": "assert safe_filename('../../a b')=='_.._a_b' and safe_filename('...')=='untitled'",
+      "control_patch": "def safe_filename(name):\n    import re\n    return re.sub('[^a-zA-Z0-9_.-]+','_',name).lstrip('.') or 'untitled'\n"
+    }
+  ]
+}

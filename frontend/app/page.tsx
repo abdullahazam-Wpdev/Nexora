@@ -1,4 +1,6 @@
 "use client";
+import AgentPanel from "./AgentPanel";
+import SpeechPanel from "./SpeechPanel";
 import { useEffect, useRef, useState } from "react";
 import {
   Plus,
@@ -53,6 +55,45 @@ function parseBlocks(text: string): Block[] {
   return blocks.length ? blocks : [{ type: "text", content: text }];
 }
 
+function EvidenceText({ text }: { text: string }) {
+  function inline(line: string) {
+    return line
+      .split(/(\[[^\]]+\]\(https?:\/\/[^)]+\)|\*\*[^*]+\*\*)/g)
+      .map((part, i) => {
+        const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+        if (link)
+          return (
+            <a key={i} href={link[2]} target="_blank" rel="noopener noreferrer">
+              {link[1]}
+            </a>
+          );
+        if (part.startsWith("**") && part.endsWith("**"))
+          return <strong key={i}>{part.slice(2, -2)}</strong>;
+        return <span key={i}>{part}</span>;
+      });
+  }
+  return (
+    <div className="cowork-prose">
+      {text.split("\n").map((line, i) => {
+        if (/^#{1,3} /.test(line))
+          return <h3 key={i}>{inline(line.replace(/^#{1,3} /, ""))}</h3>;
+        if (/^[-*] /.test(line))
+          return (
+            <ul key={i}>
+              <li>{inline(line.slice(2))}</li>
+            </ul>
+          );
+        if (/^\d+\. /.test(line)) return <p key={i}>{inline(line)}</p>;
+        return line.trim() ? (
+          <p key={i}>{inline(line)}</p>
+        ) : (
+          <div className="cowork-paragraph-gap" key={i} />
+        );
+      })}
+    </div>
+  );
+}
+
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
   return (
@@ -88,10 +129,15 @@ export default function Chat() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
+  const [mode, setMode] = useState<
+    "chat" | "research" | "code" | "memory" | "speech"
+  >("chat");
+  const [hostedConsent, setHostedConsent] = useState(false);
+  const [drawer, setDrawer] = useState(false);
   const [canvas, setCanvas] = useState<Canvas | null>(null);
   useEffect(() => {
-    setDark(localStorage.getItem("nexora-theme") !== "light");
+    setDark(localStorage.getItem("nexora-theme") === "dark");
   }, []);
   useEffect(() => {
     if (scroll.current) scroll.current.scrollTop = scroll.current.scrollHeight;
@@ -123,7 +169,7 @@ export default function Chat() {
     setBusy(true);
     setError("");
     try {
-      if (value !== "core")
+      if (value !== "core" && !value.startsWith("nvidia"))
         await api("/runtime", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -153,7 +199,12 @@ export default function Chat() {
       await api(`/threads/${id}/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: value, provider }),
+        body: JSON.stringify({
+          text: value,
+          provider,
+          mode: mode === "research" ? "research" : "chat",
+          allow_hosted: hostedConsent,
+        }),
         signal: controller.signal,
       });
       setMessages(await api(`/threads/${id}`));
@@ -194,7 +245,9 @@ export default function Chat() {
   }
   return (
     <div className={dark ? "cowork-shell" : "cowork-shell light"}>
-      <aside className="cowork-sidebar">
+      <aside
+        className={drawer ? "cowork-sidebar mobile-open" : "cowork-sidebar"}
+      >
         <div className="cowork-brand-row">
           <a href="/" className="cowork-brand">
             <span className="cowork-mark">N</span> NEXORA{" "}
@@ -216,6 +269,8 @@ export default function Chat() {
           className="cowork-new"
           disabled={busy}
           onClick={async () => {
+            setMode("chat");
+            setDrawer(false);
             setBusy(true);
             try {
               await fresh();
@@ -232,7 +287,29 @@ export default function Chat() {
         >
           <Plus size={17} /> New conversation
         </button>
-        <div className="cowork-section">YOUR CONVERSATIONS</div>
+        <div className="workspace-navigation">
+          {(
+            [
+              ["chat", "Chat"],
+              ["research", "Research"],
+              ["code", "NEXORA Code"],
+              ["memory", "Library"],
+              ["speech", "Whisper speech"],
+            ] as const
+          ).map(([id, label]) => (
+            <button
+              key={id}
+              className={mode === id ? "active" : ""}
+              onClick={() => {
+                setMode(id);
+                setDrawer(false);
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className="cowork-section">RECENTS</div>
         <nav>
           {threads.map((t) => (
             <button
@@ -262,9 +339,19 @@ export default function Chat() {
       </aside>
       <main className="cowork-main">
         <header className="cowork-header">
+          <button
+            className="workspace-mobile-menu"
+            aria-label="Toggle workspace navigation"
+            onClick={() => setDrawer(!drawer)}
+          >
+            ☰
+          </button>
           <div>
-            <strong>Workspace</strong>
-            <span> / Conversation</span>
+            <strong>NEXORA</strong>
+            <span>
+              {" "}
+              / {mode === "research" ? "Source-backed research" : "Workspace"}
+            </span>
           </div>
           <select
             aria-label="Inference provider"
@@ -276,120 +363,157 @@ export default function Chat() {
             <option value="core">NEXORA Core · research</option>
             <option value="localai">LocalAI · optional service</option>
             <option value="fcc">FCC → Ollama · optional proxy</option>
+            <option value="nvidia-gpt-oss-20b">
+              GPT-OSS-20B · NVIDIA hosted
+            </option>
           </select>
         </header>
         <div className="cowork-scroll" ref={scroll}>
-          {!messages.length ? (
-            <section className="cowork-welcome">
-              <div className="cowork-orbit">
-                <Terminal size={29} />
-              </div>
-              <span className="cowork-eyebrow">
-                YOUR LOCAL RESEARCH WORKSPACE
-              </span>
-              <h1>What shall we work on?</h1>
-              <p>
-                Talk with a local model, explore open APIs, and create files in
-                your cowork workspace.
-              </p>
-              <div className="cowork-cards">
-                {[
-                  ["Explore your workspace", "/files"],
-                  ["Find public APIs", "/catalog weather"],
-                  ["See available actions", "/help"],
-                ].map(([label, cmd]) => (
-                  <button key={cmd} disabled={busy} onClick={() => send(cmd)}>
-                    <span>{label}</span>
-                    <code>{cmd}</code>
-                    <ArrowUp size={16} />
-                  </button>
-                ))}
-              </div>
-            </section>
+          {mode === "code" || mode === "memory" || mode === "speech" ? (
+            mode === "speech" ? (
+              <SpeechPanel />
+            ) : (
+              <AgentPanel view={mode} />
+            )
           ) : (
-            <div className="cowork-messages">
-              {messages.map((m) => (
-                <article
-                  key={m.id < 0 ? `pending-${m.text}` : m.id}
-                  className={`cowork-message ${m.role}`}
-                >
-                  <div className="cowork-message-label">
-                    <span>
-                      {m.role === "user"
-                        ? "You"
-                        : m.role === "error"
-                          ? "Action failed"
-                          : m.provider}
-                    </span>
-                    <span className="cowork-message-actions">
-                      {m.role === "user" && (
-                        <button
-                          type="button"
-                          className="cowork-icon-btn"
-                          aria-label="Edit and resend this message"
-                          disabled={busy || m.id < 0}
-                          onClick={() => editMessage(m)}
-                        >
-                          <Pencil size={13} /> Edit
-                        </button>
-                      )}
-                      <CopyButton value={m.text} label="Copy message" />
-                    </span>
+            <>
+              {!messages.length ? (
+                <section className="cowork-welcome">
+                  <div className="cowork-orbit">
+                    <Terminal size={29} />
                   </div>
-                  {parseBlocks(m.text).map((block, bi) =>
-                    block.type === "text" ? (
-                      block.content.trim() && (
-                        <pre key={bi}>{block.content.replace(/^\n+|\n+$/g, "")}</pre>
-                      )
-                    ) : (
-                      <div className="cowork-code" key={bi}>
-                        <div className="cowork-code-bar">
-                          <span>{block.lang}</span>
-                          <span className="cowork-code-actions">
-                            <CopyButton value={block.content} label="Copy code" />
+                  <span className="cowork-eyebrow">
+                    YOUR LOCAL RESEARCH WORKSPACE
+                  </span>
+                  <h1>What shall we work on?</h1>
+                  <p>
+                    Talk with a local model, explore open APIs, and create files
+                    in your cowork workspace.
+                  </p>
+                  <div className="cowork-cards">
+                    {[
+                      ["Explore your workspace", "/files"],
+                      ["Find public APIs", "/catalog weather"],
+                      ["See available actions", "/help"],
+                    ].map(([label, cmd]) => (
+                      <button
+                        key={cmd}
+                        disabled={busy}
+                        onClick={() => send(cmd)}
+                      >
+                        <span>{label}</span>
+                        <code>{cmd}</code>
+                        <ArrowUp size={16} />
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              ) : (
+                <div className="cowork-messages">
+                  {messages.map((m) => (
+                    <article
+                      key={m.id < 0 ? `pending-${m.text}` : m.id}
+                      className={`cowork-message ${m.role}`}
+                    >
+                      <div className="cowork-message-label">
+                        <span>
+                          {m.role === "user"
+                            ? "You"
+                            : m.role === "error"
+                              ? "Action failed"
+                              : m.provider}
+                        </span>
+                        <span className="cowork-message-actions">
+                          {m.role === "user" && (
                             <button
                               type="button"
                               className="cowork-icon-btn"
-                              aria-label="Open in canvas"
-                              onClick={() =>
-                                setCanvas({
-                                  title: `${m.provider} · ${block.lang}`,
-                                  lang: block.lang,
-                                  code: block.content,
-                                })
-                              }
+                              aria-label="Edit and resend this message"
+                              disabled={busy || m.id < 0}
+                              onClick={() => editMessage(m)}
                             >
-                              <Maximize2 size={13} /> Canvas
+                              <Pencil size={13} /> Edit
                             </button>
-                          </span>
-                        </div>
-                        <pre>{block.content}</pre>
+                          )}
+                          <CopyButton value={m.text} label="Copy message" />
+                        </span>
                       </div>
-                    ),
+                      {parseBlocks(m.text).map((block, bi) =>
+                        block.type === "text" ? (
+                          block.content.trim() && (
+                            <EvidenceText
+                              key={bi}
+                              text={block.content.replace(/^\n+|\n+$/g, "")}
+                            />
+                          )
+                        ) : (
+                          <div className="cowork-code" key={bi}>
+                            <div className="cowork-code-bar">
+                              <span>{block.lang}</span>
+                              <span className="cowork-code-actions">
+                                <CopyButton
+                                  value={block.content}
+                                  label="Copy code"
+                                />
+                                <button
+                                  type="button"
+                                  className="cowork-icon-btn"
+                                  aria-label="Open in canvas"
+                                  onClick={() =>
+                                    setCanvas({
+                                      title: `${m.provider} · ${block.lang}`,
+                                      lang: block.lang,
+                                      code: block.content,
+                                    })
+                                  }
+                                >
+                                  <Maximize2 size={13} /> Canvas
+                                </button>
+                              </span>
+                            </div>
+                            <pre>{block.content}</pre>
+                          </div>
+                        ),
+                      )}
+                    </article>
+                  ))}
+                  {busy && (
+                    <p className="cowork-thinking" role="status">
+                      Working locally…
+                      <button
+                        type="button"
+                        className="cowork-stop-btn"
+                        onClick={stop}
+                      >
+                        <Square size={11} /> Stop
+                      </button>
+                    </p>
                   )}
-                </article>
-              ))}
-              {busy && (
-                <p className="cowork-thinking" role="status">
-                  Working locally…
-                  <button
-                    type="button"
-                    className="cowork-stop-btn"
-                    onClick={stop}
-                  >
-                    <Square size={11} /> Stop
-                  </button>
-                </p>
+                </div>
               )}
-            </div>
+            </>
           )}
         </div>
-        <div className="cowork-composer-wrap">
+        <div
+          className="cowork-composer-wrap"
+          hidden={mode === "code" || mode === "memory" || mode === "speech"}
+        >
           {notice && <p className="cowork-notice">{notice}</p>}
           {error && (
             <p role="alert" className="cowork-error">
               {error}
             </p>
+          )}
+          {provider.startsWith("nvidia") && (
+            <label className="hosted-consent">
+              <input
+                type="checkbox"
+                checked={hostedConsent}
+                onChange={(e) => setHostedConsent(e.target.checked)}
+              />{" "}
+              Allow sending chat to NVIDIA; account quota/cost may apply.
+              Requires your API key.
+            </label>
           )}
           <form
             className="cowork-composer"
@@ -401,7 +525,11 @@ export default function Chat() {
             <textarea
               ref={composerRef}
               aria-label="Message"
-              placeholder="Ask a question, or use /help for workspace actions"
+              placeholder={
+                mode === "research"
+                  ? "Research a question using public sources"
+                  : "Ask NEXORA"
+              }
               value={text}
               maxLength={4000}
               disabled={busy}

@@ -1,0 +1,11 @@
+# Bounded agent runtime
+
+`nexora/agent_runtime.py` provides durable task objects under `artifacts/agent-tasks/<id>/`. A request declares a registered project, one Python file, goal, acceptance assertions, optional documentation URL and model preference. Original source is retained separately. Work runs in a subprocess and survives API restart; stale process identities become `interrupted` rather than silently successful.
+
+Lifecycle: queued → running → awaiting_approval → applying → completed; failed, cancelled and interrupted are explicit states. Attempt count and failure feedback persist. At most two model attempts run under a shared execution lock. The cooperative task budget is 90 seconds, with bounded model calls (20 seconds for Ollama, 30 for NIM) and 10-second sandbox execution. Cancellation prevents further actions at checkpoints; it does not forcibly interrupt a model request already in flight. A task blocked on external DNS can exceed a cooperative deadline before control returns; this is not a hard real-time scheduler.
+
+Roles are permission-separated deterministic workflow stages sharing one model proposer, not five independently reasoning model instances. The Planner makes a short public action plan. Researcher optionally reads public documentation. Coder produces a staged candidate. Tester executes owner assertions in rootless Podman. Reviewer checks profile/syntax, verifies the diff is nonempty, and requests owner approval. No private reasoning trace is exposed.
+
+Each action has a role, timestamp and observation. Prompt and output budgets are bounded. Source content, retrieved documents and memory cannot authorize tools. Only the owner-facing approval endpoint can modify the registered original; both original and candidate hashes must still match. Approval is journaled before atomic replacement; restart recovery detects an already-applied candidate or a conflict. Original source is retained with the task.
+
+APIs: `POST /api/agent/repositories`, `POST /api/agent/tasks`, `GET /api/agent/tasks/{id}`, task `/cancel`, `/resume`, `/approve`; `GET /api/agent/roles`. Resume requires an interrupted task and remaining attempts. A second concurrent worker fails explicitly instead of creating an unbounded queue. This is a single-owner localhost development API, not a public multi-user service.

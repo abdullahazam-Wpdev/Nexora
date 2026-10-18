@@ -1,0 +1,141 @@
+{
+  "selected": "phase2-small-language",
+  "model_sha256": "0b10d349fe2a8517544cd31cee03140eba7aa730fd1087ae01f0b02b1b56ee84",
+  "parameters": 984192,
+  "tokenizer_sha256": "22039ae1be07c557dfc8ecad0ee967a0d0b669bdaf32f8cec7575be0b9419165",
+  "dataset_version": "bd831076dc618f0265c951d63ff7cbe7b878a466c8a25b650bcbdae40a4fd64d",
+  "training_tokens": 409600,
+  "validation": {
+    "loss": 4.403331741442086,
+    "perplexity": 81.72269447480075,
+    "tokens": 3777,
+    "perplexity_capped": false
+  },
+  "test": {
+    "loss": 4.1786155273320755,
+    "perplexity": 65.27541859339495,
+    "tokens": 12809,
+    "perplexity_capped": false
+  },
+  "resources": {
+    "wall_seconds": 71.38418115200056,
+    "peak_rss_mb": 396.5546875,
+    "cpu_seconds": 118.24,
+    "cpu_percent_one_core": 165.63893861614505,
+    "max_cpu_temperature_c": 71.0,
+    "monitor_samples": 808
+  },
+  "benchmark": {
+    "tokens_this_session": 409600,
+    "total_training_tokens": 409600,
+    "training_seconds": 44.66737847798686,
+    "tokens_per_second": 9170.003119879993,
+    "step_seconds": 0.11166844619496714,
+    "dataset_loading_seconds": 0.17526246401575918,
+    "checkpoint_save_seconds": 0.15486231700106146,
+    "estimated_1000_step_seconds": 111.66844619496715
+  },
+  "tool_selection": {
+    "schema_valid": 0,
+    "correct_tool": 0,
+    "total": 16,
+    "records": [
+      {
+        "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+        "text": "[EOS]>>> import makes\n   >>> print(x, x)\n   >>> fib = []\n   >>> for i in range(x, x)]\n   >>> f.pop()\n   >>> print(f'",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+        "text": "[EOS]>>> import makes\n   >>> print(x, x, x************************ is not be used to the\nthere",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+        "text": "contual environment, the file is not be used to\nthe particular module.  This is available to the file\nthe exception.  This is a new object",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+        "text": "[EOS]>>> import makes\n   >>> print(x, x, x********************** is not between the\nthe exception.",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+        "text": "You can be used to the file object.  You can be\ntherehension of the file is avoidual environment.  This is\nthe remole of the file is",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+        "text": "[EOS]>>> import makes\n   >>> print(x, x, x*********************** is not between the\nthere",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+        "text": "[EOS]There is a module is a new *except clause* is not be used to the\nindex object.  This is not be used to the file is a new\ninterator: the file is avai",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+        "text": "[EOS]There is a list of the Python, the module is a new *except* is\nthe exception.  This is a new object, the module is not be used to the\nindex object.  There are not",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+        "text": "the file is a module named as a function object.  This is\nthe *except clause* is not been the file object is avoo\nthe *except clause*.  There is a new *except",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+        "text": "[EOS]>>> import makes_index = 'bana', 'banana', 'banana', 'banana', 'banana', 'banana', 'ban",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+        "text": "the file is a module's namespace.  This is a new object\nthe *except clause* is avoole of the module.  This is avoid\nthe *except clause* is not be used to",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+        "text": "the file is a module's namespace.  This is a\nindex object, the module is a new object, the module is a function object\nthe *except clause*.  There is a new object, the module is",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+        "text": "[EOS]>>> import makes\n   >>> print(x, x)\n   >>> fib = []\n   >>> for i in range(x, x)]\n   >>> f.pop()\n   >>> f.pop",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+        "text": "the Mype:[EOS]>>> import makes, series\n   ...     print(x, word)\n   ...     print(self, x, x***********",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+        "text": "You can be used to the file object.  You can be\nthe *first* of the file, the file is a new object, the\nindex object is available to the file object",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+        "text": "counownownownownown as the file\nthe particular module.  This is a new syntaxError, the file is\nthere is available to",
+        "schema_valid": false,
+        "correct_tool": false
+      }
+    ]
+  }
+}

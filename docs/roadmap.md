@@ -34,3 +34,10 @@ Still outside the delivered scope: reliable assistant/agents, arbitrary code/bro
 Delivered persistent local chat, explicit isolated file actions, rootless networkless Python execution with cancellation, a four-tool workspace MCP server, provider-specific project skills, attributed API/model catalogs, daily bounded revision discovery, and a separate eight-step MIT documentation training pilot. Ollama, LocalAI CPU inference and the isolated FCC-to-Ollama proxy passed real local chat checks. External hosted providers remain documentation references without configured accounts. No proprietary model weights were replicated.
 
 The pilot's test perplexity is 897.45 on its own documentation split; it is not comparable to the earlier Core evaluation's different corpus/tokenizer. It is not promoted. Next: larger reviewed data, stable evaluations, stronger instruction-following reference feasibility, then bounded agent planning/edit-review evaluations. Current workspace tools are user-directed, not a validated autonomous coding agent. See `cowork-delivery.md` for exact evidence and limitations.
+
+
+## Phase 7 — bounded coding workflow, 2026-10-18
+
+Delivered durable task execution, registered-source inspection, staged Python fixes, real sandbox acceptance, bounded revision, deterministic Planner/Researcher/Coder/Tester/Reviewer stages, explicit hash-bound apply, typed project memory, skills, source-backed chat research, calculation/literal-citation verification and the screenshot-based functional light workspace. Two OpenAI-through-NVIDIA modalities are represented honestly: GPT-OSS chat requires a key/consent, Whisper speech requires its separate service. Approved NVIDIA 4B weights are storage-only.
+
+SmolLM2 utility repairs: 0/20 before and after prompt clarification; supplied controls 20/20. Core masked tool training: 16/16 valid JSON, only 2/16 correct tools; selected model unchanged. Full scope and failures: `PHASE7_DELIVERY.md`, `PHASE7_EVALUATION.md`. Next: stronger backend evaluation and richer balanced tool/argument tasks before broader autonomy or foundation scaling.

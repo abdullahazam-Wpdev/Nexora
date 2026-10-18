@@ -1,0 +1,15 @@
+{
+  "status": "verified",
+  "purpose": "storage-only; not loaded or selected",
+  "revision": "ba223d14e45525f7fae81db77ea8cabeb2fc6c25",
+  "sha256": "be5d9a656a51922f24f1f09a759cebb694e1f5d9728bf0ef9f8c972c5a0b5ef2",
+  "bytes": 2837072864,
+  "seconds": 1074.7100752959996,
+  "path": "/home/abdullah/Downloads/nexora-ai-os/artifacts/reference-models/nvidia/NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF",
+  "active": false,
+  "training_approved": false,
+  "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF",
+  "license_review": "NVIDIA model license; stored only, no training or deployment approval inferred",
+  "gguf_version": 3
+}

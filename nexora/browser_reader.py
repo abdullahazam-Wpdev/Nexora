@@ -78,6 +78,25 @@ def read_url(url, screenshot=False):
             browser = p.chromium.launch(headless=True)
             try:
                 page = browser.new_page(viewport={"width": 1280, "height": 900})
+                # Validate every document navigation, including redirects/frames.
+                # Block active scripts and subresources in this read-only profile.
+                navigation_count = [0]
+
+                def guard(route):
+                    if route.request.resource_type != "document":
+                        route.abort()
+                        return
+                    navigation_count[0] += 1
+                    try:
+                        if navigation_count[0] > 12:
+                            raise ValueError("Navigation budget exceeded")
+                        _validate_url(route.request.url)
+                        route.continue_()
+                    except ValueError:
+                        route.abort()
+
+                page.route("**/*", guard)
+
                 try:
                     page.goto(
                         url, wait_until="domcontentloaded", timeout=NAV_TIMEOUT_MS

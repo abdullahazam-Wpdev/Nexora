@@ -94,3 +94,13 @@ Do not commit `.env`, `.secrets`, weights, private conversations, browser profil
 ## Next research milestone
 
 Expand a rights-reviewed corpus with stable held-out evaluations; train matched configurations within measured CPU limits; evaluate memorization and generation quality before any promotion. Add a stronger feasible instruction-tuned reference only after a download/RAM budget is approved, then test bounded tool selection and edit review. A capable independent foundation model requires substantially more data and compute than this laptop pilot.
+
+## Phase 7 workspace
+
+The chat now follows the supplied light workspace reference and offers **Chat**, **Research**, **NEXORA Code**, **Library** and **Whisper speech** views. Dark mode, copy/edit/canvas actions and the original `/research` dashboard are preserved. The Code view runs a bounded registered-project Python workflow with actual sandbox acceptance checks and an explicit hash-bound approval before applying a change. Library stores attributed project notes separately from chats and training.
+
+GPT-OSS-20B is selectable through NVIDIA NIM with explicit hosted consent and a configured API key. Whisper Large V3 is a separate speech model; its view is disabled until a speech service is configured. Neither is falsely labeled an independently trained Core model or installed local weights. The separately approved NVIDIA 4B GGUF is downloaded **for storage only**.
+
+The actual harder coding baseline is 0/20 for SmolLM2, versus 20/20 supplied controls. A new completion-only Core pilot achieved valid JSON 16/16 but correct tool selection only 2/16; no weights were promoted. These measurements limit the autonomy claims.
+
+See [Phase 7 delivery](docs/PHASE7_DELIVERY.md), [evaluation](docs/PHASE7_EVALUATION.md), [coding workflow](docs/CODING_AGENT.md), [memory](docs/MEMORY_ARCHITECTURE.md), and [OpenAI models through NVIDIA](docs/OPENAI_NVIDIA_MODELS.md) for commands, exact measurements, setup state and unsupported work.

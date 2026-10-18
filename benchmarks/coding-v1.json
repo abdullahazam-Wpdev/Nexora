@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "provenance": "Deterministic project-authored synthetic Python microtasks; exposed expression in prompt makes this a transparent smoke benchmark, not an independent professional benchmark",
+  "tasks": [
+    {
+      "id": "add",
+      "path": "solution.py",
+      "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+      "initial": "def add(a,b):\n    return None\n",
+      "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+      "control_patch": "def add(a,b):\n    return a+b\n"
+    },
+    {
+      "id": "subtract",
+      "path": "solution.py",
+      "goal": "Implement subtract(a,b) as a pure Python function. Required behavior: a-b. Preserve the function name.",
+      "initial": "def subtract(a,b):\n    return None\n",
+      "acceptance": "assert subtract(8,3)==5 and subtract(0,4)==-4",
+      "control_patch": "def subtract(a,b):\n    return a-b\n"
+    },
+    {
+      "id": "multiply",
+      "path": "solution.py",
+      "goal": "Implement multiply(a,b) as a pure Python function. Required behavior: a*b. Preserve the function name.",
+      "initial": "def multiply(a,b):\n    return None\n",
+      "acceptance": "assert multiply(3,4)==12 and multiply(-2,3)==-6",
+      "control_patch": "def multiply(a,b):\n    return a*b\n"
+    },
+    {
+      "id": "square",
+      "path": "solution.py",
+      "goal": "Implement square(x) as a pure Python function. Required behavior: x*x. Preserve the function name.",
+      "initial": "def square(x):\n    return None\n",
+      "acceptance": "assert square(5)==25 and square(-3)==9",
+      "control_patch": "def square(x):\n    return x*x\n"
+    },
+    {
+      "id": "is_even",
+      "path": "solution.py",
+      "goal": "Implement is_even(n) as a pure Python function. Required behavior: n%2==0. Preserve the function name.",
+      "initial": "def is_even(n):\n    return None\n",
+      "acceptance": "assert is_even(4) is True and is_even(3) is False",
+      "control_patch": "def is_even(n):\n    return n%2==0\n"
+    },
+    {
+      "id": "reverse_text",
+      "path": "solution.py",
+      "goal": "Implement reverse_text(text) as a pure Python function. Required behavior: text[::-1]. Preserve the function name.",
+      "initial": "def reverse_text(text):\n    return None\n",
+      "acceptance": "assert reverse_text(\"abc\")==\"cba\" and reverse_text(\"\")==\"\"",
+      "control_patch": "def reverse_text(text):\n    return text[::-1]\n"
+    },
+    {
+      "id": "word_count",
+      "path": "solution.py",
+      "goal": "Implement word_count(text) as a pure Python function. Required behavior: len(text.split()). Preserve the function name.",
+      "initial": "def word_count(text):\n    return None\n",
+      "acceptance": "assert word_count(\" a  b \")==2 and word_count(\"\")==0",
+      "control_patch": "def word_count(text):\n    return len(text.split())\n"
+    },
+    {
+      "id": "clamp",
+      "path": "solution.py",
+      "goal": "Implement clamp(x,lo,hi) as a pure Python function. Required behavior: max(lo,min(hi,x)). Preserve the function name.",
+      "initial": "def clamp(x,lo,hi):\n    return None\n",
+      "acceptance": "assert clamp(8,0,5)==5 and clamp(-2,0,5)==0",
+      "control_patch": "def clamp(x,lo,hi):\n    return max(lo,min(hi,x))\n"
+    },
+    {
+      "id": "safe_divide",
+      "path": "solution.py",
+      "goal": "Implement safe_divide(a,b) as a pure Python function. Required behavior: a/b if b else None. Preserve the function name.",
+      "initial": "def safe_divide(a,b):\n    return None\n",
+      "acceptance": "assert safe_divide(6,2)==3 and safe_divide(1,0) is None",
+      "control_patch": "def safe_divide(a,b):\n    return a/b if b else None\n"
+    },
+    {
+      "id": "unique_ordered",
+      "path": "solution.py",
+      "goal": "Implement unique_ordered(items) as a pure Python function. Required behavior: list(dict.fromkeys(items)). Preserve the function name.",
+      "initial": "def unique_ordered(items):\n    return None\n",
+      "acceptance": "assert unique_ordered([2,1,2,3])==[2,1,3]",
+      "control_patch": "def unique_ordered(items):\n    return list(dict.fromkeys(items))\n"
+    },
+    {
+      "id": "flatten",
+      "path": "solution.py",
+      "goal": "Implement flatten(rows) as a pure Python function. Required behavior: [x for row in rows for x in row]. Preserve the function name.",
+      "initial": "def flatten(rows):\n    return None\n",
+      "acceptance": "assert flatten([[1,2],[],[3]])==[1,2,3]",
+      "control_patch": "def flatten(rows):\n    return [x for row in rows for x in row]\n"
+    },
+    {
+      "id": "positive_only",
+      "path": "solution.py",
+      "goal": "Implement positive_only(items) as a pure Python function. Required behavior: [x for x in items if x>0]. Preserve the function name.",
+      "initial": "def positive_only(items):\n    return None\n",
+      "acceptance": "assert positive_only([-1,0,2,3])==[2,3]",
+      "control_patch": "def positive_only(items):\n    return [x for x in items if x>0]\n"
+    },
+    {
+      "id": "sum_squares",
+      "path": "solution.py",
+      "goal": "Implement sum_squares(items) as a pure Python function. Required behavior: sum(x*x for x in items). Preserve the function name.",
+      "initial": "def sum_squares(items):\n    return None\n",
+      "acceptance": "assert sum_squares([1,2,3])==14",
+      "control_patch": "def sum_squares(items):\n    return sum(x*x for x in items)\n"
+    },
+    {
+      "id": "normalize_space",
+      "path": "solution.py",
+      "goal": "Implement normalize_space(text) as a pure Python function. Required behavior: \" \".join(text.split()). Preserve the function name.",
+      "initial": "def normalize_space(text):\n    return None\n",
+      "acceptance": "assert normalize_space(\" a   b \")==\"a b\"",
+      "control_patch": "def normalize_space(text):\n    return \" \".join(text.split())\n"
+    },
+    {
+      "id": "slugify",
+      "path": "solution.py",
+      "goal": "Implement slugify(text) as a pure Python function. Required behavior: \"-\".join(text.lower().split()). Preserve the function name.",
+      "initial": "def slugify(text):\n    return None\n",
+      "acceptance": "assert slugify(\" Hello World \")==\"hello-world\"",
+      "control_patch": "def slugify(text):\n    return \"-\".join(text.lower().split())\n"
+    },
+    {
+      "id": "celsius_to_fahrenheit",
+      "path": "solution.py",
+      "goal": "Implement celsius_to_fahrenheit(c) as a pure Python function. Required behavior: c*9/5+32. Preserve the function name.",
+      "initial": "def celsius_to_fahrenheit(c):\n    return None\n",
+      "acceptance": "assert celsius_to_fahrenheit(0)==32 and celsius_to_fahrenheit(100)==212",
+      "control_patch": "def celsius_to_fahrenheit(c):\n    return c*9/5+32\n"
+    },
+    {
+      "id": "count_vowels",
+      "path": "solution.py",
+      "goal": "Implement count_vowels(text) as a pure Python function. Required behavior: sum(c in \"aeiou\" for c in text.lower()). Preserve the function name.",
+      "initial": "def count_vowels(text):\n    return None\n",
+      "acceptance": "assert count_vowels(\"NEXORA\")==3",
+      "control_patch": "def count_vowels(text):\n    return sum(c in \"aeiou\" for c in text.lower())\n"
+    },
+    {
+      "id": "first_nonempty",
+      "path": "solution.py",
+      "goal": "Implement first_nonempty(items) as a pure Python function. Required behavior: next((x for x in items if x),None). Preserve the function name.",
+      "initial": "def first_nonempty(items):\n    return None\n",
+      "acceptance": "assert first_nonempty([\"\",None,\"yes\"])==\"yes\"",
+      "control_patch": "def first_nonempty(items):\n    return next((x for x in items if x),None)\n"
+    },
+    {
+      "id": "invert_mapping",
+      "path": "solution.py",
+      "goal": "Implement invert_mapping(mapping) as a pure Python function. Required behavior: {v:k for k,v in mapping.items()}. Preserve the function name.",
+      "initial": "def invert_mapping(mapping):\n    return None\n",
+      "acceptance": "assert invert_mapping({\"a\":1,\"b\":2})=={1:\"a\",2:\"b\"}",
+      "control_patch": "def invert_mapping(mapping):\n    return {v:k for k,v in mapping.items()}\n"
+    },
+    {
+      "id": "is_palindrome",
+      "path": "solution.py",
+      "goal": "Implement is_palindrome(text) as a pure Python function. Required behavior: text==text[::-1]. Preserve the function name.",
+      "initial": "def is_palindrome(text):\n    return None\n",
+      "acceptance": "assert is_palindrome(\"level\") is True and is_palindrome(\"code\") is False",
+      "control_patch": "def is_palindrome(text):\n    return text==text[::-1]\n"
+    }
+  ]
+}

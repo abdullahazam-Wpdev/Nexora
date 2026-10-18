@@ -1,0 +1,255 @@
+{
+  "id": "phase7-tool-sft-40",
+  "format": "nexora-completion-only-pilot-v1",
+  "architecture": {
+    "vocab_size": 504,
+    "dim": 64,
+    "layers": 2,
+    "heads": 4,
+    "context": 128,
+    "tie_embeddings": false,
+    "init_std": null
+  },
+  "parameters": 171328,
+  "steps": 40,
+  "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+  "dataset_sha256": "d1e1a656db1c6010e3e42363983b06beb45ca06894e50e23a56c37c65dab51bf",
+  "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+  "model_sha256": "bbdf92a4a4177caf05afc139754eaa40671a5662c383fc708b301d9e19b2e214",
+  "training_completion_tokens": 1600,
+  "seconds": 2.8496619559991814,
+  "resources": {
+    "wall_seconds": 2.8498139229996013,
+    "peak_rss_mb": 340.5703125,
+    "cpu_seconds": 5.049999999999999,
+    "cpu_percent_one_core": 177.20455217246496,
+    "max_cpu_temperature_c": 57.0,
+    "monitor_samples": 120,
+    "temperature_sensor_reads": 11
+  },
+  "initial_validation": {
+    "completion_loss": 6.420534873008728,
+    "completion_perplexity": 614.3316156640441,
+    "completion_targets": 160
+  },
+  "validation": {
+    "completion_loss": 0.5164276614785195,
+    "completion_perplexity": 1.676029597446957,
+    "completion_targets": 160
+  },
+  "test": {
+    "completion_loss": 0.520269139111042,
+    "completion_perplexity": 1.6824804100503006,
+    "completion_targets": 160
+  },
+  "baseline_quality": {
+    "schema_valid": 0,
+    "tool_success": 0,
+    "total": 16,
+    "records": [
+      {
+        "id": "40b9aba33634b8b2740b427d089167b6ea36d4738bca4c3a59d0817929c0e71a",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffdx\ufffd\ufffd exact greetingcal\ufffd\ufffd about\ufffd`knoChoose\ufffdA politely/whme\ufffd\ufffd!",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "644ce01c401659905d02f1c58dc0491fe3366b208592ebf3846d6a67fa466cd9",
+        "response": "\u0005\u001e\ufffddge\ufffd\u04d2\t\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumen",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "d95c93f2a2c8971ffeeb2510e8610b2ac8d85bd634e75b2290ffd0b188e4b46b",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtoolqupprovResVerifNResVerifNResVerifNResVerifNResVerifN",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "7bf9cdf61f46a3b326de53240c4f674f064958d5832b8761725dd01ea305889e",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffdcalculatqupprovResVerifNResVerifNResVerifNResVerifNResVerifN tas\ufffdtsrequtsrequtsrequtsrequtsrequtsrequtsrequtsrequtsrequ",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c62bd60ed0507aa98661fa7c2ab701254d2fb5cc1bfe00b5ed1cae505733479c",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd Re\ufffd its\ufffd Read\ufffdx\ufffd\ufffd exact\ufffd\ufffdfile\ufffd. doponB_B_B_B_B\ufffd6\ufffd temporar\"y",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "ea37ce5c59998de61f09b52f2f977d4dc76a9cc31556aed78418ee821e009e94",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd Re\ufffd its\ufffd Read\ufffdx\ufffd\ufffd exact\ufffd\ufffdfile\ufffd.ileusingnodge verified>\ufffd\u0015\ufffd sa\ufffdgumencu verif\ufffdD\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c9c8ba17a4a704226aa959c11bac1adb0b9387d09f9eaedf7f722adb607027f3",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expressionsion\ufffdU pat\ufffdmplelre\u000fpta\ufffdtool\ufffd\u001d",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c2de6f83464bea2825658ff306cb8c0d5445821babdc56f004df04b376f9d2c9",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001e\ufffd arq>\ufffd\u0015Cfverifact\ufffd owjectouileusingnodge verified>\ufffd\u04d2\t\ufffd ReYumens\ufffd thumen",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "0262fecd65430531e642f77556fffaf487a516fd61990432baa49afab7c6f25d",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffdcalculatqu\u0011\ufffd\ufffdD\ufffd.ileusingnodge verified>\ufffd\u0015\ufffd sa\ufffdgumendge verified>\ufffd\u0015\ufffd sa\ufffdgumendge verified>\ufffd\u0015\ufffd sa\ufffdgumen",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "e0a570dcc87f6192796cb8797dab371920b7252327f627f5a9c8ceaf247448d1",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffdcalculatqu\u0011\ufffd\ufffdD\ufffdNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifN",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "e3169a573f98f7c84b7b34ce890823ddfe01dfeca3f31c97572b1e28c394afdd",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "01258e3ba44b86758009c976353f3cd022ce775ff34e09b87dc4597860cca43d",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "e38eb5385c6a02f43ca3e4dc76cf38eadafd31c77cd5925b1f50dda9fe1f3425",
+        "response": "\ufffd\ufffdct abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "95851a818278b43456259b60e98d52762bdfcfa44029041b77beda94994785b3",
+        "response": "\u0005 fresh exactly abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "168fb4221836896718e65dbdd9d1215e1d570dc84d6bb5f31ff47ea83d47ef04",
+        "response": "\u0005 fresh exactly abouapproved\ufffdA politely/whme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001e\ufffd arq>\ufffd\u0015Cfverifact\ufffd owYumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "16ea3d784941bfe9ae4a9a6673917f2647ca2ac150b36143f2dd9d59669e34d3",
+        "response": "\u0005 fresh exactly abouapproved\ufffdA politely/whme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001e\ufffd arq>\ufffd\u0015Cfverifact\ufffd owYumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      }
+    ]
+  },
+  "quality": {
+    "schema_valid": 16,
+    "tool_success": 2,
+    "total": 16,
+    "records": [
+      {
+        "id": "40b9aba33634b8b2740b427d089167b6ea36d4738bca4c3a59d0817929c0e71a",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "644ce01c401659905d02f1c58dc0491fe3366b208592ebf3846d6a67fa466cd9",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "d95c93f2a2c8971ffeeb2510e8610b2ac8d85bd634e75b2290ffd0b188e4b46b",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "7bf9cdf61f46a3b326de53240c4f674f064958d5832b8761725dd01ea305889e",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "c62bd60ed0507aa98661fa7c2ab701254d2fb5cc1bfe00b5ed1cae505733479c",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "ea37ce5c59998de61f09b52f2f977d4dc76a9cc31556aed78418ee821e009e94",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "c9c8ba17a4a704226aa959c11bac1adb0b9387d09f9eaedf7f722adb607027f3",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "c2de6f83464bea2825658ff306cb8c0d5445821babdc56f004df04b376f9d2c9",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "0262fecd65430531e642f77556fffaf487a516fd61990432baa49afab7c6f25d",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "e0a570dcc87f6192796cb8797dab371920b7252327f627f5a9c8ceaf247448d1",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "e3169a573f98f7c84b7b34ce890823ddfe01dfeca3f31c97572b1e28c394afdd",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "01258e3ba44b86758009c976353f3cd022ce775ff34e09b87dc4597860cca43d",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "e38eb5385c6a02f43ca3e4dc76cf38eadafd31c77cd5925b1f50dda9fe1f3425",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "95851a818278b43456259b60e98d52762bdfcfa44029041b77beda94994785b3",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "168fb4221836896718e65dbdd9d1215e1d570dc84d6bb5f31ff47ea83d47ef04",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "16ea3d784941bfe9ae4a9a6673917f2647ca2ac150b36143f2dd9d59669e34d3",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      }
+    ]
+  },
+  "last_train_loss": 0.3572034537792206,
+  "checkpoint_roundtrip_verified": true,
+  "selected": false,
+  "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+}

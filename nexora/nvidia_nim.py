@@ -18,9 +18,9 @@ account/org has not been granted "Public API Endpoints" hosted-inference
 access. This module surfaces that distinction instead of collapsing every
 failure into one generic error.
 
-This adapter has never been exercised against the live API: this project's
-sandboxed network has no outbound egress, and no NVIDIA_NIM_API_KEY has been
-configured here. `/api/nvidia/status` reports real, current reachability and
+Public model discovery has been exercised against the live API without a key.
+Hosted generation/streaming/embeddings have not been live-verified because no
+NVIDIA_NIM_API_KEY is configured in the current verified environment. `/api/nvidia/status` reports real, current reachability and
 never assumes success. Tests mock the HTTP layer via `request`/`stream_request`.
 
 Do not assume every catalog model supports every feature below (tool calling,

@@ -16,8 +16,12 @@ class Runtime(BaseModel):
 
 
 class Turn(BaseModel):
+    mode: str = Field(default="chat", pattern="^(chat|research)$")
+    allow_hosted: bool = False
     text: str = Field(min_length=1, max_length=4000)
-    provider: str = Field(default="ollama", pattern="^(ollama|core|localai|fcc)$")
+    provider: str = Field(
+        default="ollama", pattern="^(ollama|core|localai|fcc|nvidia-gpt-oss-20b)$"
+    )
 
 
 def workspace_path(root: Path, name: str):
@@ -251,7 +255,24 @@ def router(store, core_generate):
                         "UPDATE threads SET title=? WHERE id=?", (body.text[:60], ident)
                     )
             try:
-                if body.text.startswith("/"):
+                if body.mode == "research":
+                    from nexora.research_agent import research
+
+                    report = research(body.text[:400], ["wikipedia"], True)
+                    answer = (
+                        "Extractive evidence report (not model-generated reasoning):\n\n"
+                        + (
+                            report.get("answer")
+                            or report.get("detail")
+                            or "No supported answer found"
+                        )
+                    )
+                    answer += "\n\nSources:\n" + "\n".join(
+                        "[" + c["title"].replace("]", "") + "](" + c["url"] + ")"
+                        for c in report.get("citations", [])
+                    )
+                    provider = "NEXORA Research • retrieved public evidence"
+                elif body.text.startswith("/"):
                     answer = command(body.text, workspace, catalog)
                     provider = "workspace-tool"
                 elif body.provider == "core":
@@ -264,6 +285,39 @@ def router(store, core_generate):
                         "text", result.get("completion", json.dumps(result))
                     )
                     provider = "NEXORA Core • research text prediction"
+                elif body.provider == "nvidia-gpt-oss-20b":
+                    if not body.allow_hosted:
+                        raise HTTPException(
+                            409,
+                            "Explicit hosted-inference consent is required; no paid fallback is enabled",
+                        )
+                    from nexora.nvidia_nim import request as nim_request
+
+                    context = [
+                        {"role": m["role"], "content": m["text"][-1000:]}
+                        for m in history[-4:]
+                        if m["role"] in {"user", "assistant"}
+                    ]
+                    data = nim_request(
+                        "POST",
+                        "/chat/completions",
+                        {
+                            "model": "openai/gpt-oss-20b",
+                            "messages": context
+                            + [{"role": "user", "content": body.text}],
+                            "max_tokens": 1024,
+                            "temperature": 0.2,
+                        },
+                    )
+                    answer = (
+                        data.get("choices", [{}])[0].get("message", {}).get("content")
+                    )
+                    if not isinstance(answer, str) or not answer.strip():
+                        raise HTTPException(
+                            503,
+                            "NVIDIA returned no final answer; private reasoning content is not displayed",
+                        )
+                    provider = "NVIDIA NIM • OpenAI GPT-OSS-20B (external hosted)"
                 elif body.provider in {"localai", "fcc"}:
                     from nexora.local_sidecars import chat
 

@@ -348,7 +348,33 @@ from nexora.research_agent import router as research_agent_router
 
 app.include_router(research_agent_router(audit))
 
-@app.get('/api/cowork/providers')
+
+@app.get("/api/cowork/providers")
 def cowork_providers():
     from nexora.provider_registry import PROVIDERS
+
     return PROVIDERS
+
+
+from nexora.agent_runtime import router as agent_router
+
+app.include_router(agent_router(STORE))
+
+from nexora.project_memory import router as memory_router
+
+app.include_router(memory_router(STORE))
+
+from nexora.openai_nim_models import router as openai_nim_router
+
+app.include_router(openai_nim_router())
+
+from nexora.verification import router as verification_router
+
+app.include_router(verification_router(STORE))
+
+
+@app.get("/api/agent/capabilities")
+def agent_capabilities():
+    from nexora.provider_registry import capabilities
+
+    return capabilities()

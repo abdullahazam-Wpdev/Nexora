@@ -50,3 +50,20 @@ per the pipeline in [research-operations.md](research-operations.md). That
 work was not started in this pass; it needs a dedicated, separately-approved
 training budget rather than being folded into an infrastructure/integration
 pass.
+
+## Phase 7 — completion-only tool selection
+
+The selected `phase2-small-language` checkpoint remains 984,192 parameters and unchanged SHA-256 `0b10d349fe2a8517544cd31cee03140eba7aa730fd1087ae01f0b02b1b56ee84`. Its tokenizer, dataset identity, recorded validation/test and throughput/resource metrics are in `docs/evidence/phase7/selected-core.json`. Fresh held-out tool-selection evaluation scored 0/16 valid/correct tool responses. Earlier instruction benchmarks remain earlier evidence, not newly measured general intelligence.
+
+`nexora/tool_sft.py` adds a separate masked-loss pilot without altering the existing engine or checkpoints. Prompt and padding labels are -100; only completion/EOS targets contribute. A test verifies the precise boundary. Original deterministic synthetic CC0 examples cover eight tool decisions (search, file read, tests, calculator, knowledge, approval, no-tool and retry), with train/validation/test IDs and version hashes. No proprietary assistant outputs or private conversations were used.
+
+Three real 40-step CPU runs were completed, each 171,328 parameters and 1,600 supervised completion tokens. The first held out only template variants; the second deliberately uses different evaluation wording; the third reproduced the second with identical held-out loss and checkpoint tensors. Results and detailed answers are in `docs/evidence/phase7/tool-sft-*.json`. The wording-held-out run has completion-only validation loss 0.5719157085 and test loss 0.5841850132 / perplexity 1.7935286876. JSON schema validity improved from 0/16 to 16/16, but correct tool choice was only 2/16 (12.5%, chance level across eight classes). This is evidence of learning output form, not useful tool-selection ability. No checkpoint was promoted.
+
+Checkpoint directories: `artifacts/tool-sft/phase7-tool-sft-40/`, `phase7-tool-sft-paraphrase-40/`, `phase7-tool-sft-paraphrase-repeat/`. Each retains dataset, tokenizer, model.safetensors and metrics. Model state roundtrip was verified. These use an explicit experimental format and are not silently passed through the production run loader; no checkpoint migration is needed because existing formats were untouched. Masked perplexity cannot be compared with pretraining perplexity.
+
+```sh
+# Choose an unused run ID. Do not overwrite earlier runs.
+.venv/bin/python -m nexora.tool_sft --run-id phase7-tool-sft-reproduce --steps 40
+```
+
+The pilots do not train code execution, improve context length or establish instruction following. Next: richer independently held-out tool scenarios, argument accuracy, balanced classification and larger rights-reviewed data before scale or promotion.

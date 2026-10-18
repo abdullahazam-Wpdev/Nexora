@@ -1,0 +1,16 @@
+{
+  "baseline_commit": "d84d5c4",
+  "baseline_tests": 64,
+  "final_tests": 77,
+  "ruff": "passed",
+  "pip_check": "passed",
+  "typescript": "passed",
+  "production_build": "passed",
+  "browser": "desktop/mobile/chat/code controls/memory/speech configuration/hosted consent passed using isolated API fixture storage",
+  "live_demo": "real Ollama proposal, public docs, real sandbox tests, bad approval hash rejection, exact approved apply, persisted across actual API restart",
+  "hosted_gpt_oss": "not live tested; key absent",
+  "whisper": "not live tested; service not configured",
+  "weights": "NVIDIA 4B GGUF verified storage only",
+  "selected_core": "unchanged and independently loads",
+  "publication_images": "isolated fixtures, no private conversation titles"
+}

@@ -1,0 +1,258 @@
+{
+  "id": "phase7-tool-sft-paraphrase-repeat",
+  "format": "nexora-completion-only-pilot-v1",
+  "training_code_sha256": "b59a40a557afffe476c21fb71ef2af5ae533a1fb1a3e2d808a7f38058a1595a8",
+  "git_parent": "d84d5c4bbe04cbe9d193213067263e96f7da4282",
+  "code_state": "working tree; exact training script SHA recorded",
+  "architecture": {
+    "vocab_size": 504,
+    "dim": 64,
+    "layers": 2,
+    "heads": 4,
+    "context": 128,
+    "tie_embeddings": false,
+    "init_std": null
+  },
+  "parameters": 171328,
+  "steps": 40,
+  "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+  "dataset_sha256": "5c96d84d63a6f8aecdbb104c49c1217393f6e7ccafc22d2bb542949d8cad509d",
+  "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+  "model_sha256": "bbdf92a4a4177caf05afc139754eaa40671a5662c383fc708b301d9e19b2e214",
+  "training_completion_tokens": 1600,
+  "seconds": 2.879180879001069,
+  "resources": {
+    "wall_seconds": 2.879353156000434,
+    "peak_rss_mb": 338.5,
+    "cpu_seconds": 5.140000000000001,
+    "cpu_percent_one_core": 178.5123158403993,
+    "max_cpu_temperature_c": 55.0,
+    "monitor_samples": 120,
+    "temperature_sensor_reads": 11
+  },
+  "initial_validation": {
+    "completion_loss": 6.422715449333191,
+    "completion_perplexity": 615.6726742494459,
+    "completion_targets": 160
+  },
+  "validation": {
+    "completion_loss": 0.5719157084822655,
+    "completion_perplexity": 1.7716577824121442,
+    "completion_targets": 160
+  },
+  "test": {
+    "completion_loss": 0.5841850131750107,
+    "completion_perplexity": 1.7935286875933887,
+    "completion_targets": 160
+  },
+  "baseline_quality": {
+    "schema_valid": 0,
+    "tool_success": 0,
+    "total": 16,
+    "records": [
+      {
+        "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+        "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtoolKD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd Re\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+        "response": "\u0005 fresh\ufffd{}Tkithmerequest Findply\ufffdaltic\ufffd\ufffd\ufffd\ufffd\b A publhme\ufffd\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileusingmpute to\"yile",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+        "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtoolKD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd th",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+        "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+        "response": "\u0005 fresh exactly abouapproved\ufffdA politely/whme\ufffd\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001e\ufffd arq>\ufffd\u0015\ufffd sa\ufffdgumencu",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+        "response": "\ufffd\u0019\ufffdgumencuubl\ufffd\ufffdct abou\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileusingmpute to\"yileusingmpute",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+        "response": "\u0005 fresh exactly abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"yileusingmpute to\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+        "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001ebou\ufffd temporar\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"yileex\ufffd`\u0011",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+        "response": "\u0005 fresh\ufffd{}Tkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffd\ufffd\ufffd\b",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+        "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.ileusingmpute to\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+        "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001ebou\ufffdforNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNRes",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+        "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      }
+    ]
+  },
+  "quality": {
+    "schema_valid": 16,
+    "tool_success": 2,
+    "total": 16,
+    "records": [
+      {
+        "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      }
+    ]
+  },
+  "last_train_loss": 0.3572034537792206,
+  "checkpoint_roundtrip_verified": true,
+  "selected": false,
+  "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+}
