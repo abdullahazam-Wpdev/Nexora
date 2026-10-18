@@ -104,3 +104,9 @@ GPT-OSS-20B is selectable through NVIDIA NIM with explicit hosted consent and a 
 The actual harder coding baseline is 0/20 for SmolLM2, versus 20/20 supplied controls. A new completion-only Core pilot achieved valid JSON 16/16 but correct tool selection only 2/16; no weights were promoted. These measurements limit the autonomy claims.
 
 See [Phase 7 delivery](docs/PHASE7_DELIVERY.md), [evaluation](docs/PHASE7_EVALUATION.md), [coding workflow](docs/CODING_AGENT.md), [memory](docs/MEMORY_ARCHITECTURE.md), and [OpenAI models through NVIDIA](docs/OPENAI_NVIDIA_MODELS.md) for commands, exact measurements, setup state and unsupported work.
+
+NVIDIA GPT-OSS requests now support both Chat Completions and an explicit,
+experimental nonstreaming Responses adapter, with 4,096-token output limits.
+See [NVIDIA setup and exact requests](docs/NVIDIA_NIM.md). Both
+`NVIDIA_NIM_API_KEY` and `NVIDIA_API_KEY` are recognized server-side; hosted
+generation still requires your own credential and has not been verified live.

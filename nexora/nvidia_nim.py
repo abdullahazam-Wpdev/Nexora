@@ -9,7 +9,7 @@ Base URL: https://integrate.api.nvidia.com/v1
 Auth: "Authorization: Bearer <key>" where the key is generated at
 https://build.nvidia.com and begins with "nvapi-".
 Endpoints used here: GET /v1/models, POST /v1/chat/completions,
-POST /v1/embeddings.
+POST /v1/embeddings, and experimental POST /v1/responses.
 
 Known gotcha (NVIDIA developer forum, verified by live web search during this
 project's review, not reproduced locally): a key can be valid for GET /v1/models
@@ -44,8 +44,16 @@ _model_cache = {"data": None, "fetched": 0.0}
 MODEL_CACHE_SECONDS = 300
 
 
+def configured_key():
+    """Canonical project variable takes precedence over NVIDIA sample alias."""
+    return (
+        os.environ.get(KEY_ENV, "").strip()
+        or os.environ.get("NVIDIA_API_KEY", "").strip()
+    )
+
+
 def _key():
-    key = os.environ.get(KEY_ENV, "").strip()
+    key = configured_key()
     if not key:
         raise HTTPException(
             503,
@@ -65,7 +73,7 @@ def request(method, path, json_body=None, require_key=True):
     the same way.
     """
     headers = {"Accept": "application/json"}
-    key = _key() if require_key else os.environ.get(KEY_ENV, "").strip()
+    key = _key() if require_key else configured_key()
     if key:
         headers["Authorization"] = f"Bearer {key}"
     try:
@@ -86,7 +94,7 @@ def _handle(response):
     if response.status_code == 403:
         raise HTTPException(
             502,
-            "NVIDIA NIM returned 403. The key authenticates but this call is "
+            "NVIDIA NIM returned 403. This call is "
             "refused -- commonly because the owning NVIDIA account/org has not "
             "been granted 'Public API Endpoints' hosted-inference access, or "
             "lacks entitlement for this specific model.",
@@ -173,10 +181,19 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     model: str = Field(min_length=1, max_length=200)
     messages: list[ChatMessage] = Field(min_length=1, max_length=50)
-    max_tokens: int = Field(default=256, ge=1, le=2048)
+    max_tokens: int = Field(default=256, ge=1, le=4096)
     temperature: float = Field(default=0.2, ge=0.0, le=2.0)
+    top_p: float = Field(default=1.0, gt=0.0, le=1.0)
     tools: list[dict] | None = None
     tool_choice: str | dict | None = None
+
+
+class ResponsesRequest(BaseModel):
+    model: str = Field(default="openai/gpt-oss-20b", min_length=1, max_length=200)
+    input: str = Field(min_length=1, max_length=32000)
+    max_output_tokens: int = Field(default=256, ge=1, le=4096)
+    temperature: float = Field(default=1.0, ge=0.0, le=1.0)
+    top_p: float = Field(default=1.0, gt=0.0, le=1.0)
 
 
 class EmbeddingRequest(BaseModel):
@@ -190,6 +207,7 @@ def _chat_payload(body: ChatRequest, stream: bool):
         "messages": [m.model_dump() for m in body.messages],
         "max_tokens": body.max_tokens,
         "temperature": body.temperature,
+        "top_p": body.top_p,
         "stream": stream,
     }
     if body.tools:
@@ -204,7 +222,7 @@ def router(audit):
 
     @routes.get("/status")
     def status():
-        key_present = bool(os.environ.get(KEY_ENV, "").strip())
+        key_present = bool(configured_key())
         result = {
             "provider": "NVIDIA NIM",
             "base_url": BASE_URL,
@@ -262,6 +280,49 @@ def router(audit):
             "tool_calls": message.get("tool_calls"),
             "usage": data.get("usage"),
             "finish_reason": choices[0].get("finish_reason"),
+        }
+
+    @routes.post("/responses")
+    def responses(body: ResponsesRequest):
+        # Opt-in experimental endpoint: never silently route to Chat Completions.
+        data = request("POST", "/responses", {**body.model_dump(), "stream": False})
+        output = data.get("output")
+        if not isinstance(output, list) or data.get("error"):
+            raise HTTPException(
+                502, "NVIDIA Responses returned an invalid or failed response"
+            )
+        texts = []
+        for item in output:
+            if not isinstance(item, dict) or item.get("type") != "message":
+                continue
+            content = item.get("content", [])
+            if not isinstance(content, list):
+                raise HTTPException(
+                    502, "NVIDIA Responses returned invalid message content"
+                )
+            for part in content:
+                if isinstance(part, dict) and part.get("type") == "output_text":
+                    if not isinstance(part.get("text"), str):
+                        raise HTTPException(
+                            502, "NVIDIA Responses returned invalid output text"
+                        )
+                    texts.append(part["text"])
+        status = data.get("status")
+        if status not in ("completed", "incomplete"):
+            raise HTTPException(502, "NVIDIA Responses did not complete synchronously")
+        audit(
+            "nvidia.responses",
+            json.dumps(
+                {"model": body.model, "usage": data.get("usage"), "status": status}
+            ),
+        )
+        return {
+            "provider": "NVIDIA NIM",
+            "model": body.model,
+            "text": "".join(texts),
+            "status": status,
+            "usage": data.get("usage"),
+            "incomplete_details": data.get("incomplete_details"),
         }
 
     @routes.post("/stream")

@@ -3,10 +3,13 @@
 import base64
 import io
 import os
+
 import wave
 import httpx
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
+
+from nexora.nvidia_nim import configured_key
 
 MODELS = [
     {
@@ -55,7 +58,7 @@ def router():
     def models():
         return {
             "models": MODELS,
-            "chat_key_configured": bool(os.environ.get("NVIDIA_NIM_API_KEY")),
+            "chat_key_configured": bool(configured_key()),
             "whisper_configured": os.environ.get("NEXORA_WHISPER_BASE")
             == "http://127.0.0.1:9000",
             "weights_installed": False,

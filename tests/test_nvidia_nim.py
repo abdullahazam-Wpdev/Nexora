@@ -177,3 +177,107 @@ def test_stream_yields_delta_text(client, monkeypatch):  # noqa: F811
     ) as response:
         text = "".join(response.iter_text())
     assert text == "Hello"
+
+
+def test_alias_and_canonical_precedence(monkeypatch):
+    from nexora import nvidia_nim
+
+    monkeypatch.delenv(nvidia_nim.KEY_ENV, raising=False)
+    monkeypatch.setenv("NVIDIA_API_KEY", "alias-test")
+    assert nvidia_nim._key() == "alias-test"
+    monkeypatch.setenv(nvidia_nim.KEY_ENV, "canonical-test")
+    assert nvidia_nim._key() == "canonical-test"
+
+
+def test_chat_user_parameters_and_final_only(client, monkeypatch):  # noqa: F811
+    from nexora import nvidia_nim
+
+    def fake(method, path, json_body):
+        assert path == "/chat/completions"
+        assert json_body["max_tokens"] == 4096
+        assert json_body["top_p"] == 1
+        return {
+            "choices": [{"message": {"content": "9.8", "reasoning_content": "private"}}]
+        }
+
+    monkeypatch.setattr(nvidia_nim, "request", fake)
+    response = client.post(
+        "/api/nvidia/generate",
+        json={
+            "model": "openai/gpt-oss-20b",
+            "messages": [{"role": "user", "content": "compare"}],
+            "max_tokens": 4096,
+            "top_p": 1,
+        },
+    )
+    assert response.status_code == 200
+    assert response.json()["text"] == "9.8"
+    assert "private" not in response.text
+
+
+def test_responses_final_only_and_incomplete(client, monkeypatch):  # noqa: F811
+    from nexora import nvidia_nim
+
+    for status in ("completed", "incomplete"):
+
+        def fake(method, path, json_body):
+            assert path == "/responses"
+            assert json_body["max_output_tokens"] == 4096
+            assert json_body["stream"] is False
+            return {
+                "status": status,
+                "output": [
+                    {"type": "reasoning", "summary": "private"},
+                    {
+                        "type": "message",
+                        "content": [{"type": "output_text", "text": "9.8"}],
+                    },
+                ],
+                "usage": {"total_tokens": 12},
+                "incomplete_details": {"reason": "max_output_tokens"}
+                if status == "incomplete"
+                else None,
+            }
+
+        monkeypatch.setattr(nvidia_nim, "request", fake)
+        response = client.post(
+            "/api/nvidia/responses",
+            json={"input": "compare", "max_output_tokens": 4096},
+        )
+        assert response.status_code == 200
+        assert response.json()["text"] == "9.8"
+        assert response.json()["status"] == status
+        assert "private" not in response.text
+
+
+def test_responses_failures_and_bounds(client, monkeypatch):  # noqa: F811
+    from nexora import nvidia_nim
+
+    for data in (
+        {"output": {}},
+        {"status": "failed", "output": []},
+        {"status": "completed", "output": [], "error": {"message": "failed"}},
+    ):
+        monkeypatch.setattr(nvidia_nim, "request", lambda *args: data)
+        assert (
+            client.post("/api/nvidia/responses", json={"input": "hi"}).status_code
+            == 502
+        )
+    assert (
+        client.post(
+            "/api/nvidia/responses", json={"input": "hi", "max_output_tokens": 4097}
+        ).status_code
+        == 422
+    )
+    assert (
+        client.post("/api/nvidia/responses", json={"input": "x" * 32001}).status_code
+        == 422
+    )
+
+
+def test_responses_requires_key(client, monkeypatch):  # noqa: F811
+    from nexora import nvidia_nim
+
+    monkeypatch.delenv(nvidia_nim.KEY_ENV, raising=False)
+    monkeypatch.delenv("NVIDIA_API_KEY", raising=False)
+    assert client.post("/api/nvidia/responses", json={"input": "hi"}).status_code == 503

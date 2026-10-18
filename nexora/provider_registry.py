@@ -96,6 +96,8 @@ PROVIDERS.extend(MODELS)
 
 def capabilities():
     import os
+
+    from nexora.nvidia_nim import configured_key
     from nexora.config import STORE
 
     result = []
@@ -130,14 +132,18 @@ def capabilities():
         elif row.get("key_env"):
             row["availability"] = (
                 "credential configured, generation unverified"
-                if os.environ.get(row["key_env"])
+                if (
+                    configured_key()
+                    if row["key_env"] == "NVIDIA_NIM_API_KEY"
+                    else os.environ.get(row["key_env"])
+                )
                 else "credential missing"
             )
             row["local"] = False
         if ident == "openai/gpt-oss-20b":
             row["availability"] = (
                 "credential configured; generation unverified"
-                if os.environ.get("NVIDIA_NIM_API_KEY")
+                if configured_key()
                 else "credential missing"
             )
             row["local"] = False
