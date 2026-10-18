@@ -33,3 +33,18 @@ demonstrate. The goal stated in the Phase 4 prompt is to *reproduce useful
 workflow patterns* (chat, file ops, tool use, research) within NEXORA's own
 architecture -- not to claim equivalent model quality, and this table should
 not be read or quoted as such a claim.
+
+## Phase 5 update: measured, not assumed
+
+`docs/AGENT_EVALUATION.md` and `docs/INSTRUCTION_TUNING.md` now back the
+"instruction-following" row above with real automated scores rather than
+the earlier qualitative "No": NEXORA Core scores 0/5 on instruction
+following, 0/2 on structured JSON, 0/3 on tool selection against
+`scripts/agent_eval.py`, and a from-scratch instruction-pilot checkpoint
+trained this pass scores 0/6 on a clean, disjoint held-out probe set after
+appearing to score 3/5 on a contaminated (training-adjacent) comparison --
+a caught and documented example of exactly the kind of inflated result this
+table warns against. Ollama/SmolLM2 135M does measurably better (2/5, 1/3,
+and one genuinely correct, sandbox-executed Python function), still far
+short of the hosted platforms in the table above. No score here should be
+read as approaching ChatGPT, Claude, or Codex-level capability.

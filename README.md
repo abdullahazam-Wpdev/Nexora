@@ -65,7 +65,7 @@ Daily discovery runs at 09:00 Asia/Karachi and checks three public repositories 
 
 Research design, checkpoint compatibility and scaling measurements: [Phase 2](docs/phase-2-delivery.md), [Phase 3](docs/phase-3-scaling-report.md), [roadmap](docs/roadmap.md). Consult the actual filenames in `docs/` if following older links.
 
-Phase 4 (NVIDIA NIM, REA, agent capabilities, hardware reality check, and the acceptance-test report) is summarized in [docs/PHASE4_VERIFICATION.md](docs/PHASE4_VERIFICATION.md), which links every individual Phase 4 doc and states exactly what is verified versus blocked.
+Phase 4 (NVIDIA NIM, REA, agent capabilities, hardware reality check, and the acceptance-test report) is summarized in [docs/PHASE4_VERIFICATION.md](docs/PHASE4_VERIFICATION.md). Phase 5 (a re-verified system audit, a real automated agent-evaluation suite, an architecture review, and a bounded instruction-following training pilot with its real, mixed results) is summarized in [docs/PHASE5_DELIVERY.md](docs/PHASE5_DELIVERY.md).
 
 ## Open-source integrations
 

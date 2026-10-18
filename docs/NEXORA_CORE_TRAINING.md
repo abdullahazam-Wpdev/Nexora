@@ -28,6 +28,17 @@ including the untested NVIDIA Nemotron-3-Nano-4B GGUF staged for
 storage-only download by `scripts/download-nvidia-reference.py`, is ever
 labeled as NEXORA-trained or loaded as Core.
 
+## Phase 5 update
+
+A real bounded instruction-following pilot ran this pass:
+`phase5-instruction-pilot-v1`, 918,656 parameters, trained on a new
+original 61-document dataset. It is **evaluated and not promoted** --
+`artifacts/selected-model.json` is unchanged. Full results, including a
+caught train/eval contamination issue, are in
+`docs/INSTRUCTION_TUNING.md`. An architecture review found no evidence-
+justified reason to change `nexora/model.py`; see
+`docs/NEXORA_TRAINING_STRATEGY.md`.
+
 ## What this pass adds to the roadmap
 
 Nothing changed in Core's architecture, data pipeline, or checkpoints this

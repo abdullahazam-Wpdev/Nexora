@@ -19,7 +19,9 @@ the machine.
 | CPU | not stated | Intel Core i5-1135G7, 4 cores / 8 threads |
 
 **The RAM figure in the Phase 4 prompt is wrong for this machine by roughly
-4x.** Every sizing/feasibility conclusion below uses the measured 7.5 GiB,
+4x.** Re-measured independently again in Phase 5
+(`docs/phase5-system-audit.md`), via both a shell command and the running
+API's own `psutil` check: same 7.5 GiB, three sessions in a row now. Every sizing/feasibility conclusion below uses the measured 7.5 GiB,
 not the assumed 32 GiB. If you actually have a different, 32 GB machine in
 mind for this work, tell me and I will redo this section against that
 machine instead of this one.
