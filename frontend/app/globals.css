@@ -960,41 +960,76 @@ code {
 
 /* Local cowork chat; research dashboard retains its original styles. */
 .cowork-shell {
+  --cw-bg: #0e1411;
+  --cw-panel: #141b16;
+  --cw-panel-2: #11160f08;
+  --cw-text: #edf2ee;
+  --cw-muted: #8b9a8e;
+  --cw-line: #253129;
+  --cw-accent: #70e5b5;
+  --cw-accent-strong: #2d4438;
+  --cw-card: #1a211c;
+  --cw-card-line: #263128;
+  --cw-user-bubble: #1d2a22;
+  --cw-shadow: 0 6px 30px #00000040;
   display: flex;
   height: 100dvh;
-  background: #f9faf8;
-  color: #24332f;
+  background: var(--cw-bg);
+  color: var(--cw-text);
   font-size: 14px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+.cowork-shell.light {
+  --cw-bg: #f9faf8;
+  --cw-panel: #eef1ec;
+  --cw-text: #24332f;
+  --cw-muted: #6c766d;
+  --cw-line: #dde3dc;
+  --cw-accent: #197b59;
+  --cw-accent-strong: #244d3e;
+  --cw-card: #fff;
+  --cw-card-line: #e7ece1;
+  --cw-user-bubble: #ebf0e6;
+  --cw-shadow: 0 6px 30px #28413106;
 }
 .cowork-sidebar {
   width: 265px;
   flex-shrink: 0;
-  background: #eef1ec;
-  border-right: 1px solid #dde3dc;
+  background: var(--cw-panel);
+  border-right: 1px solid var(--cw-line);
   display: flex;
   flex-direction: column;
   padding: 28px 17px;
+}
+.cowork-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .cowork-brand {
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #263b33;
+  color: var(--cw-text);
   font-weight: 750;
   letter-spacing: 1px;
+  min-width: 0;
+  flex: 1;
 }
 .cowork-brand small {
   font-size: 9px;
   letter-spacing: 1px;
-  color: #778279;
+  color: var(--cw-muted);
 }
 .cowork-mark {
   display: grid;
   place-items: center;
   width: 31px;
   height: 33px;
-  background: #244d3e;
+  background: var(--cw-accent-strong);
   color: #fff;
   border-radius: 10px;
   font-size: 20px;
@@ -1005,17 +1040,46 @@ code {
   align-items: center;
   margin: 36px 0 30px;
   padding: 13px;
-  background: #fff;
-  border: 1px solid #d6ded4;
+  background: var(--cw-card);
+  border: 1px solid var(--cw-card-line);
   border-radius: 9px;
-  color: #2d4438;
+  color: var(--cw-text);
   text-align: left;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.cowork-new:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--cw-accent);
+  box-shadow: 0 6px 18px -6px var(--cw-accent);
+}
+.cowork-theme-toggle {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--cw-line);
+  color: var(--cw-muted);
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+.cowork-theme-toggle:hover {
+  color: var(--cw-accent);
+  border-color: var(--cw-accent);
+  transform: rotate(-12deg);
 }
 .cowork-section {
   font-size: 10px;
   font-weight: 650;
   letter-spacing: 1.2px;
-  color: #7b877b;
+  color: var(--cw-muted);
   margin: 0 10px 16px;
 }
 .cowork-sidebar nav {
@@ -1033,7 +1097,11 @@ code {
   border: 0;
   border-radius: 8px;
   text-align: left;
-  color: #6c766d;
+  color: var(--cw-muted);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    padding-left 0.15s ease;
 }
 .cowork-thread span {
   overflow: hidden;
@@ -1041,15 +1109,15 @@ code {
   text-overflow: ellipsis;
 }
 .cowork-thread.selected {
-  background: #e0e7dc;
-  color: #304d3c;
+  background: var(--cw-accent-strong);
+  color: var(--cw-accent);
 }
 .cowork-bottom {
   display: grid;
   gap: 15px;
-  border-top: 1px solid #dce2d8;
+  border-top: 1px solid var(--cw-line);
   padding: 20px 9px 0;
-  color: #707e71;
+  color: var(--cw-muted);
   font-size: 12px;
 }
 .cowork-bottom a,
@@ -1059,6 +1127,10 @@ code {
   gap: 9px;
   color: inherit;
   text-decoration: none;
+  transition: color 0.15s ease;
+}
+.cowork-bottom a:hover {
+  color: var(--cw-accent);
 }
 .cowork-bottom small {
   font-size: 11px;
@@ -1076,24 +1148,28 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #e8ece5;
+  border-bottom: 1px solid var(--cw-line);
   gap: 16px;
 }
 .cowork-header span {
-  color: #91a08f;
+  color: var(--cw-muted);
   font-size: 12px;
 }
 .cowork-header strong {
   font-weight: 500;
 }
 .cowork-header select {
-  background: #f1f4ed;
-  border: 1px solid #dfe6da;
+  background: var(--cw-panel);
+  border: 1px solid var(--cw-line);
   border-radius: 20px;
   padding: 8px 12px;
-  color: #4d634f;
+  color: var(--cw-text);
   font-size: 12px;
   max-width: 240px;
+  transition: border-color 0.15s ease;
+}
+.cowork-header select:hover {
+  border-color: var(--cw-accent);
 }
 .cowork-scroll {
   flex: 1;
@@ -1108,18 +1184,18 @@ code {
 .cowork-orbit {
   width: 68px;
   height: 68px;
-  border: 1px solid #d7e1d1;
+  border: 1px solid var(--cw-card-line);
   border-radius: 22px;
   display: grid;
   place-items: center;
-  background: #edf3e8;
-  color: #557d42;
+  background: var(--cw-card);
+  color: var(--cw-accent);
   margin: 0 auto 24px;
-  box-shadow: 0 4px 20px #244d3e08;
+  box-shadow: var(--cw-shadow);
 }
 .cowork-eyebrow {
   font-size: 10px;
-  color: #7a8b72;
+  color: var(--cw-muted);
   letter-spacing: 1.7px;
 }
 .cowork-welcome h1 {
@@ -1127,10 +1203,10 @@ code {
   letter-spacing: -1.6px;
   font-size: 42px;
   margin: 17px 0;
-  color: #2c4035;
+  color: var(--cw-text);
 }
 .cowork-welcome > p {
-  color: #81907e;
+  color: var(--cw-muted);
   line-height: 1.8;
   max-width: 460px;
   margin: 0 auto;
@@ -1146,33 +1222,95 @@ code {
   display: grid;
   gap: 20px;
   text-align: left;
-  background: #fff;
-  border: 1px solid #e0e6da;
+  background: var(--cw-card);
+  border: 1px solid var(--cw-card-line);
   border-radius: 12px;
   padding: 20px 16px;
-  color: #425b45;
+  color: var(--cw-text);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.cowork-cards button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--cw-accent);
+  box-shadow: 0 10px 24px -10px var(--cw-accent);
 }
 .cowork-cards code {
   font-size: 10px;
-  color: #8b9783;
+  color: var(--cw-muted);
 }
 .cowork-cards svg {
   position: absolute;
   right: 15px;
   bottom: 17px;
-  color: #8d9c85;
+  color: var(--cw-accent);
 }
 .cowork-composer-wrap {
   width: min(800px, 100%);
   padding: 15px 30px 22px;
   margin: 0 auto;
 }
+/* Glowing animated gradient border: a rotating conic-gradient sits behind
+   the composer on a pseudo-element and is only revealed (via opacity) on
+   hover/focus, so it reads as a subtle "alive" accent rather than a loud
+   effect. Respects prefers-reduced-motion. */
 .cowork-composer {
-  border: 1px solid #d4decc;
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--cw-card-line);
   border-radius: 17px;
-  background: #fff;
+  background: var(--cw-card);
   padding: 16px 18px;
-  box-shadow: 0 6px 30px #28413106;
+  box-shadow: var(--cw-shadow);
+  transition: border-color 0.25s ease;
+}
+.cowork-composer::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    #70e5b5,
+    #5ad1ff,
+    #a78bfa,
+    #70e5b5
+  );
+  filter: blur(10px);
+  opacity: 0;
+  animation: cowork-glow-spin 7s linear infinite;
+  animation-play-state: paused;
+  transition: opacity 0.35s ease;
+}
+.cowork-composer:focus-within::before,
+.cowork-composer:hover::before {
+  opacity: 0.55;
+  animation-play-state: running;
+}
+.light .cowork-composer::before {
+  filter: blur(14px);
+}
+.light .cowork-composer:focus-within::before,
+.light .cowork-composer:hover::before {
+  opacity: 0.35;
+}
+@property --glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes cowork-glow-spin {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cowork-composer::before {
+    animation: none;
+  }
 }
 .cowork-composer textarea {
   resize: vertical;
@@ -1182,32 +1320,38 @@ code {
   border: 0;
   background: transparent;
   font: inherit;
-  color: #304736;
+  color: var(--cw-text);
   outline: none;
 }
 .cowork-composer textarea::placeholder {
-  color: #98a090;
+  color: var(--cw-muted);
 }
 .cowork-composer > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #97a18e;
+  color: var(--cw-muted);
   font-size: 10px;
 }
 .cowork-composer button {
   display: grid;
   place-items: center;
-  background: #315b43;
+  background: var(--cw-accent-strong);
   border: 0;
   border-radius: 10px;
   width: 34px;
   height: 34px;
-  color: white;
+  color: var(--cw-accent);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+.cowork-composer button:hover:not(:disabled) {
+  transform: scale(1.08);
 }
 .cowork-disclaimer {
   font-size: 10px;
-  color: #939d8d;
+  color: var(--cw-muted);
   text-align: center;
   line-height: 1.6;
   margin: 12px 0 0;
@@ -1221,17 +1365,21 @@ code {
   padding: 18px 20px;
   margin: 0 0 22px;
   border-radius: 13px;
-  background: #fff;
-  border: 1px solid #e7ece1;
+  background: var(--cw-card);
+  border: 1px solid var(--cw-card-line);
+  transition: border-color 0.2s ease;
+}
+.cowork-message:hover {
+  border-color: var(--cw-accent);
 }
 .cowork-message.user {
-  background: #ebf0e6;
+  background: var(--cw-user-bubble);
   margin-left: 45px;
   border: 0;
 }
 .cowork-message-label {
   font-size: 11px;
-  color: #73846b;
+  color: var(--cw-muted);
   margin-bottom: 12px;
 }
 .cowork-message pre {
@@ -1243,10 +1391,14 @@ code {
 }
 .cowork-error,
 .cowork-message.error {
+  color: #e2766b;
+}
+.light .cowork-error,
+.light .cowork-message.error {
   color: #a13e36;
 }
 .cowork-thinking {
-  color: #73846b;
+  color: var(--cw-muted);
   font-size: 12px;
 }
 @media (max-width: 750px) {
@@ -1315,7 +1467,7 @@ code {
   flex-shrink: 0;
   font-size: 13px;
   letter-spacing: 0;
-  color: #405443;
+  color: var(--cw-text);
 }
 .cowork-header > div {
   gap: 8px;
@@ -1338,8 +1490,9 @@ code {
   font-size: 12px;
 }
 .cowork-thread:hover {
-  background: #e0e7dc;
-  color: #304d3c;
+  background: var(--cw-accent-strong);
+  color: var(--cw-accent);
+  padding-left: 14px;
 }
 .cowork-cards button {
   justify-content: start;

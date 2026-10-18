@@ -7,6 +7,8 @@ import {
   FlaskConical,
   Terminal,
   Cpu,
+  Sun,
+  Moon,
 } from "lucide-react";
 type Thread = { id: string; title: string };
 type Message = { role: string; text: string; provider: string };
@@ -25,6 +27,10 @@ export default function Chat() {
   const [provider, setProvider] = useState("ollama");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [dark, setDark] = useState(true);
+  useEffect(() => {
+    setDark(localStorage.getItem("nexora-theme") !== "light");
+  }, []);
   useEffect(() => {
     if (scroll.current) scroll.current.scrollTop = scroll.current.scrollHeight;
   }, [messages, busy]);
@@ -91,11 +97,25 @@ export default function Chat() {
     }
   }
   return (
-    <div className="cowork-shell">
+    <div className={dark ? "cowork-shell" : "cowork-shell light"}>
       <aside className="cowork-sidebar">
-        <a href="/" className="cowork-brand">
-          <span className="cowork-mark">N</span> NEXORA <small>LOCAL AI</small>
-        </a>
+        <div className="cowork-brand-row">
+          <a href="/" className="cowork-brand">
+            <span className="cowork-mark">N</span> NEXORA{" "}
+            <small>LOCAL AI</small>
+          </a>
+          <button
+            type="button"
+            className="cowork-theme-toggle"
+            aria-label="Toggle color theme"
+            onClick={() => {
+              setDark(!dark);
+              localStorage.setItem("nexora-theme", dark ? "light" : "dark");
+            }}
+          >
+            {dark ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
+        </div>
         <button
           className="cowork-new"
           disabled={busy}
