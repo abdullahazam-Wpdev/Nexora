@@ -62,6 +62,10 @@ Phase 3 experiment configuration and exact commands are in [research operations]
 
 ## Local infrastructure
 
+REA/Hopper and the separate local Ollama reference-model adapter are documented
+in [the reference setup report](docs/reverse-engineering-reference-setup.md).
+Reference-model outputs are labeled external and do not enter Core training.
+
 ```sh
 .venv/bin/python scripts/infra.py up
 .venv/bin/python scripts/infra.py verify

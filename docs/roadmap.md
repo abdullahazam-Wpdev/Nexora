@@ -13,6 +13,14 @@ Verified and delivered:
 
 Next model milestone:
 
+Local reference tooling update (2026-10-18): REA repository review and CLI,
+Hopper demo setup, and a separately labeled Ollama/SmolLM2 inference adapter.
+See [installation and verification](reverse-engineering-reference-setup.md).
+The installed tiny reference failed constrained arithmetic/exact-output smoke
+probes. Reference inference does not imply distillation or improve Core weights
+by itself. Before a teacher experiment, compare fixed tasks, review output-training
+terms, label synthetic provenance and obtain a fresh bounded training plan.
+
 1. Use the ~1M model as baseline and run a truly matched-token data-size/domain-diversity ablation under a fresh explicitly bounded plan; do not widen merely to increase parameter count.
 2. Expand human-authored licensed language diversity only with rights/quality/size review and an untouched new final test suite. Current few-hundred-kilobyte technical corpus is not sufficient for a capable assistant.
 3. Repeat more seeds on AC power and base budgets on sustained training rates, with persistent transaction deadlines and interruption evidence.

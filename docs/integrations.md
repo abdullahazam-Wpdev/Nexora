@@ -3,6 +3,8 @@
 | Provider | Purpose | Permission | Authentication | Cost | Setup | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | NEXORA Core | Independent local inference | Read local model artifacts | Localhost ownership | No API charges | Train with `python -m nexora.train` | Working |
+| Ollama / SmolLM2 135M | External open-weight reference inference | Fixed localhost endpoint and pinned model digest; no automatic training | Localhost ownership | Local CPU/storage | `scripts/install-ollama.sh`, `scripts/ollama.sh start`, `scripts/prepare-reference.sh` | Adapter tested; live runtime verification recorded in reference setup report |
+| REA / Hopper demo | Local artifact/source research tooling | Explicit local targets; native demo license approved | Local user processes | No purchase | `scripts/rea.sh`; see reference setup report | Portable analysis verified; native provider status recorded separately |
 | SQLite | Project, memory, audit and dataset metadata | Read/write configured artifact root | Local filesystem | Free | Automatic migration at API startup | Working |
 | PostgreSQL | Future scalable persistence | Local database access | `.env` password | Free local software | Install rootless Podman in host shell, configure `.env`, start Compose; adapter still pending | Not connected |
 | Redis | Future queue/cache | Local service access | Localhost binding; production auth pending | No hosted service | Optional Compose; queue integration still pending | Not connected |

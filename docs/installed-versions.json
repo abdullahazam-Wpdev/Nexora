@@ -11,5 +11,11 @@
   "playwright": "1.64.0",
   "next": "16.4.2",
   "react": "19.3.1",
-  "typescript": "5.9.3"
+  "typescript": "5.9.3",
+  "rea-agents": "6.7.0",
+  "hopper_demo": "6.6.0",
+  "ollama_fedora_rpm": "0.12.11-4.fc44.x86_64",
+  "ollama_api_version_string": "0.0.0",
+  "xvfb_fedora_rpm": "21.1.24-1.fc44.x86_64",
+  "smollm2_reference": "135m-instruct-q4_K_M; manifest fd316850965252d917ac2bf811adef10ba91e129e5f2809f2a24a8501ff73e4f"
 }

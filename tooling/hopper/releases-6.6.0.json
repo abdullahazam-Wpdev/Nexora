@@ -1,0 +1,22 @@
+{
+  "Arch": {
+    "version": "6.6.0",
+    "filename": "https://www.hopperapp.com:443/downloader/public/Hopper-6.6.0-Linux-demo.pkg.tar.xz",
+    "file_length": "29393252",
+    "file_hash": "2f7f98dfa125b5eb2e86ee23351b773c7d924503",
+    "main_exe_hash": "b2271008fb82bf14cfae5c3644cdde2b11fc6804bd7c99d67032ec1b1942d53c",
+    "signature": "iQIzBAABCgAdFiEEhorVjjJ1aA0iTMnsNtKIS8TbHDMFAmrPSYIACgkQNtKIS8TbHDPZlg/6Auoy3/rUlYworsBorN1MIc3QF93IrikWaZOIAlruGf1HpS6hOkGqr+b+uD16msCvjENGob9M4ypdh+MTj4LUL7RU3E4csto41bYKRMr06hZXLL+5U3QiKTb5HQLjN6x0uuoU0GBrxrpqU0uFGrG/Ch4REkjvYmRZsmJj9dZt3TvWgCBixLTLItJFwZaw6gHw2nql1CJ2P6nmXclcAB0jkB9Hbl4uy4Ur8lxfGjA4++sQNMcoEZESzU8hnozotSvcx5i81z0HDg3YPbleBfNy/fjGC5yKSWcRDN1MR7b0kM7a9R5kzpAsBg1/0gE3mLaG5F101iw6d8wFebHOUKKBI1sSCuJOI8fJvnXXSNMydmMmlw6oOPoordpg9hgy1gPljqMX+s0EO82gL+qlTmeH/Nsgeo/jiQaZwUQ54a09bpf3m7qZLgbWpgWKy4u/sb0DHftXTP2E6EhzlpfnlUfQIegsBZ60gxjUgFNSzyLdarp/2Owdh0hwkWONVZsoENdQJ67gYyWC23tulMDove5YQcqg0lkOnCnsyNHfHiTfx9M8cUrgUbDT6B63DB7fiRKgU4kZseXhYATQBU8Ai95RTd1f79M9EeYNXG/tt+xQRpr9LrHB9OofULUC/J+S5VQaVF8OB0dhoTc7Tpxh1Dty0UxT2jqm0A+fBaYIJkVKvp8=",
+    "public": "1",
+    "beta": "0"
+  },
+  "Fedora": {
+    "version": "6.6.0",
+    "filename": "https://www.hopperapp.com:443/downloader/public/Hopper-6.6.0-Linux-demo.rpm",
+    "file_length": "32261798",
+    "file_hash": "933aa2502550923a865f79e837ba403494c4b4b3",
+    "main_exe_hash": "b2271008fb82bf14cfae5c3644cdde2b11fc6804bd7c99d67032ec1b1942d53c",
+    "signature": "iQIzBAABCgAdFiEEhorVjjJ1aA0iTMnsNtKIS8TbHDMFAmrPSYIACgkQNtKIS8TbHDNXlA/8Djc/5cimRu4JHSz3hVcDl4Le+ryfHyp7duHGk68DaYznI3TaXCN0W8tCSlF7iavVfYhSy1unY9hswad/Q50XVeMduj1gw4HNrBwLElJuebarw3nNfFQ00eAFaxccnud27z66Rk4YZGRNTE1jLlTzRfuiJNeriyckNkUTbalBFLi8IEZ/7JCqWU6ENJiDtJL/+mmr0/yGqAFXHEq0yt7AxlwMPgaJCPiw84BQUrPyjDOEVV7R6hhxEJCexdLtPTm+aMe7Oo+E6kuXcy+Vc4bZ6J7hGKergRuG4Ix/b0uCjvwBbEaNpvm/dxCrE39aeCSpkdK0exCg/KEncvvXruEn6z0NTPgXwzQJEusRTJ/Q5ygNJjuUsyzLQADID6x8/KUUKiUAh2Cbcw2txB79l91nwoZz47OjsIHKLzbfMfBkq4FXWyEUG4mG5WOg26g0HB7/ybxj+vYSkLOnImx3MdQdyHr38V/ZdlC8QSOF9f1KjqN5y7t61p3TiEPQerTeZWcAnSU9KN6dqgeym0JibfFYHFr+j71t1id+tuYSxSfAIZJJSh9q1OtZ4blqS7J4No1D9l0rHXFEtHI+Dq54kRfpkDCETxPMsTrXNp1nukqPlBoIL+3Hf2mkca6ecfQFcRpC1pyaIVy+vCDm2YtMI48WUYhBaQPBpBJseCumAUHcD9k=",
+    "public": "1",
+    "beta": "0"
+  }
+}

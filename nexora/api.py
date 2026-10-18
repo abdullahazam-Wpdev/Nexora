@@ -297,6 +297,14 @@ def integrations():
             "authentication": "localhost only",
         },
         {
+            "provider": "Ollama reference",
+            "purpose": "external open-weight comparison; training disabled",
+            "status": "adapter configured; check /api/reference/status for live availability",
+            "cost": "local CPU and storage",
+            "permissions": "fixed localhost runtime and pinned SmolLM2 model",
+            "authentication": "localhost only",
+        },
+        {
             "provider": "External APIs",
             "status": "not configured",
             "cost": "none incurred",
@@ -313,3 +321,7 @@ app.add_middleware(
     TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"]
 )
 app.include_router(research_router(STORE, audit))
+
+from nexora.reference import router as reference_router
+
+app.include_router(reference_router(audit))
