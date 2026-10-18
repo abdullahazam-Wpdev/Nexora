@@ -9,17 +9,77 @@ import {
   Cpu,
   Sun,
   Moon,
+  Copy,
+  Check,
+  Pencil,
+  Square,
+  Maximize2,
+  X,
 } from "lucide-react";
+
 type Thread = { id: string; title: string };
-type Message = { role: string; text: string; provider: string };
+type Message = { id: number; role: string; text: string; provider: string };
+type Block =
+  | { type: "text"; content: string }
+  | { type: "code"; lang: string; content: string };
+type Canvas = { title: string; lang: string; code: string };
+
 async function api(path: string, options?: RequestInit) {
   const res = await fetch(`/api/cowork${path}`, options);
+  if (res.status === 204) return null;
   const data = await res.json();
   if (!res.ok) throw new Error(data.detail || "Request failed");
   return data;
 }
+
+// Split a message into plain-text and fenced-code segments so code blocks
+// can get their own copy/canvas actions instead of being flattened into
+// one undifferentiated <pre>.
+function parseBlocks(text: string): Block[] {
+  const blocks: Block[] = [];
+  const fence = /```(\w*)\n([\s\S]*?)```/g;
+  let cursor = 0;
+  let match: RegExpExecArray | null;
+  while ((match = fence.exec(text))) {
+    if (match.index > cursor) {
+      blocks.push({ type: "text", content: text.slice(cursor, match.index) });
+    }
+    blocks.push({ type: "code", lang: match[1] || "text", content: match[2] });
+    cursor = match.index + match[0].length;
+  }
+  if (cursor < text.length) {
+    blocks.push({ type: "text", content: text.slice(cursor) });
+  }
+  return blocks.length ? blocks : [{ type: "text", content: text }];
+}
+
+function CopyButton({ value, label }: { value: string; label: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      className="cowork-icon-btn"
+      aria-label={label}
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(value);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1600);
+        } catch {
+          /* clipboard unavailable (e.g. insecure context); nothing to show */
+        }
+      }}
+    >
+      {copied ? <Check size={13} /> : <Copy size={13} />}
+      {copied ? "Copied" : "Copy"}
+    </button>
+  );
+}
+
 export default function Chat() {
   const scroll = useRef<HTMLDivElement>(null);
+  const composerRef = useRef<HTMLTextAreaElement>(null);
+  const controllerRef = useRef<AbortController | null>(null);
   const [threads, setThreads] = useState<Thread[]>([]);
   const [active, setActive] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
@@ -27,7 +87,9 @@ export default function Chat() {
   const [provider, setProvider] = useState("ollama");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
   const [dark, setDark] = useState(true);
+  const [canvas, setCanvas] = useState<Canvas | null>(null);
   useEffect(() => {
     setDark(localStorage.getItem("nexora-theme") !== "light");
   }, []);
@@ -78,22 +140,56 @@ export default function Chat() {
     if (!value.trim() || busy) return;
     setBusy(true);
     setError("");
+    setNotice("");
     setText("");
+    const controller = new AbortController();
+    controllerRef.current = controller;
     try {
       const id = active || (await fresh());
-      setMessages((old) => [...old, { role: "user", text: value, provider }]);
+      setMessages((old) => [
+        ...old,
+        { id: -1, role: "user", text: value, provider },
+      ]);
       await api(`/threads/${id}/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: value, provider }),
+        signal: controller.signal,
       });
       setMessages(await api(`/threads/${id}`));
       await refresh();
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Request failed");
-      setText(value);
+      if (e instanceof DOMException && e.name === "AbortError") {
+        setNotice(
+          "Stopped waiting. The local model may still finish this reply in the background; reopen the conversation to check.",
+        );
+        try {
+          if (active) setMessages(await api(`/threads/${active}`));
+        } catch {
+          /* best-effort refresh only; the notice above already explains the state */
+        }
+      } else {
+        setError(e instanceof Error ? e.message : "Request failed");
+        setText(value);
+      }
     } finally {
       setBusy(false);
+      controllerRef.current = null;
+    }
+  }
+  function stop() {
+    controllerRef.current?.abort();
+  }
+  async function editMessage(m: Message) {
+    if (busy || m.id < 0) return;
+    setError("");
+    try {
+      await api(`/threads/${active}/messages/${m.id}`, { method: "DELETE" });
+      setMessages(await api(`/threads/${active}`));
+      setText(m.text);
+      composerRef.current?.focus();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not edit that message");
     }
   }
   return (
@@ -212,27 +308,84 @@ export default function Chat() {
             </section>
           ) : (
             <div className="cowork-messages">
-              {messages.map((m, i) => (
-                <article key={i} className={`cowork-message ${m.role}`}>
+              {messages.map((m) => (
+                <article
+                  key={m.id < 0 ? `pending-${m.text}` : m.id}
+                  className={`cowork-message ${m.role}`}
+                >
                   <div className="cowork-message-label">
-                    {m.role === "user"
-                      ? "You"
-                      : m.role === "error"
-                        ? "Action failed"
-                        : m.provider}
+                    <span>
+                      {m.role === "user"
+                        ? "You"
+                        : m.role === "error"
+                          ? "Action failed"
+                          : m.provider}
+                    </span>
+                    <span className="cowork-message-actions">
+                      {m.role === "user" && (
+                        <button
+                          type="button"
+                          className="cowork-icon-btn"
+                          aria-label="Edit and resend this message"
+                          disabled={busy || m.id < 0}
+                          onClick={() => editMessage(m)}
+                        >
+                          <Pencil size={13} /> Edit
+                        </button>
+                      )}
+                      <CopyButton value={m.text} label="Copy message" />
+                    </span>
                   </div>
-                  <pre>{m.text}</pre>
+                  {parseBlocks(m.text).map((block, bi) =>
+                    block.type === "text" ? (
+                      block.content.trim() && (
+                        <pre key={bi}>{block.content.replace(/^\n+|\n+$/g, "")}</pre>
+                      )
+                    ) : (
+                      <div className="cowork-code" key={bi}>
+                        <div className="cowork-code-bar">
+                          <span>{block.lang}</span>
+                          <span className="cowork-code-actions">
+                            <CopyButton value={block.content} label="Copy code" />
+                            <button
+                              type="button"
+                              className="cowork-icon-btn"
+                              aria-label="Open in canvas"
+                              onClick={() =>
+                                setCanvas({
+                                  title: `${m.provider} · ${block.lang}`,
+                                  lang: block.lang,
+                                  code: block.content,
+                                })
+                              }
+                            >
+                              <Maximize2 size={13} /> Canvas
+                            </button>
+                          </span>
+                        </div>
+                        <pre>{block.content}</pre>
+                      </div>
+                    ),
+                  )}
                 </article>
               ))}
               {busy && (
                 <p className="cowork-thinking" role="status">
                   Working locally…
+                  <button
+                    type="button"
+                    className="cowork-stop-btn"
+                    onClick={stop}
+                  >
+                    <Square size={11} /> Stop
+                  </button>
                 </p>
               )}
             </div>
           )}
         </div>
         <div className="cowork-composer-wrap">
+          {notice && <p className="cowork-notice">{notice}</p>}
           {error && (
             <p role="alert" className="cowork-error">
               {error}
@@ -246,6 +399,7 @@ export default function Chat() {
             }}
           >
             <textarea
+              ref={composerRef}
               aria-label="Message"
               placeholder="Ask a question, or use /help for workspace actions"
               value={text}
@@ -261,9 +415,20 @@ export default function Chat() {
             />
             <div>
               <span>Local conversation · isolated file tools</span>
-              <button aria-label="Send message" disabled={busy || !text.trim()}>
-                <ArrowUp size={20} />
-              </button>
+              {busy ? (
+                <button
+                  type="button"
+                  aria-label="Stop generating"
+                  className="cowork-stop"
+                  onClick={stop}
+                >
+                  <Square size={14} />
+                </button>
+              ) : (
+                <button aria-label="Send message" disabled={!text.trim()}>
+                  <ArrowUp size={20} />
+                </button>
+              )}
             </div>
           </form>
           <p className="cowork-disclaimer">
@@ -272,6 +437,35 @@ export default function Chat() {
           </p>
         </div>
       </main>
+      {canvas && (
+        <div className="cowork-canvas-overlay" onClick={() => setCanvas(null)}>
+          <aside
+            className="cowork-canvas"
+            onClick={(e) => e.stopPropagation()}
+            aria-label="Code canvas"
+          >
+            <header>
+              <strong>{canvas.title}</strong>
+              <span className="cowork-canvas-actions">
+                <CopyButton value={canvas.code} label="Copy code" />
+                <button
+                  type="button"
+                  className="cowork-icon-btn"
+                  aria-label="Close canvas"
+                  onClick={() => setCanvas(null)}
+                >
+                  <X size={15} />
+                </button>
+              </span>
+            </header>
+            <div className="cowork-canvas-body">
+              <pre>
+                <code>{canvas.code}</code>
+              </pre>
+            </div>
+          </aside>
+        </div>
+      )}
     </div>
   );
 }

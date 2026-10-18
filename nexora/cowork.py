@@ -215,6 +215,24 @@ def router(store, core_generate):
                 )
             ]
 
+    @routes.delete("/threads/{ident}/messages/{message_id}", status_code=204)
+    def truncate_from(ident: str, message_id: int):
+        """Delete one message and everything after it in the thread, so an
+        edited user message can be resent as a fresh turn (the old branch
+        is discarded, matching the request to edit-and-regenerate)."""
+        with connect() as con:
+            exists(con, ident)
+            row = con.execute(
+                "SELECT id FROM messages WHERE id=? AND thread_id=?",
+                (message_id, ident),
+            ).fetchone()
+            if not row:
+                raise HTTPException(404, "Message not found in this conversation")
+            con.execute(
+                "DELETE FROM messages WHERE thread_id=? AND id>=?",
+                (ident, message_id),
+            )
+
     @routes.post("/threads/{ident}/messages")
     def send(ident: str, body: Turn):
         if not gate.acquire(blocking=False):
@@ -240,7 +258,7 @@ def router(store, core_generate):
                     from nexora.api import Generation
 
                     result = core_generate(
-                        Generation(prompt=body.text[-256:], max_tokens=48)
+                        Generation(prompt=body.text[-256:], max_tokens=96)
                     )
                     answer = result.get(
                         "text", result.get("completion", json.dumps(result))
@@ -290,8 +308,8 @@ def router(store, core_generate):
                                 "stream": False,
                                 "keep_alive": 0,
                                 "options": {
-                                    "num_ctx": 512,
-                                    "num_predict": 96,
+                                    "num_ctx": 768,
+                                    "num_predict": 400,
                                     "num_thread": 2,
                                     "temperature": 0,
                                     "seed": 42,

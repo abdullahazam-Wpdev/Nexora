@@ -11,6 +11,28 @@ def client(tmp_path):
     return TestClient(app)
 
 
+def test_edit_truncates_message_and_everything_after(tmp_path):
+    c = client(tmp_path)
+    ident = c.post("/api/cowork/threads").json()["id"]
+    url = f"/api/cowork/threads/{ident}"
+    c.post(url + "/messages", json={"text": "/help"})
+    c.post(url + "/messages", json={"text": "/help"})
+    before = c.get(url).json()
+    assert len(before) == 4  # 2 user + 2 assistant turns
+    edited_id = before[2]["id"]  # the second user message
+    assert c.delete(f"{url}/messages/{edited_id}").status_code == 204
+    after = c.get(url).json()
+    assert len(after) == 2
+    assert after[-1]["id"] < edited_id
+
+
+def test_delete_rejects_unknown_message_or_thread(tmp_path):
+    c = client(tmp_path)
+    ident = c.post("/api/cowork/threads").json()["id"]
+    assert c.delete(f"/api/cowork/threads/{ident}/messages/9999").status_code == 404
+    assert c.delete("/api/cowork/threads/not-real/messages/1").status_code == 404
+
+
 def test_restart_persistence_and_tools(tmp_path):
     c = client(tmp_path)
     ident = c.post("/api/cowork/threads").json()["id"]
