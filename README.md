@@ -116,3 +116,17 @@ translation adapter. Chat adds hosted Gemma 7B, single-turn Kimi K3, FCC routing
 alias selection, and opt-in persistent project-note context. The Models panel
 separates installed FCC provider metadata from live configured models and retired
 entries. [Setup, exact limitations and reproduction](docs/PROVIDER_EXPANSION.md).
+
+## Phase 8 — measured browser, coding and Core research
+
+The Browser workspace runs approval-bound tasks in a fresh Chromium context,
+with a fixed disposable form, DOM assertions and screenshot evidence. Library
+adds indexed owner documents with citations. Code has an experimental concise
+prompt, structured plans and the same isolated tests/hash approval. Evaluations
+shows actual Core pilot results; training remains at `/research`.
+
+[Phase 8 delivery, commands, files and limits](docs/PHASE8_DELIVERY.md) ·
+[Computer use](docs/COMPUTER_USE.md) ·
+[Core scaling measurements](docs/NEXORA_CORE_SCALING.md).
+This is a bounded research platform: general coding and instruction reliability
+remain poor; no external model is presented as independently trained Core.

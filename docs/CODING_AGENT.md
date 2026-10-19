@@ -19,3 +19,17 @@ Benchmark commands:
 `coding-v1` is a transparent microtask smoke suite whose prompt includes the required expression; SmolLM2 passed 4/20. `coding-v2` contains 20 bounded HTTP/API, commerce, parsing and documentation utilities with deterministic assertions; solution/control patches and tests are not sent to the model. SmolLM2 passed **0/20**. Supplied controls passed 20/20 on both suites. This validates the execution machinery, not professional autonomous coding capability. Multi-file edits, symbol indexing, arbitrary linters/build systems and semantic code review remain unsupported.
 
 Registered-source inspection APIs also list at most 200 supported files within a 2,000-file scan budget, excluding hidden paths, symlinks and dependency/build directories. Read a selected file (16 KB maximum) and extract Python function/class names without executing it. Static source reads support Python/JS/TS/TSX/PHP/Markdown; this does not grant those languages an execution/build profile. Candidate tests and baseline controls remain separate from private repositories.
+
+## Phase 8 verification
+
+Structured step dependencies, constraint metadata and a 24-action limit are now
+recorded with new tasks; older tasks remain readable. `prompt_style: concise`
+is an explicit experimental alternative in the Code panel. It passed 1/3 simple
+arithmetic smoke cases versus the standard workflow's 0/3, and completed the
+recorded addition demonstration with real public documentation, sandbox tests,
+wrong-hash rejection and approved apply. This does not establish professional
+coding capability. See MULTI_AGENT_EVALUATION.md and evidence/phase8/coding-demo.json.
+
+Execution still supports one pure Python module. JS/TS, FastAPI/Next application
+builds, WordPress/WooCommerce/Shopify, container configuration and multi-file
+changes remain proposal-only; no unrestricted host fallback was introduced.

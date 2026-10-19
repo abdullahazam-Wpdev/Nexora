@@ -1,0 +1,169 @@
+{
+  "parameters": 984192,
+  "validation": {
+    "loss": 4.403331668723472,
+    "perplexity": 81.72268853203987,
+    "tokens": 3777,
+    "perplexity_capped": false
+  },
+  "test": {
+    "loss": 4.178615570217266,
+    "perplexity": 65.27542139274378,
+    "tokens": 12809,
+    "perplexity_capped": false
+  },
+  "generation": {
+    "run_id": "phase2-small-language",
+    "checkpoint_step": 400,
+    "decoding": "Deterministic greedy, no KV cache; fixed prompt/count protocol",
+    "free_generation": [
+      {
+        "prompt": "Python is",
+        "continuation": "\ncontual environment, and are not handless the file is\ntherentation.  There is available to the file is\nthe particular module",
+        "diagnostics": {
+          "words": 20,
+          "distinct_1": 0.75,
+          "distinct_2": 0.8947368421052632,
+          "repeated_trigram_fraction": 0.05555555555555555,
+          "longest_exact_training_word_span_capped_32": 4,
+          "exact_continuation_in_train": false
+        }
+      },
+      {
+        "prompt": "The function returns",
+        "continuation": " a\nindex object, the module is not been executed as the file object.[EOS]>>> def f():\n   >>> f.append(x, x, x************",
+        "diagnostics": {
+          "words": 19,
+          "distinct_1": 0.9473684210526315,
+          "distinct_2": 1.0,
+          "repeated_trigram_fraction": 0.0,
+          "longest_exact_training_word_span_capped_32": 3,
+          "exact_continuation_in_train": false
+        }
+      },
+      {
+        "prompt": "A dictionary contains",
+        "continuation": " are not be used to the\ntherentation.  There is a new edither value of the\nthe particular module.  This is a new object, the\nindex object is a",
+        "diagnostics": {
+          "words": 28,
+          "distinct_1": 0.7142857142857143,
+          "distinct_2": 0.8888888888888888,
+          "repeated_trigram_fraction": 0.038461538461538464,
+          "longest_exact_training_word_span_capped_32": 4,
+          "exact_continuation_in_train": false
+        }
+      }
+    ],
+    "prefix_completion": [
+      {
+        "split": "train",
+        "source_id": "appetite",
+        "prefix": "Python is simple to use, but it is a real",
+        "generated": "led\nthe passed of the module.[EOS]>>> import math\n   >>> s = [[0, 5], 5, 5, 5,",
+        "expected_next_10_words": "programming language, offering much more structure and support for large",
+        "exact_prefix_match": false,
+        "diagnostics": {
+          "words": 16,
+          "distinct_1": 0.8125,
+          "distinct_2": 0.9333333333333333,
+          "repeated_trigram_fraction": 0.0,
+          "longest_exact_training_word_span_capped_32": 3,
+          "exact_continuation_in_train": false
+        }
+      },
+      {
+        "split": "train",
+        "source_id": "appetite",
+        "prefix": "Python is an interpreted language, which can save you considerable",
+        "generated": " to\nthere is available to the file.  There is a new *except* is\nthe *except clause*.",
+        "expected_next_10_words": "time during program development because no compilation and linking is",
+        "exact_prefix_match": false,
+        "diagnostics": {
+          "words": 16,
+          "distinct_1": 0.75,
+          "distinct_2": 1.0,
+          "repeated_trigram_fraction": 0.0,
+          "longest_exact_training_word_span_capped_32": 3,
+          "exact_continuation_in_train": false
+        }
+      },
+      {
+        "split": "validation",
+        "source_id": "stdlib",
+        "prefix": "Be sure to use the ``import os`` style instead of",
+        "generated": " the\nthere is integer, the file is a new object.[EOS]>>> def f():\n   >>> print(x, x***",
+        "expected_next_10_words": "``from os import *``. This will keep os.open from shadowing",
+        "exact_prefix_match": false,
+        "diagnostics": {
+          "words": 15,
+          "distinct_1": 0.8666666666666667,
+          "distinct_2": 1.0,
+          "repeated_trigram_fraction": 0.0,
+          "longest_exact_training_word_span_capped_32": 4,
+          "exact_continuation_in_train": false
+        }
+      },
+      {
+        "split": "validation",
+        "source_id": "stdlib",
+        "prefix": "For daily file and directory management tasks, the shutil module",
+        "generated": "\nthere is the file object is available.[EOS]>>> def f():\n   >>> print(f'Helloer",
+        "expected_next_10_words": "provides a higher level interface that is easier to use::",
+        "exact_prefix_match": false,
+        "diagnostics": {
+          "words": 11,
+          "distinct_1": 0.9090909090909091,
+          "distinct_2": 1.0,
+          "repeated_trigram_fraction": 0.0,
+          "longest_exact_training_word_span_capped_32": 3,
+          "exact_continuation_in_train": false
+        }
+      },
+      {
+        "split": "validation",
+        "source_id": "stdlib",
+        "prefix": "Some Python users develop a deep interest in knowing the",
+        "generated": "\nbeld.  You can be used to the same name of the file\nthere is a file object.[EOS]>>> import makes",
+        "expected_next_10_words": "relative performance of different approaches to the same problem. Python",
+        "exact_prefix_match": false,
+        "diagnostics": {
+          "words": 19,
+          "distinct_1": 0.8947368421052632,
+          "distinct_2": 1.0,
+          "repeated_trigram_fraction": 0.0,
+          "longest_exact_training_word_span_capped_32": 4,
+          "exact_continuation_in_train": false
+        }
+      }
+    ],
+    "instruction_probes": [
+      {
+        "prompt": "Respond with exactly the word pear:\n",
+        "expected": "pear",
+        "generated": "the particular module is available to the",
+        "strict_success": false
+      },
+      {
+        "prompt": "What is 2 + 3? Answer with one digit only:\n",
+        "expected": "5",
+        "generated": "the particular module is available to the",
+        "strict_success": false
+      },
+      {
+        "prompt": "Return exactly this JSON object: {\"ok\":true}\n",
+        "expected": "{\"ok\":true}",
+        "generated": "the references of the module name of the file object.[EOS]>>> def",
+        "strict_success": false
+      },
+      {
+        "prompt": "Repeat exactly: quartz\n",
+        "expected": "quartz",
+        "generated": "there is integerly hooohicate the file",
+        "strict_success": false
+      }
+    ],
+    "strict_instruction_successes": 0,
+    "instruction_probe_count": 4,
+    "limitation": "Four local formatting/arithmetic probes are not a reasoning benchmark. Exact-span overlap cannot establish or rule out semantic memorization. Diagnostic outputs are never ingested as training data."
+  }
+}

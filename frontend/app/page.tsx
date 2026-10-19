@@ -1,5 +1,7 @@
 "use client";
 import AgentPanel from "./AgentPanel";
+import EvaluationPanel from "./EvaluationPanel";
+import ComputerPanel from "./ComputerPanel";
 import ModelPanel from "./ModelPanel";
 import SpeechPanel from "./SpeechPanel";
 import { useEffect, useRef, useState } from "react";
@@ -132,7 +134,14 @@ export default function Chat() {
   const [notice, setNotice] = useState("");
   const [dark, setDark] = useState(false);
   const [mode, setMode] = useState<
-    "chat" | "research" | "code" | "memory" | "speech" | "models"
+    | "chat"
+    | "research"
+    | "code"
+    | "memory"
+    | "speech"
+    | "models"
+    | "browser"
+    | "evaluations"
   >("chat");
   const [useMemory, setUseMemory] = useState(false);
   const [fccModel, setFccModel] = useState("claude-haiku-4-20250514");
@@ -310,6 +319,8 @@ export default function Chat() {
               ["memory", "Library"],
               ["speech", "Whisper speech"],
               ["models", "Models"],
+              ["browser", "Browser"],
+              ["evaluations", "Evaluations"],
             ] as const
           ).map(([id, label]) => (
             <button
@@ -401,16 +412,24 @@ export default function Chat() {
           )}
         </header>
         <div className="cowork-scroll" ref={scroll}>
-          {mode === "code" ||
-          mode === "memory" ||
-          mode === "speech" ||
-          mode === "models" ? (
-            mode === "models" ? (
+          {[
+            "code",
+            "memory",
+            "speech",
+            "models",
+            "browser",
+            "evaluations",
+          ].includes(mode) ? (
+            mode === "evaluations" ? (
+              <EvaluationPanel />
+            ) : mode === "browser" ? (
+              <ComputerPanel />
+            ) : mode === "models" ? (
               <ModelPanel />
             ) : mode === "speech" ? (
               <SpeechPanel />
             ) : (
-              <AgentPanel view={mode} />
+              <AgentPanel view={mode === "code" ? "code" : "memory"} />
             )
           ) : (
             <>
@@ -537,7 +556,9 @@ export default function Chat() {
             mode === "code" ||
             mode === "memory" ||
             mode === "speech" ||
-            mode === "models"
+            mode === "models" ||
+            mode === "browser" ||
+            mode === "evaluations"
           }
         >
           {notice && <p className="cowork-notice">{notice}</p>}

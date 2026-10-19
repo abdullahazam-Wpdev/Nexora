@@ -1,0 +1,194 @@
+{
+  "schema": "nexora-authored-fixture-corpus-v1",
+  "training_approved": true,
+  "warning": "18 tiny sources for pipeline tests; inadequate for foundation pretraining. Not used by Phase 8 tool-SFT comparisons.",
+  "contamination": {
+    "train-validation": 0,
+    "train-test": 0,
+    "validation-test": 0
+  },
+  "records": [
+    {
+      "source_id": "general-0",
+      "kind": "general",
+      "split": "train",
+      "text": "A solar panel converts incident sunlight into electrical energy. Output depends on illumination and installation angle.",
+      "sha256": "667a1215f3be47e84839b81d6c3cfd3e52c54e7f282b9d06998e5427f07abf5a",
+      "tokens": 50,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "general-1",
+      "kind": "general",
+      "split": "validation",
+      "text": "Freshwater wetlands shelter amphibians and filter sediments carried by seasonal rainfall.",
+      "sha256": "66af35ab8cdb0518690047c7855a6a7681f675035d6d2d945c86f063a03559bd",
+      "tokens": 46,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "general-2",
+      "kind": "general",
+      "split": "test",
+      "text": "Public libraries lend books and provide quiet spaces for independent study.",
+      "sha256": "c2232e0509e25492bea211cb66e0e64179f3b2aad16d33c013ae4ed5dbdf7068",
+      "tokens": 36,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "code-0",
+      "kind": "code",
+      "split": "train",
+      "text": "def add(a, b):\n    return a + b",
+      "sha256": "8f75a68646c879fd0cff5c02708c010fb1c01d67ef9930d4e419106feb7897aa",
+      "tokens": 12,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "code-1",
+      "kind": "code",
+      "split": "validation",
+      "text": "def reverse_word(word):\n    return word[::-1]",
+      "sha256": "562815d25e3b27d0694c0f5c7b4478bf59f1f7a9383dc0e6dfd0a4de5ed366c3",
+      "tokens": 20,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "code-2",
+      "kind": "code",
+      "split": "test",
+      "text": "def is_positive(value):\n    return value > 0",
+      "sha256": "72481e22b1739bb1baf5c310f4e12c67c0fac9c06fe0586eb532e29afe419d0e",
+      "tokens": 16,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "instructions-0",
+      "kind": "instructions",
+      "split": "train",
+      "text": "Task: Reply using one lowercase fruit name. Answer: pear",
+      "sha256": "360ec7aca6d9b3369e252f997d2c16957b6cb0f545ff1b96abdf1efab75176b6",
+      "tokens": 29,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "instructions-1",
+      "kind": "instructions",
+      "split": "validation",
+      "text": "Request: Sort these integers ascending: 9, 2, 5. Response: 2, 5, 9",
+      "sha256": "d671777fdd5cd90571d18c331433dd7c77108dbdd0f96ca5d6e860f41c1fdf54",
+      "tokens": 37,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "instructions-2",
+      "kind": "instructions",
+      "split": "test",
+      "text": "Instruction: Return a JSON boolean flag. Completion: {\"ready\":true}",
+      "sha256": "e4ebd28f01cef6e86ed2415ee0e26ed5eee519d6474504ba527bd959a45d6a89",
+      "tokens": 37,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "tool_calling-0",
+      "kind": "tool_calling",
+      "split": "train",
+      "text": "Task: Compute 17 multiplied by 23. Action: {\"tool\":\"calculator\",\"arguments\":{\"expression\":\"17*23\"}}",
+      "sha256": "214a93d90f5eb54fdff6bdc4967f52ad474d47564a9e18c828797d3fe91fb96f",
+      "tokens": 54,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "tool_calling-1",
+      "kind": "tool_calling",
+      "split": "validation",
+      "text": "Goal: Inspect an approved source module. Tool request: {\"tool\":\"read_file\",\"arguments\":{\"path\":\"parser.py\"}}",
+      "sha256": "c0c7f3125bd94d1e886adec9e189c639c1401061c52a557ddc9b96d4ba424194",
+      "tokens": 56,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "tool_calling-2",
+      "kind": "tool_calling",
+      "split": "test",
+      "text": "Need: Locate current public references. Selected operation: {\"tool\":\"search\",\"arguments\":{\"query\":\"Python documentation\"}}",
+      "sha256": "500c22906304d547d9d35b94a44e8658e8c78d29e752ec5dec69574a21355e11",
+      "tokens": 63,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "error_recovery-0",
+      "kind": "error_recovery",
+      "split": "train",
+      "text": "Observation: A permitted fetch timed out. Recovery: retry that source once, then report unavailable.",
+      "sha256": "12d022f38c2b5eba19c8dc62f7be9d2fdce67843d8a721e03bdb15e6a828e72f",
+      "tokens": 51,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "error_recovery-1",
+      "kind": "error_recovery",
+      "split": "validation",
+      "text": "Failure: Acceptance assertion did not pass. Next: preserve the original file, revise only the staged candidate and run checks again.",
+      "sha256": "83694297911bb4970586d687df35515cccec21ce30dcd497d854b5edf03145db",
+      "tokens": 55,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "error_recovery-2",
+      "kind": "error_recovery",
+      "split": "test",
+      "text": "Error: Model service rejected credentials. Response: stop and report missing access; never substitute an unapproved paid backend.",
+      "sha256": "a0c30bc16ba665552df03b687727207c8bbc14891db23548920ae1a503852a12",
+      "tokens": 62,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "planning-0",
+      "kind": "planning",
+      "split": "train",
+      "text": "Goal: Repair a pure Python addition bug. Plan: inspect the source; propose a staged diff; run assertions; request exact approval.",
+      "sha256": "83320e8bf88b365159d2d0484f0a405b4cac49b97e56a424036e258be034ca25",
+      "tokens": 56,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "planning-1",
+      "kind": "planning",
+      "split": "validation",
+      "text": "Objective: Compare two public documents. Steps: collect references, retain quotations with provenance, identify agreement and note uncertainty.",
+      "sha256": "d820ccbfbade3c18506705bf349706ff0e161a3c67bfede2b44ec1fe034ee190",
+      "tokens": 63,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    },
+    {
+      "source_id": "planning-2",
+      "kind": "planning",
+      "split": "test",
+      "text": "Task: Verify a disposable browser form. Sequence: approve the fixed plan, enter test data, click preview, assert the greeting and retain a screenshot.",
+      "sha256": "4fdbcf3baf07248cff123c717d53c7f9e2f0b2cb68115369cc6bd20138d6ab00",
+      "tokens": 73,
+      "license": "CC0-1.0",
+      "provenance": "Project-authored synthetic fixture; not scraped/private/model-service output"
+    }
+  ],
+  "tokens": 816,
+  "source_sha256": "ad42c7e8e45f5e4d8356543dc96898fa73c1d01ffa0f440f520c81a26c989729"
+}

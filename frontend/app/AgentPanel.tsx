@@ -1,4 +1,5 @@
 "use client";
+import DocumentPanel from "./DocumentPanel";
 import { useEffect, useState } from "react";
 type Task = {
   id: string;
@@ -27,6 +28,7 @@ export default function AgentPanel({ view }: { view: "code" | "memory" }) {
   const [repo, setRepo] = useState("");
   const [root, setRoot] = useState("");
   const [path, setPath] = useState("solution.py");
+  const [promptStyle, setPromptStyle] = useState("standard");
   const [goal, setGoal] = useState("");
   const [acceptance, setAcceptance] = useState("");
   const [task, setTask] = useState<Task | null>(null);
@@ -125,6 +127,7 @@ export default function AgentPanel({ view }: { view: "code" | "memory" }) {
                     acceptance,
                     provider: "ollama",
                     max_attempts: 2,
+                    prompt_style: promptStyle,
                   }),
                 ),
               );
@@ -171,6 +174,19 @@ export default function AgentPanel({ view }: { view: "code" | "memory" }) {
                 placeholder="assert add(2, 3) == 5"
                 required
               />
+            </label>
+            <label>
+              Prompt profile
+              <select
+                aria-label="Code prompt profile"
+                value={promptStyle}
+                onChange={(e) => setPromptStyle(e.target.value)}
+              >
+                <option value="standard">Standard</option>
+                <option value="concise">
+                  Experimental concise · tiny-model smoke tasks
+                </option>
+              </select>
             </label>
             <button disabled={busy || !repo}>Propose and test</button>
           </form>
@@ -284,6 +300,7 @@ export default function AgentPanel({ view }: { view: "code" | "memory" }) {
             </label>
             <button>Search</button>
           </form>
+          <DocumentPanel />
           {entries.map((m) => (
             <article key={m.id}>
               <pre>{m.content}</pre>

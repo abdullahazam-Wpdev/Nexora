@@ -1,0 +1,402 @@
+{
+  "model": "external Ollama SmolLM2 135M, concise prompt",
+  "fixture_only": true,
+  "task": {
+    "id": "3a29f0bff95f4c3294d5dc2f3a3cd3e1",
+    "status": "awaiting_approval",
+    "created_at": 1792389237.2217097,
+    "request": {
+      "repository_id": "559ad7a7e17cdf9a",
+      "path": "solution.py",
+      "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+      "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+      "provider": "ollama",
+      "allow_hosted": false,
+      "prompt_style": "concise",
+      "max_attempts": 2,
+      "proposed_code": null,
+      "documentation_url": "https://docs.python.org/3/library/operator.html"
+    },
+    "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+    "events": [
+      {
+        "time": 1792389237.224229,
+        "role": "planner",
+        "action": "inspect",
+        "detail": {
+          "path": "solution.py",
+          "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+        }
+      },
+      {
+        "time": 1792389237.2242365,
+        "role": "planner",
+        "action": "plan",
+        "detail": [
+          "Propose one scoped Python change",
+          "Run owner acceptance checks in isolated staging",
+          "Review diff and await owner approval"
+        ]
+      },
+      {
+        "time": 1792389240.83084,
+        "role": "researcher",
+        "action": "public_documentation",
+        "detail": {
+          "url": "https://docs.python.org/3/library/operator.html",
+          "title": "operator \u2014 Standard operators as functions \u2014 Python 3.15.0 documentation",
+          "sha256": "f4cc7cc520cff9463096153a702a396ae12b8adf60b69a5306b2477170602fc0",
+          "retrieved_at": 1792389240.8308265,
+          "trust": "untrusted public reference; not tool authorization"
+        }
+      },
+      {
+        "time": 1792389243.0255225,
+        "role": "coder",
+        "action": "propose",
+        "detail": {
+          "attempt": 1,
+          "source": "ollama",
+          "sha256": "540acfcd07eb5f0bf7269e9279261bca2582338c1d61dc86dc702d6a7310b5ba"
+        }
+      },
+      {
+        "time": 1792389244.1011958,
+        "role": "tester",
+        "action": "sandbox_test",
+        "detail": {
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      },
+      {
+        "time": 1792389244.1012077,
+        "role": "reviewer",
+        "action": "revise",
+        "detail": {
+          "reason": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      },
+      {
+        "time": 1792389245.9287112,
+        "role": "coder",
+        "action": "propose",
+        "detail": {
+          "attempt": 2,
+          "source": "ollama",
+          "sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da"
+        }
+      },
+      {
+        "time": 1792389246.9479666,
+        "role": "tester",
+        "action": "sandbox_test",
+        "detail": {
+          "passed": true,
+          "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+        }
+      },
+      {
+        "time": 1792389246.9482715,
+        "role": "reviewer",
+        "action": "review",
+        "detail": {
+          "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+          "sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da"
+        }
+      }
+    ],
+    "tool_calls": 9,
+    "attempts": 2,
+    "failed_attempts": 1,
+    "unsafe_attempts": 0,
+    "budget": {
+      "max_seconds": 90,
+      "max_tool_calls": 24,
+      "max_attempts": 2,
+      "max_model_tokens": 1024,
+      "sandbox_seconds_per_attempt": 10
+    },
+    "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+    "model_origin": "external reference",
+    "structured_plan": [
+      {
+        "id": "inspect",
+        "tool": "registered_source_read",
+        "depends_on": [],
+        "criterion": "source hash recorded"
+      },
+      {
+        "id": "propose",
+        "tool": "bounded_model_proposal",
+        "depends_on": [
+          "inspect"
+        ],
+        "criterion": "staged pure Python file"
+      },
+      {
+        "id": "test",
+        "tool": "rootless_python_sandbox",
+        "depends_on": [
+          "propose"
+        ],
+        "criterion": "owner assertions and fresh verifier marker"
+      },
+      {
+        "id": "review",
+        "tool": "diff_and_hash_review",
+        "depends_on": [
+          "test"
+        ],
+        "criterion": "verified candidate hash"
+      },
+      {
+        "id": "apply",
+        "tool": "atomic_one_file_replace",
+        "depends_on": [
+          "review"
+        ],
+        "criterion": "exact owner approval and unchanged source"
+      }
+    ],
+    "constraints": [
+      "one registered Python file",
+      "no host shell",
+      "no unapproved hosted inference",
+      "original preserved until approval"
+    ],
+    "dependencies": [
+      "inspect",
+      "propose",
+      "sandbox_test",
+      "review",
+      "owner_approval"
+    ],
+    "pid": 3387,
+    "process_created": 1792389236.38,
+    "evidence": {
+      "url": "https://docs.python.org/3/library/operator.html",
+      "title": "operator \u2014 Standard operators as functions \u2014 Python 3.15.0 documentation",
+      "sha256": "f4cc7cc520cff9463096153a702a396ae12b8adf60b69a5306b2477170602fc0",
+      "retrieved_at": 1792389240.8308265,
+      "trust": "untrusted public reference; not tool authorization"
+    },
+    "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,3 @@\n-def add(a,b):\n-    return None\n+def add(*args):\n+    \"\"\"Return the sum of all arguments.\"\"\"\n+    return sum(x for x in args if isinstance(x, (int, float)))\n",
+    "candidate_sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da",
+    "verification": {
+      "passed": true,
+      "profile": "pure-python-rootless",
+      "claim_kind": "verified_by_execution"
+    },
+    "seconds": 9.724946254000315,
+    "peak_rss_mb": 235.3046875
+  },
+  "wrong_approval_rejected": true,
+  "approved": {
+    "id": "3a29f0bff95f4c3294d5dc2f3a3cd3e1",
+    "status": "completed",
+    "created_at": 1792389237.2217097,
+    "request": {
+      "repository_id": "559ad7a7e17cdf9a",
+      "path": "solution.py",
+      "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+      "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+      "provider": "ollama",
+      "allow_hosted": false,
+      "prompt_style": "concise",
+      "max_attempts": 2,
+      "proposed_code": null,
+      "documentation_url": "https://docs.python.org/3/library/operator.html"
+    },
+    "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+    "events": [
+      {
+        "time": 1792389237.224229,
+        "role": "planner",
+        "action": "inspect",
+        "detail": {
+          "path": "solution.py",
+          "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+        }
+      },
+      {
+        "time": 1792389237.2242365,
+        "role": "planner",
+        "action": "plan",
+        "detail": [
+          "Propose one scoped Python change",
+          "Run owner acceptance checks in isolated staging",
+          "Review diff and await owner approval"
+        ]
+      },
+      {
+        "time": 1792389240.83084,
+        "role": "researcher",
+        "action": "public_documentation",
+        "detail": {
+          "url": "https://docs.python.org/3/library/operator.html",
+          "title": "operator \u2014 Standard operators as functions \u2014 Python 3.15.0 documentation",
+          "sha256": "f4cc7cc520cff9463096153a702a396ae12b8adf60b69a5306b2477170602fc0",
+          "retrieved_at": 1792389240.8308265,
+          "trust": "untrusted public reference; not tool authorization"
+        }
+      },
+      {
+        "time": 1792389243.0255225,
+        "role": "coder",
+        "action": "propose",
+        "detail": {
+          "attempt": 1,
+          "source": "ollama",
+          "sha256": "540acfcd07eb5f0bf7269e9279261bca2582338c1d61dc86dc702d6a7310b5ba"
+        }
+      },
+      {
+        "time": 1792389244.1011958,
+        "role": "tester",
+        "action": "sandbox_test",
+        "detail": {
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      },
+      {
+        "time": 1792389244.1012077,
+        "role": "reviewer",
+        "action": "revise",
+        "detail": {
+          "reason": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      },
+      {
+        "time": 1792389245.9287112,
+        "role": "coder",
+        "action": "propose",
+        "detail": {
+          "attempt": 2,
+          "source": "ollama",
+          "sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da"
+        }
+      },
+      {
+        "time": 1792389246.9479666,
+        "role": "tester",
+        "action": "sandbox_test",
+        "detail": {
+          "passed": true,
+          "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+        }
+      },
+      {
+        "time": 1792389246.9482715,
+        "role": "reviewer",
+        "action": "review",
+        "detail": {
+          "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+          "sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da"
+        }
+      },
+      {
+        "time": 1792389246.951516,
+        "role": "reviewer",
+        "action": "owner_approval_recorded",
+        "detail": {
+          "sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da"
+        }
+      },
+      {
+        "time": 1792389246.952976,
+        "role": "reviewer",
+        "action": "owner_approved_apply",
+        "detail": {
+          "sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da"
+        }
+      }
+    ],
+    "tool_calls": 11,
+    "attempts": 2,
+    "failed_attempts": 1,
+    "unsafe_attempts": 0,
+    "budget": {
+      "max_seconds": 90,
+      "max_tool_calls": 24,
+      "max_attempts": 2,
+      "max_model_tokens": 1024,
+      "sandbox_seconds_per_attempt": 10
+    },
+    "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+    "model_origin": "external reference",
+    "structured_plan": [
+      {
+        "id": "inspect",
+        "tool": "registered_source_read",
+        "depends_on": [],
+        "criterion": "source hash recorded"
+      },
+      {
+        "id": "propose",
+        "tool": "bounded_model_proposal",
+        "depends_on": [
+          "inspect"
+        ],
+        "criterion": "staged pure Python file"
+      },
+      {
+        "id": "test",
+        "tool": "rootless_python_sandbox",
+        "depends_on": [
+          "propose"
+        ],
+        "criterion": "owner assertions and fresh verifier marker"
+      },
+      {
+        "id": "review",
+        "tool": "diff_and_hash_review",
+        "depends_on": [
+          "test"
+        ],
+        "criterion": "verified candidate hash"
+      },
+      {
+        "id": "apply",
+        "tool": "atomic_one_file_replace",
+        "depends_on": [
+          "review"
+        ],
+        "criterion": "exact owner approval and unchanged source"
+      }
+    ],
+    "constraints": [
+      "one registered Python file",
+      "no host shell",
+      "no unapproved hosted inference",
+      "original preserved until approval"
+    ],
+    "dependencies": [
+      "inspect",
+      "propose",
+      "sandbox_test",
+      "review",
+      "owner_approval"
+    ],
+    "pid": 3387,
+    "process_created": 1792389236.38,
+    "evidence": {
+      "url": "https://docs.python.org/3/library/operator.html",
+      "title": "operator \u2014 Standard operators as functions \u2014 Python 3.15.0 documentation",
+      "sha256": "f4cc7cc520cff9463096153a702a396ae12b8adf60b69a5306b2477170602fc0",
+      "retrieved_at": 1792389240.8308265,
+      "trust": "untrusted public reference; not tool authorization"
+    },
+    "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,3 @@\n-def add(a,b):\n-    return None\n+def add(*args):\n+    \"\"\"Return the sum of all arguments.\"\"\"\n+    return sum(x for x in args if isinstance(x, (int, float)))\n",
+    "candidate_sha256": "4b4d80a63c091ba9cb1af10de2be413170833d01529b47ca5c60bf591711b9da",
+    "verification": {
+      "passed": true,
+      "profile": "pure-python-rootless",
+      "claim_kind": "verified_by_execution"
+    },
+    "seconds": 9.724946254000315,
+    "peak_rss_mb": 235.3046875
+  },
+  "final_source": "def add(*args):\n    \"\"\"Return the sum of all arguments.\"\"\"\n    return sum(x for x in args if isinstance(x, (int, float)))\n"
+}

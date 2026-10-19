@@ -1,0 +1,721 @@
+{
+  "model": "Ollama SmolLM2 135M instruct Q4, external",
+  "protocol": "Three previously exposed arithmetic smoke tasks; baseline one proposal/test, roles up to two proposals with feedback and deterministic planner/tester/reviewer; shared model, sequential; not professional coding or isolated causal proof of multi-agent benefit.",
+  "cases": [
+    {
+      "case": "add",
+      "mode": "single",
+      "passed": false,
+      "seconds": 4.7139574029997675,
+      "error": "invalid syntax (<unknown>, line 1)",
+      "process_lifetime_peak_rss_mb": 235.3046875
+    },
+    {
+      "case": "add",
+      "mode": "roles",
+      "passed": false,
+      "seconds": 8.758675834000314,
+      "error": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ~~~^^^^^\n  File \"candidate.py\", line 4, in add\n    return reduce([math.add(x=a, y=b), *args], lambda x,y: x + y)\n                   ^^^^^^^^\nAttributeError: module 'math' has no attribute 'add'\n",
+      "process_lifetime_peak_rss_mb": 235.3046875,
+      "task": {
+        "id": "ea60e6b1c6374e1cb9ddc22bcc1a5b90",
+        "status": "failed",
+        "created_at": 1792389082.2366912,
+        "request": {
+          "repository_id": "7cdce8ff62eca4f5",
+          "path": "solution.py",
+          "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+          "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+          "provider": "ollama",
+          "allow_hosted": false,
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+        "events": [
+          {
+            "time": 1792389082.239722,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+            }
+          },
+          {
+            "time": 1792389082.239725,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792389085.6292775,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "ollama",
+              "sha256": "0e0db75afd7ab3ca3bd1bd1a6e72130d8ad866863983a7af54a60b8be52ab6ec"
+            }
+          },
+          {
+            "time": 1792389086.6493561,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": false,
+              "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ~~~^^^^^\nTypeError: add() takes 1 positional argument but 2 were given\n"
+            }
+          },
+          {
+            "time": 1792389086.6493804,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ~~~^^^^^\nTypeError: add() takes 1 positional argument but 2 were given\n"
+            }
+          },
+          {
+            "time": 1792389089.7086422,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 2,
+              "source": "ollama",
+              "sha256": "cdfabca199ffe3aa2a0a15cc625e9e718e907a9d1572b55ed98b872dab4eb5ae"
+            }
+          },
+          {
+            "time": 1792389090.9781265,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": false,
+              "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ~~~^^^^^\n  File \"candidate.py\", line 4, in add\n    return reduce([math.add(x=a, y=b), *args], lambda x,y: x + y)\n                   ^^^^^^^^\nAttributeError: module 'math' has no attribute 'add'\n"
+            }
+          },
+          {
+            "time": 1792389090.978146,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ~~~^^^^^\n  File \"candidate.py\", line 4, in add\n    return reduce([math.add(x=a, y=b), *args], lambda x,y: x + y)\n                   ^^^^^^^^\nAttributeError: module 'math' has no attribute 'add'\n"
+            }
+          }
+        ],
+        "tool_calls": 8,
+        "attempts": 2,
+        "failed_attempts": 2,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 2494,
+        "process_created": 1792389073.55,
+        "error": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert add(2,3)==5 and add(-2,2)==0\n           ~~~^^^^^\n  File \"candidate.py\", line 4, in add\n    return reduce([math.add(x=a, y=b), *args], lambda x,y: x + y)\n                   ^^^^^^^^\nAttributeError: module 'math' has no attribute 'add'\n",
+        "seconds": 8.741509608000342,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "add",
+      "mode": "control",
+      "passed": true,
+      "seconds": 0.8382479109995984,
+      "error": null,
+      "process_lifetime_peak_rss_mb": 235.3046875,
+      "task": {
+        "id": "67524cc074c14782bf811bd72b64e986",
+        "status": "awaiting_approval",
+        "created_at": 1792389090.9903193,
+        "request": {
+          "repository_id": "f0f123a3272f7dd8",
+          "path": "solution.py",
+          "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+          "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+          "provider": "ollama",
+          "allow_hosted": false,
+          "max_attempts": 1,
+          "proposed_code": "def add(a,b):\n    return a+b\n",
+          "documentation_url": null
+        },
+        "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+        "events": [
+          {
+            "time": 1792389090.9928048,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+            }
+          },
+          {
+            "time": 1792389090.9928098,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792389090.9965522,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "owner-supplied patch",
+              "sha256": "4aa1bf4e3fa71a9a654d303a535c5b0a6e9396c23a69ca050f30b17798f7d2b6"
+            }
+          },
+          {
+            "time": 1792389091.8147936,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792389091.8157337,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "4aa1bf4e3fa71a9a654d303a535c5b0a6e9396c23a69ca050f30b17798f7d2b6"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_attempts": 1,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 2494,
+        "process_created": 1792389073.55,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n def add(a,b):\n-    return None\n+    return a+b\n",
+        "candidate_sha256": "4aa1bf4e3fa71a9a654d303a535c5b0a6e9396c23a69ca050f30b17798f7d2b6",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 0.8235805350004739,
+        "peak_rss_mb": 235.3046875,
+        "final_status": "completed"
+      }
+    },
+    {
+      "case": "subtract",
+      "mode": "single",
+      "passed": false,
+      "seconds": 3.5057582689996707,
+      "error": "IT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 3, in <module>\n    exec(compile(Path('candidate.py').read_text(),'candidate.py','exec'),namespace)\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 4, in <module>\n    from statistics import fstat\nImportError: cannot import name 'fstat' from 'statistics' (/usr/local/lib/python3.13/statistics.py)\n",
+      "process_lifetime_peak_rss_mb": 235.3046875
+    },
+    {
+      "case": "subtract",
+      "mode": "roles",
+      "passed": false,
+      "seconds": 7.6784006750003755,
+      "error": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert subtract(8,3)==5 and subtract(0,4)==-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "process_lifetime_peak_rss_mb": 235.3046875,
+      "task": {
+        "id": "c76c13f95c354ae1bad45b834381c8cd",
+        "status": "failed",
+        "created_at": 1792389095.3410535,
+        "request": {
+          "repository_id": "3d362674651e800f",
+          "path": "solution.py",
+          "goal": "Implement subtract(a,b) as a pure Python function. Required behavior: a-b. Preserve the function name.",
+          "acceptance": "assert subtract(8,3)==5 and subtract(0,4)==-4",
+          "provider": "ollama",
+          "allow_hosted": false,
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743",
+        "events": [
+          {
+            "time": 1792389095.3430119,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743"
+            }
+          },
+          {
+            "time": 1792389095.3430154,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792389098.4024317,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "ollama",
+              "sha256": "44e1006d2a37c90183b0991365a8f248e9ca00705ad6d4c6a7e4e09ec8561f1b"
+            }
+          },
+          {
+            "time": 1792389099.6221426,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": false,
+              "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert subtract(8,3)==5 and subtract(0,4)==-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+            }
+          },
+          {
+            "time": 1792389099.6221578,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert subtract(8,3)==5 and subtract(0,4)==-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+            }
+          },
+          {
+            "time": 1792389101.7914116,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 2,
+              "source": "ollama",
+              "sha256": "75592f91f61ebf5e5a5f0f52d46ec99649d738fe55eab1dff533b96db69b2b04"
+            }
+          },
+          {
+            "time": 1792389103.01107,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": false,
+              "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert subtract(8,3)==5 and subtract(0,4)==-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+            }
+          },
+          {
+            "time": 1792389103.0110881,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert subtract(8,3)==5 and subtract(0,4)==-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+            }
+          }
+        ],
+        "tool_calls": 8,
+        "attempts": 2,
+        "failed_attempts": 2,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 2494,
+        "process_created": 1792389073.55,
+        "error": "Acceptance checks failed: Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert subtract(8,3)==5 and subtract(0,4)==-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "seconds": 7.671172609000678,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "subtract",
+      "mode": "control",
+      "passed": true,
+      "seconds": 0.9838049730005878,
+      "error": null,
+      "process_lifetime_peak_rss_mb": 235.3046875,
+      "task": {
+        "id": "a82dc13db92f4c85a9be9fdd710d4793",
+        "status": "awaiting_approval",
+        "created_at": 1792389103.023923,
+        "request": {
+          "repository_id": "61085b87e6551098",
+          "path": "solution.py",
+          "goal": "Implement subtract(a,b) as a pure Python function. Required behavior: a-b. Preserve the function name.",
+          "acceptance": "assert subtract(8,3)==5 and subtract(0,4)==-4",
+          "provider": "ollama",
+          "allow_hosted": false,
+          "max_attempts": 1,
+          "proposed_code": "def subtract(a,b):\n    return a-b\n",
+          "documentation_url": null
+        },
+        "original_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743",
+        "events": [
+          {
+            "time": 1792389103.025886,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743"
+            }
+          },
+          {
+            "time": 1792389103.025888,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792389103.0282364,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "owner-supplied patch",
+              "sha256": "e4c488804574aa7fe71f7c002db20c4a9aabb9329be10d0a32f95742ec73a3c2"
+            }
+          },
+          {
+            "time": 1792389103.9964507,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792389103.9969552,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "e4c488804574aa7fe71f7c002db20c4a9aabb9329be10d0a32f95742ec73a3c2"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_attempts": 1,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 2494,
+        "process_created": 1792389073.55,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n def subtract(a,b):\n-    return None\n+    return a-b\n",
+        "candidate_sha256": "e4c488804574aa7fe71f7c002db20c4a9aabb9329be10d0a32f95742ec73a3c2",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 0.9714661749994775,
+        "peak_rss_mb": 235.3046875,
+        "final_status": "completed"
+      }
+    },
+    {
+      "case": "multiply",
+      "mode": "single",
+      "passed": false,
+      "seconds": 3.803962355999829,
+      "error": "t runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 3, in <module>\n    exec(compile(Path('candidate.py').read_text(),'candidate.py','exec'),namespace)\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 6, in <module>\n    @reduce\n     ^^^^^^\nTypeError: reduce expected at least 2 arguments, got 1\n",
+      "process_lifetime_peak_rss_mb": 235.3046875
+    },
+    {
+      "case": "multiply",
+      "mode": "roles",
+      "passed": false,
+      "seconds": 10.162742488000731,
+      "error": "Acceptance checks failed:                                                                                          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert multiply(3,4)==12 and multiply(-2,3)==-6\n           ~~~~~~~~^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  [Previous line repeated 992 more times]\nRecursionError: maximum recursion depth exceeded\n",
+      "process_lifetime_peak_rss_mb": 235.3046875,
+      "task": {
+        "id": "a19264c703e04f3a9e3f21c7818b445a",
+        "status": "failed",
+        "created_at": 1792389107.8239183,
+        "request": {
+          "repository_id": "e4bdfd296382e02b",
+          "path": "solution.py",
+          "goal": "Implement multiply(a,b) as a pure Python function. Required behavior: a*b. Preserve the function name.",
+          "acceptance": "assert multiply(3,4)==12 and multiply(-2,3)==-6",
+          "provider": "ollama",
+          "allow_hosted": false,
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03",
+        "events": [
+          {
+            "time": 1792389107.8260024,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03"
+            }
+          },
+          {
+            "time": 1792389107.8260057,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792389111.3541985,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "Import requires a broader, reviewed sandbox profile"
+            }
+          },
+          {
+            "time": 1792389116.6595867,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 2,
+              "source": "ollama",
+              "sha256": "58d64ad304939a5389797f27eadbf502f0faca8b6b11c12043db583859106bb4"
+            }
+          },
+          {
+            "time": 1792389117.9804487,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": false,
+              "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert multiply(3,4)==12 and multiply(-2,3)==-6\n           ~~~~~~~~^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  [Previous line repeated 992 more times]\nRecursionError: maximum recursion depth exceeded\n"
+            }
+          },
+          {
+            "time": 1792389117.980457,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "Acceptance checks failed:                                                                                          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert multiply(3,4)==12 and multiply(-2,3)==-6\n           ~~~~~~~~^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  [Previous line repeated 992 more times]\nRecursionError: maximum recursion depth exceeded\n"
+            }
+          }
+        ],
+        "tool_calls": 6,
+        "attempts": 2,
+        "failed_attempts": 2,
+        "unsafe_attempts": 1,
+        "budget": {
+          "max_seconds": 90,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 2494,
+        "process_created": 1792389073.55,
+        "error": "Acceptance checks failed:                                                                                          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/verify.py\", line 5, in <module>\n    assert multiply(3,4)==12 and multiply(-2,3)==-6\n           ~~~~~~~~^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"candidate.py\", line 11, in multiply\n    return functools.reduce(multiply, args)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  [Previous line repeated 992 more times]\nRecursionError: maximum recursion depth exceeded\n",
+        "seconds": 10.156307688999732,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "multiply",
+      "mode": "control",
+      "passed": true,
+      "seconds": 0.6293097550005768,
+      "error": null,
+      "process_lifetime_peak_rss_mb": 235.3046875,
+      "task": {
+        "id": "d85bcb444c1f4dccb8beb4805151b3f6",
+        "status": "awaiting_approval",
+        "created_at": 1792389117.987858,
+        "request": {
+          "repository_id": "ce189fe178b038ff",
+          "path": "solution.py",
+          "goal": "Implement multiply(a,b) as a pure Python function. Required behavior: a*b. Preserve the function name.",
+          "acceptance": "assert multiply(3,4)==12 and multiply(-2,3)==-6",
+          "provider": "ollama",
+          "allow_hosted": false,
+          "max_attempts": 1,
+          "proposed_code": "def multiply(a,b):\n    return a*b\n",
+          "documentation_url": null
+        },
+        "original_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03",
+        "events": [
+          {
+            "time": 1792389117.989454,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03"
+            }
+          },
+          {
+            "time": 1792389117.9894564,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792389117.9922137,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "owner-supplied patch",
+              "sha256": "68c6755fdd227de2e1ca5624bddd7976b266dbc27a61e217c8da516b3c13598d"
+            }
+          },
+          {
+            "time": 1792389118.608629,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792389118.6089735,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "68c6755fdd227de2e1ca5624bddd7976b266dbc27a61e217c8da516b3c13598d"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_attempts": 1,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 2494,
+        "process_created": 1792389073.55,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n def multiply(a,b):\n-    return None\n+    return a*b\n",
+        "candidate_sha256": "68c6755fdd227de2e1ca5624bddd7976b266dbc27a61e217c8da516b3c13598d",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 0.6199580800002877,
+        "peak_rss_mb": 235.3046875,
+        "final_status": "completed"
+      }
+    }
+  ],
+  "research": {
+    "url": "https://docs.python.org/3/library/operator.html",
+    "title": "operator \u2014 Standard operators as functions \u2014 Python 3.15.0 documentation",
+    "excerpt": "  \nTheme \nAuto\nLight\nDark\nTable of Contents\noperator \u2014 Standard operators as functions\nMapping Operators to Functions\nIn-place Operators\nPrevious topic\n\nfunctools \u2014 Higher-order functions and operations on callable objects\n\nNext topic\n\nFile and Directory Access\n\nThis page\nReport a bug\nImprove this page\nShow source\nNavigation\nindex\nmodules |\nnext |\nprevious |\nPython \u00bb\n3.15.0 Documentation \u00bb\nThe Python standard library \u00bb\nFunctional Programming Modules \u00bb\noperator \u2014 Standard operators as functions\n \n|\nTheme \nAuto\nLight\nDark\n |\noperator \u2014 Standard operators as functions\u00b6\n\nSource code: Lib/operator.py\n\nThe operator module exports a set of efficient functions corresponding to the intrinsic operator",
+    "retrieved_at": 1792389077.5012891
+  },
+  "summary": {
+    "single": {
+      "passed": 0,
+      "total": 3,
+      "seconds": 12.023678027999267
+    },
+    "roles": {
+      "passed": 0,
+      "total": 3,
+      "seconds": 26.59981899700142
+    },
+    "control": {
+      "passed": 3,
+      "total": 3,
+      "seconds": 2.451362639000763
+    }
+  }
+}

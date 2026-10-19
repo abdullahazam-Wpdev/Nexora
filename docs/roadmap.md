@@ -41,3 +41,17 @@ The pilot's test perplexity is 897.45 on its own documentation split; it is not 
 Delivered durable task execution, registered-source inspection, staged Python fixes, real sandbox acceptance, bounded revision, deterministic Planner/Researcher/Coder/Tester/Reviewer stages, explicit hash-bound apply, typed project memory, skills, source-backed chat research, calculation/literal-citation verification and the screenshot-based functional light workspace. Two OpenAI-through-NVIDIA modalities are represented honestly: GPT-OSS chat requires a key/consent, Whisper speech requires its separate service. Approved NVIDIA 4B weights are storage-only.
 
 SmolLM2 utility repairs: 0/20 before and after prompt clarification; supplied controls 20/20. Core masked tool training: 16/16 valid JSON, only 2/16 correct tools; selected model unchanged. Full scope and failures: `PHASE7_DELIVERY.md`, `PHASE7_EVALUATION.md`. Next: stronger backend evaluation and richer balanced tool/argument tasks before broader autonomy or foundation scaling.
+
+## Phase 8 measured update — 2026-10-19
+
+Delivered approval-bound isolated browser fixtures and screenshot assertions,
+indexed owner documents/citations, structured coding plans, an opt-in concise
+prompt, real documented addition repair and four short independent Core pilots.
+Standard role workflow 0/3 did not improve over the 0/3 single-proposal baseline;
+concise ablation passed 1/3. Wider Core pilot reached 6/16 synthetic tool choices
+but was not promoted. See PHASE8_DELIVERY.md for public evidence and full limits.
+
+Phase 9 should first establish a stronger authorized assistant backend on unseen
+utilities, extend one multi-file sandbox profile, and improve diverse licensed
+corpora/task-family holdouts and argument-level evaluation. Do not scale Core
+from repetitive JSON loss or buy hardware from toy throughput extrapolations.

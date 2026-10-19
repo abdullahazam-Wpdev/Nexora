@@ -1,0 +1,59 @@
+{
+  "protocol": "Four disclosed exact-output diagnostics plus one two-turn recall, not a professional benchmark",
+  "ollama": [
+    {
+      "prompt": "Respond with exactly the word pear:\n",
+      "expected": "pear",
+      "generated": "Pear is not available.",
+      "passed": false
+    },
+    {
+      "prompt": "What is 2 + 3? Answer with one digit only:\n",
+      "expected": "5",
+      "generated": "To solve this problem using the digits 10 and 5, we'll use the property of arithmetic progression that states (a, a+d) =",
+      "passed": false
+    },
+    {
+      "prompt": "Return exactly this JSON object: {\"ok\":true}\n",
+      "expected": "{\"ok\":true}",
+      "generated": "```json\n{\n  \"statusCode\": 200,\n  \"body\": {\n    \"name\": \"Hello World!\",\n    \"message\": \"",
+      "passed": false
+    },
+    {
+      "prompt": "Repeat exactly: quartz\n",
+      "expected": "quartz",
+      "generated": "I am a helpful AI assistant named SmolLM. I help users find information and provide responses to their queries using natural language processing (NLP) techniques.",
+      "passed": false
+    }
+  ],
+  "hosted": {
+    "status": "not run; no configured NVIDIA credential"
+  },
+  "retrieval": [
+    {
+      "query": "integer cents",
+      "top1_correct": true,
+      "citation_exact": true,
+      "namespace_isolated": true
+    },
+    {
+      "query": "request_timeout",
+      "top1_correct": true,
+      "citation_exact": true,
+      "namespace_isolated": true
+    },
+    {
+      "query": "stock levels",
+      "top1_correct": true,
+      "citation_exact": true,
+      "namespace_isolated": true
+    }
+  ],
+  "multi_turn": {
+    "history": "one supplied user/assistant exchange, not a measured first-turn answer",
+    "generated": "The code word is quartz.",
+    "passed": false
+  },
+  "ollama_passed": 0,
+  "seconds": 5.179931116000262
+}

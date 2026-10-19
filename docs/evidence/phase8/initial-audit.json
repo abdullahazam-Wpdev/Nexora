@@ -1,0 +1,23 @@
+{
+  "branch": "research/phase8-computer-use",
+  "baseline_commit": "f9fe068db565c36772beb7cc9f8dc09007cb41c7",
+  "ram_gib": 7.478919982910156,
+  "available_gib": 1.5743637084960938,
+  "swap_used_gib": 6.736480712890625,
+  "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+  "cpu_logical": 8,
+  "disk_free_gib": 183.03182220458984,
+  "credential_configured": false,
+  "services": {
+    "api": 200,
+    "ui": 200,
+    "ollama": 200,
+    "fcc": 200,
+    "localai": "unavailable"
+  },
+  "baseline_tests": {
+    "passed": 90,
+    "seconds": 13.84
+  },
+  "selected_checkpoint_sha256": "0b10d349fe2a8517544cd31cee03140eba7aa730fd1087ae01f0b02b1b56ee84"
+}

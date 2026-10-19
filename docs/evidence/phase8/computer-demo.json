@@ -1,0 +1,112 @@
+{
+  "id": "84589e5064d44f43940deb38068169ff",
+  "status": "completed",
+  "profile": "fixture",
+  "goal": "Verify disposable form greeting",
+  "plan": [
+    {
+      "id": "0",
+      "depends_on": [],
+      "action": "navigate",
+      "value": "http://127.0.0.1:8000/api/computer/fixture",
+      "timeout_ms": 5000
+    },
+    {
+      "id": "1",
+      "depends_on": [
+        "0"
+      ],
+      "action": "type",
+      "value": "Phase 8 Fixture",
+      "timeout_ms": 5000
+    },
+    {
+      "id": "2",
+      "depends_on": [
+        "1"
+      ],
+      "action": "click",
+      "value": "#submit",
+      "timeout_ms": 5000
+    },
+    {
+      "id": "3",
+      "depends_on": [
+        "2"
+      ],
+      "action": "assert_text",
+      "value": "Hello, Phase 8 Fixture!",
+      "timeout_ms": 5000
+    },
+    {
+      "id": "4",
+      "depends_on": [
+        "3"
+      ],
+      "action": "screenshot",
+      "value": null,
+      "timeout_ms": 5000
+    }
+  ],
+  "plan_sha256": "b972e24e70f2ce862436a58c37000cc64858c937ebb19541371be7d536501846",
+  "max_seconds": 35,
+  "max_attempts": 2,
+  "attempts": 1,
+  "events": [
+    {
+      "step": "0",
+      "action": "navigate",
+      "status": "verified",
+      "time": 1792389053.9884121
+    },
+    {
+      "step": "1",
+      "action": "type",
+      "status": "verified",
+      "time": 1792389054.03559
+    },
+    {
+      "step": "2",
+      "action": "click",
+      "status": "verified",
+      "time": 1792389054.0811749
+    },
+    {
+      "step": "3",
+      "action": "assert_text",
+      "status": "verified",
+      "time": 1792389054.0909982
+    },
+    {
+      "step": "4",
+      "action": "screenshot",
+      "status": "verified",
+      "time": 1792389054.143678
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "assertion",
+      "expected": "Hello, Phase 8 Fixture!",
+      "passed": true
+    },
+    {
+      "kind": "screenshot",
+      "file": "attempt-1.png",
+      "sha256": "300cb6bca681af512c70fa2edbd65c291927a3e6e4f820974c34888684bcab92"
+    }
+  ],
+  "created": 1792389052.387018,
+  "policy": "No personal profiles, login, uploads, messages, purchases, deletion, host commands or external interactive forms",
+  "approved_sha256": "b972e24e70f2ce862436a58c37000cc64858c937ebb19541371be7d536501846",
+  "pid": 2300,
+  "process_created": 1792389052.34,
+  "peak_tree_rss_mb": 611.3984375,
+  "verification": {
+    "assertion": true,
+    "screenshot": true,
+    "claim": "DOM assertion passed; screenshot retained as visual evidence, not an independent semantic image judge"
+  },
+  "seconds": 1.0967156010001418,
+  "worker_cpu_seconds": 0.05999999999999983
+}

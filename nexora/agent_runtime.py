@@ -43,6 +43,8 @@ def load(store, task_id):
 
 
 def event(task, role, action, detail):
+    if task["tool_calls"] >= task.get("budget", {}).get("max_tool_calls", 24):
+        raise ValueError("Task tool-call budget exceeded")
     task["events"].append(
         {"time": time.time(), "role": role, "action": action, "detail": detail}
     )
@@ -139,8 +141,21 @@ def check_python(source):
     return tree
 
 
-def propose(provider, goal, original, feedback="", allow_hosted=False):
+def propose(
+    provider, goal, original, feedback="", allow_hosted=False, prompt_style="standard"
+):
     prompt = f"Replace this Python file to satisfy the goal. Return ONLY the complete pure Python function module, no explanation. Do not include tests, unittest imports or a main block; acceptance tests run separately. Allowed imports are math, re, json, collections, itertools, statistics, functools, decimal, fractions, typing and string. No filesystem access, dynamic execution or dunder introspection.\nGoal: {goal}\nCurrent file:\n{original}\nTest feedback: {feedback[-900:]}"
+    if prompt_style == "concise":
+        # Research remains recorded as evidence; this tiny model's context is bounded.
+        error = (
+            "" if feedback.startswith("Untrusted documentation") else feedback[-200:]
+        )
+        prompt = (
+            goal
+            + "\nReturn only the complete Python function, no imports or tests.\n"
+            + original
+            + ("\nPrevious error: " + error if error else "")
+        )
     if provider == "ollama":
         from nexora import reference
 
@@ -158,8 +173,8 @@ def propose(provider, goal, original, feedback="", allow_hosted=False):
                         "stream": False,
                         "keep_alive": 0,
                         "options": {
-                            "num_ctx": 2048,
-                            "num_predict": 256,
+                            "num_ctx": 768 if prompt_style == "concise" else 2048,
+                            "num_predict": 128 if prompt_style == "concise" else 256,
                             "num_thread": 2,
                             "temperature": 0,
                             "seed": 42,
@@ -212,6 +227,7 @@ class CodingTask(BaseModel):
         default="ollama", pattern="^(ollama|core|nvidia-gpt-oss-20b)$"
     )
     allow_hosted: bool = False
+    prompt_style: str = Field(default="standard", pattern="^(standard|concise)$")
     max_attempts: int = Field(default=2, ge=1, le=2)
     proposed_code: str | None = Field(default=None, max_length=16000)
     documentation_url: str | None = Field(default=None, max_length=500)
@@ -246,6 +262,7 @@ def create(store, body):
         "unsafe_attempts": 0,
         "budget": {
             "max_seconds": 90,
+            "max_tool_calls": 24,
             "max_attempts": body.max_attempts,
             "max_model_tokens": 1024,
             "sandbox_seconds_per_attempt": 10,
@@ -254,6 +271,44 @@ def create(store, body):
         "model_origin": "independent Core research"
         if body.provider == "core"
         else "external reference",
+        "structured_plan": [
+            {
+                "id": "inspect",
+                "tool": "registered_source_read",
+                "depends_on": [],
+                "criterion": "source hash recorded",
+            },
+            {
+                "id": "propose",
+                "tool": "bounded_model_proposal",
+                "depends_on": ["inspect"],
+                "criterion": "staged pure Python file",
+            },
+            {
+                "id": "test",
+                "tool": "rootless_python_sandbox",
+                "depends_on": ["propose"],
+                "criterion": "owner assertions and fresh verifier marker",
+            },
+            {
+                "id": "review",
+                "tool": "diff_and_hash_review",
+                "depends_on": ["test"],
+                "criterion": "verified candidate hash",
+            },
+            {
+                "id": "apply",
+                "tool": "atomic_one_file_replace",
+                "depends_on": ["review"],
+                "criterion": "exact owner approval and unchanged source",
+            },
+        ],
+        "constraints": [
+            "one registered Python file",
+            "no host shell",
+            "no unapproved hosted inference",
+            "original preserved until approval",
+        ],
         "dependencies": [
             "inspect",
             "propose",
@@ -272,7 +327,17 @@ def execute(store, task_id, proposer=None, runner=None):
     dest = folder(store, task_id)
     started = time.monotonic()
     runner = runner or run_python
-    proposer = proposer or propose
+    if proposer is None:
+
+        def proposer(provider, goal, original, feedback, allow_hosted):
+            return propose(
+                provider,
+                goal,
+                original,
+                feedback,
+                allow_hosted,
+                task["request"].get("prompt_style", "standard"),
+            )
 
     def checkpoint():
         if (dest / "cancel").exists():

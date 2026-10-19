@@ -379,8 +379,53 @@ def agent_capabilities():
 
     return capabilities()
 
+
 from nexora.riva_speech import router as riva_router
 from nexora.model_catalog import router as model_catalog_router
 
 app.include_router(riva_router())
 app.include_router(model_catalog_router())
+
+from nexora.computer_use import router as computer_router
+
+app.include_router(computer_router(STORE))
+
+from nexora.document_index import router as document_router
+
+app.include_router(document_router(STORE))
+
+
+@app.get("/api/evaluations/phase8")
+def phase8_evaluations():
+    from nexora.config import ROOT
+
+    folder = ROOT / "docs/evidence/phase8"
+    matrix = folder / "core-matrix.json"
+    if not matrix.exists():
+        return {"status": "not_run", "models": []}
+    import json
+
+    data = json.loads(matrix.read_text())
+    rows = [
+        {
+            key: row[key]
+            for key in (
+                "id",
+                "parameters",
+                "training_completion_tokens",
+                "training_seconds",
+                "validation",
+                "test",
+                "quality",
+                "resources",
+                "selected",
+            )
+        }
+        for row in data["runs"]
+    ]
+    return {
+        "status": "recorded",
+        "protocol": data["protocol"],
+        "models": rows,
+        "warning": "Small synthetic pilot; no promoted checkpoint or professional assistant capability",
+    }

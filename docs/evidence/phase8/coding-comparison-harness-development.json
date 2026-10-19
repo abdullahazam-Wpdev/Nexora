@@ -1,0 +1,21 @@
+{
+  "model": "Ollama SmolLM2 135M instruct Q4, external",
+  "protocol": "Three previously exposed arithmetic smoke tasks; baseline one proposal/test, roles up to two proposals with feedback and deterministic planner/tester/reviewer; shared model, sequential; not professional coding or isolated causal proof of multi-agent benefit.",
+  "cases": [
+    {
+      "case": "add",
+      "mode": "single",
+      "passed": false,
+      "seconds": 3.879526958000497,
+      "error": "invalid syntax (<unknown>, line 1)",
+      "process_lifetime_peak_rss_mb": 235.3046875
+    }
+  ],
+  "research": {
+    "url": "https://docs.python.org/3/library/operator.html",
+    "title": "operator \u2014 Standard operators as functions \u2014 Python 3.15.0 documentation",
+    "excerpt": "  \nTheme \nAuto\nLight\nDark\nTable of Contents\noperator \u2014 Standard operators as functions\nMapping Operators to Functions\nIn-place Operators\nPrevious topic\n\nfunctools \u2014 Higher-order functions and operations on callable objects\n\nNext topic\n\nFile and Directory Access\n\nThis page\nReport a bug\nImprove this page\nShow source\nNavigation\nindex\nmodules |\nnext |\nprevious |\nPython \u00bb\n3.15.0 Documentation \u00bb\nThe Python standard library \u00bb\nFunctional Programming Modules \u00bb\noperator \u2014 Standard operators as functions\n \n|\nTheme \nAuto\nLight\nDark\n |\noperator \u2014 Standard operators as functions\u00b6\n\nSource code: Lib/operator.py\n\nThe operator module exports a set of efficient functions corresponding to the intrinsic operator",
+    "retrieved_at": 1792389056.613247
+  },
+  "invalidated": "Interrupted harness-development run. Baseline verifier used an import unavailable under Python -I. Exclude from model scores."
+}

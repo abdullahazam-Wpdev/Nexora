@@ -1,0 +1,1061 @@
+{
+  "protocol": "40 steps, 4 examples per step, matched tokenizer/data/seed/context; different measured compute. Max 45s and 650MiB per run, two threads. Select by validation; test is exploratory, never promotion evidence.",
+  "runs": [
+    {
+      "id": "phase8-compact-40",
+      "format": "nexora-completion-only-pilot-v1",
+      "training_code_sha256": "cb7f0e66fa21c7619d0a769de55de706b4a0fe14ae65a4603370dcd253b0eab3",
+      "git_parent": "f9fe068db565c36772beb7cc9f8dc09007cb41c7",
+      "code_state": "working tree; exact training script SHA recorded",
+      "architecture": {
+        "vocab_size": 504,
+        "dim": 48,
+        "layers": 1,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": false,
+        "init_std": null
+      },
+      "parameters": 78480,
+      "steps": 40,
+      "balanced_batches": true,
+      "training_seconds": 0.5818871239998771,
+      "training_cpu_seconds": 1.026630333,
+      "completion_tokens_per_second": 2749.6741790772776,
+      "checkpoint_seconds": 0.0056012840004768805,
+      "checkpoint_bytes": 314848,
+      "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+      "dataset_sha256": "5c96d84d63a6f8aecdbb104c49c1217393f6e7ccafc22d2bb542949d8cad509d",
+      "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+      "model_sha256": "9a8152533efb843565776d0b516b378ecb4a2f929efdbebad39059131430fc70",
+      "training_completion_tokens": 1600,
+      "seconds": 2.127203656999882,
+      "resources": {
+        "wall_seconds": 2.1274062049997156,
+        "peak_rss_mb": 333.84375,
+        "cpu_seconds": 3.82,
+        "cpu_percent_one_core": 179.56138282488985,
+        "max_cpu_temperature_c": 58.0,
+        "monitor_samples": 120,
+        "temperature_sensor_reads": 8
+      },
+      "initial_validation": {
+        "completion_loss": 6.712273573875427,
+        "completion_perplexity": 822.4383898491267,
+        "completion_targets": 160
+      },
+      "validation": {
+        "completion_loss": 0.6866790413856506,
+        "completion_perplexity": 1.987105468419326,
+        "completion_targets": 160
+      },
+      "test": {
+        "completion_loss": 0.70102559030056,
+        "completion_perplexity": 2.0158190521453916,
+        "completion_targets": 160
+      },
+      "baseline_quality": {
+        "schema_valid": 0,
+        "tool_success": 0,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "k\",\ufffd\ufffd+gre\u0002\ufffd R\ufffd arithmetic\ufffdifgON an dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "k\",\ufffdN`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "k\",\ufffd\ufffdlit\ufffdet\ufffdolitC arithmetic\ufffdifgON an dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "k\",\ufffd\ufffdlit\ufffdetch:vtesaspp\u0003Mretr\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "k\",\ufffd\ufffd+gre\ufffdtestsch:vtesaspp\u0003Mretr\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\"",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "k\",\ufffd\ufffdlit\ufffdet\ufffdolitC arithmetic\ufffdifgON!ieve\ufffd\ufffd\ufffdion retry\ufffdithmeYapprov\u0014\u0006\ufffd\u001des\t patq<eting!ieve\ufffd\ufffd\ufffdion retry\ufffdithmeYapprov\u0014",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "k\",\ufffd\ufffd+gre\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "k\",\ufffd\ufffdN`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "k\",\ufffd\ufffdlit Verify\ufffd\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "k\",\ufffd\ufffdlit\ufffdet\ufffdoose3ute\ufffd for5$\ufffdON an dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\"",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "k\",\ufffd\ufffd+gre\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "k\",\ufffd\ufffdlit\ufffdetch:vtesaspp\u0003Mretr\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "k\",\ufffd\ufffd+gre\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "k\",\ufffd\ufffd+gre\u0002 siclit\ufffdetch:vtesaspp\u0003Mretr\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "k\",\ufffd\ufffd+gre\u0002 siclit\ufffdetch:vtesaspp\u0003Mretr\ufffd\ufffd dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary dolat\ufffd\":{ temporary",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "k\",\ufffdN`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N`N",
+            "schema_valid": false,
+            "correct_tool": false
+          }
+        ]
+      },
+      "quality": {
+        "schema_valid": 16,
+        "tool_success": 1,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          }
+        ]
+      },
+      "last_train_loss": 0.7112159729003906,
+      "checkpoint_roundtrip_verified": true,
+      "selected": false,
+      "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+    },
+    {
+      "id": "phase8-baseline-40",
+      "format": "nexora-completion-only-pilot-v1",
+      "training_code_sha256": "cb7f0e66fa21c7619d0a769de55de706b4a0fe14ae65a4603370dcd253b0eab3",
+      "git_parent": "f9fe068db565c36772beb7cc9f8dc09007cb41c7",
+      "code_state": "working tree; exact training script SHA recorded",
+      "architecture": {
+        "vocab_size": 504,
+        "dim": 64,
+        "layers": 2,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": false,
+        "init_std": null
+      },
+      "parameters": 171328,
+      "steps": 40,
+      "balanced_batches": false,
+      "training_seconds": 0.9121542110005976,
+      "training_cpu_seconds": 1.6742662619999997,
+      "completion_tokens_per_second": 1754.0893641710675,
+      "checkpoint_seconds": 0.009434938000595139,
+      "checkpoint_bytes": 686968,
+      "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+      "dataset_sha256": "5c96d84d63a6f8aecdbb104c49c1217393f6e7ccafc22d2bb542949d8cad509d",
+      "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+      "model_sha256": "bbdf92a4a4177caf05afc139754eaa40671a5662c383fc708b301d9e19b2e214",
+      "training_completion_tokens": 1600,
+      "seconds": 3.610876327000369,
+      "resources": {
+        "wall_seconds": 3.6111365970000406,
+        "peak_rss_mb": 342.328125,
+        "cpu_seconds": 6.699999999999999,
+        "cpu_percent_one_core": 185.53715208574602,
+        "max_cpu_temperature_c": 59.0,
+        "monitor_samples": 120,
+        "temperature_sensor_reads": 13
+      },
+      "initial_validation": {
+        "completion_loss": 6.422715449333191,
+        "completion_perplexity": 615.6726742494459,
+        "completion_targets": 160
+      },
+      "validation": {
+        "completion_loss": 0.5719157084822655,
+        "completion_perplexity": 1.7716577824121442,
+        "completion_targets": 160
+      },
+      "test": {
+        "completion_loss": 0.5841850131750107,
+        "completion_perplexity": 1.7935286875933887,
+        "completion_targets": 160
+      },
+      "baseline_quality": {
+        "schema_valid": 0,
+        "tool_success": 0,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtoolKD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd Re\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "\u0005 fresh\ufffd{}Tkithmerequest Findply\ufffdaltic\ufffd\ufffd\ufffd\ufffd\b A publhme\ufffd\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileusingmpute to\"yile",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtoolKD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd th",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "\u0005 fresh exactly abouapproved\ufffdA politely/whme\ufffd\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001e\ufffd arq>\ufffd\u0015\ufffd sa\ufffdgumencu",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "\ufffd\u0019\ufffdgumencuubl\ufffd\ufffdct abou\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileusingmpute to\"yileusingmpute",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "\u0005 fresh exactly abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"yileusingmpute to\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001ebou\ufffd temporar\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"yileex\ufffd`\u0011",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "\u0005 fresh\ufffd{}Tkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffd\ufffd\ufffd\b",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.ileusingmpute to\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001ebou\ufffdforNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNRes",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          }
+        ]
+      },
+      "quality": {
+        "schema_valid": 16,
+        "tool_success": 2,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          }
+        ]
+      },
+      "last_train_loss": 0.3572034537792206,
+      "checkpoint_roundtrip_verified": true,
+      "selected": false,
+      "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+    },
+    {
+      "id": "phase8-balanced-40",
+      "format": "nexora-completion-only-pilot-v1",
+      "training_code_sha256": "cb7f0e66fa21c7619d0a769de55de706b4a0fe14ae65a4603370dcd253b0eab3",
+      "git_parent": "f9fe068db565c36772beb7cc9f8dc09007cb41c7",
+      "code_state": "working tree; exact training script SHA recorded",
+      "architecture": {
+        "vocab_size": 504,
+        "dim": 64,
+        "layers": 2,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": false,
+        "init_std": null
+      },
+      "parameters": 171328,
+      "steps": 40,
+      "balanced_batches": true,
+      "training_seconds": 0.8175515110006017,
+      "training_cpu_seconds": 1.4424305970000004,
+      "completion_tokens_per_second": 1957.0632290089698,
+      "checkpoint_seconds": 0.002798719999191235,
+      "checkpoint_bytes": 686968,
+      "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+      "dataset_sha256": "5c96d84d63a6f8aecdbb104c49c1217393f6e7ccafc22d2bb542949d8cad509d",
+      "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+      "model_sha256": "a1e515f78fcc462bbceb52925a861e7e008b1fa3da9212a34a0a6c4d24ca09c8",
+      "training_completion_tokens": 1600,
+      "seconds": 3.5382982259998244,
+      "resources": {
+        "wall_seconds": 3.5385374229999798,
+        "peak_rss_mb": 341.97265625,
+        "cpu_seconds": 6.410000000000001,
+        "cpu_percent_one_core": 181.1482890737832,
+        "max_cpu_temperature_c": 55.0,
+        "monitor_samples": 120,
+        "temperature_sensor_reads": 13
+      },
+      "initial_validation": {
+        "completion_loss": 6.422715449333191,
+        "completion_perplexity": 615.6726742494459,
+        "completion_targets": 160
+      },
+      "validation": {
+        "completion_loss": 0.4137336663901806,
+        "completion_perplexity": 1.512454255836082,
+        "completion_targets": 160
+      },
+      "test": {
+        "completion_loss": 0.39799471795558927,
+        "completion_perplexity": 1.4888361657877602,
+        "completion_targets": 160
+      },
+      "baseline_quality": {
+        "schema_valid": 0,
+        "tool_success": 0,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "\ufffd\ufffdct abou\ufffd!'\ufffdtoolKD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd Re\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd\n\ufffd its\ufffd Read\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "\u0005 fresh\ufffd{}Tkithmerequest Findply\ufffdaltic\ufffd\ufffd\ufffd\ufffd\b A publhme\ufffd\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileusingmpute to\"yile",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtoolKD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd th",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b A publhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "\u0005 fresh exactly abouapproved\ufffdA politely/whme\ufffd\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001e\ufffd arq>\ufffd\u0015\ufffd sa\ufffdgumencu",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "\ufffd\u0019\ufffdgumencuubl\ufffd\ufffdct abou\ufffd!'\ufffdtoolKD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileex\ufffd`\u0011\ufffd\ufffdD\ufffd.ileusingmpute to\"yileusingmpute",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "\u0005 fresh exactly abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou abou",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"yileusingmpute to\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001ebou\ufffd temporar\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd\u001ebou\ufffd temporar\"yileex\ufffd`\u0011",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "\u0005 fresh\ufffd{}Tkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffdkithmerequest Findply\ufffdaltic\ufffd\ufffd\ufffd\ufffd\b",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.ileusingmpute to\"y\ufffdmpwhme\ufffd\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "\ufffd\u0019\ufffdgumencu verif\ufffdD\ufffd.\ufffd\b Ado\ufffd\u001ebou\ufffdforNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNResVerifNRes",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "\u0005 fresh exactly abou\ufffd!'\ufffdtool\ufffd\u001d expression\ufffddo\ufffd ReYumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd thumens\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          }
+        ]
+      },
+      "quality": {
+        "schema_valid": 14,
+        "tool_success": 2,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "{\"tool\":\"knowledge\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "{\"tool\":\"run_approval\",\"arguments\":{}}",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "{\"tool\":\"knowledge\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "{\"tool\":\"request_file\",\"arguments\":{}}",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "{\"tool\":\"knowledge\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "{\"tool\":\"knowledge\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "{\"tool\":\"calculator\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          }
+        ]
+      },
+      "last_train_loss": 0.12628214061260223,
+      "checkpoint_roundtrip_verified": true,
+      "selected": false,
+      "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+    },
+    {
+      "id": "phase8-wider-40",
+      "format": "nexora-completion-only-pilot-v1",
+      "training_code_sha256": "cb7f0e66fa21c7619d0a769de55de706b4a0fe14ae65a4603370dcd253b0eab3",
+      "git_parent": "f9fe068db565c36772beb7cc9f8dc09007cb41c7",
+      "code_state": "working tree; exact training script SHA recorded",
+      "architecture": {
+        "vocab_size": 504,
+        "dim": 96,
+        "layers": 2,
+        "heads": 4,
+        "context": 128,
+        "tie_embeddings": false,
+        "init_std": null
+      },
+      "parameters": 336864,
+      "steps": 40,
+      "balanced_batches": true,
+      "training_seconds": 1.1214984859998367,
+      "training_cpu_seconds": 2.0535652880000006,
+      "completion_tokens_per_second": 1426.662648209971,
+      "checkpoint_seconds": 0.003264881000177411,
+      "checkpoint_bytes": 1349152,
+      "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+      "dataset_sha256": "5c96d84d63a6f8aecdbb104c49c1217393f6e7ccafc22d2bb542949d8cad509d",
+      "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+      "model_sha256": "3673b4df38aa3a8c95bd60b11ec89ef50f101c3c92ce14362e9801277a2f0605",
+      "training_completion_tokens": 1600,
+      "seconds": 4.407769422000456,
+      "resources": {
+        "wall_seconds": 4.407975519000502,
+        "peak_rss_mb": 351.515625,
+        "cpu_seconds": 8.1,
+        "cpu_percent_one_core": 183.75782635554782,
+        "max_cpu_temperature_c": 57.0,
+        "monitor_samples": 120,
+        "temperature_sensor_reads": 16
+      },
+      "initial_validation": {
+        "completion_loss": 6.458457326889038,
+        "completion_perplexity": 638.075954302075,
+        "completion_targets": 160
+      },
+      "validation": {
+        "completion_loss": 0.36713304184377193,
+        "completion_perplexity": 1.4435899642103671,
+        "completion_targets": 160
+      },
+      "test": {
+        "completion_loss": 0.2928858119994402,
+        "completion_perplexity": 1.340289736688194,
+        "completion_targets": 160
+      },
+      "baseline_quality": {
+        "schema_valid": 0,
+        "tool_success": 0,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "\ufffd verifcu?F\u001a applyingretrChooseits fet\ufffdoolas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "\ufffd\ufffd\ufffdres<\ufffdlat\ufffd applying perreadoolas\u0017 public\ufffdsear\u001datx\u0006 stagedev: usingfile source, noZ\ufffd\ufffd4retrChooseits fet\ufffdoolas\u0017 public\ufffdsear\u001datx\u0006",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "\ufffd verifcu?FJS6yf failed\ufffd0 as Coargumentsyf failed\ufffd0 as\ufffd\ufffdestU\u019e\ufffdly public\ufffdsear\u001dat verifiedknowlete\ufffdHB\ufffd\ufffdu?F\u001a applyingretr",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "\ufffd verifcu?FJS\",\" pationB\ufffd\u017a Reply\ufffd ask\ufffd{ ComputeJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001dat verifiedknowlete\ufffd ask\ufffd{ ComputeJS\",\" pationB\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "\ufffd\ufffd\ufffdres<\ufffdlat\ufffd applyingretr%ONcalifdge\u0571\ufffdev: usingact{ ComputeJS6y tool\ufffd\ufffd\u001eyf failed\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "\ufffdaile project\ufffd\ufffdithmeticgrequCrequest souVerif expression\ufffd1 pationB9 patch polit verifcu ComputeJS6yf failed\ufffdkno\ufffd expression\ufffd1 pationB9 patch polit verifcu ComputeJS6y",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "\ufffd\ufffd\ufffdres<\ufffdestU\u019e\ufffdly public\ufffdsear\u001dat verifiedknowlete\ufffd ask\ufffd{ ComputeJS6yf failed\ufffdkno\ufffd expression\ufffd1 pationB\ufffd\ufffdu?F\u001a applyingretr Compute",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "\ufffd verifcu?F\u001aifor\u0004 greeting fresh\ufffdq\ufffd\ufffdestas\u0017 public\ufffdsear\u001dat verifiedknowlete\ufffd ask\u0012boue\ufffdly public\ufffdsear\u001dat verifiedknowle\ufffd\u0006 stagedev:\u0018\ufffdkno",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "\ufffd verifapprovbou app RetrieveJS6yf failed\ufffd0 as Coargumentsyf failed\ufffdkno\ufffdas\u0017M\ufffdHB\ufffd\ufffdu?FJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001dat",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "\ufffdaile project\ufffdat verifiedknowle\ufffd exactly perreadoolas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "\ufffd verifcu?FJS6yf failed\ufffdkno\ufffd expression\ufffd1 pationB9 patch polit verifcu?FJS6yf failed\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffdsion\ufffdle",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "\ufffd verifapprovbou app RetrieveJS6y tool\ufffd\ufffd\u001eyf failed\ufffd0 as Coargumentsyf failed\ufffd0 as Coargumentsyf failed\ufffd0 as Coargumentsyf failed\ufffdkno\ufffdas\u0017 public\ufffdsear",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "\ufffd verifcu?FJS6yf failed\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffdsionres<\ufffdestU\u019e\ufffdly public\ufffdsear\u001dat verifiedknowlete\ufffdHB\ufffd\ufffdu",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "\ufffd verifcu?FJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006\ufffdVerif<\ufffdestU\u019e\ufffdly",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "\ufffd\ufffdly public\ufffdsear\u001datx\u0006 stagedev: usingfile source, noZ\ufffd\ufffd4retr%ONcalifdge\u0571\ufffdev:\u0018\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffd",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "\ufffd verifcu ComputeJS6yf failed\ufffdkno\ufffdas\u0017M\ufffdHB\ufffd\ufffdu?F\u001a applyingretr ComputeJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001dat verifiedknowlete\ufffdHB",
+            "schema_valid": false,
+            "correct_tool": false
+          }
+        ]
+      },
+      "quality": {
+        "schema_valid": 14,
+        "tool_success": 6,
+        "total": 16,
+        "records": [
+          {
+            "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+            "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+            "response": "{\"tool\":\"read_file\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+            "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+            "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+            "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+            "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+            "response": "{\"tool\":\"request_tests\",\"arguments\":{}}",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+            "response": "{\"tool\":\"read_tests\",\"arguments\":{}}",
+            "schema_valid": false,
+            "correct_tool": false
+          },
+          {
+            "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+            "response": "{\"tool\":\"search\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+            "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+            "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+            "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": false
+          },
+          {
+            "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          },
+          {
+            "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+            "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+            "schema_valid": true,
+            "correct_tool": true
+          }
+        ]
+      },
+      "last_train_loss": 0.024963192641735077,
+      "checkpoint_roundtrip_verified": true,
+      "selected": false,
+      "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+    }
+  ]
+}

@@ -45,6 +45,8 @@ def _validate_url(url):
     parsed = urlparse(url)
     if parsed.scheme not in ("http", "https"):
         raise ValueError("Only http/https URLs are allowed")
+    if parsed.username or parsed.password:
+        raise ValueError("Credentials in URLs are not allowed")
     if not parsed.hostname:
         raise ValueError("URL has no host")
     try:

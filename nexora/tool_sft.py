@@ -130,7 +130,16 @@ def encode_example(tokenizer, row, context):
     return x, y
 
 
-def run(store=STORE, run_id="phase7-tool-sft-paraphrase-40", steps=40):
+def run(
+    store=STORE,
+    run_id="phase7-tool-sft-paraphrase-40",
+    steps=40,
+    dim=64,
+    layers=2,
+    balanced=False,
+):
+    if dim not in {48, 64, 96} or layers not in {1, 2}:
+        raise ValueError("Pilot architecture exceeds approved short CPU matrix")
     if not 1 <= steps <= 80:
         raise ValueError("Pilot is bounded to 80 steps")
     store = Path(store)
@@ -167,7 +176,11 @@ def run(store=STORE, run_id="phase7-tool-sft-paraphrase-40", steps=40):
     )
     tokenizer.save(str(folder / "tokenizer.json"))
     config = Config(
-        vocab_size=tokenizer.get_vocab_size(), dim=64, layers=2, heads=4, context=128
+        vocab_size=tokenizer.get_vocab_size(),
+        dim=dim,
+        layers=layers,
+        heads=4,
+        context=128,
     )
     model = Core(config)
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.002)
@@ -245,9 +258,15 @@ def run(store=STORE, run_id="phase7-tool-sft-paraphrase-40", steps=40):
     model.train()
     tokens = 0
     losses = []
+    training_start = time.monotonic()
+    cpu_start = time.process_time()
     for step in range(steps):
         monitor.check()
         indices = [(step * 4 + j) % len(batches["train"]) for j in range(4)]
+        if balanced:
+            indices = [
+                ((step * 4 + j) % 8) * 8 + ((step * 4 + j) // 8) % 8 for j in range(4)
+            ]
         x = torch.stack([batches["train"][i][0] for i in indices])
         y = torch.stack([batches["train"][i][1] for i in indices])
         optimizer.zero_grad()
@@ -257,10 +276,14 @@ def run(store=STORE, run_id="phase7-tool-sft-paraphrase-40", steps=40):
         optimizer.step()
         losses.append(loss.item())
         tokens += (y != -100).sum().item()
+    training_seconds = time.monotonic() - training_start
+    training_cpu_seconds = time.process_time() - cpu_start
     validation = evaluate("validation")
     test = evaluate("test")
     quality_after = quality()
+    save_start = time.monotonic()
     save_file(model.state_dict(), str(folder / "model.safetensors"))
+    checkpoint_seconds = time.monotonic() - save_start
     # Real roundtrip integrity/load check on the same architecture.
     restored = Core(config)
     restored.load_state_dict(load_file(str(folder / "model.safetensors")))
@@ -278,6 +301,12 @@ def run(store=STORE, run_id="phase7-tool-sft-paraphrase-40", steps=40):
         "architecture": asdict(config),
         "parameters": sum(p.numel() for p in model.parameters()),
         "steps": steps,
+        "balanced_batches": balanced,
+        "training_seconds": training_seconds,
+        "training_cpu_seconds": training_cpu_seconds,
+        "completion_tokens_per_second": tokens / training_seconds,
+        "checkpoint_seconds": checkpoint_seconds,
+        "checkpoint_bytes": (folder / "model.safetensors").stat().st_size,
         "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
         "dataset_sha256": dataset_hash,
         "tokenizer_sha256": sha256(folder / "tokenizer.json"),
