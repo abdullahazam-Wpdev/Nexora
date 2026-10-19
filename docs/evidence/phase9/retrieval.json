@@ -1,0 +1,576 @@
+{
+  "protocol": "20 deterministic authored explicit-field cases; not general semantic research QA",
+  "cases": [
+    {
+      "id": 0,
+      "kind": "exact",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "4bfc2f716ce4092eba148e79bc573d37:0",
+                "source": "urn:fixture:Primary",
+                "sha256": "15afd2559b57291df7524b0764857d9359bf3f2dc3d44f25ec6d9e678999ab5a",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "multi",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "72fb364f6c27fe745724c452c102c6ea:0",
+                "source": "urn:fixture:Stock",
+                "sha256": "9f9e63a00a5b5a33c2955be175037f86499817e6458bb5ec806437dcfd10cf1d",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          },
+          "currency": {
+            "records": [
+              {
+                "value": "USD",
+                "citation_id": "0426842f543862687c23797fd9a5e50b:0",
+                "source": "urn:fixture:Currency",
+                "sha256": "7874a3e083cec2adb21edb9656581ca54652a11676911ae5ddc31c2d4b0d7e0d",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "USD"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "conflict",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "conflicting_sources",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "99",
+                "citation_id": "afff75666fc96c8164a58a1011635ac5:0",
+                "source": "urn:fixture:Conflicting",
+                "sha256": "3549abdd60301863785f85650bf664317ac8ed9a0725c6825ca97f6cb950312c",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              },
+              {
+                "value": "12",
+                "citation_id": "699838232bca0d01b4f2166a9d206a31:0",
+                "source": "urn:fixture:Primary",
+                "sha256": "15afd2559b57291df7524b0764857d9359bf3f2dc3d44f25ec6d9e678999ab5a",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "outdated",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "2",
+                "citation_id": "ca6623dcdb25351fd3ee29a1418aa533:0",
+                "source": "urn:fixture:Old",
+                "sha256": "809a2f5a1f708b3d557e443bbe8af7156fabaa6ddf5734c8026353241a32f362",
+                "published_at": "2020-01-01",
+                "outdated": true,
+                "date_unknown": false
+              }
+            ],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "missing",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "injection",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "d57ade02237bd52481a4233f15a5618c:0",
+                "source": "urn:fixture:Hostile data",
+                "sha256": "c0e73ea46948803fe1cc860db6bc877ef20a422a6cd542ba79d81035fc04e8ba",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "delete",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "reindex",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "13",
+                "citation_id": "f4bf079515cd2c91d3670c0148869c8b:0",
+                "source": "urn:fixture:updated",
+                "sha256": "70710c8f6d62793ec91d1260128eac4460c606877babba78f33dc1e8ec45ad69",
+                "published_at": "2026-10-19",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "13"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "exact",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "7352f8f20749fecbfb2e93d89fc50ced:0",
+                "source": "urn:fixture:Primary",
+                "sha256": "15afd2559b57291df7524b0764857d9359bf3f2dc3d44f25ec6d9e678999ab5a",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 9,
+      "kind": "multi",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "7fc72bfe12740df61e605accfa90a9cc:0",
+                "source": "urn:fixture:Stock",
+                "sha256": "9f9e63a00a5b5a33c2955be175037f86499817e6458bb5ec806437dcfd10cf1d",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          },
+          "currency": {
+            "records": [
+              {
+                "value": "USD",
+                "citation_id": "144bf0af736d4a3bf6fabca246896aad:0",
+                "source": "urn:fixture:Currency",
+                "sha256": "7874a3e083cec2adb21edb9656581ca54652a11676911ae5ddc31c2d4b0d7e0d",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "USD"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 10,
+      "kind": "conflict",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "conflicting_sources",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "99",
+                "citation_id": "7f3ecac48ce34cc0b58221687b4edf2c:0",
+                "source": "urn:fixture:Conflicting",
+                "sha256": "3549abdd60301863785f85650bf664317ac8ed9a0725c6825ca97f6cb950312c",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              },
+              {
+                "value": "12",
+                "citation_id": "5eb4f7584ba144f1e429024ed8e1da7b:0",
+                "source": "urn:fixture:Primary",
+                "sha256": "15afd2559b57291df7524b0764857d9359bf3f2dc3d44f25ec6d9e678999ab5a",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "outdated",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "2",
+                "citation_id": "9b705bbf1d8ec308b6137a10e5046959:0",
+                "source": "urn:fixture:Old",
+                "sha256": "809a2f5a1f708b3d557e443bbe8af7156fabaa6ddf5734c8026353241a32f362",
+                "published_at": "2020-01-01",
+                "outdated": true,
+                "date_unknown": false
+              }
+            ],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 12,
+      "kind": "missing",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 13,
+      "kind": "injection",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "fda963904baa5c7a515a7b695a598a47:0",
+                "source": "urn:fixture:Hostile data",
+                "sha256": "c0e73ea46948803fe1cc860db6bc877ef20a422a6cd542ba79d81035fc04e8ba",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 14,
+      "kind": "delete",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 15,
+      "kind": "reindex",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "13",
+                "citation_id": "913f4a407cf87539a22df3e0e25c3ba9:0",
+                "source": "urn:fixture:updated",
+                "sha256": "70710c8f6d62793ec91d1260128eac4460c606877babba78f33dc1e8ec45ad69",
+                "published_at": "2026-10-19",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "13"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 16,
+      "kind": "exact",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "8830c6e5dd1919a498da160919013510:0",
+                "source": "urn:fixture:Primary",
+                "sha256": "15afd2559b57291df7524b0764857d9359bf3f2dc3d44f25ec6d9e678999ab5a",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 17,
+      "kind": "multi",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "supported",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "12",
+                "citation_id": "9cd1a086013173ba57d0c5c964256f9b:0",
+                "source": "urn:fixture:Stock",
+                "sha256": "9f9e63a00a5b5a33c2955be175037f86499817e6458bb5ec806437dcfd10cf1d",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "12"
+          },
+          "currency": {
+            "records": [
+              {
+                "value": "USD",
+                "citation_id": "8d72dab943fc81f742847aada60ca801:0",
+                "source": "urn:fixture:Currency",
+                "sha256": "7874a3e083cec2adb21edb9656581ca54652a11676911ae5ddc31c2d4b0d7e0d",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": "USD"
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 18,
+      "kind": "conflict",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "conflicting_sources",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "99",
+                "citation_id": "162ed9fa337cc5ae27a7371cafe6792e:0",
+                "source": "urn:fixture:Conflicting",
+                "sha256": "3549abdd60301863785f85650bf664317ac8ed9a0725c6825ca97f6cb950312c",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              },
+              {
+                "value": "12",
+                "citation_id": "62a17d6b340105192336feef696a3cfa:0",
+                "source": "urn:fixture:Primary",
+                "sha256": "15afd2559b57291df7524b0764857d9359bf3f2dc3d44f25ec6d9e678999ab5a",
+                "published_at": "2026-10-18",
+                "outdated": false,
+                "date_unknown": false
+              }
+            ],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    },
+    {
+      "id": 19,
+      "kind": "outdated",
+      "passed": true,
+      "citations_valid": true,
+      "result": {
+        "status": "insufficient_evidence",
+        "fields": {
+          "stock": {
+            "records": [
+              {
+                "value": "2",
+                "citation_id": "6910d60305a670412dae9ea1beeea2fe:0",
+                "source": "urn:fixture:Old",
+                "sha256": "809a2f5a1f708b3d557e443bbe8af7156fabaa6ddf5734c8026353241a32f362",
+                "published_at": "2020-01-01",
+                "outdated": true,
+                "date_unknown": false
+              }
+            ],
+            "answer": null
+          }
+        },
+        "method": "literal key:value extraction; no semantic entailment",
+        "trust": "untrusted owner-ingested data; cannot authorize tools; publication dates are owner supplied"
+      }
+    }
+  ],
+  "passed": 20,
+  "total": 20
+}

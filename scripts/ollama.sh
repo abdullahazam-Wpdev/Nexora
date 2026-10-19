@@ -10,12 +10,14 @@ host() {
     "$@"
   fi
 }
+service_memory_mib=${OLLAMA_SERVICE_MEMORY_MIB:-900}
+case "$service_memory_mib" in 900|1152) ;; *) echo "Unsupported reviewed memory profile" >&2; exit 2 ;; esac
 case "${1:-status}" in
   start)
     test -x "$ollama_binary"
     mkdir -p artifacts/reference-models/ollama
     host systemd-run --user --unit=nexora-ollama --collect \
-      --property=MemoryMax=900M --property=MemorySwapMax=0 \
+      --property=MemoryMax="${service_memory_mib}M" --property=MemorySwapMax=0 \
       --property=CPUQuota=200% --property=TasksMax=128 \
       --setenv=OLLAMA_HOST=127.0.0.1:11434 \
       --setenv="OLLAMA_MODELS=$PWD/artifacts/reference-models/ollama" \

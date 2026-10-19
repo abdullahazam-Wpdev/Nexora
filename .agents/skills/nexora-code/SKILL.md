@@ -18,3 +18,10 @@ Example acceptance: `assert add(2, 3) == 5`. Use a disposable project first. Two
 Validation: run `scripts/phase7-live-acceptance.py`, the Phase 7 tests and the real coding benchmark. Distinguish model-generated successes from supplied control patches. SmolLM2 scored 0/20 on the harder utility suite; do not describe it as a professional coding agent.
 
 Failure handling: inspect persisted events, preserve original/candidate, cancel when requested, reject changed-source hashes, and resume only interrupted work with remaining attempt budget. Unsupported imports/languages/build commands require a separately reviewed sandbox profile. Do not weaken the profile to make a benchmark pass.
+
+Phase 9 also provides `/api/workspace-code/tasks` for up to four existing scoped
+files. Read `docs/CODING_BENCHMARK.md` before using its Python/Node/TypeScript or
+static HTML profiles. Exact bundle approval, retained originals and a rollback
+journal are required; PHP and FastAPI runtime profiles remain blocked. Qwen is
+stored but disabled after normal-cap OOM; do not override its manifest or enlarge
+service limits merely to complete a task. Reference model success remains weak.

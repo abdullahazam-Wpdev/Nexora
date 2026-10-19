@@ -11,6 +11,27 @@ type Row = {
   selected: boolean;
 };
 export default function EvaluationPanel() {
+  const [phase9, setPhase9] = useState<{
+    coding: {
+      passed: number;
+      supported_total: number;
+      runtime_blocked: number;
+    };
+    retrieval: { passed: number; total: number };
+    core: {
+      tool_correct: number;
+      tool_total: number;
+      arguments_exact: number;
+      instruction_exact: number;
+      instruction_total: number;
+    };
+  } | null>(null);
+  useEffect(() => {
+    fetch("/api/evaluations/phase9")
+      .then((r) => r.json())
+      .then(setPhase9)
+      .catch(() => {});
+  }, []);
   const [rows, setRows] = useState<Row[]>([]);
   const [error, setError] = useState("");
   useEffect(() => {
@@ -23,7 +44,40 @@ export default function EvaluationPanel() {
   }, []);
   return (
     <section className="agent-panel">
-      <h1>Core research evaluations</h1>
+      <h1>Research and reliability evaluations</h1>
+      {phase9 && (
+        <>
+          <h2>Phase 9</h2>
+          <p>
+            Stable offline baseline: SmolLM2. Qwen candidate is disabled after
+            memory-cap failures; its coding result below used an approved
+            temporary 1,152 MiB profile.
+          </p>
+          <ul>
+            <li>
+              Expanded coding: {phase9.coding.passed}/
+              {phase9.coding.supported_total}; {phase9.coding.runtime_blocked}{" "}
+              additional cases blocked by missing runtimes.
+            </li>
+            <li>
+              Literal source-field retrieval: {phase9.retrieval.passed}/
+              {phase9.retrieval.total}.
+            </li>
+            <li>
+              New Core pilot: {phase9.core.tool_correct}/
+              {phase9.core.tool_total} correct tool choices;{" "}
+              {phase9.core.arguments_exact}/{phase9.core.tool_total} exact
+              arguments; {phase9.core.instruction_exact}/
+              {phase9.core.instruction_total} exact instructions. Not promoted.
+            </li>
+          </ul>
+          <p>
+            These are different protocols, not interchangeable accuracy
+            measures.
+          </p>
+        </>
+      )}
+      <h2>Phase 8 Core pilots</h2>
       <p>
         Independent, randomly initialized Core pilots. Synthetic completion-only
         losses do not measure general assistant capability. None of these

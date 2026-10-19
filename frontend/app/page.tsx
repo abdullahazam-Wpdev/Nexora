@@ -1,5 +1,6 @@
 "use client";
 import AgentPanel from "./AgentPanel";
+import WorkspaceCodePanel from "./WorkspaceCodePanel";
 import EvaluationPanel from "./EvaluationPanel";
 import ComputerPanel from "./ComputerPanel";
 import ModelPanel from "./ModelPanel";
@@ -128,6 +129,13 @@ export default function Chat() {
   const [active, setActive] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
+  const [qwenEnabled, setQwenEnabled] = useState(false);
+  useEffect(() => {
+    fetch("/api/assistant/status")
+      .then((r) => r.json())
+      .then((d) => setQwenEnabled(d.qwen_enabled))
+      .catch(() => {});
+  }, []);
   const [provider, setProvider] = useState("ollama");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -142,6 +150,7 @@ export default function Chat() {
     | "models"
     | "browser"
     | "evaluations"
+    | "workspace-code"
   >("chat");
   const [useMemory, setUseMemory] = useState(false);
   const [fccModel, setFccModel] = useState("claude-haiku-4-20250514");
@@ -194,7 +203,9 @@ export default function Chat() {
         await api("/runtime", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ provider: value }),
+          body: JSON.stringify({
+            provider: value === "qwen-coder" ? "ollama" : value,
+          }),
         });
       setProvider(value);
     } catch (e) {
@@ -217,19 +228,70 @@ export default function Chat() {
         ...old,
         { id: -1, role: "user", text: value, provider },
       ]);
-      await api(`/threads/${id}/messages`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text: value,
-          provider,
-          mode: mode === "research" ? "research" : "chat",
-          allow_hosted: hostedConsent,
-          model: provider === "fcc" ? fccModel : undefined,
-          use_memory: useMemory,
-        }),
-        signal: controller.signal,
-      });
+      if (provider === "qwen-coder" || provider === "ollama") {
+        setMessages((old) => [
+          ...old,
+          {
+            id: -2,
+            role: "assistant",
+            text: "",
+            provider:
+              provider === "qwen-coder"
+                ? "Ollama • Qwen2.5-Coder 0.5B (external)"
+                : "Ollama • SmolLM2 135M (external)",
+          },
+        ]);
+        const response = await fetch(
+          `/api/cowork/threads/${id}/messages/stream`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              text: value,
+              provider,
+              allow_hosted: hostedConsent,
+              use_memory: useMemory,
+            }),
+            signal: controller.signal,
+          },
+        );
+        if (!response.ok || !response.body)
+          throw Error("Streaming request failed");
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
+        for (;;) {
+          const { value: chunk, done } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(chunk, { stream: true });
+          const frames = buffer.split("\n\n");
+          buffer = frames.pop() || "";
+          for (const frame of frames) {
+            if (!frame.startsWith("data: ")) continue;
+            const event = JSON.parse(frame.slice(6));
+            if (event.type === "delta")
+              setMessages((old) =>
+                old.map((m) =>
+                  m.id === -2 ? { ...m, text: m.text + event.text } : m,
+                ),
+              );
+            if (event.type === "error") throw Error(event.text);
+          }
+        }
+      } else
+        await api(`/threads/${id}/messages`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: value,
+            provider,
+            mode: mode === "research" ? "research" : "chat",
+            allow_hosted: hostedConsent,
+            model: provider === "fcc" ? fccModel : undefined,
+            use_memory: useMemory,
+          }),
+          signal: controller.signal,
+        });
       setMessages(await api(`/threads/${id}`));
       await refresh();
     } catch (e) {
@@ -316,6 +378,7 @@ export default function Chat() {
               ["chat", "Chat"],
               ["research", "Research"],
               ["code", "NEXORA Code"],
+              ["workspace-code", "Workspace Code"],
               ["memory", "Library"],
               ["speech", "Whisper speech"],
               ["models", "Models"],
@@ -386,6 +449,10 @@ export default function Chat() {
             onChange={(e) => choose(e.target.value)}
           >
             <option value="ollama">SmolLM2 · local reference</option>
+            <option value="qwen-coder" disabled={!qwenEnabled}>
+              Qwen2.5-Coder 0.5B ·{" "}
+              {qwenEnabled ? "offline external" : "disabled: memory profile"}
+            </option>
             <option value="core">NEXORA Core · research</option>
             <option value="localai">LocalAI · optional service</option>
             <option value="fcc">FCC → Ollama · optional proxy</option>
@@ -419,8 +486,11 @@ export default function Chat() {
             "models",
             "browser",
             "evaluations",
+            "workspace-code",
           ].includes(mode) ? (
-            mode === "evaluations" ? (
+            mode === "workspace-code" ? (
+              <WorkspaceCodePanel />
+            ) : mode === "evaluations" ? (
               <EvaluationPanel />
             ) : mode === "browser" ? (
               <ComputerPanel />
@@ -558,7 +628,8 @@ export default function Chat() {
             mode === "speech" ||
             mode === "models" ||
             mode === "browser" ||
-            mode === "evaluations"
+            mode === "evaluations" ||
+            mode === "workspace-code"
           }
         >
           {notice && <p className="cowork-notice">{notice}</p>}

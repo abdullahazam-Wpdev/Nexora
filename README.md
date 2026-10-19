@@ -130,3 +130,18 @@ shows actual Core pilot results; training remains at `/research`.
 [Core scaling measurements](docs/NEXORA_CORE_SCALING.md).
 This is a bounded research platform: general coding and instruction reliability
 remain poor; no external model is presented as independently trained Core.
+
+## Phase 9 — reliability measurements and scoped coding
+
+Chat now streams the stable offline reference with conversation persistence.
+Workspace Code provides scoped multi-file proposals, Python/Node/TypeScript
+checks, visible diffs/test output, exact-hash approval and rollback. Strict tool
+schemas and source-field evidence checks are implemented. The new Qwen candidate
+passed simple regressions but failed sustained normal-cap operation and remains
+disabled. No professional assistant or Core 2.0 capability is claimed.
+
+[Phase 9 delivery and reproduction](docs/PHASE9_DELIVERY.md) ·
+[Backend evaluation](docs/ASSISTANT_BACKEND_EVALUATION.md) ·
+[Corrected coding benchmark](docs/CODING_BENCHMARK.md) ·
+[Training results](docs/INSTRUCTION_TUNING_RESULTS.md) ·
+[Remaining limitations](docs/PHASE9_LIMITATIONS.md).

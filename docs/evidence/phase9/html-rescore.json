@@ -1,0 +1,36 @@
+{
+  "harness_revision": 2,
+  "reason": "Acceptance bug correction; no model outputs were regenerated",
+  "cases": [
+    {
+      "report": "coding-qwen-coder.json",
+      "mode": "control",
+      "passed": true,
+      "output": "Exit code: 0\nHTML_VERIFIED\n"
+    },
+    {
+      "report": "coding-constrained-small-batch.json",
+      "mode": "control",
+      "passed": true,
+      "output": "Exit code: 0\nHTML_VERIFIED\n"
+    },
+    {
+      "report": "coding-approved-1152.json",
+      "mode": "model",
+      "passed": false,
+      "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 9, in <module>\n    assert len(p.labels)==1 and p.labels[0].get('for')=='name'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "report": "coding-approved-1152.json",
+      "mode": "control",
+      "passed": true,
+      "output": "Exit code: 0\nHTML_VERIFIED\n"
+    },
+    {
+      "report": "coding-single-file-protocol-900.json",
+      "mode": "control",
+      "passed": true,
+      "output": "Exit code: 0\nHTML_VERIFIED\n"
+    }
+  ]
+}

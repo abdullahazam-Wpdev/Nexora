@@ -33,3 +33,18 @@ coding capability. See MULTI_AGENT_EVALUATION.md and evidence/phase8/coding-demo
 Execution still supports one pure Python module. JS/TS, FastAPI/Next application
 builds, WordPress/WooCommerce/Shopify, container configuration and multi-file
 changes remain proposal-only; no unrestricted host fallback was introduced.
+
+## Phase 9 scoped workspaces
+
+`/api/workspace-code/tasks` supports up to four existing registered files and
+pure Python, Node modules, TypeScript runtime, Web Response unit and HTML/CSS
+static profiles. Node runs inside the existing rootless networkless Podman image
+using read-only runtime/compiler mounts. PHP/WordPress/FastAPI profiles remain
+blocked. Tests, candidate files, originals and per-attempt prompts/responses are
+retained. Exact bundle hash approval and unchanged-source checks precede apply;
+an intent journal supports rollback and preserves concurrent owner changes.
+
+The Workspace Code panel exposes scope, acceptance tests, diff, output, approval
+and cancellation. Qwen is disabled by default after resource failures; selecting
+SmolLM2 does not imply capable coding. Validation/controls prove the engine, not
+model competence. See CODING_BENCHMARK.md and PHASE9_LIMITATIONS.md.

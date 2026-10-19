@@ -1,0 +1,326 @@
+{
+  "protocol": "22 authored requests per provider; arguments explicitly supplied, not hidden inferred values; no model-generated shell or privileged operation is executed",
+  "cases": [
+    {
+      "model": "smollm2",
+      "id": "read_file-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "The provided JSON object contains a list of supported tools and their corresponding namespaces. The `scan` function is used to scan through the list, allowing you to choose one tool from each namespace.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "read_file-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "create_file-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide one of the following options to create a new project note with the provided parameters:\n\n1. Create a new project note using the command-line tool:\n   ```bash\ncreate_project_note --name=\"new_project\" --path=notes.txt\n```\n\n   This will create a new file named \"new_project\". The `--name` option specifies that the name of the new project should be \"new_project\", and the `--path`",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "create_file-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "```json\n{\n  \"tool\": {\n    \"description\": \"Create a new workspace.\",\n    \"files\": [\n      {\n        \"name\": \"create_workspace\",\n        \"arguments\": {\n          \"filePaths\": [\"/path/to/new-workspace.txt\"]\n        }\n      },\n      {\n        \"name\": \"create_workspace\",\n        \"arguments\": {\n          \"fileName\": \"README.md\"\n        }\n      }\n    ]\n ",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "propose_patch-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide JSON with the provided arguments and return the parsed data as a dictionary.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "propose_patch-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide one of the provided tools from read_file, create_file, propose_patch, run_tests, retrieve, calculator, request_approval, refuse, retry. Return only JSON with a single key-value pair: {\"tool\":\"name\",\"arguments\":{}}.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "run_tests-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "run_tests-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "browse-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are provided with a list of tools from the public Python manual and you need to navigate to the public Python documentation page for each tool, find the corresponding command-line interface (CLI) option, and then choose one of them based on your choice.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "browse-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are given a list of URLs and an HTTP method (GET or POST). You need to retrieve data from the specified URL using the provided HTTP method, and return JSON with the requested data if it exists in the database.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "search-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You can find the documentation for the provided tools using the following command:\n```python\nimport sys\nsys.argv[0] = \"\"\"\n  python -m argparse parse arguments from command line\"\"\"\nparser = argparse(sys)\nargs, default_options = parser.parse_args()\nprint(\"Usage:\", args.__dict__)\n```",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "search-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Here is a Python function that uses the `sqlite3` module to retrieve data from a SQLite database:\n```python\nimport sqlite3\n\ndef get_data(db, query):\n    \"\"\"Retrieve data from a SQLite database.\"\"\"\n    try:\n        conn = sqlite3.connect(\"database.py\")\n        cursor = conn.cursor()\n\n        # Execute the query and return the result set\n        cursor.execute(query)\n        rows = cursor.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "retrieve-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "retrieve-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide JSON with the following structure:\n```json\n{\n  \"tool\": {\n    \"name\": \"RequestTimeout\",\n    \"arguments\": [\n      {\n        \"key\": \"timeout_value\"\n      }\n    ]\n  },\n  \"responses\": []\n}\n```",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "calculator-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "The provided input contains a list of arguments for the specified tool name (\"calculate\"). The function should return a dictionary containing the following keys and values:\n\n1. \"tool\":\"calculator\"\n   - \"name\":\"Calculate 17 times twenty three\"\n   - \"arguments\":{}\n   - {\"expression\":\"\"}",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "calculator-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "I'm ready to evaluate the provided arguments for each tool and provide a JSON response with the appropriate output format.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "request_approval-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are provided with the following command to generate a JSON file for your application:\n\n1. `python3 -m createfile --mode=w`\n2. `python3 -m import requests`\n3. `python3 -m openpyxl`\n4. `python3 -m openpyxl_openpyxl`",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "request_approval-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are an AI assistant designed to support users in completing their tasks efficiently and effectively. You can help with various tasks such as editing, writing, reviewing, searching, requesting feedback, running tests, browsing, suggesting solutions, retrieving information, proposing edits, refusing changes, retrying, asking for clarification, seeking approval, or providing guidance on a specific topic.",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "refuse-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide JSON with the following data:\n```json\n{\n  \"tool\": {\n    \"name\": \"Create Credentials\",\n    \"arguments\": [\n      {\n        \"reason\": \"Unauthorized credential access\"\n      }\n    ]\n  },\n  \"responses\": []\n}\n```",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "refuse-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "retry-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide one of the following options to ensure that you are granted access to the specified resource:\n\n1. \"create_file\" - Allows you to create a new file with an extension of \".json\". You can specify the path and name for the file using the provided arguments.\n\n2. \"propose_patch\" - Allows you to propose a patch to the API endpoint, which is then executed by the server. The HTTP request will be sent to the specified",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "smollm2",
+      "id": "retry-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "Provide JSON with the following data:\n```json\n{\n  \"tool\": {\n    \"name\": \"create_file\",\n    \"arguments\": [\n      {\n        \"path\": \"/tmp/test.txt\"\n      },\n      {\n        \"type\": \"string\"\n      }\n    ]\n  }\n}",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    },
+    {
+      "model": "qwen-coder",
+      "id": "read_file-0",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "{\"tool\":\"request_approval\"}",
+      "inference": null,
+      "error": "Expected one registered tool and arguments",
+      "executed": false
+    },
+    {
+      "model": "qwen-coder",
+      "id": "read_file-1",
+      "schema_valid": true,
+      "tool_correct": true,
+      "arguments_exact": true,
+      "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"settings.py\"}}",
+      "inference": {
+        "text": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"settings.py\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.8471872689997326,
+        "seconds": 3.5884163210002953,
+        "tokens_per_second": 19.299998750462937,
+        "eval_count": 14,
+        "eval_duration": 725388648,
+        "effective_max_tokens": 96,
+        "context": 512
+      },
+      "error": null,
+      "executed": false
+    },
+    {
+      "model": "qwen-coder",
+      "id": "create_file-0",
+      "schema_valid": true,
+      "tool_correct": true,
+      "arguments_exact": true,
+      "generated": "{\"tool\":\"create_file\",\"arguments\":{\"path\":\"notes.txt\",\"content\":\"Fixture text\"}}",
+      "inference": {
+        "text": "{\"tool\":\"create_file\",\"arguments\":{\"path\":\"notes.txt\",\"content\":\"Fixture text\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.91725138899983,
+        "seconds": 6.9375584999997955,
+        "tokens_per_second": 7.429314352633237,
+        "eval_count": 19,
+        "eval_duration": 2557436541,
+        "effective_max_tokens": 96,
+        "context": 512
+      },
+      "error": null,
+      "executed": false
+    },
+    {
+      "model": "qwen-coder",
+      "id": "create_file-1",
+      "schema_valid": false,
+      "tool_correct": false,
+      "arguments_exact": false,
+      "generated": "```json\n{\n  \"tool\": \"create_file\",\n  \"arguments\": {\n    \"path\": \"README.md\",\n    \"content\": \"Fixture text\"\n  }\n}\n```",
+      "inference": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "executed": false
+    }
+  ],
+  "models": {
+    "smollm2": {
+      "recorded": 22,
+      "correct": 0,
+      "schema_valid": 0
+    },
+    "qwen-coder": {
+      "recorded": 4,
+      "correct": 2,
+      "schema_valid": 2
+    }
+  },
+  "resource_stop": "Qwen evaluation stopped after service OOM at 900 MiB. Unrecorded requests are not run, not scored as failures. An exception-handler bug also interrupted the reporting script and is fixed for future runs."
+}

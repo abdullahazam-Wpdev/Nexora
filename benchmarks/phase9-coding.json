@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "author": "Project-authored synthetic isolated fixtures",
+  "license": "CC0-1.0",
+  "protocol": "Acceptance fixture and control patches are never sent to the proposer. Final suite frozen before new model evaluation. Public after delivery, so not a secret benchmark.",
+  "tasks": [
+    {
+      "id": "clamp",
+      "profile": "python",
+      "request": "Clamp value to inclusive low/high bounds.",
+      "files": {
+        "solution.py": "def clamp(x, low, high):\n return x\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "mean",
+      "profile": "python",
+      "request": "Return mean of numbers; return zero for an empty list.",
+      "files": {
+        "solution.py": "def mean(xs):\n return sum(xs)\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "slug",
+      "profile": "python",
+      "request": "Turn a string into a lowercase hyphenated slug; strip surrounding whitespace.",
+      "files": {
+        "solution.py": "def slug(s):\n return s\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "test-repair",
+      "profile": "python",
+      "request": "Fix the function so positive and negative integer squares are correct.",
+      "files": {
+        "solution.py": "def square(x):\n return x*2\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "sum",
+      "profile": "node",
+      "request": "Return the sum of all array values, including an empty array.",
+      "files": {
+        "solution.js": "module.exports=xs=>xs.length;\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "unique",
+      "profile": "node",
+      "request": "Return unique values while preserving first-seen order.",
+      "files": {
+        "solution.js": "module.exports=xs=>xs;\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "discount",
+      "profile": "node",
+      "request": "Apply percentage discount to integer cents and round once.",
+      "files": {
+        "solution.js": "module.exports=(c,p)=>c-p;\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "url-query",
+      "profile": "node",
+      "request": "Encode a search string into /search?q= using URI encoding.",
+      "files": {
+        "solution.js": "module.exports=s=>\"/search?q=\"+s;\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "api-shape",
+      "profile": "node",
+      "request": "Extract items array from response; use [] if items is missing.",
+      "files": {
+        "solution.js": "module.exports=d=>d;\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "ts-total",
+      "profile": "typescript",
+      "request": "Return total price of items with numeric price fields.",
+      "files": {
+        "solution.ts": "export function fn(items: {price:number}[]):number{return 0;}\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "ts-null",
+      "profile": "typescript",
+      "request": "Return zero for a null number, otherwise preserve number.",
+      "files": {
+        "solution.ts": "export function fn(value: number|null):number{return value as number;}\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "ts-type",
+      "profile": "typescript",
+      "request": "Parse numeric count text into a number.",
+      "files": {
+        "solution.ts": "export function fn(value:string):number{return value as unknown as number;}\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "next-route",
+      "profile": "next-route",
+      "request": "Return a JSON Response with ready:true and HTTP 200 from GET.",
+      "files": {
+        "route.js": "exports.GET=()=>new Response(\"bad\",{status:500});\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "multi-import",
+      "profile": "node",
+      "request": "Fix the two-file math module: add must sum both numbers; exported calculate must call it.",
+      "files": {
+        "math.js": "exports.add=(a,b)=>a-b;\n",
+        "solution.js": "const {add}=require(\"./math.js\");module.exports=(a,b)=>add(a,b);\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "multi-feature",
+      "profile": "node",
+      "request": "Add a prefix greeting using both configured prefix and the supplied name.",
+      "files": {
+        "config.js": "exports.prefix=\"Hello\";\n",
+        "solution.js": "const {prefix}=require(\"./config.js\");module.exports=name=>prefix;\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "html-label",
+      "profile": "html",
+      "request": "Associate the visible Name label with its input using matching for and id attributes.",
+      "files": {
+        "index.html": "<label>Name</label><input id=\"name\">\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "css-hidden",
+      "profile": "html",
+      "request": "Ensure .hidden elements are excluded from layout using display:none.",
+      "files": {
+        "style.css": ".hidden { visibility: hidden; }\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "fastapi-status",
+      "profile": "fastapi",
+      "request": "Return HTTP 201 for successful item creation.",
+      "files": {
+        "app.py": "from fastapi import FastAPI\napp=FastAPI()\n@app.post(\"/items\",status_code=200)\ndef create():return {\"ok\":True}\n"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "wordpress-escape",
+      "profile": "php",
+      "request": "Escape the title using WordPress esc_html before returning HTML.",
+      "files": {
+        "plugin.php": "<?php function title($s){ return \"<h1>\".$s.\"</h1>\"; }"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    },
+    {
+      "id": "php-total",
+      "profile": "php",
+      "request": "Return sum of line totals, not their count.",
+      "files": {
+        "cart.php": "<?php function total($xs){return count($xs);}"
+      },
+      "split": "final-held-out",
+      "license": "CC0-1.0",
+      "limits": {
+        "attempts": 1,
+        "seconds": 45,
+        "memory_mib": 256
+      },
+      "rollback": "original files retained; no apply unless exact verified hash approved"
+    }
+  ],
+  "evaluation_status": "Consumed during protocol debugging; no longer an untouched final holdout. Repeated scores are post-diagnostic regressions."
+}

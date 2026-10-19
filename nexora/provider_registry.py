@@ -2,6 +2,17 @@
 
 PROVIDERS = [
     {
+        "id": "qwen-coder",
+        "label": "Qwen2.5-Coder 0.5B (candidate; disabled)",
+        "kind": "local reference candidate",
+        "model": "qwen2.5-coder:0.5b",
+        "chat": True,
+        "training": False,
+        "context_limit": 512,
+        "adapter": "Pinned candidate; repeated normal-cap OOM; disabled by default",
+        "docs": "https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct",
+    },
+    {
         "id": "ollama",
         "label": "SmolLM2 135M reference",
         "kind": "local",
@@ -154,6 +165,21 @@ def capabilities():
                 else "credential missing"
             )
             row["local"] = False
+        if ident == "qwen-coder":
+            import json
+            from nexora.config import ROOT
+
+            path = ROOT / "tooling/reference/qwen-coder.json"
+            candidate = json.loads(path.read_text()) if path.exists() else {}
+            row.update(
+                local=True,
+                availability="enabled for reviewed profile"
+                if candidate.get("enabled")
+                else "disabled after resource failures",
+                coding="3/3 exposed regression; 2/17 mixed suite under temporary approved cap",
+                tool_calling="partial evaluation only; not reliable",
+                memory_reason=candidate.get("disabled_reason"),
+            )
         if ident == "openai/gpt-oss-20b":
             row["availability"] = (
                 "credential configured; generation unverified"

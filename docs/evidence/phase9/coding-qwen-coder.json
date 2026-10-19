@@ -1,0 +1,1183 @@
+{
+  "model": "qwen-coder",
+  "origin": "external open-weight inference",
+  "cases": [
+    {
+      "case": "clamp",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.386270011999841,
+      "error": "Patch changed files outside the approved scope",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Patch changed files outside the approved scope"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"path\":\"solution.py\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.09445195599983,
+        "seconds": 2.3767930699996214,
+        "tokens_per_second": 33.527519760747616,
+        "eval_count": 9,
+        "eval_duration": 268436200
+      },
+      "task_id": "0451d07752914adc8ac74d0cfec7824b"
+    },
+    {
+      "case": "clamp",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8271090529997309,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "5b294e5cd96f4b6f92b0b0c7aa3c65e0"
+    },
+    {
+      "case": "mean",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.2213360649993774,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "19cfe42ed1a84d99aee7358df1ff6e86"
+    },
+    {
+      "case": "mean",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9715964600000007,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "99d98793ab624acb90a84fca46520869"
+    },
+    {
+      "case": "slug",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.8279229489999125,
+      "error": "Patch changed files outside the approved scope",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Patch changed files outside the approved scope"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"path\":\"solution.py\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.521053648000816,
+        "seconds": 2.8226678970004286,
+        "tokens_per_second": 30.685832655875387,
+        "eval_count": 9,
+        "eval_duration": 293294958
+      },
+      "task_id": "d0bb8c333d7e4718b4324cc4f7c0c287"
+    },
+    {
+      "case": "slug",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9722063789995445,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "726df233bcab4a319b47aaf38c7a4c88"
+    },
+    {
+      "case": "test-repair",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.9051801619998514,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "c886754afb3d43358125fdfab3c51331"
+    },
+    {
+      "case": "test-repair",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8689083270000992,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "111c0a13e87c4e23a4dbca6e7da5e7c8"
+    },
+    {
+      "case": "sum",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.618640914000025,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "8a58fcff81314e4089c666a08bf9199a"
+    },
+    {
+      "case": "sum",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.4195747580006355,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "98e82855e86a43dbbd5f5d8da14c4249"
+    },
+    {
+      "case": "unique",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.418302021999807,
+      "error": "Patch changed files outside the approved scope",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Patch changed files outside the approved scope"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"path\":\"solution.js\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0785018979995584,
+        "seconds": 2.4121243549998326,
+        "tokens_per_second": 27.579699609082578,
+        "eval_count": 9,
+        "eval_duration": 326326977
+      },
+      "task_id": "807a56fead8a42cf87a6f8c5b241741d"
+    },
+    {
+      "case": "unique",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.32227097600025445,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "4e3209da423f4f55ba2cd42d67aa2d92"
+    },
+    {
+      "case": "discount",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.164160839000033,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "a15b626a7e05403fa2250b5b10df3f36"
+    },
+    {
+      "case": "discount",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.4191024789997755,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "ad91219d6a464e88af79c57560885d55"
+    },
+    {
+      "case": "url-query",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.305679611999949,
+      "error": "Patch changed files outside the approved scope",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Patch changed files outside the approved scope"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"path\":\"solution.js\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0697738440003377,
+        "seconds": 2.301170347000152,
+        "tokens_per_second": 40.88454104306631,
+        "eval_count": 9,
+        "eval_duration": 220132103
+      },
+      "task_id": "dcfccdcc9e254a11b92cb25c0f4e3098"
+    },
+    {
+      "case": "url-query",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.235254084999724,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "f36af7aa0aad43ffa3fc74716047484d"
+    },
+    {
+      "case": "api-shape",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.3986496030001945,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "574285ecd7834c398045e1a9b6b580df"
+    },
+    {
+      "case": "api-shape",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.26754760699986946,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "2ab23b6db32a48858b8d4b04c64d6805"
+    },
+    {
+      "case": "ts-total",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.7329443919998084,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "041c5423fe6c4e4481b09ad0226ddf05"
+    },
+    {
+      "case": "ts-total",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.0702264249994187,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "3176ad6dea8140c7b6ee8396ce14958c"
+    },
+    {
+      "case": "ts-null",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.636771950000366,
+      "error": "Expecting ',' delimiter: line 1 column 31 (char 30)",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting ',' delimiter: line 1 column 31 (char 30)"
+        }
+      ],
+      "inference": null,
+      "task_id": "c2efb80b93fb4318b76de24a2e55ca8e"
+    },
+    {
+      "case": "ts-null",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9694237650001014,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "b40518e6f6af49b589442ac2ab40072c"
+    },
+    {
+      "case": "ts-type",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.658582302000468,
+      "error": "Patch changed files outside the approved scope",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Patch changed files outside the approved scope"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"path\":\"solution.ts\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.4252242880002086,
+        "seconds": 2.65552765800021,
+        "tokens_per_second": 40.00056498575788,
+        "eval_count": 9,
+        "eval_duration": 224996822
+      },
+      "task_id": "7d013e9cc1ee4effa8aa74793e3d09a1"
+    },
+    {
+      "case": "ts-type",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.2393053740006508,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "5ce0d9d561fa44bbbb726346ff9bbf96"
+    },
+    {
+      "case": "next-route",
+      "profile": "next-route",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 6.430086223000217,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "0f61c7877748499f9ed80594fdefaa22"
+    },
+    {
+      "case": "next-route",
+      "profile": "next-route",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.722909556000559,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "2782d002f67f4ad2b223c4193a31c056"
+    },
+    {
+      "case": "multi-import",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.011099723000370432,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "a2ee12f108de4526acb1f6781b10a6e0"
+    },
+    {
+      "case": "multi-import",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.2676770199996099,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "473fdc40e29249edbc762919a4dbad17"
+    },
+    {
+      "case": "multi-feature",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.02156195600036881,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "348b032ef7434b54a077affa98ede072"
+    },
+    {
+      "case": "multi-feature",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.23778760799996235,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "2a86d36764d94515b4a4caaf0b6ba679"
+    },
+    {
+      "case": "html-label",
+      "profile": "html",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009001403999718605,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "37dcdf4527d444dfb342fa217b06382a"
+    },
+    {
+      "case": "html-label",
+      "profile": "html",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9700759650004329,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "e949fbe1494245e9a9b3a70e28b4d43e",
+      "original_grade": true,
+      "rescore_reason": "Require actual label AND input; previous assertion was vacuously true when neither tag existed"
+    },
+    {
+      "case": "css-hidden",
+      "profile": "html",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.011208146000171837,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "a98e3d6d390a491083ad71cdc9f029b6"
+    },
+    {
+      "case": "css-hidden",
+      "profile": "html",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.7696232810003494,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "7f81c52f19f2405d8d224a1d9a0a82d5"
+    },
+    {
+      "case": "fastapi-status",
+      "profile": "fastapi",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "2be30c015c4e42929f8bb74923eb69a9"
+    },
+    {
+      "case": "fastapi-status",
+      "profile": "fastapi",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "35724b9197314d319f8d2eb2d06a024e"
+    },
+    {
+      "case": "wordpress-escape",
+      "profile": "php",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "6939b507e7d64b7688b5b456585d48e1"
+    },
+    {
+      "case": "wordpress-escape",
+      "profile": "php",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "f70534402b1d4c73b717b653f56d7078"
+    },
+    {
+      "case": "php-total",
+      "profile": "php",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "618c3724e94740f98fda3825e1b726ca"
+    },
+    {
+      "case": "php-total",
+      "profile": "php",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "ba416b1ac6c241fcbdb5e0e8ba8f35c6"
+    }
+  ],
+  "regression": [
+    {
+      "case": "add",
+      "passed": true,
+      "task": {
+        "id": "ab93bfaae16741cfbf3cbdace48d4d28",
+        "status": "awaiting_approval",
+        "created_at": 1792390321.5071673,
+        "request": {
+          "repository_id": "4e664b8a62a78216",
+          "path": "solution.py",
+          "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+          "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+        "events": [
+          {
+            "time": 1792390321.5092983,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+            }
+          },
+          {
+            "time": 1792390321.5093029,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390324.523956,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "qwen-coder",
+              "sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772"
+            }
+          },
+          {
+            "time": 1792390325.3462088,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792390325.3464947,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 6150,
+        "process_created": 1792390320.63,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n-def add(a,b):\n-    return None\n+def add(a, b):\n+    return a + b\n",
+        "candidate_sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 3.8385149269997783,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "subtract",
+      "passed": true,
+      "task": {
+        "id": "4cecb75b663e442e875147247ffeaae2",
+        "status": "awaiting_approval",
+        "created_at": 1792390325.3595397,
+        "request": {
+          "repository_id": "8108c8e9214f2a0b",
+          "path": "solution.py",
+          "goal": "Implement subtract(a,b) as a pure Python function. Required behavior: a-b. Preserve the function name.",
+          "acceptance": "assert subtract(8,3)==5 and subtract(0,4)==-4",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743",
+        "events": [
+          {
+            "time": 1792390325.3617399,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743"
+            }
+          },
+          {
+            "time": 1792390325.3617418,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390328.2620382,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "qwen-coder",
+              "sha256": "1c3752902e3c25dbf44409955d96315a96a8e102f18177505969713da587e2d6"
+            }
+          },
+          {
+            "time": 1792390329.0301518,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792390329.0305254,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "1c3752902e3c25dbf44409955d96315a96a8e102f18177505969713da587e2d6"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 6150,
+        "process_created": 1792390320.63,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n-def subtract(a,b):\n-    return None\n+def subtract(a, b):\n+    return a - b\n",
+        "candidate_sha256": "1c3752902e3c25dbf44409955d96315a96a8e102f18177505969713da587e2d6",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 3.6691303799998423,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "multiply",
+      "passed": true,
+      "task": {
+        "id": "bbda15fc5f0442c49eb199f85b8fe975",
+        "status": "awaiting_approval",
+        "created_at": 1792390329.0427349,
+        "request": {
+          "repository_id": "d43df59516af2d4b",
+          "path": "solution.py",
+          "goal": "Implement multiply(a,b) as a pure Python function. Required behavior: a*b. Preserve the function name.",
+          "acceptance": "assert multiply(3,4)==12 and multiply(-2,3)==-6",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03",
+        "events": [
+          {
+            "time": 1792390329.044718,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03"
+            }
+          },
+          {
+            "time": 1792390329.0447218,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390331.483766,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "qwen-coder",
+              "sha256": "12141ca5171ea43624b961e04b6ef0e709db4d1b90d1c967bea2706afe4aad27"
+            }
+          },
+          {
+            "time": 1792390332.2010586,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792390332.201375,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "12141ca5171ea43624b961e04b6ef0e709db4d1b90d1c967bea2706afe4aad27"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 6150,
+        "process_created": 1792390320.63,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n-def multiply(a,b):\n-    return None\n+def multiply(a, b):\n+    return a * b\n",
+        "candidate_sha256": "12141ca5171ea43624b961e04b6ef0e709db4d1b90d1c967bea2706afe4aad27",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 3.157120587999998,
+        "peak_rss_mb": 235.3046875
+      }
+    }
+  ],
+  "before_swap_bytes": 6530883584,
+  "baseline": "Frozen 20-task suite; one proposal per final task; acceptance/control never included in prompt; blocked profiles reported separately",
+  "seconds": 61.553312182999434,
+  "sampled_ollama_tree_rss_bytes": 0,
+  "after_swap_bytes": 7292866560,
+  "summary": {
+    "model": {
+      "passed": 0,
+      "executed": 17,
+      "blocked": 3
+    },
+    "control": {
+      "passed": 17,
+      "executed": 17,
+      "blocked": 3
+    }
+  }
+}

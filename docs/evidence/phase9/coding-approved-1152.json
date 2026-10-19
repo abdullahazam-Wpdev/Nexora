@@ -1,0 +1,1385 @@
+{
+  "model": "qwen-coder",
+  "origin": "external open-weight inference",
+  "cases": [
+    {
+      "case": "clamp",
+      "profile": "python",
+      "mode": "model",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 3.913587103000282,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.py\": \"def clamp(x, low, high):\\n return max(low, min(high, x))\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0621378460000415,
+        "seconds": 2.8420079839997925,
+        "tokens_per_second": 37.03587393786292,
+        "eval_count": 27,
+        "eval_duration": 729022894,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "9d0b80b2811b4d6f992479497cf206bd"
+    },
+    {
+      "case": "clamp",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9209190169995054,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "303a72fe020c4eb98c2385d411896ec0"
+    },
+    {
+      "case": "mean",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.495714687000145,
+      "error": "un_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 5, in <module>\n    assert mean([2,4])==3 and mean([])==0\n           ^^^^\nNameError: name 'mean' is not defined\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 5, in <module>\n    assert mean([2,4])==3 and mean([])==0\n           ^^^^\nNameError: name 'mean' is not defined\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "un_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 5, in <module>\n    assert mean([2,4])==3 and mean([])==0\n           ^^^^\nNameError: name 'mean' is not defined\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.py\": \"0\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.016330010999809,
+        "seconds": 2.321780095999202,
+        "tokens_per_second": 37.75481992755575,
+        "eval_count": 10,
+        "eval_duration": 264866844,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "c1a6dcbb8073489b83a26062a2008fd4"
+    },
+    {
+      "case": "mean",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8718783700005588,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "05e3f0055124465a8862c6aa8866de65"
+    },
+    {
+      "case": "slug",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.8773200340001495,
+      "error": "No source change",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "No source change"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.py\":\"def slug(s):\\n return s\\n\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.233046404000561,
+        "seconds": 2.8675998960006837,
+        "tokens_per_second": 27.95542030195167,
+        "eval_count": 16,
+        "eval_duration": 572339812,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "131e35fe5e6044f38ed60f2a99111073"
+    },
+    {
+      "case": "slug",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9880586959998254,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "ca188e940ed8476c9e463569333868d4"
+    },
+    {
+      "case": "test-repair",
+      "profile": "python",
+      "mode": "model",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 3.5952765409992935,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.py\": \"def square(x):\\n return x**2\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0911080240002775,
+        "seconds": 2.6240622129998883,
+        "tokens_per_second": 36.97228175917822,
+        "eval_count": 18,
+        "eval_duration": 486851207,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "132ffc0a12424d2181d0d0696ab65ef3"
+    },
+    {
+      "case": "test-repair",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.0217076530007034,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "c8bb163b27344e9e9163a28ee00c125b"
+    },
+    {
+      "case": "sum",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.727721413999461,
+      "error": "dules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 2,\n  expected: 5,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nnode:assert:150\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n2 !== 5\n\n    at Object.<anonymous> (/workspace/acceptance.cjs:2:8)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 2,\n  expected: 5,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "dules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 2,\n  expected: 5,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.js\": \"module.exports=xs=>xs.length;\"}}\n\n                    ",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.980995563999386,
+        "seconds": 3.299839360999613,
+        "tokens_per_second": 36.463348478094055,
+        "eval_count": 38,
+        "eval_duration": 1042142359,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "1ad0b40b7e584f98bde91523bafec688"
+    },
+    {
+      "case": "sum",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.2704849010006001,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "b18dd65494994a3c960af63e674fb753"
+    },
+    {
+      "case": "unique",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.8352041219995954,
+      "error": "No source change",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "No source change"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.js\": \"module.exports=xs=>xs;\\n\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.2755154800006494,
+        "seconds": 2.8225208710000516,
+        "tokens_per_second": 38.06365774579998,
+        "eval_count": 18,
+        "eval_duration": 472892020,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "b0006ab4561f4652b1d48d103c05cb1e"
+    },
+    {
+      "case": "unique",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.36852561199975753,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "3f1f2062b9c84a97bf8c1b34b7c4ef35"
+    },
+    {
+      "case": "discount",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.3236836350006342,
+      "error": "s/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 980,\n  expected: 800,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nnode:assert:150\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n980 !== 800\n\n    at Object.<anonymous> (/workspace/acceptance.cjs:2:8)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 980,\n  expected: 800,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "s/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 980,\n  expected: 800,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.js\": \"module.exports=(c,p)=>c-p;\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0585921780002536,
+        "seconds": 2.9528505990001577,
+        "tokens_per_second": 24.54007308237834,
+        "eval_count": 19,
+        "eval_duration": 774243823,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "33366c4e99b1452994bed4021ea58db5"
+    },
+    {
+      "case": "discount",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.3183824440002354,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "f5f511301ac64f80b183c320ad88f9f0"
+    },
+    {
+      "case": "url-query",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.7194720430006782,
+      "error": ".js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:48)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\n/search?q=\n^\n\nSyntaxError: Invalid regular expression: missing /\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:48)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": ".js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:48)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.js\": \"/search?q=\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0662095970001246,
+        "seconds": 2.4424107419999928,
+        "tokens_per_second": 36.024764720160164,
+        "eval_count": 12,
+        "eval_duration": 333104188,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "4a31a71e9fae4853ace66ce48ef1864b"
+    },
+    {
+      "case": "url-query",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.28976900699944963,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "19b613bf68524a42a142ce4b81467c76"
+    },
+    {
+      "case": "api-shape",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 2.7104637239999647,
+      "error": "No source change",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "No source change"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.js\": \"module.exports=d=>d;\\n\"}}\n\n",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.124444232999849,
+        "seconds": 2.707186587999786,
+        "tokens_per_second": 35.35116941928374,
+        "eval_count": 17,
+        "eval_duration": 480889325,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "1d2b00ab90164d6a9e24029f04ce43ea"
+    },
+    {
+      "case": "api-shape",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.26824131200010015,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "17ae49b9f35c44bd9be8ac66b68fc1b4"
+    },
+    {
+      "case": "ts-total",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 4.692833867000445,
+      "error": "dules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 5,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nnode:assert:150\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 5\n\n    at Object.<anonymous> (/workspace/acceptance.cjs:2:8)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 5,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "dules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 5,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.ts\": \"export function fn(items: {price:number}[]):number{return 0;}\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.389099430000897,
+        "seconds": 3.1168776340000477,
+        "tokens_per_second": 37.168726108965,
+        "eval_count": 25,
+        "eval_duration": 672608470,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "feb4efc2bec14936b10a06f44efd9c51"
+    },
+    {
+      "case": "ts-total",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.2383626660002847,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "6bfa9d8dd7734fde9ab2ad24ef60929f"
+    },
+    {
+      "case": "ts-null",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 4.045849621999878,
+      "error": "es/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: null,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nnode:assert:150\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 0\n\n    at Object.<anonymous> (/workspace/acceptance.cjs:2:8)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: null,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "es/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: null,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.ts\": \"export function fn(value: number|null):number{return value as number;}\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.1125510169995323,
+        "seconds": 2.8708960630001457,
+        "tokens_per_second": 34.42442998522762,
+        "eval_count": 24,
+        "eval_duration": 697179300,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "be2fe596311f4a548c199ba687fd9598"
+    },
+    {
+      "case": "ts-null",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.1387302749999435,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "99cffc0eaa4d4050a37d41b624c409de"
+    },
+    {
+      "case": "ts-type",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 4.331231785999989,
+      "error": "ace/acceptance.cjs:1:357)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/acceptance.cjs:1\nconst fs=require('fs'),vm=require('vm'),ts=require('/opt/typescript/typescript.js'),assert=require('assert/strict');let source=fs.readFileSync('solution.ts','utf8');const output=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS},reportDiagnostics:true});if(output.diagnostics.some(x=>x.category===ts.DiagnosticCategory.Error))throw Error('TypeScript syntax error');const context={exports:{}};vm.runInNewContext(output.outputText,context);const fn=context.exports.fn;\n                                                                                                                                                                                                                                                                                                                                                              ^\n\nError: TypeScript syntax error\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:357)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "ace/acceptance.cjs:1:357)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"solution.ts\": \"export function fn(value:string):number{return parseInt(value, 10);}}\"} }",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.055360818999361,
+        "seconds": 2.905580603999624,
+        "tokens_per_second": 36.76204513923294,
+        "eval_count": 27,
+        "eval_duration": 734453154,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "aff1b59a8ff64876add160d4ee768b35"
+    },
+    {
+      "case": "ts-type",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.128557231000741,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "609a28223073473aaa23916c6ebfae14"
+    },
+    {
+      "case": "next-route",
+      "profile": "next-route",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.579641031999927,
+      "error": "1\nVERIFIED_c4feec752fe94dbea5023a0ffb4377ba\nnode:internal/process/promises:394\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n500 !== 200\n\n    at /workspace/acceptance.cjs:1:111\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 500,\n  expected: 200,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nVERIFIER_MARKER\nnode:internal/process/promises:394\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n500 !== 200\n\n    at /workspace/acceptance.cjs:1:111\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 500,\n  expected: 200,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "1\nVERIFIED_c4feec752fe94dbea5023a0ffb4377ba\nnode:internal/process/promises:394\n    triggerUncaughtException(err, true /* fromPromise */);\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n500 !== 200\n\n    at /workspace/acceptance.cjs:1:111\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 500,\n  expected: 200,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"route.js\":\"exports.GET=()=>new Response(\\\"bad\\\",{status:500});\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.223170100000061,
+        "seconds": 3.0414651780001805,
+        "tokens_per_second": 31.603529758207557,
+        "eval_count": 24,
+        "eval_duration": 759408844,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "115f6573086444c98d127cfdc4179b84"
+    },
+    {
+      "case": "next-route",
+      "profile": "next-route",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.5179721289996451,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "137d5dc7c48c405f9857683ca32a8ed1"
+    },
+    {
+      "case": "multi-import",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 4.107314974000474,
+      "error": "les/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: NaN,\n  expected: 7,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nnode:assert:150\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nNaN !== 7\n\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:80)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: NaN,\n  expected: 7,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "les/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: NaN,\n  expected: 7,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"math.js\":\"exports.add=(a,b)=>a+b;\\n\",\"solution.js\":\"const {add}=require(\\\"./math.js\\\");module.exports=({a, b})=>add(a, b);\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.4106944879995353,
+        "seconds": 3.81956360499953,
+        "tokens_per_second": 36.43305021762964,
+        "eval_count": 47,
+        "eval_duration": 1290037472,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "3c2c45b29bc340018127a62fb7564775"
+    },
+    {
+      "case": "multi-import",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.2675563560005685,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "1eabbe583270404ab4bebdcdd2c8e24d"
+    },
+    {
+      "case": "multi-feature",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 3.7241980279995914,
+      "error": ".js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:52)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nconst {prefix}=require(\"./config.js\");module.exports=prefix+name;\n                                                            ^\n\nReferenceError: name is not defined\n    at Object.<anonymous> (/workspace/solution.js:1:61)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:52)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": ".js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:52)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"config.js\":\"exports.prefix=\\\"Hello\\\";\\n\", \"solution.js\": \"const {prefix}=require(\\\"./config.js\\\");module.exports=prefix+name;\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.2260467790001712,
+        "seconds": 3.353856017999533,
+        "tokens_per_second": 37.009376587470946,
+        "eval_count": 39,
+        "eval_duration": 1053787002,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "2bd9e0438ec74ac8833ff247e7de9cd0"
+    },
+    {
+      "case": "multi-feature",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.2682902720007405,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "56fe98cb08cd4b618f11776cebe7eb40"
+    },
+    {
+      "case": "html-label",
+      "profile": "html",
+      "mode": "model",
+      "passed": false,
+      "status": "awaiting_approval",
+      "seconds": 3.554641437999635,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"index.html\": \"Name\"}}\n\n",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.0485931820003316,
+        "seconds": 2.4313741739997567,
+        "tokens_per_second": 37.29725837618777,
+        "eval_count": 11,
+        "eval_duration": 294927844,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "d4db7bd6c1a6471f90450f514d09f789",
+      "original_grade": true,
+      "rescore_reason": "Require actual label AND input; previous assertion was vacuously true when neither tag existed"
+    },
+    {
+      "case": "html-label",
+      "profile": "html",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 1.0206688959997336,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "67b0232a457941ceb80749593e9e279a",
+      "original_grade": true,
+      "rescore_reason": "Require actual label AND input; previous assertion was vacuously true when neither tag existed"
+    },
+    {
+      "case": "css-hidden",
+      "profile": "html",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 4.079528836000463,
+      "error": "                                                  ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 3, in <module>\n    assert re.search(r'\\.hidden\\s*\\{[^}]*display\\s*:\\s*none',Path('style.css').read_text())\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 3, in <module>\n    assert re.search(r'\\.hidden\\s*\\{[^}]*display\\s*:\\s*none',Path('style.css').read_text())\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                                  ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 3, in <module>\n    assert re.search(r'\\.hidden\\s*\\{[^}]*display\\s*:\\s*none',Path('style.css').read_text())\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "inference": {
+        "text": "{\"files\":{\"style.css\": \".hidden { visibility: hidden; }\"}}",
+        "model": "qwen2.5-coder:0.5b",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 2.4613958549998642,
+        "seconds": 3.0067779580003844,
+        "tokens_per_second": 32.081176283597436,
+        "eval_count": 16,
+        "eval_duration": 498734830,
+        "effective_max_tokens": 256,
+        "context": 1024
+      },
+      "task_id": "e13f203952c4450c8c81f85e7569e0d2"
+    },
+    {
+      "case": "css-hidden",
+      "profile": "html",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.9203280970004926,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "5178981198a44d6e847033a642082a88"
+    },
+    {
+      "case": "fastapi-status",
+      "profile": "fastapi",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "707e0009154347539268798a361f3113"
+    },
+    {
+      "case": "fastapi-status",
+      "profile": "fastapi",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "b0ede2a37606458fa4731d47231c3829"
+    },
+    {
+      "case": "wordpress-escape",
+      "profile": "php",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "ee290c60932040ddb2cd1262e0746506"
+    },
+    {
+      "case": "wordpress-escape",
+      "profile": "php",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "1c49bb89961e4eadbc55e0d9cca5d4c8"
+    },
+    {
+      "case": "php-total",
+      "profile": "php",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "f56553ff22b348c5b448e3613a34bb7d"
+    },
+    {
+      "case": "php-total",
+      "profile": "php",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "710c196e942249dbb00bfc3bd83d901b"
+    }
+  ],
+  "regression": [
+    {
+      "case": "add",
+      "passed": true,
+      "task": {
+        "id": "a480df3b423e4949962d0e630e57abd6",
+        "status": "awaiting_approval",
+        "created_at": 1792390962.5834765,
+        "request": {
+          "repository_id": "972aa810e8b4d974",
+          "path": "solution.py",
+          "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+          "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+        "events": [
+          {
+            "time": 1792390962.5852077,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+            }
+          },
+          {
+            "time": 1792390962.585213,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390965.6750855,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "qwen-coder",
+              "sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772"
+            }
+          },
+          {
+            "time": 1792390966.751745,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792390966.7521443,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 7248,
+        "process_created": 1792390961.5,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n-def add(a,b):\n-    return None\n+def add(a, b):\n+    return a + b\n",
+        "candidate_sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 4.167358513000181,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "subtract",
+      "passed": true,
+      "task": {
+        "id": "3be8cb92bbf14fbf985f882014e208a3",
+        "status": "awaiting_approval",
+        "created_at": 1792390966.7615135,
+        "request": {
+          "repository_id": "e74cc98550968f7e",
+          "path": "solution.py",
+          "goal": "Implement subtract(a,b) as a pure Python function. Required behavior: a-b. Preserve the function name.",
+          "acceptance": "assert subtract(8,3)==5 and subtract(0,4)==-4",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743",
+        "events": [
+          {
+            "time": 1792390966.7630897,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743"
+            }
+          },
+          {
+            "time": 1792390966.763092,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390969.1401198,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "qwen-coder",
+              "sha256": "1c3752902e3c25dbf44409955d96315a96a8e102f18177505969713da587e2d6"
+            }
+          },
+          {
+            "time": 1792390970.007975,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792390970.00822,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "1c3752902e3c25dbf44409955d96315a96a8e102f18177505969713da587e2d6"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 7248,
+        "process_created": 1792390961.5,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n-def subtract(a,b):\n-    return None\n+def subtract(a, b):\n+    return a - b\n",
+        "candidate_sha256": "1c3752902e3c25dbf44409955d96315a96a8e102f18177505969713da587e2d6",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 3.2453862459997254,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "multiply",
+      "passed": true,
+      "task": {
+        "id": "fb77542d9fce4f7897368696f9d0881f",
+        "status": "awaiting_approval",
+        "created_at": 1792390970.0163577,
+        "request": {
+          "repository_id": "18f1b05b05d3f080",
+          "path": "solution.py",
+          "goal": "Implement multiply(a,b) as a pure Python function. Required behavior: a*b. Preserve the function name.",
+          "acceptance": "assert multiply(3,4)==12 and multiply(-2,3)==-6",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03",
+        "events": [
+          {
+            "time": 1792390970.0176315,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03"
+            }
+          },
+          {
+            "time": 1792390970.0176337,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390972.3412583,
+            "role": "coder",
+            "action": "propose",
+            "detail": {
+              "attempt": 1,
+              "source": "qwen-coder",
+              "sha256": "12141ca5171ea43624b961e04b6ef0e709db4d1b90d1c967bea2706afe4aad27"
+            }
+          },
+          {
+            "time": 1792390973.2334774,
+            "role": "tester",
+            "action": "sandbox_test",
+            "detail": {
+              "passed": true,
+              "output": "Exit code: 0\nVERIFICATION_MARKER\n"
+            }
+          },
+          {
+            "time": 1792390973.233813,
+            "role": "reviewer",
+            "action": "review",
+            "detail": {
+              "decision": "scoped candidate passed syntax, permission profile and acceptance checks; owner review required",
+              "sha256": "12141ca5171ea43624b961e04b6ef0e709db4d1b90d1c967bea2706afe4aad27"
+            }
+          }
+        ],
+        "tool_calls": 5,
+        "attempts": 1,
+        "failed_attempts": 0,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 7248,
+        "process_created": 1792390961.5,
+        "diff": "--- a/solution.py\n+++ b/solution.py\n@@ -1,2 +1,2 @@\n-def multiply(a,b):\n-    return None\n+def multiply(a, b):\n+    return a * b\n",
+        "candidate_sha256": "12141ca5171ea43624b961e04b6ef0e709db4d1b90d1c967bea2706afe4aad27",
+        "verification": {
+          "passed": true,
+          "profile": "pure-python-rootless",
+          "claim_kind": "verified_by_execution"
+        },
+        "seconds": 3.2164173319997644,
+        "peak_rss_mb": 235.3046875
+      }
+    }
+  ],
+  "before_swap_bytes": 6604124160,
+  "baseline": "Frozen 20-task suite; one proposal per final task; acceptance/control never included in prompt; blocked profiles reported separately",
+  "seconds": 84.43264994899982,
+  "sampled_ollama_tree_rss_bytes": 0,
+  "after_swap_bytes": 6900224000,
+  "summary": {
+    "model": {
+      "passed": 2,
+      "executed": 17,
+      "blocked": 3
+    },
+    "control": {
+      "passed": 17,
+      "executed": 17,
+      "blocked": 3
+    }
+  }
+}

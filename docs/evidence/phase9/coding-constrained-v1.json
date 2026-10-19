@@ -1,0 +1,1083 @@
+{
+  "model": "qwen-coder",
+  "origin": "external open-weight inference",
+  "cases": [
+    {
+      "case": "clamp",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009106089999477263,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "2056062ad18344b9a6a975f3b25e4a5d"
+    },
+    {
+      "case": "clamp",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8421456460000627,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "104fa4b37e7049b38000009cc877d317"
+    },
+    {
+      "case": "mean",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009812221999709436,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "5fb424bd7615404fad3115179f8af3df"
+    },
+    {
+      "case": "mean",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.5360448900000847,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "c3d0ead9e56a45448be6cb18e437fdc9"
+    },
+    {
+      "case": "slug",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009607637000044633,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "75347608a42b430b97b45e51fd3c94bb"
+    },
+    {
+      "case": "slug",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.824843804000011,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "df44b83c36b14f57868d987e68dae250"
+    },
+    {
+      "case": "test-repair",
+      "profile": "python",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.022119565999673796,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "c357a86562bb4229849d1bde782fba7d"
+    },
+    {
+      "case": "test-repair",
+      "profile": "python",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.6400217749996955,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "93f56b6a124c44368385032081076d97"
+    },
+    {
+      "case": "sum",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009575893999681284,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "6ef83ac763ca4146a216b7a54169bfaa"
+    },
+    {
+      "case": "sum",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.3354045260002749,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "212d1c9090bd4826a7dcec764bb1d852"
+    },
+    {
+      "case": "unique",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009251312999367656,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "a7d87f3ea21344aabd1516826a214f03"
+    },
+    {
+      "case": "unique",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.23472999299974617,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "5eca684d2ccc4469ba8e842aab95fb38"
+    },
+    {
+      "case": "discount",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.00892755400036549,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "2f8ac7162c63432b8864a2c9c79024f1"
+    },
+    {
+      "case": "discount",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.23480770900005155,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "53c5ab2fc1f94ba692bfa0cce85904a2"
+    },
+    {
+      "case": "url-query",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009109701999477693,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "5e6aaaa891f542cea9f93333dd7a6f73"
+    },
+    {
+      "case": "url-query",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.2848897859994395,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "86a9f2cd9b6a461eb8258ae093184b53"
+    },
+    {
+      "case": "api-shape",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.00932723400001123,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "3af62224d53f42568da44a89a7f50e46"
+    },
+    {
+      "case": "api-shape",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.23520073799954844,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "2eb04e08bd9048899b5f6ecaeaf62abd"
+    },
+    {
+      "case": "ts-total",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009617628999876615,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "ff1632140e8e46d2b76a45f5acc7342b"
+    },
+    {
+      "case": "ts-total",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8182128789994749,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "a3f5e8399c7d43c8b313e2f3957f6454"
+    },
+    {
+      "case": "ts-null",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.011243222999837599,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "f53e020b71fe4682958b1ccf8ea54099"
+    },
+    {
+      "case": "ts-null",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8362547100005031,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "1a8ada68a59f4df29cb2f93afc15fe9c"
+    },
+    {
+      "case": "ts-type",
+      "profile": "typescript",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009461079000175232,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "1ee123375e424328a2a8d62172458a80"
+    },
+    {
+      "case": "ts-type",
+      "profile": "typescript",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8698611560002973,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "7e72d093f8544bb3ba1779e2531d609a"
+    },
+    {
+      "case": "next-route",
+      "profile": "next-route",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009508258000096248,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "e10f13351b614bdda8bf994b0169b27e"
+    },
+    {
+      "case": "next-route",
+      "profile": "next-route",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.3349533580003481,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "a53363f7080641bdbd975021263b9f3f"
+    },
+    {
+      "case": "multi-import",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009428571999706037,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "93d01fac022b47c3a756a972bcdb3ee5"
+    },
+    {
+      "case": "multi-import",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.26803112300058274,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "b162650a78fd4f64a3f098df137c1718"
+    },
+    {
+      "case": "multi-feature",
+      "profile": "node",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.011610594000558194,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "c925bed83b0f4b7b92f598d5cd8b6a00"
+    },
+    {
+      "case": "multi-feature",
+      "profile": "node",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.31931831800011423,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "75324b30414a4c2188cb8f5c215bbc47"
+    },
+    {
+      "case": "html-label",
+      "profile": "html",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.02186441800040484,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "bb26b061e3cc472083b7f42dae36ecf5"
+    },
+    {
+      "case": "html-label",
+      "profile": "html",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.7300968260005902,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "0895993a9dd84c12a1d958388fd97361"
+    },
+    {
+      "case": "css-hidden",
+      "profile": "html",
+      "mode": "model",
+      "passed": false,
+      "status": "failed",
+      "seconds": 0.009744629999659082,
+      "error": "503: Local assistant unavailable or invalid/incomplete response",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "503: Local assistant unavailable or invalid/incomplete response"
+        }
+      ],
+      "inference": null,
+      "task_id": "2b3a2feca66f4810b8be82f2d6142eb9"
+    },
+    {
+      "case": "css-hidden",
+      "profile": "html",
+      "mode": "control",
+      "passed": true,
+      "status": "awaiting_approval",
+      "seconds": 0.8190606709995336,
+      "error": null,
+      "events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "inference": null,
+      "task_id": "c28dcc0d44f146f4b3bf69fb9ccb1ad5"
+    },
+    {
+      "case": "fastapi-status",
+      "profile": "fastapi",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "45645671cd664c22aec06ae7cdd7a5fb"
+    },
+    {
+      "case": "fastapi-status",
+      "profile": "fastapi",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "38a23d0124784b09872f02e4532c2364"
+    },
+    {
+      "case": "wordpress-escape",
+      "profile": "php",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "769191b5b67e42568deeb08f9c34fb72"
+    },
+    {
+      "case": "wordpress-escape",
+      "profile": "php",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "88c23a14d48c4a5191514ef23aaa1c0d"
+    },
+    {
+      "case": "php-total",
+      "profile": "php",
+      "mode": "model",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "1236a013017040018dd920fd56fd5fa3"
+    },
+    {
+      "case": "php-total",
+      "profile": "php",
+      "mode": "control",
+      "passed": false,
+      "status": "blocked",
+      "seconds": null,
+      "error": "No verified runtime for this profile; not scored as a pass",
+      "events": [],
+      "inference": null,
+      "task_id": "f19a3da4478d4a6da0dccb6d7dfbdb1e"
+    }
+  ],
+  "regression": [
+    {
+      "case": "add",
+      "passed": false,
+      "task": {
+        "id": "288219c0724542f096e750dbe27ffda7",
+        "status": "failed",
+        "created_at": 1792390486.870093,
+        "request": {
+          "repository_id": "bef82629634e4b6a",
+          "path": "solution.py",
+          "goal": "Implement add(a,b) as a pure Python function. Required behavior: a+b. Preserve the function name.",
+          "acceptance": "assert add(2,3)==5 and add(-2,2)==0",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2",
+        "events": [
+          {
+            "time": 1792390486.8719826,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "6c64ea9d625fd1b1bf36d2ec6ffd16a35382458f49acb6d7b5f987a45f40b9a2"
+            }
+          },
+          {
+            "time": 1792390486.8719862,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390486.9237137,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "503: Local assistant unavailable or invalid/incomplete response"
+            }
+          },
+          {
+            "time": 1792390486.9364536,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "503: Local assistant unavailable or invalid/incomplete response"
+            }
+          }
+        ],
+        "tool_calls": 4,
+        "attempts": 2,
+        "failed_attempts": 2,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 6424,
+        "process_created": 1792390485.83,
+        "error": "503: Local assistant unavailable or invalid/incomplete response",
+        "seconds": 0.0671048679996602,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "subtract",
+      "passed": false,
+      "task": {
+        "id": "475c17d13cb7443f9ad9ff145ff52151",
+        "status": "failed",
+        "created_at": 1792390486.9436133,
+        "request": {
+          "repository_id": "e4826a3db3fd8d2e",
+          "path": "solution.py",
+          "goal": "Implement subtract(a,b) as a pure Python function. Required behavior: a-b. Preserve the function name.",
+          "acceptance": "assert subtract(8,3)==5 and subtract(0,4)==-4",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743",
+        "events": [
+          {
+            "time": 1792390486.9450169,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "531a3804a45ca981e9acac45941d86ebfce32e8f7c1e865cdf038fe1d40ee743"
+            }
+          },
+          {
+            "time": 1792390486.9450185,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390486.9571233,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "503: Local assistant unavailable or invalid/incomplete response"
+            }
+          },
+          {
+            "time": 1792390486.9670744,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "503: Local assistant unavailable or invalid/incomplete response"
+            }
+          }
+        ],
+        "tool_calls": 4,
+        "attempts": 2,
+        "failed_attempts": 2,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 6424,
+        "process_created": 1792390485.83,
+        "error": "503: Local assistant unavailable or invalid/incomplete response",
+        "seconds": 0.02441320900015853,
+        "peak_rss_mb": 235.3046875
+      }
+    },
+    {
+      "case": "multiply",
+      "passed": false,
+      "task": {
+        "id": "f3efad636dcd4aba92299fc927bbf38b",
+        "status": "failed",
+        "created_at": 1792390486.9740584,
+        "request": {
+          "repository_id": "4aa4828020001bb2",
+          "path": "solution.py",
+          "goal": "Implement multiply(a,b) as a pure Python function. Required behavior: a*b. Preserve the function name.",
+          "acceptance": "assert multiply(3,4)==12 and multiply(-2,3)==-6",
+          "provider": "qwen-coder",
+          "allow_hosted": false,
+          "prompt_style": "concise",
+          "max_attempts": 2,
+          "proposed_code": null,
+          "documentation_url": null
+        },
+        "original_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03",
+        "events": [
+          {
+            "time": 1792390486.9753985,
+            "role": "planner",
+            "action": "inspect",
+            "detail": {
+              "path": "solution.py",
+              "source_sha256": "f651177845ccc552742c8a6a96eb5ac665cef42726e62069b1fb5631b0c75e03"
+            }
+          },
+          {
+            "time": 1792390486.9754007,
+            "role": "planner",
+            "action": "plan",
+            "detail": [
+              "Propose one scoped Python change",
+              "Run owner acceptance checks in isolated staging",
+              "Review diff and await owner approval"
+            ]
+          },
+          {
+            "time": 1792390486.984339,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "503: Local assistant unavailable or invalid/incomplete response"
+            }
+          },
+          {
+            "time": 1792390486.9944615,
+            "role": "reviewer",
+            "action": "revise",
+            "detail": {
+              "reason": "503: Local assistant unavailable or invalid/incomplete response"
+            }
+          }
+        ],
+        "tool_calls": 4,
+        "attempts": 2,
+        "failed_attempts": 2,
+        "unsafe_attempts": 0,
+        "budget": {
+          "max_seconds": 90,
+          "max_tool_calls": 24,
+          "max_attempts": 2,
+          "max_model_tokens": 1024,
+          "sandbox_seconds_per_attempt": 10
+        },
+        "acceptance_criteria": "Owner-supplied Python assertions must finish with exit 0 and an unmodified verifier marker; reviewer must accept scoped diff; owner must approve before original edit.",
+        "model_origin": "external reference",
+        "structured_plan": [
+          {
+            "id": "inspect",
+            "tool": "registered_source_read",
+            "depends_on": [],
+            "criterion": "source hash recorded"
+          },
+          {
+            "id": "propose",
+            "tool": "bounded_model_proposal",
+            "depends_on": [
+              "inspect"
+            ],
+            "criterion": "staged pure Python file"
+          },
+          {
+            "id": "test",
+            "tool": "rootless_python_sandbox",
+            "depends_on": [
+              "propose"
+            ],
+            "criterion": "owner assertions and fresh verifier marker"
+          },
+          {
+            "id": "review",
+            "tool": "diff_and_hash_review",
+            "depends_on": [
+              "test"
+            ],
+            "criterion": "verified candidate hash"
+          },
+          {
+            "id": "apply",
+            "tool": "atomic_one_file_replace",
+            "depends_on": [
+              "review"
+            ],
+            "criterion": "exact owner approval and unchanged source"
+          }
+        ],
+        "constraints": [
+          "one registered Python file",
+          "no host shell",
+          "no unapproved hosted inference",
+          "original preserved until approval"
+        ],
+        "dependencies": [
+          "inspect",
+          "propose",
+          "sandbox_test",
+          "review",
+          "owner_approval"
+        ],
+        "pid": 6424,
+        "process_created": 1792390485.83,
+        "error": "503: Local assistant unavailable or invalid/incomplete response",
+        "seconds": 0.02113645000008546,
+        "peak_rss_mb": 235.3046875
+      }
+    }
+  ],
+  "before_swap_bytes": 6731284480,
+  "baseline": "Frozen 20-task suite; one proposal per final task; acceptance/control never included in prompt; blocked profiles reported separately",
+  "seconds": 9.934830879999936,
+  "sampled_ollama_tree_rss_bytes": 0,
+  "after_swap_bytes": 6725910528,
+  "summary": {
+    "model": {
+      "passed": 0,
+      "executed": 17,
+      "blocked": 3
+    },
+    "control": {
+      "passed": 17,
+      "executed": 17,
+      "blocked": 3
+    }
+  },
+  "excluded_from_accuracy": "Resource/connection failures after Ollama cgroup OOM. Not a successful model evaluation; requests with no inference are blocked, not capability failures."
+}

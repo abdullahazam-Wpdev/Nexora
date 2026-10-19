@@ -156,6 +156,10 @@ def propose(
             + original
             + ("\nPrevious error: " + error if error else "")
         )
+    if len(prompt) > 3500:
+        raise ValueError(
+            "Selected source exceeds the tiny assistant context budget; choose a smaller module"
+        )
     if provider == "ollama":
         from nexora import reference
 
@@ -188,6 +192,12 @@ def propose(
             text = result.get("message", {}).get("content", "")
         finally:
             reference._lock.release()
+    elif provider == "qwen-coder":
+        from nexora.assistant_backend import generate
+
+        text = generate("qwen-coder", [{"role": "user", "content": prompt}], 256)[
+            "text"
+        ]
     elif provider == "core":
         from nexora.research import infer_run
 
@@ -224,7 +234,7 @@ class CodingTask(BaseModel):
     goal: str = Field(min_length=3, max_length=1200)
     acceptance: str = Field(min_length=3, max_length=6000)
     provider: str = Field(
-        default="ollama", pattern="^(ollama|core|nvidia-gpt-oss-20b)$"
+        default="ollama", pattern="^(ollama|core|qwen-coder|nvidia-gpt-oss-20b)$"
     )
     allow_hosted: bool = False
     prompt_style: str = Field(default="standard", pattern="^(standard|concise)$")
@@ -413,6 +423,7 @@ def execute(store, task_id, proposer=None, runner=None):
                         )
                     )
                     checkpoint()
+                    (dest / f"proposal-{task['attempts']}.txt").write_text(code)
                     check_python(code)
                     event(
                         task,

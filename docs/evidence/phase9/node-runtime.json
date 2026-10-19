@@ -1,0 +1,34 @@
+{
+  "node_sha256": "fde6a4bf8d0562f7751d1a2d6cb9b417c4cfe107bbcb0aa3e9a24e125e348f48",
+  "libraries": [
+    {
+      "name": "libdl.so.2",
+      "sha256": "439eed74887fc36c41e6742bf718d5d60dc838fd1c4ae5a054cdb58d6c26faee"
+    },
+    {
+      "name": "libstdc++.so.6",
+      "sha256": "1127b859107dc29531c5f9173bf6d191f090174372974219ee66efd4072f3852"
+    },
+    {
+      "name": "libm.so.6",
+      "sha256": "c8e4c13df8f5a8d8ccd300f5522760ebcb76cd1665c0213fe02488f465e88031"
+    },
+    {
+      "name": "libgcc_s.so.1",
+      "sha256": "ce1e741d6f6b1e12a587b46d3ecaaf5574021e63aa7a64df5a622b0a124c513c"
+    },
+    {
+      "name": "libpthread.so.0",
+      "sha256": "1e90b2a47bb353c755e5e2c0e4ecd2968064eb4d1a1aa67977d1fc96ba0be458"
+    },
+    {
+      "name": "libc.so.6",
+      "sha256": "1eba214afe32e517a17b22879d708ebf845e1d8d21e4c24d4f659b0e1a2bf1b0"
+    },
+    {
+      "name": "ld-linux-x86-64.so.2",
+      "sha256": "b3e7ab4c6e985ea0f05a9580fa5e5e5a0d29ee3b890e13a327db0e80b5eebcbd"
+    }
+  ],
+  "distribution": "Local runtime copies only; not redistributed in Git"
+}

@@ -55,3 +55,20 @@ Phase 9 should first establish a stronger authorized assistant backend on unseen
 utilities, extend one multi-file sandbox profile, and improve diverse licensed
 corpora/task-family holdouts and argument-level evaluation. Do not scale Core
 from repetitive JSON loss or buy hardware from toy throughput extrapolations.
+
+## Phase 9 measured update — 2026-10-19
+
+Preserved the 96-test baseline, browser/coding/hash/retrieval fixtures and selected
+Core. Added a real Qwen evaluation, scoped multi-file Node/TS/Python engine,
+streamed persistent offline chat, strict tool schemas, literal source-field
+conflict/date checks and new reproducible mixed instruction pilots. Corrected
+mixed coding is 2/17 (3 additional blocked), while supplied controls pass 17/17.
+Qwen is disabled after normal-cap OOM; the temporary approved 1,152 MiB profile
+was restored to 900 MiB. Core's old tool target fell 6/16→5/16; strict new argument
+accuracy is 1/11 and no candidate was promoted. See PHASE9_DELIVERY.md.
+
+Phase 10 must establish sustainable capable assistant compute and a fresh
+untouched benchmark, then improve licensed instruction/task-family data. Do not
+claim progress from repetitive validation loss or purchase hardware from toy
+metrics. Remaining general coding, framework and semantic research targets stay
+explicitly incomplete.

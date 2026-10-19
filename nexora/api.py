@@ -429,3 +429,73 @@ def phase8_evaluations():
         "models": rows,
         "warning": "Small synthetic pilot; no promoted checkpoint or professional assistant capability",
     }
+
+
+from nexora.workspace_code import router as workspace_code_router
+
+app.include_router(workspace_code_router(STORE))
+
+from nexora.tool_protocol import router as tool_protocol_router
+
+app.include_router(tool_protocol_router(STORE))
+
+
+@app.get("/api/assistant/status")
+def assistant_status():
+    from nexora.config import ROOT
+    import json
+
+    path = ROOT / "tooling/reference/qwen-coder.json"
+    candidate = (
+        json.loads(path.read_text())
+        if path.exists()
+        else {"enabled": False, "disabled_reason": "Candidate not installed"}
+    )
+    return {
+        "offline_baseline": "SmolLM2 135M external",
+        "qwen_enabled": candidate.get("enabled", False),
+        "qwen_status": candidate.get("disabled_reason"),
+        "hosted_required": False,
+    }
+
+
+@app.get("/api/evaluations/phase9")
+def phase9_evaluations():
+    import json
+    from nexora.config import ROOT
+
+    evidence = ROOT / "docs/evidence/phase9"
+
+    def read(name):
+        path = evidence / name
+        return json.loads(path.read_text()) if path.exists() else {}
+
+    coding = read("coding-approved-1152.json")
+    mixed = read("instruction-pilot-explicit.json")
+    retrieval = read("retrieval.json")
+    manifest = json.loads((ROOT / "tooling/reference/qwen-coder.json").read_text())
+    return {
+        "assistant": "SmolLM2 offline baseline; Qwen experimental and disabled at normal cap",
+        "qwen_enabled": manifest.get("enabled", False),
+        "coding": {
+            "passed": coding.get("summary", {}).get("model", {}).get("passed"),
+            "supported_total": 17,
+            "runtime_blocked": 3,
+            "protocol": "Owner-approved 1152 MiB model evaluation; not the production memory profile",
+        },
+        "retrieval": {
+            "passed": retrieval.get("passed"),
+            "total": 20,
+            "protocol": "Explicit key:value evidence, not general semantic QA",
+        },
+        "core": {
+            "tool_correct": mixed.get("tool_correct"),
+            "tool_total": 11,
+            "arguments_exact": sum(
+                r["exact"] for r in mixed.get("records", []) if r["kind"] == "tool"
+            ),
+            "instruction_exact": mixed.get("instruction_exact"),
+            "instruction_total": 8,
+            "promoted": False,
+        },
+    }

@@ -1,0 +1,20 @@
+"""Browser checks use fixture threads only; never publish private chat screenshots."""
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+ browser=p.chromium.launch(headless=True);page=browser.new_page(viewport={'width':1280,'height':900})
+ page.goto('http://127.0.0.1:3001')
+ page.wait_for_function("document.querySelector('option[value=\"qwen-coder\"]')?.disabled === true")
+ page.get_by_role('button',name='New conversation',exact=True).click()
+ page.get_by_role('textbox',name='Message',exact=True).fill('Say hello briefly.')
+ page.get_by_role('button',name='Send message',exact=True).click()
+ page.get_by_role('button',name='Stop generating',exact=True).wait_for(timeout=10000)
+ page.get_by_role('button',name='Send message',exact=True).wait_for(timeout=60000)
+ page.get_by_role('button',name='Workspace Code',exact=True).click()
+ page.get_by_role('heading',name='Scoped workspace coding',exact=True).wait_for()
+ page.wait_for_function("Array.from(document.querySelectorAll('option')).some(o => o.textContent === 'Qwen coder · requires verified memory profile' && o.disabled)")
+ page.get_by_role('button',name='Evaluations',exact=True).click()
+ page.get_by_role('heading',name='Phase 9',exact=True).wait_for()
+ page.get_by_text('Expanded coding: 2/17;',exact=False).wait_for()
+ page.get_by_role('button',name='Library',exact=True).click()
+ page.get_by_role('heading',name='Document retrieval',exact=True).wait_for()
+ browser.close();print('UI passed: offline token chat, disabled candidate, scoped coding view, corrected Phase9 metrics, Library')

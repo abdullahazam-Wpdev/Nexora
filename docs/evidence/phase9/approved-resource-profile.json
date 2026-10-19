@@ -1,0 +1,5 @@
+{
+  "owner_approved_memory_mib": 1152,
+  "measurements": "MemoryCurrent=505212928\nMemoryPeak=1207963648\n",
+  "scope": "Bounded rerun completed; normal 900MiB profile restored afterwards"
+}

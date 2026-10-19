@@ -1,0 +1,122 @@
+{
+  "clamp": {
+    "patch": {
+      "solution.py": "def clamp(x, low, high):\n return max(low, min(high, x))\n"
+    },
+    "test": "from pathlib import Path\nns={}\nexec(compile(Path('solution.py').read_text(),'solution.py','exec'),ns)\nglobals().update(ns)\nassert clamp(-4,0,7)==0 and clamp(15,0,7)==7 and clamp(2,0,7)==2"
+  },
+  "mean": {
+    "patch": {
+      "solution.py": "def mean(xs):\n return sum(xs)/len(xs) if xs else 0\n"
+    },
+    "test": "from pathlib import Path\nns={}\nexec(compile(Path('solution.py').read_text(),'solution.py','exec'),ns)\nglobals().update(ns)\nassert mean([2,4])==3 and mean([])==0"
+  },
+  "slug": {
+    "patch": {
+      "solution.py": "def slug(s):\n return \"-\".join(s.lower().split())\n"
+    },
+    "test": "from pathlib import Path\nns={}\nexec(compile(Path('solution.py').read_text(),'solution.py','exec'),ns)\nglobals().update(ns)\nassert slug(\"  Red   Kite \")==\"red-kite\""
+  },
+  "test-repair": {
+    "patch": {
+      "solution.py": "def square(x):\n return x*x\n"
+    },
+    "test": "from pathlib import Path\nns={}\nexec(compile(Path('solution.py').read_text(),'solution.py','exec'),ns)\nglobals().update(ns)\nassert square(-3)==9 and square(0)==0 and square(4)==16"
+  },
+  "sum": {
+    "patch": {
+      "solution.js": "module.exports=xs=>xs.reduce((a,b)=>a+b,0);\n"
+    },
+    "test": "const assert=require('assert/strict');const fn=require('./solution.js');\nassert.equal(fn([2,3]),5);assert.equal(fn([]),0);"
+  },
+  "unique": {
+    "patch": {
+      "solution.js": "module.exports=xs=>[...new Set(xs)];\n"
+    },
+    "test": "const assert=require('assert/strict');const fn=require('./solution.js');\nassert.deepEqual(fn([2,1,2]),[2,1]);"
+  },
+  "discount": {
+    "patch": {
+      "solution.js": "module.exports=(c,p)=>Math.round(c*(1-p/100));\n"
+    },
+    "test": "const assert=require('assert/strict');const fn=require('./solution.js');\nassert.equal(fn(1000,20),800);assert.equal(fn(105,10),95);"
+  },
+  "url-query": {
+    "patch": {
+      "solution.js": "module.exports=s=>\"/search?q=\"+encodeURIComponent(s);\n"
+    },
+    "test": "const assert=require('assert/strict');const fn=require('./solution.js');\nassert.equal(fn(\"a & b\"),\"/search?q=a%20%26%20b\");"
+  },
+  "api-shape": {
+    "patch": {
+      "solution.js": "module.exports=d=>Array.isArray(d.items)?d.items:[];\n"
+    },
+    "test": "const assert=require('assert/strict');const fn=require('./solution.js');\nassert.deepEqual(fn({items:[1]}),[1]);assert.deepEqual(fn({}),[]);"
+  },
+  "ts-total": {
+    "patch": {
+      "solution.ts": "export function fn(items: {price:number}[]):number{return items.reduce((s,x)=>s+x.price,0);}\n"
+    },
+    "test": "const fs=require('fs'),vm=require('vm'),ts=require('/opt/typescript/typescript.js'),assert=require('assert/strict');let source=fs.readFileSync('solution.ts','utf8');const output=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS},reportDiagnostics:true});if(output.diagnostics.some(x=>x.category===ts.DiagnosticCategory.Error))throw Error('TypeScript syntax error');const context={exports:{}};vm.runInNewContext(output.outputText,context);const fn=context.exports.fn;\nassert.equal(fn([{price:2},{price:3}]),5);"
+  },
+  "ts-null": {
+    "patch": {
+      "solution.ts": "export function fn(value: number|null):number{return value ?? 0;}\n"
+    },
+    "test": "const fs=require('fs'),vm=require('vm'),ts=require('/opt/typescript/typescript.js'),assert=require('assert/strict');let source=fs.readFileSync('solution.ts','utf8');const output=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS},reportDiagnostics:true});if(output.diagnostics.some(x=>x.category===ts.DiagnosticCategory.Error))throw Error('TypeScript syntax error');const context={exports:{}};vm.runInNewContext(output.outputText,context);const fn=context.exports.fn;\nassert.equal(fn(null),0);assert.equal(fn(4),4);"
+  },
+  "ts-type": {
+    "patch": {
+      "solution.ts": "export function fn(value:string):number{return Number(value);}\n"
+    },
+    "test": "const fs=require('fs'),vm=require('vm'),ts=require('/opt/typescript/typescript.js'),assert=require('assert/strict');let source=fs.readFileSync('solution.ts','utf8');const output=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS},reportDiagnostics:true});if(output.diagnostics.some(x=>x.category===ts.DiagnosticCategory.Error))throw Error('TypeScript syntax error');const context={exports:{}};vm.runInNewContext(output.outputText,context);const fn=context.exports.fn;\nassert.equal(fn(\"12\"),12);assert.equal(typeof fn(\"12\"),\"number\");"
+  },
+  "next-route": {
+    "patch": {
+      "route.js": "exports.GET=()=>Response.json({ready:true},{status:200});\n"
+    },
+    "test": "const assert=require('assert/strict');const {GET}=require('./route.js');(async()=>{const r=await GET();assert.equal(r.status,200);assert.equal((await r.json()).ready,true);})();"
+  },
+  "multi-import": {
+    "patch": {
+      "math.js": "exports.add=(a,b)=>a+b;\n"
+    },
+    "test": "const assert=require('assert/strict');const fn=require('./solution.js');assert.equal(fn(5,2),7);assert.equal(fn(-2,2),0);"
+  },
+  "multi-feature": {
+    "patch": {
+      "solution.js": "const {prefix}=require(\"./config.js\");module.exports=name=>prefix+\", \"+name+\"!\";\n"
+    },
+    "test": "const assert=require('assert/strict');assert.equal(require('./solution.js')('Ari'),'Hello, Ari!');"
+  },
+  "html-label": {
+    "patch": {
+      "index.html": "<label for=\"name\">Name</label><input id=\"name\">\n"
+    },
+    "test": "from pathlib import Path\nfrom html.parser import HTMLParser\nclass P(HTMLParser):\n def __init__(self):super().__init__();self.labels=[];self.inputs=[]\n def handle_starttag(self,t,a):\n  if t=='label':self.labels.append(dict(a))\n  if t=='input':self.inputs.append(dict(a))\np=P();p.feed(Path('index.html').read_text())\nassert len(p.labels)==1 and p.labels[0].get('for')=='name'\nassert len(p.inputs)==1 and p.inputs[0].get('id')=='name'\n"
+  },
+  "css-hidden": {
+    "patch": {
+      "style.css": ".hidden { display: none; }\n"
+    },
+    "test": "from pathlib import Path\nimport re\nassert re.search(r'\\.hidden\\s*\\{[^}]*display\\s*:\\s*none',Path('style.css').read_text())"
+  },
+  "fastapi-status": {
+    "patch": {
+      "app.py": "from fastapi import FastAPI\napp=FastAPI()\n@app.post(\"/items\",status_code=201)\ndef create():return {\"ok\":True}\n"
+    },
+    "test": "assert False # Requires a verified FastAPI container runtime, not AST-only success"
+  },
+  "wordpress-escape": {
+    "patch": {
+      "plugin.php": "<?php function title($s){ return \"<h1>\".esc_html($s).\"</h1>\"; }"
+    },
+    "test": "Requires PHP and WordPress test runtime"
+  },
+  "php-total": {
+    "patch": {
+      "cart.php": "<?php function total($xs){return array_sum($xs);}"
+    },
+    "test": "Requires PHP runtime"
+  }
+}

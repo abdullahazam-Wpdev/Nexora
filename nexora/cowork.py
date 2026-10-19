@@ -1,6 +1,9 @@
 """Persistent local conversations and explicit, bounded workspace actions."""
 
 import json
+import contextvars
+
+_stream_callback = contextvars.ContextVar("cowork_stream_callback", default=None)
 import sqlite3
 import threading
 import uuid
@@ -24,7 +27,7 @@ class Turn(BaseModel):
     text: str = Field(min_length=1, max_length=4000)
     provider: str = Field(
         default="ollama",
-        pattern="^(ollama|core|localai|fcc|nvidia-gpt-oss-20b|nvidia-gemma-7b|nvidia-kimi-k3)$",
+        pattern="^(ollama|core|localai|fcc|qwen-coder|nvidia-gpt-oss-20b|nvidia-gemma-7b|nvidia-kimi-k3)$",
     )
 
 
@@ -295,6 +298,42 @@ def router(store, core_generate):
                 elif body.text.startswith("/"):
                     answer = command(body.text, workspace, catalog)
                     provider = "workspace-tool"
+                elif body.provider == "ollama" and _stream_callback.get() is not None:
+                    from nexora.assistant_backend import generate as assistant_generate
+
+                    context = [
+                        {"role": m["role"], "content": m["text"][-500:]}
+                        for m in history[-4:]
+                        if m["role"] in {"user", "assistant"}
+                    ]
+                    result = assistant_generate(
+                        "smollm2",
+                        memory_context
+                        + context
+                        + [{"role": "user", "content": body.text[-1000:]}],
+                        400,
+                        stream_callback=_stream_callback.get(),
+                    )
+                    answer = result["text"]
+                    provider = "Ollama • external SmolLM2 135M"
+                elif body.provider == "qwen-coder":
+                    from nexora.assistant_backend import generate as assistant_generate
+
+                    context = [
+                        {"role": m["role"], "content": m["text"][-500:]}
+                        for m in history[-4:]
+                        if m["role"] in {"user", "assistant"}
+                    ]
+                    result = assistant_generate(
+                        "qwen-coder",
+                        memory_context
+                        + context
+                        + [{"role": "user", "content": body.text[-1500:]}],
+                        400,
+                        stream_callback=_stream_callback.get(),
+                    )
+                    answer = result["text"]
+                    provider = "Ollama • Qwen2.5-Coder 0.5B Q4_K_M (external)"
                 elif body.provider == "core":
                     from nexora.api import Generation
 
@@ -436,5 +475,62 @@ def router(store, core_generate):
             }
         finally:
             gate.release()
+
+    @routes.post("/threads/{ident}/messages/stream")
+    async def stream_turn(ident: str, body: Turn):
+        import asyncio
+        import queue
+        from fastapi.responses import StreamingResponse
+
+        events = queue.Queue(maxsize=128)
+        cancelled = threading.Event()
+
+        def emit(delta):
+            if cancelled.is_set():
+                raise ValueError("Owner stopped streaming")
+            try:
+                events.put({"type": "delta", "text": delta}, timeout=2)
+            except queue.Full:
+                raise ValueError("Streaming consumer exceeded buffer budget")
+
+        def worker():
+            token = _stream_callback.set(emit)
+            try:
+                result = send(ident, body)
+                if body.provider not in {"qwen-coder", "ollama"}:
+                    emit(result["text"])
+                events.put({"type": "result", "result": result}, timeout=2)
+            except Exception:
+                try:
+                    events.put(
+                        {
+                            "type": "error",
+                            "text": "Conversation failed or was cancelled",
+                        },
+                        timeout=2,
+                    )
+                except queue.Full:
+                    pass
+            finally:
+                _stream_callback.reset(token)
+
+        async def chunks():
+            task = asyncio.create_task(asyncio.to_thread(worker))
+            try:
+                while not task.done() or not events.empty():
+                    try:
+                        event = events.get_nowait()
+                    except queue.Empty:
+                        await asyncio.sleep(0.03)
+                        continue
+                    yield "data: " + json.dumps(event) + "\n\n"
+            finally:
+                cancelled.set()
+
+        return StreamingResponse(
+            chunks(),
+            media_type="text/event-stream",
+            headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+        )
 
     return routes

@@ -1,0 +1,264 @@
+{
+  "id": "phase9-tool-80",
+  "format": "nexora-completion-only-pilot-v1",
+  "training_code_sha256": "cb7f0e66fa21c7619d0a769de55de706b4a0fe14ae65a4603370dcd253b0eab3",
+  "git_parent": "35b212bc9d3d9334b38d3a57ac13bbae5fa6c5fb",
+  "code_state": "working tree; exact training script SHA recorded",
+  "architecture": {
+    "vocab_size": 504,
+    "dim": 96,
+    "layers": 2,
+    "heads": 4,
+    "context": 128,
+    "tie_embeddings": false,
+    "init_std": null
+  },
+  "parameters": 336864,
+  "steps": 80,
+  "balanced_batches": true,
+  "training_seconds": 2.2292455440001504,
+  "training_cpu_seconds": 4.13709007,
+  "completion_tokens_per_second": 1435.4632259387322,
+  "checkpoint_seconds": 0.011098173999926075,
+  "checkpoint_bytes": 1349152,
+  "loss_masking": "Prompt and padding labels -100; only response and EOS supervised",
+  "dataset_sha256": "5c96d84d63a6f8aecdbb104c49c1217393f6e7ccafc22d2bb542949d8cad509d",
+  "tokenizer_sha256": "af4811284db06b0b1c928b3e8fa9d88b2d509c76ac9d395b6236cee61a505a12",
+  "model_sha256": "33ea50990d1186570bd637ba7023a8838f462eeacda5fc88e67d371d7f072dcb",
+  "training_completion_tokens": 3200,
+  "seconds": 5.783255414999985,
+  "resources": {
+    "wall_seconds": 5.783485926000139,
+    "peak_rss_mb": 347.65625,
+    "cpu_seconds": 10.649999999999999,
+    "cpu_percent_one_core": 184.14499726059748,
+    "max_cpu_temperature_c": 60.0,
+    "monitor_samples": 160,
+    "temperature_sensor_reads": 20
+  },
+  "initial_validation": {
+    "completion_loss": 6.458457326889038,
+    "completion_perplexity": 638.075954302075,
+    "completion_targets": 160
+  },
+  "validation": {
+    "completion_loss": 0.3849259693175554,
+    "completion_perplexity": 1.4695055289170398,
+    "completion_targets": 160
+  },
+  "test": {
+    "completion_loss": 0.28722450621426104,
+    "completion_perplexity": 1.3327233845732618,
+    "completion_targets": 160
+  },
+  "baseline_quality": {
+    "schema_valid": 0,
+    "tool_success": 0,
+    "total": 16,
+    "records": [
+      {
+        "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+        "response": "\ufffd verifcu?F\u001a applyingretrChooseits fet\ufffdoolas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+        "response": "\ufffd\ufffd\ufffdres<\ufffdlat\ufffd applying perreadoolas\u0017 public\ufffdsear\u001datx\u0006 stagedev: usingfile source, noZ\ufffd\ufffd4retrChooseits fet\ufffdoolas\u0017 public\ufffdsear\u001datx\u0006",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+        "response": "\ufffd verifcu?FJS6yf failed\ufffd0 as Coargumentsyf failed\ufffd0 as\ufffd\ufffdestU\u019e\ufffdly public\ufffdsear\u001dat verifiedknowlete\ufffdHB\ufffd\ufffdu?F\u001a applyingretr",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+        "response": "\ufffd verifcu?FJS\",\" pationB\ufffd\u017a Reply\ufffd ask\ufffd{ ComputeJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001dat verifiedknowlete\ufffd ask\ufffd{ ComputeJS\",\" pationB\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+        "response": "\ufffd\ufffd\ufffdres<\ufffdlat\ufffd applyingretr%ONcalifdge\u0571\ufffdev: usingact{ ComputeJS6y tool\ufffd\ufffd\u001eyf failed\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+        "response": "\ufffdaile project\ufffd\ufffdithmeticgrequCrequest souVerif expression\ufffd1 pationB9 patch polit verifcu ComputeJS6yf failed\ufffdkno\ufffd expression\ufffd1 pationB9 patch polit verifcu ComputeJS6y",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+        "response": "\ufffd\ufffd\ufffdres<\ufffdestU\u019e\ufffdly public\ufffdsear\u001dat verifiedknowlete\ufffd ask\ufffd{ ComputeJS6yf failed\ufffdkno\ufffd expression\ufffd1 pationB\ufffd\ufffdu?F\u001a applyingretr Compute",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+        "response": "\ufffd verifcu?F\u001aifor\u0004 greeting fresh\ufffdq\ufffd\ufffdestas\u0017 public\ufffdsear\u001dat verifiedknowlete\ufffd ask\u0012boue\ufffdly public\ufffdsear\u001dat verifiedknowle\ufffd\u0006 stagedev:\u0018\ufffdkno",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+        "response": "\ufffd verifapprovbou app RetrieveJS6yf failed\ufffd0 as Coargumentsyf failed\ufffdkno\ufffdas\u0017M\ufffdHB\ufffd\ufffdu?FJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001dat",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+        "response": "\ufffdaile project\ufffdat verifiedknowle\ufffd exactly perreadoolas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+        "response": "\ufffd verifcu?FJS6yf failed\ufffdkno\ufffd expression\ufffd1 pationB9 patch polit verifcu?FJS6yf failed\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffdsion\ufffdle",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+        "response": "\ufffd verifapprovbou app RetrieveJS6y tool\ufffd\ufffd\u001eyf failed\ufffd0 as Coargumentsyf failed\ufffd0 as Coargumentsyf failed\ufffd0 as Coargumentsyf failed\ufffdkno\ufffdas\u0017 public\ufffdsear",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+        "response": "\ufffd verifcu?FJS6yf failed\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffdsionres<\ufffdestU\u019e\ufffdly public\ufffdsear\u001dat verifiedknowlete\ufffdHB\ufffd\ufffdu",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+        "response": "\ufffd verifcu?FJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006 stagedev:\u0018\ufffdkno\ufffdas\u0017 public\ufffdsear\u001datx\u0006\ufffdVerif<\ufffdestU\u019e\ufffdly",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+        "response": "\ufffd\ufffdly public\ufffdsear\u001datx\u0006 stagedev: usingfile source, noZ\ufffd\ufffd4retr%ONcalifdge\u0571\ufffdev:\u0018\ufffdkno\ufffd expressionou\ufffd/pptederifged an exact\ufffd",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+        "response": "\ufffd verifcu ComputeJS6yf failed\ufffdkno\ufffdas\u0017M\ufffdHB\ufffd\ufffdu?F\u001a applyingretr ComputeJS6yf failed\ufffdkno\ufffdas\u0017 public\ufffdsear\u001dat verifiedknowlete\ufffdHB",
+        "schema_valid": false,
+        "correct_tool": false
+      }
+    ]
+  },
+  "quality": {
+    "schema_valid": 14,
+    "tool_success": 5,
+    "total": 16,
+    "records": [
+      {
+        "id": "530ffc80b3abd17d98be52ccea8c54193533879c789cd4dcd08232a4db777102",
+        "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "3cd11b0a6920990b47c4d4522634473846319fce0919e154c4bd2d6254382ce6",
+        "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "5c3deaaf84926a50b3c6697690d4c4aa4490f9281395f3d2f339079e355f1e87",
+        "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "43a100aa8b11223f602d720c679ec6f12fa47af8f1a0b7700a514d6b7972695e",
+        "response": "{\"tool\":\"read_file\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "911ad5fbc3a406e317aa683325e99314d0024970b2b6d42d93b4f7c37708c65a",
+        "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "ff50b83cdbac23215fb8c3d9855501402c20e8a4cd3360258d0fc7eb62a29ae0",
+        "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "387a13eb66cd0d75ddb80c21b4899b2593dc0e767bed78033e85397e6ed95399",
+        "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "7f3c411f74fb0160d4cc571dc52ab6e99e9f5fe9bf2a735bcbe4e97ab88eb284",
+        "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "e988c41937f23aff9aa711a762d51ca320e01bb91f4a78c56fcd75bceaa7a23a",
+        "response": "{\"tool\":\"request_tests\",\"arguments\":{}}",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "8ec92055b8fd90c4c1d081a639d91fb2700f924432c57b52b7cd33f93da14528",
+        "response": "{\"tool\":\"read_tests\",\"arguments\":{}}",
+        "schema_valid": false,
+        "correct_tool": false
+      },
+      {
+        "id": "c5bd3f091884124b1e0c2204e93c0583f1ffedfe6fc967c327b92914a4cc36ec",
+        "response": "{\"tool\":\"search\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "dc3e08cdfa542c6ea138659fac7bef8ba58f98b847e755f1ac62260d7b10a35d",
+        "response": "{\"tool\":\"request_approval\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "2bfcdaf0bdc57ca9c29de1e0aef1dd6383c6d847e59f86f2253dbdeb0c602738",
+        "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "5bb7999a75141feef429bbd78714b95380d8ab37f7c7395c9af324d43f1f5d47",
+        "response": "{\"tool\":\"run_tests\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": false
+      },
+      {
+        "id": "fedc39d0d3ab0a914a2ad6db8939da04e3973feb73b506642b08636b3dfb7dbc",
+        "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      },
+      {
+        "id": "79bf248d73e58859e59a7619adbacae569d405f14934419b0de2524b6ee9fff3",
+        "response": "{\"tool\":\"retry\",\"arguments\":{}}",
+        "schema_valid": true,
+        "correct_tool": true
+      }
+    ]
+  },
+  "last_train_loss": 0.00561638455837965,
+  "checkpoint_roundtrip_verified": true,
+  "selected": false,
+  "warning": "Separate synthetic tool-selection pilot, not a capable assistant. Masked perplexity is not comparable to pretraining perplexity."
+}
