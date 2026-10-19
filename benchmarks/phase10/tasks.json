@@ -1,0 +1,473 @@
+{
+  "version": "phase10-final-v1",
+  "status": "frozen before model selection; one evaluation only",
+  "tasks": [
+    {
+      "id": "01-clamp",
+      "category": "python",
+      "profile": "python",
+      "files": {
+        "solution.py": "def clamp(x,lo,hi):return lo\n"
+      },
+      "request": "Clamp x to inclusive lo/hi, preserving values inside the range.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "02-stable-unique",
+      "category": "python",
+      "profile": "python",
+      "files": {
+        "solution.py": "def unique(xs):return xs\n"
+      },
+      "request": "Remove duplicates preserving first occurrence order.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "03-chunk",
+      "category": "python",
+      "profile": "python",
+      "files": {
+        "solution.py": "def chunks(xs,n):return [xs]\n"
+      },
+      "request": "Split a list into chunks of size n; retain the final partial chunk.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "04-median",
+      "category": "python",
+      "profile": "python",
+      "files": {
+        "solution.py": "def median(xs):return xs[0]\n"
+      },
+      "request": "Return median for a nonempty numeric list, averaging the two center items for even lengths.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "05-headers",
+      "category": "api-integration",
+      "profile": "python",
+      "files": {
+        "solution.py": "def header(headers,name):return headers.get(name)\n"
+      },
+      "request": "Retrieve an HTTP header case insensitively; return None when absent.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "06-retry",
+      "category": "api-integration",
+      "profile": "python",
+      "files": {
+        "solution.py": "def retry(status):return True\n"
+      },
+      "request": "Retry only HTTP 429 or server error status codes 500 through 599.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "07-pagination",
+      "category": "api-integration",
+      "profile": "python",
+      "files": {
+        "solution.py": "def offset(page,size):return page*size\n"
+      },
+      "request": "Calculate zero-based offset from one-based page and positive page size.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "08-test-repair",
+      "category": "test-repair",
+      "profile": "python",
+      "files": {
+        "solution.py": "def expected_discount():return 81\n"
+      },
+      "request": "Correct a test helper: a 20 percent discount on 95 should yield 76.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "09-permission",
+      "category": "permission",
+      "profile": "python",
+      "files": {
+        "solution.py": "def may_apply(approved,unchanged):return approved or unchanged\n"
+      },
+      "request": "Allow apply only if approval exists and the source is unchanged.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "10-date-sort",
+      "category": "python",
+      "profile": "python",
+      "files": {
+        "solution.py": "def latest(dates):return min(dates)\n"
+      },
+      "request": "Return the latest ISO date from a nonempty list.",
+      "scope": [
+        "solution.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "11-multifile",
+      "category": "multi-file",
+      "profile": "python",
+      "files": {
+        "normal.py": "def normalize(s):return s\n",
+        "match.py": "from normal import normalize\ndef matches(a,b):return a==b\n"
+      },
+      "request": "Normalize strings by stripping and lowercasing, and use normalize for both operands in matches.",
+      "scope": [
+        "normal.py",
+        "match.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "12-nullish",
+      "category": "javascript",
+      "profile": "node",
+      "files": {
+        "solution.js": "exports.value=x=>x||7;"
+      },
+      "request": "Keep 0, false and empty string; default null/undefined to 7.",
+      "scope": [
+        "solution.js"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "13-numeric-sort",
+      "category": "javascript",
+      "profile": "node",
+      "files": {
+        "solution.js": "exports.sort=xs=>xs.sort();"
+      },
+      "request": "Return a new ascending numeric sorted array without mutating input.",
+      "scope": [
+        "solution.js"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "14-shopify-total",
+      "category": "shopify-unit",
+      "profile": "node",
+      "files": {
+        "solution.js": "exports.total=lines=>lines.length;"
+      },
+      "request": "Compute total line quantity for Shopify-style objects with quantity; empty list returns zero.",
+      "scope": [
+        "solution.js"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "15-woo-status",
+      "category": "woocommerce-unit",
+      "profile": "node",
+      "files": {
+        "solution.js": "exports.paid=status=>true;"
+      },
+      "request": "Treat only processing and completed WooCommerce status strings as paid.",
+      "scope": [
+        "solution.js"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "16-wordpress-escape",
+      "category": "wordpress-unit",
+      "profile": "node",
+      "files": {
+        "solution.js": "exports.escape=s=>s;"
+      },
+      "request": "Escape ampersand, less-than and greater-than in a plain-text HTML snippet.",
+      "scope": [
+        "solution.js"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "17-http-status",
+      "category": "next-route-unit",
+      "profile": "next-route",
+      "files": {
+        "solution.js": "exports.GET=()=>new Response(\"missing\",{status:200});"
+      },
+      "request": "A missing-resource Web Response must return HTTP 404 and text missing.",
+      "scope": [
+        "solution.js"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "18-ts-number",
+      "category": "typescript",
+      "profile": "typescript",
+      "files": {
+        "solution.ts": "export function twice(x:string):number{return x*2;}"
+      },
+      "request": "Correct twice to accept numeric x and return double x.",
+      "scope": [
+        "solution.ts"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "19-ts-null",
+      "category": "typescript",
+      "profile": "typescript",
+      "files": {
+        "solution.ts": "export function length(x:string|null):number{return x.length;}"
+      },
+      "request": "Handle null by returning zero while retaining strict null checking.",
+      "scope": [
+        "solution.ts"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "20-ts-return",
+      "category": "typescript",
+      "profile": "typescript",
+      "files": {
+        "solution.ts": "export function ready():boolean{return \"yes\";}"
+      },
+      "request": "Return the boolean true with the existing return type.",
+      "scope": [
+        "solution.ts"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "21-accessible-label",
+      "category": "html",
+      "profile": "html",
+      "files": {
+        "index.html": "<label>Email</label><input id=\"email\">"
+      },
+      "request": "Associate the Email label with the existing email input using for=email.",
+      "scope": [
+        "index.html"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "22-responsive-css",
+      "category": "css",
+      "profile": "html",
+      "files": {
+        "style.css": ".card { width: 1200px; }"
+      },
+      "request": "Change the card width to 100% and cap max-width at 1200px.",
+      "scope": [
+        "style.css"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "23-timeout",
+      "category": "api-config",
+      "profile": "python",
+      "files": {
+        "config.json": "{\"timeout_ms\": 0}"
+      },
+      "request": "Set timeout_ms in config.json to 5000 preserving valid JSON.",
+      "scope": [
+        "config.json"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "24-retries",
+      "category": "api-config",
+      "profile": "python",
+      "files": {
+        "config.json": "{\"max_retries\": 99}"
+      },
+      "request": "Set max_retries in config.json to 2 preserving valid JSON.",
+      "scope": [
+        "config.json"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "25-shopify-version",
+      "category": "shopify-config",
+      "profile": "python",
+      "files": {
+        "config.json": "{\"version\": \"old\"}"
+      },
+      "request": "Set version in config.json to \"2026-01\" preserving valid JSON.",
+      "scope": [
+        "config.json"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "26-markdown",
+      "category": "documentation",
+      "profile": "python",
+      "files": {
+        "README.md": "# Demo\nRun: unknown\n"
+      },
+      "request": "Replace the unknown run command with python app.py, keeping the title.",
+      "scope": [
+        "README.md"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "27-fastapi",
+      "category": "fastapi",
+      "profile": "fastapi",
+      "files": {
+        "app.py": "from fastapi import FastAPI\napp=FastAPI()\n@app.get(\"/health\")\ndef health():return {\"ok\":False}\n"
+      },
+      "request": "Return ok true at /health and test with TestClient.",
+      "scope": [
+        "app.py"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "28-php",
+      "category": "php",
+      "profile": "php",
+      "files": {
+        "index.php": "<?php function add($a,$b){return $a-$b;}"
+      },
+      "request": "Fix PHP addition and execute its acceptance assertions.",
+      "scope": [
+        "index.php"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "29-wordpress-php",
+      "category": "wordpress",
+      "profile": "php",
+      "files": {
+        "plugin.php": "<?php function enabled(){return false;}"
+      },
+      "request": "Make enabled return true and run a PHP unit fixture.",
+      "scope": [
+        "plugin.php"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "30-next-component",
+      "category": "nextjs",
+      "profile": "next-component",
+      "files": {
+        "Card.tsx": "export default function Card(){return <button>Save</button>}"
+      },
+      "request": "Disable the Save button while pending is true; verify with a React renderer.",
+      "scope": [
+        "Card.tsx"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    },
+    {
+      "id": "31-yaml",
+      "category": "yaml",
+      "profile": "yaml",
+      "files": {
+        "config.yaml": "timeout: 0\n"
+      },
+      "request": "Set timeout to 5 and validate using a YAML parser.",
+      "scope": [
+        "config.yaml"
+      ],
+      "budget_seconds": 25,
+      "max_attempts": 1,
+      "scoring": "All deterministic acceptance assertions and verifier marker required; blocked separate; no partial credit"
+    }
+  ]
+}

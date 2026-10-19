@@ -1,0 +1,10 @@
+{
+  "scope": "Final corrected grader/runtime identities, not a retroactive pre-run freeze",
+  "sha256": {
+    "scripts/phase10-evaluate.py": "c7b1055adb7587b73aad27cb09cf193fe6b676a50a1200352771d88911e23920",
+    "scripts/phase10-controls.py": "0138d7d9d8470b8cd3269ba44186fadc3655820321b43e24416a9f70ce78ec77",
+    "nexora/workspace_code.py": "720ae8a7cdcf1cfd27529c0674187843466a00a7a2bd3b0692eb222cc05ed7ad",
+    "nexora/language_sandbox.py": "e0c7c84cdbf44dbc7330004b2076dc9c3f5fad7a4aa3600c49af717cfc45fb89",
+    "docs/evidence/phase10/training-source.py": "ea472830967b701bed75498316487f4ada2a635827a387347960977502327e47"
+  }
+}

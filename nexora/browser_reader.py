@@ -148,7 +148,7 @@ def read_url(url, screenshot=False):
                     screenshot_path = str(out_dir / f"{int(time.time() * 1000)}.png")
                     page.screenshot(path=screenshot_path)
                 return {
-                    "url": url,
+                    "url": page.url,
                     "title": title,
                     "text": text,
                     "headings": headings,

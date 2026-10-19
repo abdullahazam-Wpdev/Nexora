@@ -11,6 +11,16 @@ type Row = {
   selected: boolean;
 };
 export default function EvaluationPanel() {
+  const [phase10, setPhase10] = useState<{
+    coding?: { summary?: { passed: number; failed: number; blocked: number } };
+    answers?: { correct?: number; total?: number };
+  } | null>(null);
+  useEffect(() => {
+    fetch("/api/evaluations/phase10")
+      .then((r) => (r.ok ? r.json() : null))
+      .then(setPhase10)
+      .catch(() => {});
+  }, []);
   const [phase9, setPhase9] = useState<{
     coding: {
       passed: number;
@@ -45,6 +55,23 @@ export default function EvaluationPanel() {
   return (
     <section className="agent-panel">
       <h1>Research and reliability evaluations</h1>
+      {phase10?.coding?.summary && (
+        <>
+          <h2>Phase 10</h2>
+          <p>
+            Frozen coding suite: {phase10.coding.summary.passed} passed,{" "}
+            {phase10.coding.summary.failed} failed,{" "}
+            {phase10.coding.summary.blocked} blocked, of 31 total. External
+            SmolLM2, no promotion. Harness corrections rescore saved proposals;
+            no regenerated answers.
+          </p>
+          <p>
+            Literal evidence verification: {phase10.answers?.correct}/
+            {phase10.answers?.total}. This does not measure semantic correctness
+            or model hallucination.
+          </p>
+        </>
+      )}
       {phase9 && (
         <>
           <h2>Phase 9</h2>

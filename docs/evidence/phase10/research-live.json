@@ -1,0 +1,32 @@
+{
+  "status": "answered_with_evidence",
+  "evidence_id": "16070e9d608fb32e",
+  "search_errors": {},
+  "read_errors": {},
+  "verification": {
+    "supported": 3,
+    "unsupported": 0,
+    "scope": "Literal support only, not semantic entailment, source truth or currentness"
+  },
+  "citations": [
+    {
+      "citation_id": "c1",
+      "url": "https://github.com/marciovrl/fastapi",
+      "read_status": "read",
+      "content_hash": "1beb91670f44c4bdb7e02d4018a33edc311fe1b90c8e00a9fcd452d553ef5bcd"
+    },
+    {
+      "citation_id": "c2",
+      "url": "https://github.com/render-examples/fastapi",
+      "read_status": "read",
+      "content_hash": "fd1b75295884697d6acacfeea7fa9a95d10e7f879196f0a941a56b05ac56b2ac"
+    },
+    {
+      "citation_id": "c3",
+      "url": "https://github.com/fastapi/fastapi",
+      "read_status": "read",
+      "content_hash": "f841901f39444123728bb7c88c3214f959ddb2d1661dc952a8d39fa27662b897"
+    }
+  ],
+  "seconds": 11.49980565000078
+}

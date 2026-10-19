@@ -48,3 +48,10 @@ The Workspace Code panel exposes scope, acceptance tests, diff, output, approval
 and cancellation. Qwen is disabled by default after resource failures; selecting
 SmolLM2 does not imply capable coding. Validation/controls prove the engine, not
 model competence. See CODING_BENCHMARK.md and PHASE9_LIMITATIONS.md.
+
+Phase10 adds optional exact replacements (`patch_format: edits`) and repeats sandbox
+acceptance on the actually applied files before marking completion. Failed verification
+rolls the journal back. New JSON/YAML/Markdown path scope does not imply YAML runtime
+support. Python imports are allowed only for explicitly scoped top-level modules or the
+existing stdlib list. See CODING_AGENT_RELIABILITY.md; do not treat supplied controls as
+model successes. Final frozen model benchmark:0/31 passed,8 blocked.

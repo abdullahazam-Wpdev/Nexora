@@ -5,6 +5,10 @@ from nexora.config import ROOT
 import httpx
 
 
+from nexora.compute_budget import compute_job
+
+
+@compute_job("sidecar inference")
 def chat(provider, messages, model=None):
     if provider == "localai":
         url = "http://127.0.0.1:8080/v1/chat/completions"

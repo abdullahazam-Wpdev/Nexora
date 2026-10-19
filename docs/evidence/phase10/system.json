@@ -1,0 +1,16 @@
+{
+  "physical_ram_bytes": 8030429184,
+  "available_ram_bytes": 1162104832,
+  "swap": {
+    "total": 8029990912,
+    "used": 8029724672,
+    "free": 266240,
+    "percent": 100.0,
+    "sin": 67460472832,
+    "sout": 88467099648
+  },
+  "cpu_physical": 4,
+  "cpu_logical": 8,
+  "disk_free": 195996266496,
+  "ollama_limits": "NRestarts=0\nMemoryCurrent=133615616\nMemoryPeak=430911488\nCPUQuotaPerSecUSec=2s\nMemoryMax=943718400\nMemorySwapMax=0\n"
+}

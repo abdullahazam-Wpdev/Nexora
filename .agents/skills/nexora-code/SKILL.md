@@ -25,3 +25,9 @@ static HTML profiles. Exact bundle approval, retained originals and a rollback
 journal are required; PHP and FastAPI runtime profiles remain blocked. Qwen is
 stored but disabled after normal-cap OOM; do not override its manifest or enlarge
 service limits merely to complete a task. Reference model success remains weak.
+
+Phase10: read `docs/CODING_AGENT_RELIABILITY.md`. Optional `patch_format: edits`
+requires unique exact anchors and unchanged declared paths. Applied scoped files must
+pass a second sandbox acceptance run or roll back. JSON can be parsed; YAML/PHP paths
+do not imply verified runtime support. Final Phase10 benchmark has0/31 model passes,
+8 blocked. Do not tune against its consumed fixtures or override compute admission.

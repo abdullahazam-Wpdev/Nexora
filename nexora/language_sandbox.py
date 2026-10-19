@@ -31,7 +31,7 @@ def run(root, profile, test):
                     shutil.copyfile(source, target)
             return run(destination, profile, test)
     if profile in {"python", "html"}:
-        (root / "acceptance.py").write_text(test)
+        (root / "acceptance.py").write_text("import sys\nsys.path.insert(0, '/workspace')\n" + test)
         return run_python(root, root / "acceptance.py")
     if profile not in {"node", "typescript", "next-route"}:
         return "BLOCKED: no verified container runtime for " + profile

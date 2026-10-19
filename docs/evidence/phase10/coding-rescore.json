@@ -1,0 +1,700 @@
+{
+  "records": [
+    {
+      "id": "01-clamp",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "83b560896e0f45d1ad24312ce508d75a",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "stored_error": "Import requires a broader, reviewed sandbox profile",
+      "stored_task_id": "28d0d639ab4a4895ba4d1c0d19b92a8f"
+    },
+    {
+      "id": "02-stable-unique",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "1ba3251f481f4cf494847fd2d028bca4",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    assert unique([3,1,3,2,1])==[3,1,2] and unique([])==[]\n           ~~~~~~^^^^^^^^^^^^^\n  File \"/workspace/solution.py\", line 3, in <lambda>\n    unique = lambda x: [x for x in x if len(x) == 1] + [x[0]]\n                                        ~~~^^^\nTypeError: object of type 'int' has no len()\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    assert unique([3,1,3,2,1])==[3,1,2] and unique([])==[]\n           ~~~~~~^^^^^^^^^^^^^\n  File \"/workspace/solution.py\", line 3, in <lambda>\n    unique = lambda x: [x for x in x if len(x) == 1] + [x[0]]\n                                        ~~~^^^\nTypeError: object of type 'int' has no len()\n"
+        }
+      ],
+      "stored_error": "  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    assert unique([3,1,3,2,1])==[3,1,2] and unique([])==[]\n           ~~~~~~^^^^^^^^^^^^^\n  File \"/workspace/solution.py\", line 3, in <lambda>\n    unique = lambda x: [x for x in x if len(x) == 1] + [x[0]]\n                                        ~~~^^^\nTypeError: object of type 'int' has no len()\n",
+      "stored_task_id": "04a5af2dcb184335b679fb6e453705fe"
+    },
+    {
+      "id": "03-chunk",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "95e66856ad1940ec888d2166184c6aa6",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 3, in <module>\n    from solution import *\n  File \"/workspace/solution.py\", line 4\n    return None  # or any other default value to handle cases where the input is empty\n    ^^^^^^^^^^^\nSyntaxError: 'return' outside function\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 3, in <module>\n    from solution import *\n  File \"/workspace/solution.py\", line 4\n    return None  # or any other default value to handle cases where the input is empty\n    ^^^^^^^^^^^\nSyntaxError: 'return' outside function\n"
+        }
+      ],
+      "stored_error": "                                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 3, in <module>\n    from solution import *\n  File \"/workspace/solution.py\", line 4\n    return None  # or any other default value to handle cases where the input is empty\n    ^^^^^^^^^^^\nSyntaxError: 'return' outside function\n",
+      "stored_task_id": "e22ce50f51474c1ebadc751576f874a2"
+    },
+    {
+      "id": "04-median",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "09364384367a4f2f8c615cf14fe6ce98",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    assert median([8,2,4])==4 and median([9,1,3,5])==4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "'__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    assert median([8,2,4])==4 and median([9,1,3,5])==4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "stored_error": "'__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    assert median([8,2,4])==4 and median([9,1,3,5])==4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stored_task_id": "38819c383b0149a5aed4f0084f8ee238"
+    },
+    {
+      "id": "05-headers",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "3c4663ea53f84887a96c66d52a771821",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Generator expression must be parenthesized (<unknown>, line 5)"
+        }
+      ],
+      "stored_error": "Generator expression must be parenthesized (<unknown>, line 5)",
+      "stored_task_id": "298718e246ad4b3fb9c5af82b53864f5"
+    },
+    {
+      "id": "06-retry",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "b95ea1c791c943c4adcfe14f12d610cd",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "expected 'except' or 'finally' block (<unknown>, line 20)"
+        }
+      ],
+      "stored_error": "expected 'except' or 'finally' block (<unknown>, line 20)",
+      "stored_task_id": "b26217f27bbf4278a84feeb235ddf0dc"
+    },
+    {
+      "id": "07-pagination",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "37f66335ec4b4f27a1393d249c45c839",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "stored_error": "Import requires a broader, reviewed sandbox profile",
+      "stored_task_id": "a621073e99184022a1ecb931ff64be23"
+    },
+    {
+      "id": "08-test-repair",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "c386c2d9a8a640c1a9fe2e289a451470",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "stored_error": "Import requires a broader, reviewed sandbox profile",
+      "stored_task_id": "2b5cbf9be9a545bdad053806793d8692"
+    },
+    {
+      "id": "09-permission",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "9016cb47c6cf4d0b86977496cb297d54",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "stored_error": "Import requires a broader, reviewed sandbox profile",
+      "stored_task_id": "17d97bec5e764b0db511d89d31b57862"
+    },
+    {
+      "id": "10-date-sort",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "61351df49a9743ac99f15ecdd9fee160",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "stored_error": "Import requires a broader, reviewed sandbox profile",
+      "stored_task_id": "398fe4b285554c9c8fd86194d05f81da"
+    },
+    {
+      "id": "11-multifile",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "7957fb53964443dfa5c4a93ef583fd08",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 5, in <module>\n    assert normalize(\" AB \")==\"ab\" and matches(\" Yes \",\"YES\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                                                                                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 5, in <module>\n    assert normalize(\" AB \")==\"ab\" and matches(\" Yes \",\"YES\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "stored_error": "                                                                                                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 5, in <module>\n    assert normalize(\" AB \")==\"ab\" and matches(\" Yes \",\"YES\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stored_task_id": "03898de035c8421fbf8c2cf3241d7a58"
+    },
+    {
+      "id": "12-nullish",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "c2af3075529047f1994e500d5f22f430",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n[Function: value]\n/workspace/acceptance.cjs:1\nconst a=require(\"./solution.js\");if(a.value(0)!==0||a.value(false)!==false||a.value(null)!==7)throw Error(\"nullish\");\n                                      ^\n\nTypeError: a.value is not a function\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:39)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "pace/acceptance.cjs:1:39)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "pace/acceptance.cjs:1:39)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n",
+      "stored_task_id": "3202b64447eb485099b119bc889b783f"
+    },
+    {
+      "id": "13-numeric-sort",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "bab0be1b85f84c3698182a227d00c8de",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\ndef sort_descending(lst):\n    ^^^^^^^^^^^^^^^\n\nSyntaxError: Unexpected identifier 'sort_descending'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "stored_task_id": "a7cabb82009e48ee9fd6034bd51f99bb"
+    },
+    {
+      "id": "14-shopify-total",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "9ccff86373474a2395eb46f4535705d5",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\ndef compute_line_quantity(obj):\n    ^^^^^^^^^^^^^^^^^^^^^\n\nSyntaxError: Unexpected identifier 'compute_line_quantity'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "stored_task_id": "12ed14a9b0fa4e87b600dbc122e6dd51"
+    },
+    {
+      "id": "15-woo-status",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "da16fcbea27749f19ccfdab2f0edde90",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nSmolLM: You are a helpful AI assistant named SmolLM, trained by Hugging Face\n            ^^^\n\nSyntaxError: Unexpected identifier 'are'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "stored_task_id": "e3f4826e13804c25ab99f9bd0a12241d"
+    },
+    {
+      "id": "16-wordpress-escape",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "157168f263ac49c89dfcc3bd526360d8",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nExports.escape = s => s;\n^\n\nReferenceError: Exports is not defined\n    at Object.<anonymous> (/workspace/solution.js:1:1)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "stored_task_id": "e0b6be379fed4658966a8f9931923b17"
+    },
+    {
+      "id": "17-http-status",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "ba0cef00f32349eca43c7b58998adeb0",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nSmolLM is a helpful AI assistant designed to provide assistance with web requests, including handling HTTP errors and providing corrections for missing resources.\n       ^^\n\nSyntaxError: Unexpected identifier 'is'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "stored_task_id": "c0cb466cb7744fdf8de43551e7fea642"
+    },
+    {
+      "id": "18-ts-number",
+      "control_status": "failed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "control_error": "Timeout\n",
+      "control_task_id": "4ee132d9e27f424c9fc729333322eaec",
+      "model_status": "blocked_harness",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n/workspace/acceptance.cjs:1\nconst ts=require(\"/opt/typescript/typescript.js\");const fs=require(\"fs\");const program=ts.createProgram([\"solution.ts\"],{strict:true,noEmit:true,target:ts.ScriptTarget.ES2020});const diagnostics=ts.getPreEmitDiagnostics(program);if(diagnostics.length)throw Error(ts.flattenDiagnosticMessageText(diagnostics[0].messageText,\" \"));const code=ts.transpileModule(fs.readFileSync(\"solution.ts\",\"utf8\"),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;const m={};new Function(\"exports\",code)(m);if(m.twice(6)!==12)throw Error(\"twice\");\n                                                                                                                                                                                                                                                           ^\n\nError: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:258)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "ace/acceptance.cjs:1:258)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "stored_error": "ace/acceptance.cjs:1:258)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n",
+      "stored_task_id": "b856c3b976974ca1b3daad2c72e5dc3e"
+    },
+    {
+      "id": "19-ts-null",
+      "control_status": "failed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "control_error": "Timeout\n",
+      "control_task_id": "77d9a7ae6a4d4340836dc8255ca085d1",
+      "model_status": "blocked_harness",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "stored_error": "Timeout\n",
+      "stored_task_id": "82c4862a160547f391bb964a13fc0ba4"
+    },
+    {
+      "id": "20-ts-return",
+      "control_status": "failed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "control_error": "Timeout\n",
+      "control_task_id": "94ff5e01072f4ee3890193d910a0e7f9",
+      "model_status": "blocked_harness",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "stored_error": "Timeout\n",
+      "stored_task_id": "0c9bb6906df24d69b5ed846a5672c488"
+    },
+    {
+      "id": "21-accessible-label",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "25165d83011a49349297110f72714c65",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 8, in <module>\n    p=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"\n                                                        ^^^^^^^\nAttributeError: 'P' object has no attribute 'label'\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 8, in <module>\n    p=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"\n                                                        ^^^^^^^\nAttributeError: 'P' object has no attribute 'label'\n"
+        }
+      ],
+      "stored_error": "                                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 8, in <module>\n    p=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"\n                                                        ^^^^^^^\nAttributeError: 'P' object has no attribute 'label'\n",
+      "stored_task_id": "ad0929b1c9cc47c1a8dc603579e39569"
+    },
+    {
+      "id": "22-responsive-css",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "a9bdd0188b7e48e5a759a3cc9ded5c3e",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    s=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    s=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "stored_error": "                                                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    s=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stored_task_id": "38b02ba383c544bdb03d345107a895d0"
+    },
+    {
+      "id": "23-timeout",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "f7181db8ae1045b59eda05787bd0238f",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "stored_error": "Expecting value: line 1 column 1 (char 0)",
+      "stored_task_id": "f000d5c2c924451bbd31c5b3f2a0b025"
+    },
+    {
+      "id": "24-retries",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "402d1d4e44b242528b83a97924a71e02",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "stored_error": "Expecting value: line 1 column 1 (char 0)",
+      "stored_task_id": "0415eb8edeae414fa3ad1110b82280a9"
+    },
+    {
+      "id": "25-shopify-version",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "0c626f9387374233860b0e359c58f501",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "stored_error": "Expecting value: line 1 column 1 (char 0)",
+      "stored_task_id": "6501fde9a64143079df75cab53c4d141"
+    },
+    {
+      "id": "26-markdown",
+      "control_status": "passed",
+      "control_events": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "output": "Exit code: 0\nVERIFIER_MARKER\n"
+        }
+      ],
+      "control_error": null,
+      "control_task_id": "6c09bcc6ed1e4da7bf8cf3db3acd974d",
+      "model_status": "failed",
+      "stored_events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    s=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    s=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "stored_error": "                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 4, in <module>\n    s=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stored_task_id": "feab228dfac34b0e8b5e482a2147a93e"
+    },
+    {
+      "id": "27-fastapi",
+      "control_status": "blocked",
+      "model_status": "blocked"
+    },
+    {
+      "id": "28-php",
+      "control_status": "blocked",
+      "model_status": "blocked"
+    },
+    {
+      "id": "29-wordpress-php",
+      "control_status": "blocked",
+      "model_status": "blocked"
+    },
+    {
+      "id": "30-next-component",
+      "control_status": "blocked",
+      "model_status": "blocked"
+    },
+    {
+      "id": "31-yaml",
+      "control_status": "blocked",
+      "model_status": "blocked"
+    }
+  ],
+  "note": "Post-run harness verification; raw model evidence preserved; no new inference. Python isolated sys.path corrected; exact original benchmark hashes unchanged.",
+  "summary": {
+    "passed": 0,
+    "failed": 23,
+    "blocked": 8,
+    "control_passed": 23
+  }
+}

@@ -24,6 +24,7 @@ export default function WorkspaceCodePanel() {
   const [files, setFiles] = useState("solution.py");
   const [goal, setGoal] = useState("");
   const [acceptance, setAcceptance] = useState("");
+  const [patchFormat, setPatchFormat] = useState("files");
   const [profile, setProfile] = useState("python");
   const [task, setTask] = useState<Task | null>(null);
   const [error, setError] = useState("");
@@ -90,6 +91,7 @@ export default function WorkspaceCodePanel() {
                 profile,
                 model,
                 max_attempts: 2,
+                patch_format: patchFormat,
               }),
             ),
           );
@@ -135,6 +137,18 @@ export default function WorkspaceCodePanel() {
               Web Request/Response unit profile
             </option>
             <option value="html">HTML/CSS static assertions</option>
+          </select>
+        </label>
+        <label>
+          Patch format
+          <select
+            value={patchFormat}
+            onChange={(e) => setPatchFormat(e.target.value)}
+          >
+            <option value="files">Complete scoped files</option>
+            <option value="edits">
+              Exact minimal replacements (experimental)
+            </option>
           </select>
         </label>
         <label>

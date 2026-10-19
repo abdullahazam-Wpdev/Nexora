@@ -16,6 +16,14 @@ _opener = build_opener(ProxyHandler({}))
 
 
 def request(path, payload=None):
+    if payload is not None:
+        from nexora.compute_budget import admission
+        with admission("reference inference"):
+            return _request(path, payload)
+    return _request(path, payload)
+
+
+def _request(path, payload=None):
     data = None if payload is None else json.dumps(payload).encode()
     req = Request(
         BASE_URL + path, data=data, headers={"Content-Type": "application/json"}

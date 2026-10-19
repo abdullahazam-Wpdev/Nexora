@@ -453,6 +453,8 @@ def assistant_status():
     )
     return {
         "offline_baseline": "SmolLM2 135M external",
+        "routing": {"core": "Independent research checkpoint; text prediction", "local": "Pinned external SmolLM2; weak baseline", "hosted": "NVIDIA NIM requires configured credentials and per-request consent", "fallback": "none"},
+        "resource_policy": {"memory_limit_mib": 900, "threads": 2, "managed_compute_overlap": False},
         "qwen_enabled": candidate.get("enabled", False),
         "qwen_status": candidate.get("disabled_reason"),
         "hosted_required": False,
@@ -499,3 +501,13 @@ def phase9_evaluations():
             "promoted": False,
         },
     }
+
+from nexora.answer_verification import router as answer_verification_router
+app.include_router(answer_verification_router())
+
+@app.get("/api/evaluations/phase10")
+def phase10_evaluations():
+    from nexora.config import ROOT
+    import json
+    folder = ROOT / "docs/evidence/phase10"
+    return {name: json.loads((folder / filename).read_text()) if (folder / filename).exists() else {"status": "not_run"} for name, filename in [("coding", "coding-rescore.json"), ("answers", "answer-quality.json"), ("core", "core-comparison.json")]}

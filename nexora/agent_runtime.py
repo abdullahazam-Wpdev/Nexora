@@ -86,7 +86,7 @@ def repository(store, ident):
     )
 
 
-def check_python(source):
+def check_python(source, local_modules=()):
     tree = ast.parse(source)
     # This first coding slice deliberately supports pure Python transforms.
     # Broader imports and application builds need a reviewed execution profile.
@@ -103,6 +103,7 @@ def check_python(source):
         "typing",
         "string",
     }
+    allowed.update(local_modules)
     denied = {
         "eval",
         "exec",
@@ -161,37 +162,8 @@ def propose(
             "Selected source exceeds the tiny assistant context budget; choose a smaller module"
         )
     if provider == "ollama":
-        from nexora import reference
-
-        if not reference._lock.acquire(blocking=False):
-            raise ValueError("Local inference is busy")
-        try:
-            import httpx
-
-            with httpx.Client(trust_env=False, timeout=20) as client:
-                response = client.post(
-                    "http://127.0.0.1:11434/api/chat",
-                    json={
-                        "model": reference.MODEL,
-                        "messages": [{"role": "user", "content": prompt[-5000:]}],
-                        "stream": False,
-                        "keep_alive": 0,
-                        "options": {
-                            "num_ctx": 768 if prompt_style == "concise" else 2048,
-                            "num_predict": 128 if prompt_style == "concise" else 256,
-                            "num_thread": 2,
-                            "temperature": 0,
-                            "seed": 42,
-                        },
-                    },
-                )
-                response.raise_for_status()
-                if len(response.content) > 1024 * 1024:
-                    raise ValueError("Model response exceeds budget")
-                result = response.json()
-            text = result.get("message", {}).get("content", "")
-        finally:
-            reference._lock.release()
+        from nexora.assistant_backend import generate
+        text = generate("smollm2", [{"role": "user", "content": prompt}], 128 if prompt_style == "concise" else 256)["text"]
     elif provider == "qwen-coder":
         from nexora.assistant_backend import generate
 

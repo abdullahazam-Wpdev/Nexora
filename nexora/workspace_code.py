@@ -20,7 +20,8 @@ class Task(BaseModel):
     profile: str = Field(
         pattern="^(python|node|typescript|next-route|html|php|fastapi)$"
     )
-    model: str = Field(default="qwen-coder", pattern="^(qwen-coder|smollm2)$")
+    model: str = Field(default="smollm2", pattern="^(qwen-coder|smollm2)$")
+    patch_format: str = Field(default="files", pattern="^(files|edits)$")
     max_attempts: int = Field(default=2, ge=1, le=2)
 
 
@@ -46,8 +47,15 @@ def validate(files, original, profile):
     for path, text in files.items():
         if not isinstance(text, str) or len(text) > 8000:
             raise ValueError("Candidate file exceeds budget")
+        if path.endswith(".json"):
+            json.loads(text)
         if path.endswith(".py") and profile == "python":
-            check_python(text)
+            check_python(
+                text,
+                local_modules={
+                    Path(p).stem for p in original if p.endswith(".py") and "/" not in p
+                },
+            )
         if path.endswith((".js", ".ts")) and re.search(
             r'\b(?:process|eval|Function|globalThis|Reflect)\b|__proto__|\.constructor|require\s*\(\s*[\'"](?!\./)',
             text,
@@ -70,7 +78,19 @@ def create(store, body):
         p = workspace_path(root, name)
         if (
             not p.is_file()
-            or p.suffix not in {".py", ".js", ".ts", ".html", ".css", ".md", ".php"}
+            or p.suffix
+            not in {
+                ".py",
+                ".js",
+                ".ts",
+                ".html",
+                ".css",
+                ".md",
+                ".php",
+                ".json",
+                ".yaml",
+                ".yml",
+            }
             or p.stat().st_size > 8000
         ):
             raise ValueError("Unsupported source path/size")
@@ -138,6 +158,10 @@ def execute(store, ident, proposer=None):
                 try:
                     if proposer:
                         files = proposer(task, prompt)
+                        if task["request"].get("patch_format") == "edits":
+                            from nexora.minimal_patch import apply_edits
+
+                            files = apply_edits(task["original"], files)
                     else:
                         schema = {
                             "type": "object",
@@ -155,7 +179,42 @@ def execute(store, ident, proposer=None):
                             "required": ["files"],
                             "additionalProperties": False,
                         }
-                        single = len(task["original"]) == 1
+                        edits = task["request"].get("patch_format") == "edits"
+                        if edits:
+                            prompt = (
+                                'Repair using exact unique replacements. Return ONLY JSON {"edits":[{"path":"file","old":"exact original substring","new":"replacement"}]}. Do not alter unrelated text.\nGoal: '
+                                + task["request"]["goal"]
+                                + "\nFiles: "
+                                + json.dumps(task["original"])
+                                + "\nFailure: "
+                                + feedback[-200:]
+                            )
+                            schema = {
+                                "type": "object",
+                                "properties": {
+                                    "edits": {
+                                        "type": "array",
+                                        "minItems": 1,
+                                        "maxItems": 8,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "path": {
+                                                    "type": "string",
+                                                    "enum": list(task["original"]),
+                                                },
+                                                "old": {"type": "string"},
+                                                "new": {"type": "string"},
+                                            },
+                                            "required": ["path", "old", "new"],
+                                            "additionalProperties": False,
+                                        },
+                                    }
+                                },
+                                "required": ["edits"],
+                                "additionalProperties": False,
+                            }
+                        single = len(task["original"]) == 1 and not edits
                         if single:
                             name = next(iter(task["original"]))
                             prompt = (
@@ -188,9 +247,16 @@ def execute(store, ident, proposer=None):
                         else:
                             fences = re.findall(r"```(?:json)?\s*\n(.*?)```", raw, re.S)
                             parsed = json.loads(fences[-1] if fences else raw)
-                            if not isinstance(parsed, dict) or set(parsed) != {"files"}:
+                            if edits:
+                                from nexora.minimal_patch import apply_edits
+
+                                files = apply_edits(task["original"], parsed)
+                            elif not isinstance(parsed, dict) or set(parsed) != {
+                                "files"
+                            }:
                                 raise ValueError("Expected one files object")
-                            files = parsed["files"]
+                            else:
+                                files = parsed["files"]
                         task["inference"] = result
                     (dest / f"proposal-{task['attempts']}.json").write_text(
                         json.dumps(files, indent=2)
@@ -295,6 +361,38 @@ def approve(store, ident, expected):
                 task["apply_journal"].append(name)
                 save(store, task)
                 os.replace(temp, target)
+            if task.get("post_apply_check", True):
+                # Recheck the actual applied tree before declaring completion.
+                marker = "APPLIED_" + uuid.uuid4().hex
+                import tempfile, shutil
+
+                with tempfile.TemporaryDirectory() as temporary:
+                    actual_tree = Path(temporary)
+                    for name in task["original"]:
+                        path = actual_tree / name
+                        path.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copyfile(workspace_path(root, name), path)
+                    js = task["request"]["profile"] in {
+                        "node",
+                        "typescript",
+                        "next-route",
+                    }
+                    script = (
+                        task["request"]["acceptance"]
+                        + "\n"
+                        + (
+                            ("console.log(" + json.dumps(marker) + ");")
+                            if js
+                            else ("print(" + repr(marker) + ")")
+                        )
+                    )
+                    output = run(actual_tree, task["request"]["profile"], script)
+                task["post_apply_verification"] = {
+                    "passed": output.startswith("Exit code: 0\n") and marker in output,
+                    "output": output.replace(marker, "VERIFIER_MARKER")[-2000:],
+                }
+                if not task["post_apply_verification"]["passed"]:
+                    raise ValueError("Applied-tree acceptance failed; rolling back")
             task["status"] = "completed"
             save(store, task)
         except Exception:

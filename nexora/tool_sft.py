@@ -130,6 +130,10 @@ def encode_example(tokenizer, row, context):
     return x, y
 
 
+from nexora.compute_budget import compute_job
+
+
+@compute_job('training')
 def run(
     store=STORE,
     run_id="phase7-tool-sft-paraphrase-40",

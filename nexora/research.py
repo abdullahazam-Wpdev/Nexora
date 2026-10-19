@@ -538,6 +538,10 @@ def verify_checkpoint(folder, checkpoint=None):
     return info, cp
 
 
+from nexora.compute_budget import compute_job
+
+
+@compute_job('training')
 def train_run(run_id, *, resume=False, additional_steps=None, store=None):
     store = Path(store or STORE)
     folder = store / "runs" / identifier(run_id)
@@ -831,6 +835,7 @@ def _train_locked(folder, store, resume, additional_steps):
         raise
 
 
+@compute_job("core inference")
 def infer_run(run_id, prompt, count=32, store=None):
     folder = Path(store or STORE) / "runs" / identifier(run_id)
     info, cp = verify_checkpoint(folder)

@@ -145,3 +145,15 @@ disabled. No professional assistant or Core 2.0 capability is claimed.
 [Corrected coding benchmark](docs/CODING_BENCHMARK.md) ·
 [Training results](docs/INSTRUCTION_TUNING_RESULTS.md) ·
 [Remaining limitations](docs/PHASE9_LIMITATIONS.md).
+
+## Phase 10 — measured reliability
+
+See [delivery](docs/PHASE10_DELIVERY.md) and [limitations](docs/PHASE10_LIMITATIONS.md).
+Workspace Code now offers exact minimal replacements and reruns sandbox acceptance
+against applied files before completion, rolling back failures. Managed inference/training
+share a cross-process admission gate. Research adds literal citation/hash checks; the
+UI shows actual Phase10 outcomes. Frozen coding suite: **0 passed,23 failed,8 blocked
+of31** using external SmolLM2. Two bounded independent Core pilots did not improve exact
+argument/instruction task success; **no promotion**. Normal Ollama900MiB cap remains;
+Qwen disabled and hosted generation credential-blocked. This is research reliability
+work, not demonstrated professional assistant intelligence.

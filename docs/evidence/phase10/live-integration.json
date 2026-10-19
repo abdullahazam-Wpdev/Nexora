@@ -1,0 +1,51 @@
+{
+  "assistant_status": {
+    "offline_baseline": "SmolLM2 135M external",
+    "routing": {
+      "core": "Independent research checkpoint; text prediction",
+      "local": "Pinned external SmolLM2; weak baseline",
+      "hosted": "NVIDIA NIM requires configured credentials and per-request consent",
+      "fallback": "none"
+    },
+    "resource_policy": {
+      "memory_limit_mib": 900,
+      "threads": 2,
+      "managed_compute_overlap": false
+    },
+    "qwen_enabled": false,
+    "qwen_status": "Three extended 900 MiB evaluations hit the service memory cap. Candidate stored and tested; disabled by default. The owner-approved 1152 MiB study finished and normal 900 MiB service was restored.",
+    "hosted_required": false
+  },
+  "streaming": {
+    "delta_frames": 24,
+    "final": {
+      "role": "assistant",
+      "text": "Hello! I'm here to help with your questions and provide assistance whenever you need it. What's on your mind?",
+      "provider": "Ollama \u2022 external SmolLM2 135M",
+      "training_enabled": false,
+      "memory_ids": []
+    },
+    "persistent": true,
+    "fixture_thread_id": "67031d7e7ff642bcada0f10dc4728e45"
+  },
+  "multi_file_control": {
+    "task_id": "e681aa44954e44e9afd04d39570fad43",
+    "status": "completed",
+    "model_generated": false,
+    "verification": {
+      "passed": true,
+      "profile": "python"
+    },
+    "post_apply_verification": {
+      "passed": true,
+      "output": "Exit code: 0\nVERIFIER_MARKER\n"
+    },
+    "diff": "--- a/one.py\n+++ b/one.py\n@@ -1 +1 @@\n-def f(x):return 0\n+def f(x):return x\n--- a/two.py\n+++ b/two.py\n@@ -1 +1 @@\n-def g(x):return 0\n+def g(x):return x+1\n",
+    "wrong_approval_rejected": true
+  },
+  "api_restart_persistence": {
+    "completed_task": true,
+    "streamed_final": true,
+    "post_apply_verification": true
+  }
+}

@@ -11,6 +11,10 @@ from nexora import reference
 MODELS = {"smollm2": reference.MODEL, "qwen-coder": "qwen2.5-coder:0.5b"}
 
 
+from nexora.compute_budget import compute_job
+
+
+@compute_job('inference')
 def generate(
     model_key, messages, max_tokens=256, stream_callback=None, output_schema=None
 ):

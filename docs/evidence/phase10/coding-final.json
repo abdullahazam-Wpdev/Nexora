@@ -1,0 +1,924 @@
+{
+  "model": "smollm2:135m-instruct-q4_K_M",
+  "model_origin": "external reference, not Core",
+  "prompt_version": "phase10-files-v1 (unchanged Phase9 default)",
+  "freeze": {
+    "created": "2026-10-19",
+    "development_suite": "benchmarks/phase9-coding.json (consumed)",
+    "files": {
+      "tasks.json": "291e9e919038fb4ab96577416e864c76d1f1bde07c5f460f3842113e640581a8",
+      "acceptance.json": "d68d168fec6fde65fbc240d813d134a11a03469c68c3da12534ba0577b898136"
+    },
+    "authoring_code_sha256": "1e48c11da676556786425552396675e994e5672dde6ced0873fb71e15acda844",
+    "limitations": "Synthetic small unit fixtures, not real framework deployments. Five explicit unsupported runtime cases."
+  },
+  "records": [
+    {
+      "id": "01-clamp",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.3268676359984966,
+      "task_id": "f37778ae978348a18b1f5167ba583bcf",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "inference": {
+        "text": "Here's how you can use `clamp` in Python:\n```python\nimport numpy as np\n\n# Create a list of numbers with values from 0 to 10 (inclusive)\nnumbers = [i for i in range(10)]\n\n# Use clamp function to preserve the value inside the range\nresult = clamp(numbers, 0, 10)\nprint(result)\n```\nThis will output: `[25, 36]` because all numbers from 0 to 9 are preserved.",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.0426384740003414,
+        "seconds": 2.316891063001094,
+        "tokens_per_second": 96.05710848295998,
+        "eval_count": 117,
+        "eval_duration": 1218025421,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Import requires a broader, reviewed sandbox profile",
+      "agent_process_rss_bytes": 56438784
+    },
+    {
+      "id": "02-stable-unique",
+      "profile": "python",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.2847219459999906,
+      "task_id": "5b87d5f32fa84c70bff248cf2c3202a6",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n"
+        }
+      ],
+      "inference": {
+        "text": "```python\nimport re\n\nunique = lambda x: [x for x in x if len(x) == 1] + [x[0]]\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.6487597079994885,
+        "seconds": 1.0533555940000952,
+        "tokens_per_second": 92.88080641716793,
+        "eval_count": 36,
+        "eval_duration": 387593534,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n",
+      "agent_process_rss_bytes": 57163776
+    },
+    {
+      "id": "03-chunk",
+      "profile": "python",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.724457894999432,
+      "task_id": "5fd6e1ccede241139a2a596de6c9ebd6",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n"
+        }
+      ],
+      "inference": {
+        "text": "Here's how you can implement this function:\n```python\nimport itertools\nchunks = itertools.chain(*[x for x in xs if isinstance(x, list) and len(x) == n])\nif not chunks:\n    return None  # or any other default value to handle cases where the input is empty\nreturn chunk_list(chunks)\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.8089163789991289,
+        "seconds": 1.7989545439995709,
+        "tokens_per_second": 81.51384955291341,
+        "eval_count": 77,
+        "eval_duration": 944624753,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n",
+      "agent_process_rss_bytes": 57446400
+    },
+    {
+      "id": "04-median",
+      "profile": "python",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.305226133999895,
+      "task_id": "b8567cd80c31447d8fb8a220602e98be",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n"
+        }
+      ],
+      "inference": {
+        "text": "Here's how you can implement this function:\n```python\nimport statistics\n\ndef median(xs):\n    return statistics.median(xs) if len(xs) % 2 == 1 else (xs[len(xs) // 2 - 1] + xs[len(xs) // 2]) / 2\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.6709996760000649,
+        "seconds": 1.5314918509993731,
+        "tokens_per_second": 88.07490549197674,
+        "eval_count": 73,
+        "eval_duration": 828839947,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 1, in <module>\n    from solution import *\nModuleNotFoundError: No module named 'solution'\n",
+      "agent_process_rss_bytes": 58200064
+    },
+    {
+      "id": "05-headers",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 3.099511614000221,
+      "task_id": "692dd6eb43dc4a11a4c19f25ca37fd50",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Generator expression must be parenthesized (<unknown>, line 5)"
+        }
+      ],
+      "inference": {
+        "text": "```python\nimport os\n\n# Get all files in the current directory and their corresponding paths\nfiles = os.listdir('.')  # list of all files (including directories)\nfile_paths = [os.path.join(os.getcwd(), file for file in files if not os.path.isfile(os.path.join(os.path.dirname(__file__), file)))]\n# Remove the directory and its contents from the current path\ncurrent_dir = os.path.abspath('.')  # remove the current working directory (absolute or relative)\nfor root, dirs, files in os.walk(current_dir):\n    for file in files:\n        if isinstance(file, str):\n            continue\n\n        try:\n            header = headers[os.path.basename(file)]\n            print('Header:',header)\n            return header\n        except Exception as e:\n            print(\"Error:\",e)\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7583731879985862,
+        "seconds": 3.092714136999348,
+        "tokens_per_second": 86.05300316586398,
+        "eval_count": 192,
+        "eval_duration": 2231183026,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Generator expression must be parenthesized (<unknown>, line 5)",
+      "agent_process_rss_bytes": 58445824
+    },
+    {
+      "id": "06-retry",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 4.4118198210017,
+      "task_id": "b5088cfd832245feb940b025b6ad6ed5",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "expected 'except' or 'finally' block (<unknown>, line 20)"
+        }
+      ],
+      "inference": {
+        "text": "Here's a simple example of how you can retry HTTP requests:\n```python\nimport urllib.request\n\ndef retry_http():\n    try:\n        # Attempt to fetch data from server\n        response = urllib.request.urlopen('https://example.com/page')\n        \n        # Check if the request was successful and return a boolean value\n        if status == '429' or status != 500:\n            return True\n    \n    except Exception as e:\n        print(f\"Error occurred while trying to fetch data from server: {e}\")\n    finally:\n        # Attempt to retry again with a different HTTP status code\n        try:\n            response = urllib.request.urlopen('https://example.com/page')\n        \n        # Check if the request was successful and return a boolean value\n        if status == '500' or status != 429:\n            return True\n    \n    return False\n```\nThis function attempts to fetch data from the specified URL using `urllib.request`. It checks for HTTP errors (e.g., 429, 500) and returns a boolean value indicating whether an error occurred or not. If no error occurs, it continues with the next iteration of the retry process until one",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.8112677879998955,
+        "seconds": 4.382093131000147,
+        "tokens_per_second": 74.66232522666684,
+        "eval_count": 256,
+        "eval_duration": 3428770792,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "expected 'except' or 'finally' block (<unknown>, line 20)",
+      "agent_process_rss_bytes": 48246784
+    },
+    {
+      "id": "07-pagination",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.761236287000429,
+      "task_id": "7d383c3ffefe46c6a0082bc559aa6d22",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "inference": {
+        "text": "```python\nimport os\nfrom collections import Counter\n\n# Calculate offsets for both 1-byte and 2-byte pages\noffset_1 = (0x7F + 4 * 8) // 32 - 65536 # page size in bytes\noffset_2 = (0x7F + 4 * 8) // 32 - 65536 # page size in bytes\nzero_based_offset = offset_1 + offset_2 # zero-based offset from one-byte to the next byte\npositive_page_size = offset_1 + offset_2 # positive page size for both 1-byte and 2-byte pages\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7833673870009079,
+        "seconds": 2.754373380999823,
+        "tokens_per_second": 80.84563861637054,
+        "eval_count": 153,
+        "eval_duration": 1892495410,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Import requires a broader, reviewed sandbox profile",
+      "agent_process_rss_bytes": 48242688
+    },
+    {
+      "id": "08-test-repair",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.9997798169988528,
+      "task_id": "96c6b94f745b42fdac76a67e2a975e03",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "inference": {
+        "text": "Here's how you can correct the test helper:\n```python\nimport smolLM as LM\n\n# Test helper for a discount of 20% on 95 dollars (expected)\ndef test_bonus(amount):\n    return amount * 0.81 + amount ** 3 / 4\n\ntest_bonus = test_bonus(95)\nassert test_bonus == expected_discount, \"Expected discount of 20% on 95 dollars\"\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7310696829990775,
+        "seconds": 1.9938155880008708,
+        "tokens_per_second": 92.00086380356979,
+        "eval_count": 111,
+        "eval_duration": 1206510411,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Import requires a broader, reviewed sandbox profile",
+      "agent_process_rss_bytes": 48160768
+    },
+    {
+      "id": "09-permission",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.6974785550009983,
+      "task_id": "9b4a58c3404c42f1b7e39798b70c214e",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "inference": {
+        "text": "Here's how you can implement this function:\n```python\nimport huggingface as FHM\n\ndef apply_file(filename=None, updated=True):\n    if filename is None:\n        filename = FHM.getFileName()\n\n    if updated:\n        updated_filename = FHM.updateFilename(filename)\n    \n    return FHM.applyToFile(updated_filename)\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7178125400005229,
+        "seconds": 1.6861486149991833,
+        "tokens_per_second": 91.2194611745199,
+        "eval_count": 85,
+        "eval_duration": 931818703,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Import requires a broader, reviewed sandbox profile",
+      "agent_process_rss_bytes": 48173056
+    },
+    {
+      "id": "10-date-sort",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.4588724749992252,
+      "task_id": "d69c713035414f0bb21fc343503e33c1",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "inference": {
+        "text": "```python\nimport datetime\n\n# Get all dates in the list\ndates = [datetime.date] * len(dates)\nfor date in dates:\n    # Check if it's empty and return error message\n    try:\n        date_obj = datetime.datetime.strptime(date, '%Y-%m-%d')\n        if not date_obj:\n            raise ValueError(\"Invalid date\")\n\n        # Get the latest date from the list\n        latest_date = date_obj[0]\n        dates.remove(latest_date)\n    except Exception as e:\n        print(f\"Error parsing date: {e}\")\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.6596109700003581,
+        "seconds": 2.4469008809992374,
+        "tokens_per_second": 77.09997044950883,
+        "eval_count": 132,
+        "eval_duration": 1712062913,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Import requires a broader, reviewed sandbox profile",
+      "agent_process_rss_bytes": 48054272
+    },
+    {
+      "id": "11-multifile",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.4763757180007815,
+      "task_id": "165fa277e2f84a03a7cc96e19924a17d",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Import requires a broader, reviewed sandbox profile"
+        }
+      ],
+      "inference": {
+        "text": "{\n  \"files\": {\n    \"normal.py\": \"def normalize(s):return s\\n\",\n    \"match.py\": \"from normal import normalize\\ndef matches(a, b):return a==b\\n\"\n  }\n}",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.8506421109996154,
+        "seconds": 1.463443393999114,
+        "tokens_per_second": 102.75271250738933,
+        "eval_count": 56,
+        "eval_duration": 544997778,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Import requires a broader, reviewed sandbox profile",
+      "agent_process_rss_bytes": 48508928
+    },
+    {
+      "id": "12-nullish",
+      "profile": "node",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.7733749890012405,
+      "task_id": "83d270dd962c427b8a8e2476dd22617f",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n[Function: value]\n/workspace/acceptance.cjs:1\nconst a=require(\"./solution.js\");if(a.value(0)!==0||a.value(false)!==false||a.value(null)!==7)throw Error(\"nullish\");\n                                      ^\n\nTypeError: a.value is not a function\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:39)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "pace/acceptance.cjs:1:39)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "```javascript\nconst value = x => {\n  return x || 7;\n};\nconsole.log(value); // Output: 0\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7962835660000565,
+        "seconds": 1.2400820999991993,
+        "tokens_per_second": 83.21988817990906,
+        "eval_count": 35,
+        "eval_duration": 420572543,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "pace/acceptance.cjs:1:39)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49\n\nNode.js v22.23.3\n",
+      "agent_process_rss_bytes": 49324032
+    },
+    {
+      "id": "13-numeric-sort",
+      "profile": "node",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.421933822999563,
+      "task_id": "0d0e2bc77e9446bf991927caa4202435",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\ndef sort_descending(lst):\n    ^^^^^^^^^^^^^^^\n\nSyntaxError: Unexpected identifier 'sort_descending'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "Here is an example of how you can sort a list in descending order:\n```python\ndef sort_descending(lst):\n    lst = sorted(lst)\n    return [x for x in lst if x > 0] + lst[::-1]\n\n# Example usage:\nsorted_list = sort_descending([5, -2, 3])\nprint(sorted_list)  # Output: [4, 3, 2]\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.755192820000957,
+        "seconds": 1.8674895740005013,
+        "tokens_per_second": 93.08862325135907,
+        "eval_count": 100,
+        "eval_duration": 1074245128,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "agent_process_rss_bytes": 48091136
+    },
+    {
+      "id": "14-shopify-total",
+      "profile": "node",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.189925251001114,
+      "task_id": "42ff061f255e411390b161a853501221",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\ndef compute_line_quantity(obj):\n    ^^^^^^^^^^^^^^^^^^^^^\n\nSyntaxError: Unexpected identifier 'compute_line_quantity'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "Here's how you can implement this:\n```python\ndef compute_line_quantity(obj):\n    total = 0\n\n    for line in obj[\"items\"]:\n        if not isinstance(line, dict) or len(line[\"items\"]) == 0:\n            return 0\n\n        total += len(line[\"items\"])\n\n    return total\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7303904189993773,
+        "seconds": 1.605266472999574,
+        "tokens_per_second": 87.03934524893386,
+        "eval_count": 73,
+        "eval_duration": 838701162,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "agent_process_rss_bytes": 47677440
+    },
+    {
+      "id": "15-woo-status",
+      "profile": "node",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.3470354479995876,
+      "task_id": "694d614a601f49c3881c6221d2a72b39",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nSmolLM: You are a helpful AI assistant named SmolLM, trained by Hugging Face\n            ^^^\n\nSyntaxError: Unexpected identifier 'are'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "SmolLM: You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7465205850003258,
+        "seconds": 1.0128468349994364,
+        "tokens_per_second": 82.80627174228998,
+        "eval_count": 21,
+        "eval_duration": 253603979,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "agent_process_rss_bytes": 47493120
+    },
+    {
+      "id": "16-wordpress-escape",
+      "profile": "node",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.6538625920002232,
+      "task_id": "a5ac0153ff6f47cea68b0937092c4af5",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nExports.escape = s => s;\n^\n\nReferenceError: Exports is not defined\n    at Object.<anonymous> (/workspace/solution.js:1:1)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "Exports.escape = s => s;",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.0879222809999192,
+        "seconds": 1.1743258999995305,
+        "tokens_per_second": 120.15588543953383,
+        "eval_count": 10,
+        "eval_duration": 83225220,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "agent_process_rss_bytes": 47489024
+    },
+    {
+      "id": "17-http-status",
+      "profile": "next-route",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.7013355610015424,
+      "task_id": "4b7d79bb920743ef908dad3ea18c89f6",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\n/workspace/solution.js:1\nSmolLM is a helpful AI assistant designed to provide assistance with web requests, including handling HTTP errors and providing corrections for missing resources.\n       ^^\n\nSyntaxError: Unexpected identifier 'is'\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at Module._compile (node:internal/modules/cjs/loader:1755:20)\n    at Object..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n"
+        }
+      ],
+      "inference": {
+        "text": "SmolLM is a helpful AI assistant designed to provide assistance with web requests, including handling HTTP errors and providing corrections for missing resources.",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.9106683539994265,
+        "seconds": 1.2757419560002745,
+        "tokens_per_second": 81.39914596539333,
+        "eval_count": 28,
+        "eval_duration": 343983953,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "..js (node:internal/modules/cjs/loader:1913:10)\n    at Module.load (node:internal/modules/cjs/loader:1505:32)\n    at Function._load (node:internal/modules/cjs/loader:1309:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/workspace/acceptance.cjs:1:9)\n    at Module._compile (node:internal/modules/cjs/loader:1781:14)\n\nNode.js v22.23.3\n",
+      "agent_process_rss_bytes": 47116288
+    },
+    {
+      "id": "18-ts-number",
+      "profile": "typescript",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "timeout",
+      "attempted": true,
+      "seconds": 11.616248049000205,
+      "task_id": "6a3fd316cc2049a08091a15ac2d25537",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "inference": {
+        "text": "```javascript\nconst twice = (x: string) => {\n  const result = x * 2;\n  return result;\n};\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7263966459995572,
+        "seconds": 1.2274506199992175,
+        "tokens_per_second": 68.92514396018863,
+        "eval_count": 33,
+        "eval_duration": 478780284,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Timeout\n",
+      "agent_process_rss_bytes": 45363200
+    },
+    {
+      "id": "19-ts-null",
+      "profile": "typescript",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "timeout",
+      "attempted": true,
+      "seconds": 12.038301213000523,
+      "task_id": "076b6ed922f6422682032490d4e1d80c",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "inference": {
+        "text": "```javascript\nfunction length(value:any) {\n  return value?.(0, 1);\n}\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.2972502069987968,
+        "seconds": 1.643742989999737,
+        "tokens_per_second": 80.88127848181865,
+        "eval_count": 28,
+        "eval_duration": 346186417,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Timeout\n",
+      "agent_process_rss_bytes": 45281280
+    },
+    {
+      "id": "20-ts-return",
+      "profile": "typescript",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "timeout",
+      "attempted": true,
+      "seconds": 12.778422326999134,
+      "task_id": "7ac1901117e74a2f9b44ffc13388012b",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Timeout\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "Timeout\n"
+        }
+      ],
+      "inference": {
+        "text": "SmolLM: Return True if File is Corrected and False otherwise.",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.0688550049999321,
+        "seconds": 1.3206533409993426,
+        "tokens_per_second": 61.80128743901231,
+        "eval_count": 16,
+        "eval_duration": 258894283,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Timeout\n",
+      "agent_process_rss_bytes": 45318144
+    },
+    {
+      "id": "21-accessible-label",
+      "profile": "html",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 3.11427142499997,
+      "task_id": "bfdb2e0e1f31432c8a1d638915dfc40b",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 6, in <module>\n    p=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"\n                                                        ^^^^^^^\nAttributeError: 'P' object has no attribute 'label'\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 6, in <module>\n    p=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"\n                                                        ^^^^^^^\nAttributeError: 'P' object has no attribute 'label'\n"
+        }
+      ],
+      "inference": {
+        "text": "Associate the Email label with the existing email input using for=email.",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.4592415819988673,
+        "seconds": 1.7740952819985978,
+        "tokens_per_second": 42.88726549390653,
+        "eval_count": 16,
+        "eval_duration": 373071116,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "                                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 6, in <module>\n    p=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"\n                                                        ^^^^^^^\nAttributeError: 'P' object has no attribute 'label'\n",
+      "agent_process_rss_bytes": 43720704
+    },
+    {
+      "id": "22-responsive-css",
+      "profile": "html",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 6.149825865000821,
+      "task_id": "4e69015d8e3745f498f58812cdc81ba2",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 2, in <module>\n    s=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 2, in <module>\n    s=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "inference": {
+        "text": "SmolLM,\n\nI've reviewed your updated card size options, and I must say, they are quite generous! The new cap on max-width is indeed 1200 pixels, which should ensure that all cards maintain their optimal dimensions.\n\nHowever, to further enhance the functionality of your system, let's consider a few tweaks:\n\n1. **Cap maximum width**: Instead of using `max-width` directly in the card size options, you can use `cap-size`. This will allow you to specify a specific cap width for each card without affecting other cards' sizes. For example:\n```javascript\nconst maxWidth = 200; // Cap maximum width is 1200 pixels (default)\nconst maxHeight = 300; // Cap maximum height is 300 pixels (default)\nconst capSize = {\n  'width': maxWidth,\n  'height': maxHeight,\n};\n```\n\n2. **Cap cap-size**: Instead of using `cap-size`, you can also specify a specific cap width for each card:\n```javascript\nconst maxWidth = 100; // Cap maximum width is 120",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.5821379970002454,
+        "seconds": 5.001367020999169,
+        "tokens_per_second": 77.18031683186945,
+        "eval_count": 256,
+        "eval_duration": 3316907866,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "                                                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 2, in <module>\n    s=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "agent_process_rss_bytes": 43417600
+    },
+    {
+      "id": "23-timeout",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 2.787426521999805,
+      "task_id": "6f0eb5c6594e47d39e88ff6658597645",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "inference": {
+        "text": "Here is a simple example of how you can set up a timeout for a specific HTTP request:\n```python\nimport json\njson_data = '{\"name\":\"John\", \"age\":25}'\nwith open(\"example.json\", \"r\") as f:\n    data = json.load(f)\ntimeout_ms = 0\nfor key, value in data[\"key\"].items():\n    if isinstance(value, str):\n        timeout_ms += len(str(value)) + 1\n\n    try:\n        with open(\"example.json\", \"r\") as f:\n            json_data = json.loads(f)\n    except Exception as e:\n        print(f\"Error reading JSON data:\", str(e), file=open(\"example.json\"))\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 1.055754244000127,
+        "seconds": 2.779262223999467,
+        "tokens_per_second": 100.42899474600114,
+        "eval_count": 165,
+        "eval_duration": 1642951823,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "agent_process_rss_bytes": 46133248
+    },
+    {
+      "id": "24-retries",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.6520428999992873,
+      "task_id": "c179f1ea4ead4fb29bfcf19793a6aec0",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "inference": {
+        "text": "Here is a simple example of how you can set up Max Retry:\n```javascript\nconst maxRetries = {\n  \"max_retries\": 2, // Set to 2 for now \n  \"allowed_files\": [\"file1.txt\", \"file2.txt\"], // Allowed files in JSON file\n  \"allow_extensions\": [\"*.json\"] // Allowed extensions in JSON file\n};\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.6856067109983996,
+        "seconds": 1.6475784469985228,
+        "tokens_per_second": 100.3179780039203,
+        "eval_count": 92,
+        "eval_duration": 917083875,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "agent_process_rss_bytes": 46145536
+    },
+    {
+      "id": "25-shopify-version",
+      "profile": "python",
+      "tool_call_count": 0,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 1.7642711429998599,
+      "task_id": "73cdc433c2014923ae617182e90b6822",
+      "events": [
+        {
+          "attempt": 1,
+          "failure": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "inference": {
+        "text": "```python\nimport json\n\nwith open(\"config.json\", \"r\") as f:\n    data = json.load(f)\n\n# Check if the version is valid and preserve it in the JSON format\nif data[\"version\"] == \"2026-01\":\n    with open('config.json', 'w') as f:\n        json.dump(data, f)\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.7084432160008873,
+        "seconds": 1.7597416890002933,
+        "tokens_per_second": 86.93120707621145,
+        "eval_count": 87,
+        "eval_duration": 1000791349,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "agent_process_rss_bytes": 46141440
+    },
+    {
+      "id": "26-markdown",
+      "profile": "python",
+      "tool_call_count": 1,
+      "status": "failed",
+      "failure_category": "acceptance_or_generation_failure",
+      "attempted": true,
+      "seconds": 3.586480104000657,
+      "task_id": "6df80a52487a466590dc398020f6fb9c",
+      "events": [
+        {
+          "attempt": 1,
+          "passed": false,
+          "output": "Exit code: 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import runpy,sys,resource; resource.setrlimit(resource.RLIMIT_FSIZE,(16384,16384)); sys.argv=[sys.argv[1]]; runpy.run_path(sys.argv[0],run_name='__main__')\n                                                                                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 2, in <module>\n    s=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        },
+        {
+          "attempt": 1,
+          "failure": "                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 2, in <module>\n    s=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+        }
+      ],
+      "inference": {
+        "text": "```python\nimport os\nfrom pathlib import Path\n\ndef get_file(path):\n    try:\n        return Path(os.path.join(Path(\"yourdir\"), \"output\", path))\n    except FileNotFoundError:\n        print(f\"Error: {path} not found.\")\n        return None\n\n# Test the function with a sample directory and file name\ndirectory = \"/home/user/Documents/\"\nfile_name = \"example.txt\"\nresult = get_file(\"/path/to/output\", file=True)\nif result is not None:\n    print(f\"Result:\")\n    for line in result:\n        print(line, end=\" \")\nelse:\n    print(\"Failed to find the file.\")\n```",
+        "model": "smollm2:135m-instruct-q4_K_M",
+        "origin": "external open-weight reference",
+        "ttft_seconds": 0.6465254930008086,
+        "seconds": 2.6089808030010317,
+        "tokens_per_second": 83.07864677695554,
+        "eval_count": 156,
+        "eval_duration": 1877738818,
+        "effective_max_tokens": 256,
+        "context": 768
+      },
+      "error": "                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/acceptance.py\", line 2, in <module>\n    s=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "agent_process_rss_bytes": 45768704
+    },
+    {
+      "id": "27-fastapi",
+      "profile": "fastapi",
+      "tool_call_count": 0,
+      "status": "blocked",
+      "reason": "No reviewed framework/language runtime",
+      "attempted": false
+    },
+    {
+      "id": "28-php",
+      "profile": "php",
+      "tool_call_count": 0,
+      "status": "blocked",
+      "reason": "No reviewed framework/language runtime",
+      "attempted": false
+    },
+    {
+      "id": "29-wordpress-php",
+      "profile": "php",
+      "tool_call_count": 0,
+      "status": "blocked",
+      "reason": "No reviewed framework/language runtime",
+      "attempted": false
+    },
+    {
+      "id": "30-next-component",
+      "profile": "next-component",
+      "tool_call_count": 0,
+      "status": "blocked",
+      "reason": "No reviewed framework/language runtime",
+      "attempted": false
+    },
+    {
+      "id": "31-yaml",
+      "profile": "yaml",
+      "tool_call_count": 0,
+      "status": "blocked",
+      "reason": "No reviewed framework/language runtime",
+      "attempted": false
+    }
+  ],
+  "total": 31,
+  "budget_seconds": 180,
+  "selection": "Selected for prior observed resource stability before this frozen evaluation. No post-evaluation tuning permitted.",
+  "seconds": 94.56833577399993,
+  "summary": {
+    "passed": 0,
+    "failed": 26,
+    "blocked": 5
+  },
+  "attempted": 26,
+  "timeouts": 3,
+  "invalid_patches": 0
+}

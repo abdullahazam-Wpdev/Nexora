@@ -1,0 +1,179 @@
+{
+  "01-clamp": {
+    "test": "from solution import *\nassert clamp(9,2,7)==7 and clamp(4,2,7)==4 and clamp(-1,2,7)==2",
+    "control": {
+      "solution.py": "def clamp(x,lo,hi):return min(hi,max(lo,x))\n"
+    }
+  },
+  "02-stable-unique": {
+    "test": "from solution import *\nassert unique([3,1,3,2,1])==[3,1,2] and unique([])==[]",
+    "control": {
+      "solution.py": "def unique(xs):return list(dict.fromkeys(xs))\n"
+    }
+  },
+  "03-chunk": {
+    "test": "from solution import *\nassert chunks([1,2,3,4,5],2)==[[1,2],[3,4],[5]] and chunks([],2)==[]",
+    "control": {
+      "solution.py": "def chunks(xs,n):return [xs[i:i+n] for i in range(0,len(xs),n)]\n"
+    }
+  },
+  "04-median": {
+    "test": "from solution import *\nassert median([8,2,4])==4 and median([9,1,3,5])==4",
+    "control": {
+      "solution.py": "def median(xs):\n    a=sorted(xs);n=len(a)\n    return (a[(n-1)//2]+a[n//2])/2\n"
+    }
+  },
+  "05-headers": {
+    "test": "from solution import *\nassert header({\"Content-Type\":\"text/plain\"},\"content-type\")==\"text/plain\" and header({},\"a\") is None",
+    "control": {
+      "solution.py": "def header(headers,name):return next((v for k,v in headers.items() if k.lower()==name.lower()),None)\n"
+    }
+  },
+  "06-retry": {
+    "test": "from solution import *\nassert retry(429) and retry(503) and not retry(404) and not retry(600)",
+    "control": {
+      "solution.py": "def retry(status):return status==429 or 500<=status<=599\n"
+    }
+  },
+  "07-pagination": {
+    "test": "from solution import *\nassert offset(1,12)==0 and offset(4,12)==36",
+    "control": {
+      "solution.py": "def offset(page,size):return (page-1)*size\n"
+    }
+  },
+  "08-test-repair": {
+    "test": "from solution import *\nassert expected_discount()==76",
+    "control": {
+      "solution.py": "def expected_discount():return 76\n"
+    }
+  },
+  "09-permission": {
+    "test": "from solution import *\nassert may_apply(True,True) and not may_apply(True,False) and not may_apply(False,True)",
+    "control": {
+      "solution.py": "def may_apply(approved,unchanged):return approved and unchanged\n"
+    }
+  },
+  "10-date-sort": {
+    "test": "from solution import *\nassert latest([\"2024-01-01\",\"2026-02-01\",\"2025-12-31\"])==\"2026-02-01\"",
+    "control": {
+      "solution.py": "def latest(dates):return max(dates)\n"
+    }
+  },
+  "11-multifile": {
+    "test": "from match import matches\nfrom normal import normalize\nassert normalize(\" AB \")==\"ab\" and matches(\" Yes \",\"YES\")",
+    "control": {
+      "normal.py": "def normalize(s):return s.strip().lower()\n",
+      "match.py": "from normal import normalize\ndef matches(a,b):return normalize(a)==normalize(b)\n"
+    }
+  },
+  "12-nullish": {
+    "test": "const a=require(\"./solution.js\");if(a.value(0)!==0||a.value(false)!==false||a.value(null)!==7)throw Error(\"nullish\");",
+    "control": {
+      "solution.js": "exports.value=x=>x??7;"
+    }
+  },
+  "13-numeric-sort": {
+    "test": "const f=require(\"./solution.js\").sort;let x=[14,2,9];if(JSON.stringify(f(x))!==\"[2,9,14]\"||x[0]!==14)throw Error(\"sort\");",
+    "control": {
+      "solution.js": "exports.sort=xs=>[...xs].sort((a,b)=>a-b);"
+    }
+  },
+  "14-shopify-total": {
+    "test": "const f=require(\"./solution.js\").total;if(f([{quantity:3},{quantity:4}])!==7||f([])!==0)throw Error(\"quantity\");",
+    "control": {
+      "solution.js": "exports.total=lines=>lines.reduce((n,l)=>n+l.quantity,0);"
+    }
+  },
+  "15-woo-status": {
+    "test": "const f=require(\"./solution.js\").paid;if(!f(\"processing\")||!f(\"completed\")||f(\"pending\")||f(\"refunded\"))throw Error(\"paid\");",
+    "control": {
+      "solution.js": "exports.paid=status=>[\"processing\",\"completed\"].includes(status);"
+    }
+  },
+  "16-wordpress-escape": {
+    "test": "const f=require(\"./solution.js\").escape;if(f(\"a&<b>\")!==\"a&amp;&lt;b&gt;\")throw Error(\"escape\");",
+    "control": {
+      "solution.js": "exports.escape=s=>s.replaceAll(\"&\",\"&amp;\").replaceAll(\"<\",\"&lt;\").replaceAll(\">\",\"&gt;\");"
+    }
+  },
+  "17-http-status": {
+    "test": "const r=require(\"./solution.js\").GET();if(r.status!==404)throw Error(\"status\");",
+    "control": {
+      "solution.js": "exports.GET=()=>new Response(\"missing\",{status:404});"
+    }
+  },
+  "18-ts-number": {
+    "test": "const ts=require(\"/opt/typescript/typescript.js\");const fs=require(\"fs\");const program=ts.createProgram([\"solution.ts\"],{strict:true,noEmit:true,target:ts.ScriptTarget.ES2020});const diagnostics=ts.getPreEmitDiagnostics(program);if(diagnostics.length)throw Error(ts.flattenDiagnosticMessageText(diagnostics[0].messageText,\" \"));const code=ts.transpileModule(fs.readFileSync(\"solution.ts\",\"utf8\"),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;const m={};new Function(\"exports\",code)(m);if(m.twice(6)!==12)throw Error(\"twice\");",
+    "control": {
+      "solution.ts": "export function twice(x:number):number{return x*2;}"
+    }
+  },
+  "19-ts-null": {
+    "test": "const ts=require(\"/opt/typescript/typescript.js\");const fs=require(\"fs\");const program=ts.createProgram([\"solution.ts\"],{strict:true,noEmit:true,target:ts.ScriptTarget.ES2020});const diagnostics=ts.getPreEmitDiagnostics(program);if(diagnostics.length)throw Error(ts.flattenDiagnosticMessageText(diagnostics[0].messageText,\" \"));const code=ts.transpileModule(fs.readFileSync(\"solution.ts\",\"utf8\"),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;const m={};new Function(\"exports\",code)(m);if(m.length(null)!==0||m.length(\"abc\")!==3)throw Error(\"null\");",
+    "control": {
+      "solution.ts": "export function length(x:string|null):number{return x===null?0:x.length;}"
+    }
+  },
+  "20-ts-return": {
+    "test": "const ts=require(\"/opt/typescript/typescript.js\");const fs=require(\"fs\");const program=ts.createProgram([\"solution.ts\"],{strict:true,noEmit:true,target:ts.ScriptTarget.ES2020});const diagnostics=ts.getPreEmitDiagnostics(program);if(diagnostics.length)throw Error(ts.flattenDiagnosticMessageText(diagnostics[0].messageText,\" \"));const code=ts.transpileModule(fs.readFileSync(\"solution.ts\",\"utf8\"),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;const m={};new Function(\"exports\",code)(m);if(m.ready()!==true)throw Error(\"boolean\");",
+    "control": {
+      "solution.ts": "export function ready():boolean{return true;}"
+    }
+  },
+  "21-accessible-label": {
+    "test": "from pathlib import Path\nfrom html.parser import HTMLParser\nclass P(HTMLParser):\n def handle_starttag(self,t,a):\n  if t==\"label\":self.label=dict(a)\np=P();p.feed(Path(\"index.html\").read_text());assert p.label.get(\"for\")==\"email\"",
+    "control": {
+      "index.html": "<label for=\"email\">Email</label><input id=\"email\">"
+    }
+  },
+  "22-responsive-css": {
+    "test": "from pathlib import Path\ns=Path(\"style.css\").read_text();assert \"width: 100%\" in s and \"max-width: 1200px\" in s",
+    "control": {
+      "style.css": ".card { width: 100%; max-width: 1200px; }"
+    }
+  },
+  "23-timeout": {
+    "test": "import json\nfrom pathlib import Path\nassert json.loads(Path(\"config.json\").read_text())['timeout_ms']==5000",
+    "control": {
+      "config.json": "{\"timeout_ms\": 5000}"
+    }
+  },
+  "24-retries": {
+    "test": "import json\nfrom pathlib import Path\nassert json.loads(Path(\"config.json\").read_text())['max_retries']==2",
+    "control": {
+      "config.json": "{\"max_retries\": 2}"
+    }
+  },
+  "25-shopify-version": {
+    "test": "import json\nfrom pathlib import Path\nassert json.loads(Path(\"config.json\").read_text())['version']=='2026-01'",
+    "control": {
+      "config.json": "{\"version\": \"2026-01\"}"
+    }
+  },
+  "26-markdown": {
+    "test": "from pathlib import Path\ns=Path(\"README.md\").read_text();assert s.startswith(\"# Demo\\n\") and \"Run: python app.py\" in s",
+    "control": {
+      "README.md": "# Demo\nRun: python app.py\n"
+    }
+  },
+  "27-fastapi": {
+    "test": "BLOCKED: missing reviewed runtime",
+    "control": {}
+  },
+  "28-php": {
+    "test": "BLOCKED: missing reviewed runtime",
+    "control": {}
+  },
+  "29-wordpress-php": {
+    "test": "BLOCKED: missing reviewed runtime",
+    "control": {}
+  },
+  "30-next-component": {
+    "test": "BLOCKED: missing reviewed runtime",
+    "control": {}
+  },
+  "31-yaml": {
+    "test": "BLOCKED: missing reviewed runtime",
+    "control": {}
+  }
+}

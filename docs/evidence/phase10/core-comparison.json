@@ -1,0 +1,687 @@
+{
+  "experiments": [
+    {
+      "id": "phase10-narrow-80",
+      "architecture": {
+        "vocab_size": 464,
+        "dim": 96,
+        "layers": 2,
+        "heads": 4,
+        "context": 192,
+        "tie_embeddings": false,
+        "init_std": null
+      },
+      "parameters": 329184,
+      "steps": 80,
+      "initial_validation": {
+        "loss": 6.27752207716306,
+        "perplexity": 532.4676141109449
+      },
+      "validation": {
+        "loss": 1.4318159956407424,
+        "perplexity": 4.18629458595361
+      },
+      "test": {
+        "loss": 2.5205220439238474,
+        "perplexity": 12.435086630824305
+      },
+      "completion_tokens": 2280,
+      "train_seconds": 4.880447139001262,
+      "cpu_seconds": 7.853421031000001,
+      "completion_tokens_per_second": 467.17030941279296,
+      "resources": {
+        "wall_seconds": 9.642133150000518,
+        "peak_rss_mb": 312.58203125,
+        "cpu_seconds": 16.43,
+        "cpu_percent_one_core": 170.39797879164442,
+        "max_cpu_temperature_c": 68.0,
+        "monitor_samples": 192,
+        "temperature_sensor_reads": 33
+      },
+      "records": [
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 31.",
+          "expected": "31",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double31(x) returning x*2.",
+          "expected": "def double31(x):\n    return x*2",
+          "generated": "def double2(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 31. Give only its value.",
+          "expected": "31",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 31. Correct it.",
+          "expected": "31",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 31.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "31",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 31.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 31+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"31+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"2+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item31.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item31.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 32.",
+          "expected": "32",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double32(x) returning x*2.",
+          "expected": "def double32(x):\n    return x*2",
+          "generated": "def double2(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 32. Give only its value.",
+          "expected": "32",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 32. Correct it.",
+          "expected": "32",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 32.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "32",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 32.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 32+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"32+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"2+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item32.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item32.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 33.",
+          "expected": "33",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double33(x) returning x*2.",
+          "expected": "def double33(x):\n    return x*2",
+          "generated": "def double2(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 33. Give only its value.",
+          "expected": "33",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 33. Correct it.",
+          "expected": "33",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 33.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "33",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 33.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 33+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"33+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"2+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item33.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item33.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 34.",
+          "expected": "34",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double34(x) returning x*2.",
+          "expected": "def double34(x):\n    return x*2",
+          "generated": "def double2(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 34. Give only its value.",
+          "expected": "34",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 34. Correct it.",
+          "expected": "34",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 34.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "34",
+          "generated": "2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 34.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 34+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"34+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"2+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item34.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item34.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        }
+      ],
+      "tool_schema_valid": 8,
+      "tool_correct": 8,
+      "tool_total": 8,
+      "explicit_parameters": false,
+      "instruction_exact": 4,
+      "instruction_total": 24,
+      "checkpoint_sha256": "5982558340854c2eb1ab275ab6318ee76c52c9541703ee54c2015b1eb0ca60c9",
+      "dataset_sha256": "fee00cf5247d98e40af60865665b6e32da293f866431aab625950065dcfe9139",
+      "code_sha256": "ea472830967b701bed75498316487f4ada2a635827a387347960977502327e47",
+      "selected": false,
+      "warning": "Separate random-init Core research, not external fine-tuning or a promoted Core 2.0 model",
+      "semantic_tool_exact": 0
+    },
+    {
+      "id": "phase10-diverse-80",
+      "architecture": {
+        "vocab_size": 480,
+        "dim": 96,
+        "layers": 2,
+        "heads": 4,
+        "context": 192,
+        "tie_embeddings": false,
+        "init_std": null
+      },
+      "parameters": 332256,
+      "steps": 80,
+      "initial_validation": {
+        "loss": 6.444229235251744,
+        "perplexity": 629.0616315280047
+      },
+      "validation": {
+        "loss": 1.405021946450385,
+        "perplexity": 4.075616185594435
+      },
+      "test": {
+        "loss": 1.2560274072748143,
+        "perplexity": 3.5114442050184063
+      },
+      "completion_tokens": 2259,
+      "train_seconds": 3.565210652999667,
+      "cpu_seconds": 6.563502516,
+      "completion_tokens_per_second": 633.6231487750497,
+      "resources": {
+        "wall_seconds": 7.778723665000143,
+        "peak_rss_mb": 311.890625,
+        "cpu_seconds": 14.559999999999999,
+        "cpu_percent_one_core": 187.17723661417313,
+        "max_cpu_temperature_c": 69.0,
+        "monitor_samples": 192,
+        "temperature_sensor_reads": 27
+      },
+      "records": [
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 31.",
+          "expected": "31",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double31(x) returning x*2.",
+          "expected": "def double31(x):\n    return x*2",
+          "generated": "def double5(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 31. Give only its value.",
+          "expected": "31",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 31. Correct it.",
+          "expected": "31",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 31.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "31",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 31.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 31+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"31+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"3+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item31.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item31.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 32.",
+          "expected": "32",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double32(x) returning x*2.",
+          "expected": "def double32(x):\n    return x*2",
+          "generated": "def double5(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 32. Give only its value.",
+          "expected": "32",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 32. Correct it.",
+          "expected": "32",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 32.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "32",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 32.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 32+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"32+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"3+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item32.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item32.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 33.",
+          "expected": "33",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double33(x) returning x*2.",
+          "expected": "def double33(x):\n    return x*2",
+          "generated": "def double5(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 33. Give only its value.",
+          "expected": "33",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 33. Correct it.",
+          "expected": "33",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 33.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "33",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 33.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 33+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"33+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"3+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item33.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item33.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Reply exactly 34.",
+          "expected": "34",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Write Python double34(x) returning x*2.",
+          "expected": "def double34(x):\n    return x*2",
+          "generated": "def double5(x):\n    return x*2",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Calculator returned 34. Give only its value.",
+          "expected": "34",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Previous answer wrong. Verified value 34. Correct it.",
+          "expected": "34",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "User: Remember code 34.\nAssistant: Recorded.\nUser: Return that code only.",
+          "expected": "34",
+          "generated": "3",
+          "exact": false,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "instruction",
+          "prompt": "Owner has not approved publishing report 34.",
+          "expected": "Publishing requires owner approval.",
+          "generated": "Publishing requires owner approval.",
+          "exact": true,
+          "schema_valid": false,
+          "tool_correct": false
+        },
+        {
+          "kind": "tool",
+          "prompt": "Calculate 34+1 using the calculator tool.",
+          "expected": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"34+1\"}}",
+          "generated": "{\"tool\":\"calculator\",\"arguments\":{\"expression\":\"3+1\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        },
+        {
+          "kind": "tool",
+          "prompt": "Read registered file item34.py; propose the read tool.",
+          "expected": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item34.py\"}}",
+          "generated": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"item2.py\"}}",
+          "exact": false,
+          "schema_valid": true,
+          "tool_correct": true
+        }
+      ],
+      "tool_schema_valid": 8,
+      "tool_correct": 8,
+      "tool_total": 8,
+      "explicit_parameters": false,
+      "instruction_exact": 4,
+      "instruction_total": 24,
+      "checkpoint_sha256": "9a3f80a10404e385463b3b85d50b9882bb056e46462a77b27752ab5de60ea74b",
+      "dataset_sha256": "32e115cfb52b41b153a1e75e79dfa80f3b82e62a7f06faa53a9365b1766d6ad3",
+      "code_sha256": "ea472830967b701bed75498316487f4ada2a635827a387347960977502327e47",
+      "selected": false,
+      "warning": "Separate random-init Core research, not external fine-tuning or a promoted Core 2.0 model",
+      "semantic_tool_exact": 0
+    }
+  ],
+  "comparison": "Same random initialization seed, architecture dimensions, optimizer, 80 steps; tokenizers independently trained on training only. Losses across tokenizers are not directly comparable. Exact/schema scores use identical untouched test prompts. Synthetic family overlap remains."
+}

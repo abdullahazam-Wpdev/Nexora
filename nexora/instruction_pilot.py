@@ -149,22 +149,38 @@ def corpus(explicit=False):
     return splits
 
 
-def run(run_id="phase9-mixed-instruction-80", steps=80, explicit=False):
+from nexora.compute_budget import compute_job
+
+
+@compute_job("training")
+def run(
+    run_id="phase9-mixed-instruction-80",
+    steps=80,
+    explicit=False,
+    corpus_data=None,
+    evidence_phase="phase9",
+):
+    if evidence_phase not in {"phase9", "phase10"}:
+        raise ValueError("Unknown evidence phase")
     if not 1 <= steps <= 80:
         raise ValueError("Short pilot limited to 80 steps")
     folder = STORE / "instruction-pilots" / run_id
     if folder.exists():
         raise ValueError("Preserve previous checkpoint")
     folder.mkdir(parents=True)
-    data = corpus(explicit)
+    data = corpus(explicit) if corpus_data is None else corpus_data
     atomic_json(
         folder / "dataset.json",
         {
             "splits": data,
             "training_approved": True,
             "license": "CC0-1.0",
-            "revision": "phase9-explicit-v2" if explicit else "phase9-original-v1",
-            "warning": "Validation paraphrases reuse train meanings; test uses separate values/requests. Small synthetic pilot, not broad instruction competence.",
+            "revision": (
+                "phase10-disjoint-values-v1"
+                if corpus_data is not None
+                else ("phase9-explicit-v2" if explicit else "phase9-original-v1")
+            ),
+            "warning": "Small synthetic pilot; see split/source records for overlap and generalization limits.",
         },
     )
     torch.set_num_threads(2)
@@ -288,12 +304,12 @@ def run(run_id="phase9-mixed-instruction-80", steps=80, explicit=False):
         "records": records,
         "tool_schema_valid": sum(r["schema_valid"] for r in records),
         "tool_correct": sum(r["tool_correct"] for r in records),
-        "tool_total": 11,
+        "tool_total": sum(r["kind"] == "tool" for r in records),
         "explicit_parameters": explicit,
         "instruction_exact": sum(
             r["exact"] for r in records if r["kind"] == "instruction"
         ),
-        "instruction_total": 8,
+        "instruction_total": sum(r["kind"] == "instruction" for r in records),
         "checkpoint_sha256": sha256(folder / "model.safetensors"),
         "dataset_sha256": sha256(folder / "dataset.json"),
         "code_sha256": sha256(Path(__file__)),
@@ -304,18 +320,22 @@ def run(run_id="phase9-mixed-instruction-80", steps=80, explicit=False):
     atomic_json(
         Path(__file__).resolve().parent.parent
         / (
-            "docs/evidence/phase9/instruction-pilot-explicit.json"
-            if explicit
-            else "docs/evidence/phase9/instruction-pilot.json"
+            ("docs/evidence/phase10/" + run_id + ".json")
+            if evidence_phase == "phase10"
+            else (
+                "docs/evidence/phase9/instruction-pilot-explicit.json"
+                if explicit
+                else "docs/evidence/phase9/instruction-pilot.json"
+            )
         ),
         result,
     )
     print(
         "Mixed pilot",
         result["tool_correct"],
-        "/11 tools;",
+        "/" + str(result["tool_total"]) + " tools;",
         result["instruction_exact"],
-        "/8 instructions",
+        "/" + str(result["instruction_total"]) + " instructions",
     )
     return result
 

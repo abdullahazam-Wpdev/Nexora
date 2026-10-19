@@ -1,0 +1,10 @@
+{
+  "created": "2026-10-19",
+  "development_suite": "benchmarks/phase9-coding.json (consumed)",
+  "files": {
+    "tasks.json": "291e9e919038fb4ab96577416e864c76d1f1bde07c5f460f3842113e640581a8",
+    "acceptance.json": "d68d168fec6fde65fbc240d813d134a11a03469c68c3da12534ba0577b898136"
+  },
+  "authoring_code_sha256": "1e48c11da676556786425552396675e994e5672dde6ced0873fb71e15acda844",
+  "limitations": "Synthetic small unit fixtures, not real framework deployments. Five explicit unsupported runtime cases."
+}

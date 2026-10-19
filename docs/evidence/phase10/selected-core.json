@@ -1,0 +1,28 @@
+{
+  "parameters": 984192,
+  "checkpoint": "artifacts/runs/phase2-small-language/checkpoints/step-0000400",
+  "config": {
+    "vocab_size": 1024,
+    "dim": 128,
+    "layers": 4,
+    "heads": 4,
+    "context": 128,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+  "evaluations": {
+    "validation": {
+      "loss": 4.403331668723472,
+      "perplexity": 81.72268853203987,
+      "tokens": 3777,
+      "perplexity_capped": false
+    },
+    "test": {
+      "loss": 4.178615570217266,
+      "perplexity": 65.27542139274378,
+      "tokens": 12809,
+      "perplexity_capped": false
+    }
+  },
+  "promotion": false
+}

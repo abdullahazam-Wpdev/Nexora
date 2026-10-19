@@ -72,3 +72,13 @@ untouched benchmark, then improve licensed instruction/task-family data. Do not
 claim progress from repetitive validation loss or purchase hardware from toy
 metrics. Remaining general coding, framework and semantic research targets stay
 explicitly incomplete.
+
+## After Phase 10
+
+Implemented: exact scoped replacements, applied-tree retesting/rollback, cross-process
+managed compute admission, new frozen31-task suite and preserved negative results,
+real cited public research with literal evidence gates, two short disjoint-value Core trials.
+Unmet: professional coding (0passes/31,8blocked), stronger sustainable model, exact tool
+arguments (0/8), broad instructions (4/24), full framework/runtime coverage. No promotion.
+Next: authorized sustainable inference; runtime controls before fresh holdout freezing;
+semantic evidence evaluation and diverse argument data before scaling. See PHASE10_DELIVERY.md.

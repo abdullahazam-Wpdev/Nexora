@@ -145,6 +145,10 @@ def _run(steps=160, resume=False):
     return result
 
 
+from nexora.compute_budget import compute_job
+
+
+@compute_job('training')
 def run(steps=160, resume=False):
     """Compatibility smoke runner; new platform jobs use the versioned research engine."""
     from nexora.artifacts import lock
